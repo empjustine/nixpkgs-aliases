@@ -1,0 +1,32 @@
+[
+  {
+    "package": "nix",
+    "binary": "bin/nix",
+    "__reason": "nix circular dependency; can't use nix run to run nix"
+  },
+  {
+    "package": "nixStatic",
+    "binary": "bin/nix",
+    "__reason": "nix circular dependency; can't use nix run to run nix"
+  },
+  {
+    "package": "gitFull",
+    "binary": "bin/git",
+    "__reason": "overrides native git"
+  },
+  {
+    "package": "bitwarden-cli",
+    "binary": "bin/bw",
+    "__reason": "double import"
+  },
+  {
+    "package": "nodePackages.eslint",
+    "binary": "bin/eslint",
+    "__reason": "double import"
+  },
+  {
+    "package": "nodePackages.prettier",
+    "binary": "bin/prettier",
+    "__reason": "double import"
+  }
+]
