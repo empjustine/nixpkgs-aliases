@@ -1,32 +1,44 @@
 [
   {
     "package": "nix",
-    "binary": "bin/nix",
+    "path": "bin",
+    "bin": "nix",
     "__reason": "nix circular dependency; can't use nix run to run nix"
   },
   {
     "package": "nixStatic",
-    "binary": "bin/nix",
+    "path": "bin",
+    "bin": "nix",
     "__reason": "nix circular dependency; can't use nix run to run nix"
   },
   {
     "package": "gitFull",
-    "binary": "bin/git",
+    "path": "bin",
+    "bin": "git",
     "__reason": "overrides native git"
   },
   {
+    "package": "networkmanager",
+    "path": "bin",
+    "bin": "NetworkManager",
+    "__reason": "overrides native NetworkManager"
+  },
+  {
     "package": "bitwarden-cli",
-    "binary": "bin/bw",
+    "path": "bin",
+    "bin": "bw",
     "__reason": "double import"
   },
   {
     "package": "nodePackages.eslint",
-    "binary": "bin/eslint",
+    "path": "bin",
+    "bin": "eslint",
     "__reason": "double import"
   },
   {
     "package": "nodePackages.prettier",
-    "binary": "bin/prettier",
+    "path": "bin",
+    "bin": "prettier",
     "__reason": "double import"
   }
 ]
