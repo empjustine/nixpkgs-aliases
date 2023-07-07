@@ -314,6 +314,12 @@
       packages.black = pkgs.black;
       apps.blackd = { type = "app"; program = "${pkgs.black}/bin/blackd"; };
       packages.blackd = pkgs.black;
+      apps.borg = { type = "app"; program = "${pkgs.borgbackup}/bin/borg"; };
+      packages.borg = pkgs.borgbackup;
+      apps.borgfs = { type = "app"; program = "${pkgs.borgbackup}/bin/borgfs"; };
+      packages.borgfs = pkgs.borgbackup;
+      # package doesn't contain binaries, or binary name doesn't match package name
+      packages.borgbackup = pkgs.borgbackup;
       apps.brightnessctl = { type = "app"; program = "${pkgs.brightnessctl}/bin/brightnessctl"; };
       packages.brightnessctl = pkgs.brightnessctl;
       apps.btop = { type = "app"; program = "${pkgs.btop}/bin/btop"; };
@@ -326,6 +332,12 @@
       packages.cicero-tui = pkgs.cicero-tui;
       apps.csvs-to-sqlite = { type = "app"; program = "${pkgs.csvs-to-sqlite}/bin/csvs-to-sqlite"; };
       packages.csvs-to-sqlite = pkgs.csvs-to-sqlite;
+      apps.czkawka_cli = { type = "app"; program = "${pkgs.czkawka}/bin/czkawka_cli"; };
+      packages.czkawka_cli = pkgs.czkawka;
+      apps.czkawka_gui = { type = "app"; program = "${pkgs.czkawka}/bin/czkawka_gui"; };
+      packages.czkawka_gui = pkgs.czkawka;
+      # package doesn't contain binaries, or binary name doesn't match package name
+      packages.czkawka = pkgs.czkawka;
       apps.dar = { type = "app"; program = "${pkgs.dar}/bin/dar"; };
       packages.dar = pkgs.dar;
       apps.dar_cp = { type = "app"; program = "${pkgs.dar}/bin/dar_cp"; };
@@ -532,6 +544,8 @@
       packages.netloc_ib_gather_raw = pkgs.hwloc;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.hwloc = pkgs.hwloc;
+      apps.isolate = { type = "app"; program = "${pkgs.isolate}/bin/isolate"; };
+      packages.isolate = pkgs.isolate;
       apps.kubectl = { type = "app"; program = "${pkgs.kubectl}/bin/kubectl"; };
       packages.kubectl = pkgs.kubectl;
       apps.kubectl-tree = { type = "app"; program = "${pkgs.kubectl-tree}/bin/kubectl-tree"; };
@@ -616,6 +630,10 @@
       packages.lnav = pkgs.lnav;
       apps.lurk = { type = "app"; program = "${pkgs.lurk}/bin/lurk"; };
       packages.lurk = pkgs.lurk;
+      apps.minijail0 = { type = "app"; program = "${pkgs.minijail}/bin/minijail0"; };
+      packages.minijail0 = pkgs.minijail;
+      # package doesn't contain binaries, or binary name doesn't match package name
+      packages.minijail = pkgs.minijail;
       apps.external-ip = { type = "app"; program = "${pkgs.miniupnpc}/bin/external-ip"; };
       packages.external-ip = pkgs.miniupnpc;
       apps.upnpc = { type = "app"; program = "${pkgs.miniupnpc}/bin/upnpc"; };
@@ -894,6 +912,12 @@
       packages.shfmt = pkgs.shfmt;
       apps.sipcalc = { type = "app"; program = "${pkgs.sipcalc}/bin/sipcalc"; };
       packages.sipcalc = pkgs.sipcalc;
+      apps.sandbox = { type = "app"; program = "${pkgs.selinux-sandbox}/bin/sandbox"; };
+      packages.sandbox = pkgs.selinux-sandbox;
+      apps.seunshare = { type = "app"; program = "${pkgs.selinux-sandbox}/bin/seunshare"; };
+      packages.seunshare = pkgs.selinux-sandbox;
+      # package doesn't contain binaries, or binary name doesn't match package name
+      packages.selinux-sandbox = pkgs.selinux-sandbox;
       apps.sqlar = { type = "app"; program = "${pkgs.sqlar}/bin/sqlar"; };
       packages.sqlar = pkgs.sqlar;
       apps.sqlarfs = { type = "app"; program = "${pkgs.sqlar}/bin/sqlarfs"; };
