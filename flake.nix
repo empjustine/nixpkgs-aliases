@@ -306,6 +306,8 @@
       packages.zfsslower = pkgs.bcc;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.bcc = pkgs.bcc;
+      apps.bchunk = { type = "app"; program = "${pkgs.bchunk}/bin/bchunk"; };
+      packages.bchunk = pkgs.bchunk;
       apps.bw = { type = "app"; program = "${pkgs.bitwarden-cli}/lib/node_modules/.bin/bw"; };
       packages.bw = pkgs.bitwarden-cli;
       # package doesn't contain binaries, or binary name doesn't match package name

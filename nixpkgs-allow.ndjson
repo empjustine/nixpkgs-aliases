@@ -7,6 +7,7 @@
 {"package": "bashate", "__comment": ""}
 {"package": "bash-preexec", "__comment": ""}
 {"package": "bcc", "__comment": ""}
+{"package": "bchunk", "__comment": ""}
 {"package": "bitwarden-cli", "__comment": ""}
 {"package": "black", "__comment": ""}
 {"package": "borgbackup", "__comment": ""}
