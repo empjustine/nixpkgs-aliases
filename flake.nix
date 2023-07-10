@@ -378,6 +378,8 @@
       packages.Fabric = pkgs.Fabric;
       apps.fossil = { type = "app"; program = "${pkgs.fossil}/bin/fossil"; };
       packages.fossil = pkgs.fossil;
+      apps.fuseiso = { type = "app"; program = "${pkgs.fuseiso}/bin/fuseiso"; };
+      packages.fuseiso = pkgs.fuseiso;
       apps.git-credential-libsecret = { type = "app"; program = "${pkgs.gitFull}/bin/git-credential-libsecret"; };
       packages.git-credential-libsecret = pkgs.gitFull;
       apps.git-credential-netrc = { type = "app"; program = "${pkgs.gitFull}/bin/git-credential-netrc"; };

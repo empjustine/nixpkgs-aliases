@@ -27,6 +27,7 @@
 {"package": "docker-compose", "__comment": ""}
 {"package": "Fabric", "__comment": ""}
 {"package": "fossil", "__comment": ""}
+{"package": "fuseiso", "__comment": ""}
 {"package": "gitFull", "__comment": ""}
 {"package": "git-filter-repo", "__comment": ""}
 {"package": "git-lfs", "__comment": ""}
