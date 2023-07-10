@@ -410,6 +410,8 @@
       packages.git-filter-repo = pkgs.git-filter-repo;
       apps.git-lfs = { type = "app"; program = "${pkgs.git-lfs}/bin/git-lfs"; };
       packages.git-lfs = pkgs.git-lfs;
+      apps.gitui = { type = "app"; program = "${pkgs.gitui}/bin/gitui"; };
+      packages.gitui = pkgs.gitui;
       apps.zenity = { type = "app"; program = "${pkgs.gnome.zenity}/bin/zenity"; };
       packages.zenity = pkgs.gnome.zenity;
       # package doesn't contain binaries, or binary name doesn't match package name

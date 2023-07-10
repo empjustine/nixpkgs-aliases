@@ -32,6 +32,7 @@
 {"package": "gitFull", "__comment": ""}
 {"package": "git-filter-repo", "__comment": ""}
 {"package": "git-lfs", "__comment": ""}
+{"package": "gitui", "__comment": ""}
 {"package": "gnome.zenity", "__comment": ""}
 {"package": "gnupatch", "__comment": ""}
 {"package": "graphviz", "__comment": ""}
