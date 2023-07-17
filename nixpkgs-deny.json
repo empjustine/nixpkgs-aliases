@@ -40,5 +40,59 @@
     "path": "bin",
     "bin": "prettier",
     "__reason": "double import"
+  },
+  {
+    "package": "perf-tools",
+    "path": "bin",
+    "bin": "bitesize",
+    "__reason": "clashes with bcc/bitesize"
+  },
+  {
+    "package": "perf-tools",
+    "path": "bin",
+    "bin": "cachestat",
+    "__reason": "clashes with bcc/cachestat"
+  },
+  {
+    "package": "perf-tools",
+    "path": "bin",
+    "bin": "execsnoop",
+    "__reason": "clashes with bcc/execsnoop"
+  },
+  {
+    "package": "perf-tools",
+    "path": "bin",
+    "bin": "funccount",
+    "__reason": "clashes with bcc/funccount"
+  },
+  {
+    "package": "perf-tools",
+    "path": "bin",
+    "bin": "funcslower",
+    "__reason": "clashes with bcc/funcslower"
+  },
+  {
+    "package": "perf-tools",
+    "path": "bin",
+    "bin": "killsnoop",
+    "__reason": "clashes with bcc/killsnoop"
+  },
+  {
+    "package": "perf-tools",
+    "path": "bin",
+    "bin": "opensnoop",
+    "__reason": "clashes with bcc/opensnoop"
+  },
+  {
+    "package": "perf-tools",
+    "path": "bin",
+    "bin": "syscount",
+    "__reason": "clashes with bcc/syscount"
+  },
+  {
+    "package": "perf-tools",
+    "path": "bin",
+    "bin": "tcpretrans",
+    "__reason": "clashes with bcc/tcpretrans"
   }
 ]

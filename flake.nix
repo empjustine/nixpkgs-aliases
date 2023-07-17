@@ -22,6 +22,12 @@
       packages.AtomicParsley = pkgs.atomicparsley;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.atomicparsley = pkgs.atomicparsley;
+      apps.attr = { type = "app"; program = "${pkgs.attr}/bin/attr"; };
+      packages.attr = pkgs.attr;
+      apps.getfattr = { type = "app"; program = "${pkgs.attr}/bin/getfattr"; };
+      packages.getfattr = pkgs.attr;
+      apps.setfattr = { type = "app"; program = "${pkgs.attr}/bin/setfattr"; };
+      packages.setfattr = pkgs.attr;
       apps.atuin = { type = "app"; program = "${pkgs.atuin}/bin/atuin"; };
       packages.atuin = pkgs.atuin;
       apps.az = { type = "app"; program = "${pkgs.azure-cli}/bin/az"; };
@@ -324,6 +330,10 @@
       packages.borgbackup = pkgs.borgbackup;
       apps.brightnessctl = { type = "app"; program = "${pkgs.brightnessctl}/bin/brightnessctl"; };
       packages.brightnessctl = pkgs.brightnessctl;
+      apps.bsdiff = { type = "app"; program = "${pkgs.bsdiff}/bin/bsdiff"; };
+      packages.bsdiff = pkgs.bsdiff;
+      apps.bspatch = { type = "app"; program = "${pkgs.bsdiff}/bin/bspatch"; };
+      packages.bspatch = pkgs.bsdiff;
       apps.btop = { type = "app"; program = "${pkgs.btop}/bin/btop"; };
       packages.btop = pkgs.btop;
       apps.chars = { type = "app"; program = "${pkgs.chars}/bin/chars"; };
@@ -352,6 +362,8 @@
       packages.dar_split = pkgs.dar;
       apps.dar_xform = { type = "app"; program = "${pkgs.dar}/bin/dar_xform"; };
       packages.dar_xform = pkgs.dar;
+      apps.ddcutil = { type = "app"; program = "${pkgs.ddcutil}/bin/ddcutil"; };
+      packages.ddcutil = pkgs.ddcutil;
       apps.deno = { type = "app"; program = "${pkgs.deno}/bin/deno"; };
       packages.deno = pkgs.deno;
       apps.dialog = { type = "app"; program = "${pkgs.dialog}/bin/dialog"; };
@@ -366,6 +378,14 @@
       packages.nsupdate = pkgs.dig;
       apps.dive = { type = "app"; program = "${pkgs.dive}/bin/dive"; };
       packages.dive = pkgs.dive;
+      apps.dmtxquery = { type = "app"; program = "${pkgs.dmtx-utils}/bin/dmtxquery"; };
+      packages.dmtxquery = pkgs.dmtx-utils;
+      apps.dmtxread = { type = "app"; program = "${pkgs.dmtx-utils}/bin/dmtxread"; };
+      packages.dmtxread = pkgs.dmtx-utils;
+      apps.dmtxwrite = { type = "app"; program = "${pkgs.dmtx-utils}/bin/dmtxwrite"; };
+      packages.dmtxwrite = pkgs.dmtx-utils;
+      # package doesn't contain binaries, or binary name doesn't match package name
+      packages.dmtx-utils = pkgs.dmtx-utils;
       apps.docker-buildx = { type = "app"; program = "${pkgs.docker-buildx}/bin/docker-buildx"; };
       packages.docker-buildx = pkgs.docker-buildx;
       apps.docker = { type = "app"; program = "${pkgs.docker-client}/bin/docker"; };
@@ -378,10 +398,24 @@
       packages.fab = pkgs.Fabric;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.Fabric = pkgs.Fabric;
+      apps.ffmpeg = { type = "app"; program = "${pkgs.ffmpeg-headless}/bin/ffmpeg"; };
+      packages.ffmpeg = pkgs.ffmpeg-headless;
+      apps.ffprobe = { type = "app"; program = "${pkgs.ffmpeg-headless}/bin/ffprobe"; };
+      packages.ffprobe = pkgs.ffmpeg-headless;
+      # package doesn't contain binaries, or binary name doesn't match package name
+      packages.ffmpeg-headless = pkgs.ffmpeg-headless;
       apps.fossil = { type = "app"; program = "${pkgs.fossil}/bin/fossil"; };
       packages.fossil = pkgs.fossil;
+      apps.fribidi = { type = "app"; program = "${pkgs.fribidi}/bin/fribidi"; };
+      packages.fribidi = pkgs.fribidi;
       apps.fuseiso = { type = "app"; program = "${pkgs.fuseiso}/bin/fuseiso"; };
       packages.fuseiso = pkgs.fuseiso;
+      apps.gifdiff = { type = "app"; program = "${pkgs.gifsicle}/bin/gifdiff"; };
+      packages.gifdiff = pkgs.gifsicle;
+      apps.gifsicle = { type = "app"; program = "${pkgs.gifsicle}/bin/gifsicle"; };
+      packages.gifsicle = pkgs.gifsicle;
+      apps.git-filter-repo = { type = "app"; program = "${pkgs.git-filter-repo}/bin/git-filter-repo"; };
+      packages.git-filter-repo = pkgs.git-filter-repo;
       apps.git-credential-libsecret = { type = "app"; program = "${pkgs.gitFull}/bin/git-credential-libsecret"; };
       packages.git-credential-libsecret = pkgs.gitFull;
       apps.git-credential-netrc = { type = "app"; program = "${pkgs.gitFull}/bin/git-credential-netrc"; };
@@ -406,16 +440,10 @@
       packages.scalar = pkgs.gitFull;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.gitFull = pkgs.gitFull;
-      apps.git-filter-repo = { type = "app"; program = "${pkgs.git-filter-repo}/bin/git-filter-repo"; };
-      packages.git-filter-repo = pkgs.git-filter-repo;
       apps.git-lfs = { type = "app"; program = "${pkgs.git-lfs}/bin/git-lfs"; };
       packages.git-lfs = pkgs.git-lfs;
       apps.gitui = { type = "app"; program = "${pkgs.gitui}/bin/gitui"; };
       packages.gitui = pkgs.gitui;
-      apps.zenity = { type = "app"; program = "${pkgs.gnome.zenity}/bin/zenity"; };
-      packages.zenity = pkgs.gnome.zenity;
-      # package doesn't contain binaries, or binary name doesn't match package name
-      packages.gnome.zenity = pkgs.gnome.zenity;
       apps.patch = { type = "app"; program = "${pkgs.gnupatch}/bin/patch"; };
       packages.patch = pkgs.gnupatch;
       # package doesn't contain binaries, or binary name doesn't match package name
@@ -498,6 +526,34 @@
       packages.graphviz = pkgs.graphviz;
       apps.hivemind = { type = "app"; program = "${pkgs.hivemind}/bin/hivemind"; };
       packages.hivemind = pkgs.hivemind;
+      apps.hocr-check = { type = "app"; program = "${pkgs.hocr-tools}/bin/hocr-check"; };
+      packages.hocr-check = pkgs.hocr-tools;
+      apps.hocr-combine = { type = "app"; program = "${pkgs.hocr-tools}/bin/hocr-combine"; };
+      packages.hocr-combine = pkgs.hocr-tools;
+      apps.hocr-cut = { type = "app"; program = "${pkgs.hocr-tools}/bin/hocr-cut"; };
+      packages.hocr-cut = pkgs.hocr-tools;
+      apps.hocr-eval = { type = "app"; program = "${pkgs.hocr-tools}/bin/hocr-eval"; };
+      packages.hocr-eval = pkgs.hocr-tools;
+      apps.hocr-eval-geom = { type = "app"; program = "${pkgs.hocr-tools}/bin/hocr-eval-geom"; };
+      packages.hocr-eval-geom = pkgs.hocr-tools;
+      apps.hocr-eval-lines = { type = "app"; program = "${pkgs.hocr-tools}/bin/hocr-eval-lines"; };
+      packages.hocr-eval-lines = pkgs.hocr-tools;
+      apps.hocr-extract-g1000 = { type = "app"; program = "${pkgs.hocr-tools}/bin/hocr-extract-g1000"; };
+      packages.hocr-extract-g1000 = pkgs.hocr-tools;
+      apps.hocr-extract-images = { type = "app"; program = "${pkgs.hocr-tools}/bin/hocr-extract-images"; };
+      packages.hocr-extract-images = pkgs.hocr-tools;
+      apps.hocr-lines = { type = "app"; program = "${pkgs.hocr-tools}/bin/hocr-lines"; };
+      packages.hocr-lines = pkgs.hocr-tools;
+      apps.hocr-merge-dc = { type = "app"; program = "${pkgs.hocr-tools}/bin/hocr-merge-dc"; };
+      packages.hocr-merge-dc = pkgs.hocr-tools;
+      apps.hocr-pdf = { type = "app"; program = "${pkgs.hocr-tools}/bin/hocr-pdf"; };
+      packages.hocr-pdf = pkgs.hocr-tools;
+      apps.hocr-split = { type = "app"; program = "${pkgs.hocr-tools}/bin/hocr-split"; };
+      packages.hocr-split = pkgs.hocr-tools;
+      apps.hocr-wordfreq = { type = "app"; program = "${pkgs.hocr-tools}/bin/hocr-wordfreq"; };
+      packages.hocr-wordfreq = pkgs.hocr-tools;
+      # package doesn't contain binaries, or binary name doesn't match package name
+      packages.hocr-tools = pkgs.hocr-tools;
       apps.honcho = { type = "app"; program = "${pkgs.honcho}/bin/honcho"; };
       packages.honcho = pkgs.honcho;
       apps.htop = { type = "app"; program = "${pkgs.htop}/bin/htop"; };
@@ -550,8 +606,66 @@
       packages.netloc_ib_gather_raw = pkgs.hwloc;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.hwloc = pkgs.hwloc;
+      apps.iotop = { type = "app"; program = "${pkgs.iotop}/bin/iotop"; };
+      packages.iotop = pkgs.iotop;
       apps.isolate = { type = "app"; program = "${pkgs.isolate}/bin/isolate"; };
       packages.isolate = pkgs.isolate;
+      apps.compile_et = { type = "app"; program = "${pkgs.krb5}/bin/compile_et"; };
+      packages.compile_et = pkgs.krb5;
+      apps.gss-client = { type = "app"; program = "${pkgs.krb5}/bin/gss-client"; };
+      packages.gss-client = pkgs.krb5;
+      apps.gss-server = { type = "app"; program = "${pkgs.krb5}/bin/gss-server"; };
+      packages.gss-server = pkgs.krb5;
+      apps.k5srvutil = { type = "app"; program = "${pkgs.krb5}/bin/k5srvutil"; };
+      packages.k5srvutil = pkgs.krb5;
+      apps.kadmin = { type = "app"; program = "${pkgs.krb5}/bin/kadmin"; };
+      packages.kadmin = pkgs.krb5;
+      apps."kadmin.local" = { type = "app"; program = "${pkgs.krb5}/bin/kadmin.local"; };
+      packages."kadmin.local" = pkgs.krb5;
+      apps.kadmind = { type = "app"; program = "${pkgs.krb5}/bin/kadmind"; };
+      packages.kadmind = pkgs.krb5;
+      apps.kdb5_util = { type = "app"; program = "${pkgs.krb5}/bin/kdb5_util"; };
+      packages.kdb5_util = pkgs.krb5;
+      apps.kdestroy = { type = "app"; program = "${pkgs.krb5}/bin/kdestroy"; };
+      packages.kdestroy = pkgs.krb5;
+      apps.kinit = { type = "app"; program = "${pkgs.krb5}/bin/kinit"; };
+      packages.kinit = pkgs.krb5;
+      apps.klist = { type = "app"; program = "${pkgs.krb5}/bin/klist"; };
+      packages.klist = pkgs.krb5;
+      apps.kpasswd = { type = "app"; program = "${pkgs.krb5}/bin/kpasswd"; };
+      packages.kpasswd = pkgs.krb5;
+      apps.kprop = { type = "app"; program = "${pkgs.krb5}/bin/kprop"; };
+      packages.kprop = pkgs.krb5;
+      apps.kpropd = { type = "app"; program = "${pkgs.krb5}/bin/kpropd"; };
+      packages.kpropd = pkgs.krb5;
+      apps.kproplog = { type = "app"; program = "${pkgs.krb5}/bin/kproplog"; };
+      packages.kproplog = pkgs.krb5;
+      apps.krb5-send-pr = { type = "app"; program = "${pkgs.krb5}/bin/krb5-send-pr"; };
+      packages.krb5-send-pr = pkgs.krb5;
+      apps.krb5kdc = { type = "app"; program = "${pkgs.krb5}/bin/krb5kdc"; };
+      packages.krb5kdc = pkgs.krb5;
+      apps.ksu = { type = "app"; program = "${pkgs.krb5}/bin/ksu"; };
+      packages.ksu = pkgs.krb5;
+      apps.kswitch = { type = "app"; program = "${pkgs.krb5}/bin/kswitch"; };
+      packages.kswitch = pkgs.krb5;
+      apps.ktutil = { type = "app"; program = "${pkgs.krb5}/bin/ktutil"; };
+      packages.ktutil = pkgs.krb5;
+      apps.kvno = { type = "app"; program = "${pkgs.krb5}/bin/kvno"; };
+      packages.kvno = pkgs.krb5;
+      apps.sclient = { type = "app"; program = "${pkgs.krb5}/bin/sclient"; };
+      packages.sclient = pkgs.krb5;
+      apps.sim_client = { type = "app"; program = "${pkgs.krb5}/bin/sim_client"; };
+      packages.sim_client = pkgs.krb5;
+      apps.sim_server = { type = "app"; program = "${pkgs.krb5}/bin/sim_server"; };
+      packages.sim_server = pkgs.krb5;
+      apps.sserver = { type = "app"; program = "${pkgs.krb5}/bin/sserver"; };
+      packages.sserver = pkgs.krb5;
+      apps.uuclient = { type = "app"; program = "${pkgs.krb5}/bin/uuclient"; };
+      packages.uuclient = pkgs.krb5;
+      apps.uuserver = { type = "app"; program = "${pkgs.krb5}/bin/uuserver"; };
+      packages.uuserver = pkgs.krb5;
+      # package doesn't contain binaries, or binary name doesn't match package name
+      packages.krb5 = pkgs.krb5;
       apps.kubectl = { type = "app"; program = "${pkgs.kubectl}/bin/kubectl"; };
       packages.kubectl = pkgs.kubectl;
       apps.kubectl-tree = { type = "app"; program = "${pkgs.kubectl-tree}/bin/kubectl-tree"; };
@@ -578,6 +692,8 @@
       packages.xtractprotos = pkgs.leptonica;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.leptonica = pkgs.leptonica;
+      # package doesn't contain binaries, or binary name doesn't match package name
+      packages.libaom = pkgs.libaom;
       apps.bsdcat = { type = "app"; program = "${pkgs.libarchive}/bin/bsdcat"; };
       packages.bsdcat = pkgs.libarchive;
       apps.bsdcpio = { type = "app"; program = "${pkgs.libarchive}/bin/bsdcpio"; };
@@ -586,6 +702,12 @@
       packages.bsdtar = pkgs.libarchive;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.libarchive = pkgs.libarchive;
+      apps.avifdec = { type = "app"; program = "${pkgs.libavif}/bin/avifdec"; };
+      packages.avifdec = pkgs.libavif;
+      apps.avifenc = { type = "app"; program = "${pkgs.libavif}/bin/avifenc"; };
+      packages.avifenc = pkgs.libavif;
+      # package doesn't contain binaries, or binary name doesn't match package name
+      packages.libavif = pkgs.libavif;
       apps.benchmark_xl = { type = "app"; program = "${pkgs.libjxl}/bin/benchmark_xl"; };
       packages.benchmark_xl = pkgs.libjxl;
       apps.cjpeg_hdr = { type = "app"; program = "${pkgs.libjxl}/bin/cjpeg_hdr"; };
@@ -598,20 +720,6 @@
       packages.jxlinfo = pkgs.libjxl;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.libjxl = pkgs.libjxl;
-      apps.kdeconnect-app = { type = "app"; program = "${pkgs.libsForQt5.kdeconnect-kde}/bin/kdeconnect-app"; };
-      packages.kdeconnect-app = pkgs.libsForQt5.kdeconnect-kde;
-      apps.kdeconnect-cli = { type = "app"; program = "${pkgs.libsForQt5.kdeconnect-kde}/bin/kdeconnect-cli"; };
-      packages.kdeconnect-cli = pkgs.libsForQt5.kdeconnect-kde;
-      apps.kdeconnect-handler = { type = "app"; program = "${pkgs.libsForQt5.kdeconnect-kde}/bin/kdeconnect-handler"; };
-      packages.kdeconnect-handler = pkgs.libsForQt5.kdeconnect-kde;
-      apps.kdeconnect-indicator = { type = "app"; program = "${pkgs.libsForQt5.kdeconnect-kde}/bin/kdeconnect-indicator"; };
-      packages.kdeconnect-indicator = pkgs.libsForQt5.kdeconnect-kde;
-      apps.kdeconnect-settings = { type = "app"; program = "${pkgs.libsForQt5.kdeconnect-kde}/bin/kdeconnect-settings"; };
-      packages.kdeconnect-settings = pkgs.libsForQt5.kdeconnect-kde;
-      apps.kdeconnect-sms = { type = "app"; program = "${pkgs.libsForQt5.kdeconnect-kde}/bin/kdeconnect-sms"; };
-      packages.kdeconnect-sms = pkgs.libsForQt5.kdeconnect-kde;
-      # package doesn't contain binaries, or binary name doesn't match package name
-      packages.libsForQt5.kdeconnect-kde = pkgs.libsForQt5.kdeconnect-kde;
       apps.uchardet = { type = "app"; program = "${pkgs.libuchardet}/bin/uchardet"; };
       packages.uchardet = pkgs.libuchardet;
       # package doesn't contain binaries, or binary name doesn't match package name
@@ -636,6 +744,8 @@
       packages.lnav = pkgs.lnav;
       apps.lurk = { type = "app"; program = "${pkgs.lurk}/bin/lurk"; };
       packages.lurk = pkgs.lurk;
+      apps.minify = { type = "app"; program = "${pkgs.minify}/bin/minify"; };
+      packages.minify = pkgs.minify;
       apps.minijail0 = { type = "app"; program = "${pkgs.minijail}/bin/minijail0"; };
       packages.minijail0 = pkgs.minijail;
       # package doesn't contain binaries, or binary name doesn't match package name
@@ -656,6 +766,8 @@
       packages.ncdu = pkgs.ncdu;
       apps.ncpamixer = { type = "app"; program = "${pkgs.ncpamixer}/bin/ncpamixer"; };
       packages.ncpamixer = pkgs.ncpamixer;
+      apps.nethogs = { type = "app"; program = "${pkgs.nethogs}/bin/nethogs"; };
+      packages.nethogs = pkgs.nethogs;
       apps.nm-online = { type = "app"; program = "${pkgs.networkmanager}/bin/nm-online"; };
       packages.nm-online = pkgs.networkmanager;
       apps.nmcli = { type = "app"; program = "${pkgs.networkmanager}/bin/nmcli"; };
@@ -796,6 +908,16 @@
       packages.openssl = pkgs.openssl;
       apps.overmind = { type = "app"; program = "${pkgs.overmind}/bin/overmind"; };
       packages.overmind = pkgs.overmind;
+      apps.par2 = { type = "app"; program = "${pkgs.par2cmdline}/bin/par2"; };
+      packages.par2 = pkgs.par2cmdline;
+      apps.par2create = { type = "app"; program = "${pkgs.par2cmdline}/bin/par2create"; };
+      packages.par2create = pkgs.par2cmdline;
+      apps.par2repair = { type = "app"; program = "${pkgs.par2cmdline}/bin/par2repair"; };
+      packages.par2repair = pkgs.par2cmdline;
+      apps.par2verify = { type = "app"; program = "${pkgs.par2cmdline}/bin/par2verify"; };
+      packages.par2verify = pkgs.par2cmdline;
+      # package doesn't contain binaries, or binary name doesn't match package name
+      packages.par2cmdline = pkgs.par2cmdline;
       apps.env_parallel = { type = "app"; program = "${pkgs.parallel}/bin/env_parallel"; };
       packages.env_parallel = pkgs.parallel;
       apps."env_parallel.ash" = { type = "app"; program = "${pkgs.parallel}/bin/env_parallel.ash"; };
@@ -834,10 +956,28 @@
       packages.sem = pkgs.parallel;
       apps.sql = { type = "app"; program = "${pkgs.parallel}/bin/sql"; };
       packages.sql = pkgs.parallel;
-      apps.pavucontrol = { type = "app"; program = "${pkgs.pavucontrol}/bin/pavucontrol"; };
-      packages.pavucontrol = pkgs.pavucontrol;
       apps.pdfgrep = { type = "app"; program = "${pkgs.pdfgrep}/bin/pdfgrep"; };
       packages.pdfgrep = pkgs.pdfgrep;
+      apps.funcgraph = { type = "app"; program = "${pkgs.perf-tools}/bin/funcgraph"; };
+      packages.funcgraph = pkgs.perf-tools;
+      apps.functrace = { type = "app"; program = "${pkgs.perf-tools}/bin/functrace"; };
+      packages.functrace = pkgs.perf-tools;
+      apps.iolatency = { type = "app"; program = "${pkgs.perf-tools}/bin/iolatency"; };
+      packages.iolatency = pkgs.perf-tools;
+      apps.iosnoop = { type = "app"; program = "${pkgs.perf-tools}/bin/iosnoop"; };
+      packages.iosnoop = pkgs.perf-tools;
+      apps.kprobe = { type = "app"; program = "${pkgs.perf-tools}/bin/kprobe"; };
+      packages.kprobe = pkgs.perf-tools;
+      apps.perf-stat-hist = { type = "app"; program = "${pkgs.perf-tools}/bin/perf-stat-hist"; };
+      packages.perf-stat-hist = pkgs.perf-tools;
+      apps.reset-ftrace = { type = "app"; program = "${pkgs.perf-tools}/bin/reset-ftrace"; };
+      packages.reset-ftrace = pkgs.perf-tools;
+      apps.tpoint = { type = "app"; program = "${pkgs.perf-tools}/bin/tpoint"; };
+      packages.tpoint = pkgs.perf-tools;
+      apps.uprobe = { type = "app"; program = "${pkgs.perf-tools}/bin/uprobe"; };
+      packages.uprobe = pkgs.perf-tools;
+      # package doesn't contain binaries, or binary name doesn't match package name
+      packages.perf-tools = pkgs.perf-tools;
       apps.pikchr = { type = "app"; program = "${pkgs.pikchr}/bin/pikchr"; };
       packages.pikchr = pkgs.pikchr;
       apps.pipectl = { type = "app"; program = "${pkgs.pipectl}/bin/pipectl"; };
@@ -852,6 +992,34 @@
       packages.podman-compose = pkgs.podman-compose;
       apps.podman-tui = { type = "app"; program = "${pkgs.podman-tui}/bin/podman-tui"; };
       packages.podman-tui = pkgs.podman-tui;
+      apps.pdfattach = { type = "app"; program = "${pkgs.poppler_utils}/bin/pdfattach"; };
+      packages.pdfattach = pkgs.poppler_utils;
+      apps.pdfdetach = { type = "app"; program = "${pkgs.poppler_utils}/bin/pdfdetach"; };
+      packages.pdfdetach = pkgs.poppler_utils;
+      apps.pdffonts = { type = "app"; program = "${pkgs.poppler_utils}/bin/pdffonts"; };
+      packages.pdffonts = pkgs.poppler_utils;
+      apps.pdfimages = { type = "app"; program = "${pkgs.poppler_utils}/bin/pdfimages"; };
+      packages.pdfimages = pkgs.poppler_utils;
+      apps.pdfinfo = { type = "app"; program = "${pkgs.poppler_utils}/bin/pdfinfo"; };
+      packages.pdfinfo = pkgs.poppler_utils;
+      apps.pdfseparate = { type = "app"; program = "${pkgs.poppler_utils}/bin/pdfseparate"; };
+      packages.pdfseparate = pkgs.poppler_utils;
+      apps.pdfsig = { type = "app"; program = "${pkgs.poppler_utils}/bin/pdfsig"; };
+      packages.pdfsig = pkgs.poppler_utils;
+      apps.pdftocairo = { type = "app"; program = "${pkgs.poppler_utils}/bin/pdftocairo"; };
+      packages.pdftocairo = pkgs.poppler_utils;
+      apps.pdftohtml = { type = "app"; program = "${pkgs.poppler_utils}/bin/pdftohtml"; };
+      packages.pdftohtml = pkgs.poppler_utils;
+      apps.pdftoppm = { type = "app"; program = "${pkgs.poppler_utils}/bin/pdftoppm"; };
+      packages.pdftoppm = pkgs.poppler_utils;
+      apps.pdftops = { type = "app"; program = "${pkgs.poppler_utils}/bin/pdftops"; };
+      packages.pdftops = pkgs.poppler_utils;
+      apps.pdftotext = { type = "app"; program = "${pkgs.poppler_utils}/bin/pdftotext"; };
+      packages.pdftotext = pkgs.poppler_utils;
+      apps.pdfunite = { type = "app"; program = "${pkgs.poppler_utils}/bin/pdfunite"; };
+      packages.pdfunite = pkgs.poppler_utils;
+      # package doesn't contain binaries, or binary name doesn't match package name
+      packages.poppler_utils = pkgs.poppler_utils;
       apps.procodile = { type = "app"; program = "${pkgs.procodile}/bin/procodile"; };
       packages.procodile = pkgs.procodile;
       apps.pc = { type = "app"; program = "${pkgs.profile-cleaner}/bin/pc"; };
@@ -870,18 +1038,18 @@
       packages.pulseaudio-ctl = pkgs.pulseaudio-ctl;
       apps.pv = { type = "app"; program = "${pkgs.pv}/bin/pv"; };
       packages.pv = pkgs.pv;
-      apps.chardetect = { type = "app"; program = "${pkgs.python310Packages.chardet}/bin/chardetect"; };
-      packages.chardetect = pkgs.python310Packages.chardet;
+      apps.chardetect = { type = "app"; program = "${pkgs.python311Packages.chardet}/bin/chardetect"; };
+      packages.chardetect = pkgs.python311Packages.chardet;
       # package doesn't contain binaries, or binary name doesn't match package name
-      packages.python310Packages.chardet = pkgs.python310Packages.chardet;
-      apps.ftfy = { type = "app"; program = "${pkgs.python310Packages.ftfy}/bin/ftfy"; };
-      packages.ftfy = pkgs.python310Packages.ftfy;
+      packages.python311Packages.chardet = pkgs.python311Packages.chardet;
+      apps.ftfy = { type = "app"; program = "${pkgs.python311Packages.ftfy}/bin/ftfy"; };
+      packages.ftfy = pkgs.python311Packages.ftfy;
       # package doesn't contain binaries, or binary name doesn't match package name
-      packages.python310Packages.ftfy = pkgs.python310Packages.ftfy;
-      apps.xattr = { type = "app"; program = "${pkgs.python310Packages.xattr}/bin/xattr"; };
-      packages.xattr = pkgs.python310Packages.xattr;
+      packages.python311Packages.ftfy = pkgs.python311Packages.ftfy;
+      apps.xattr = { type = "app"; program = "${pkgs.python311Packages.xattr}/bin/xattr"; };
+      packages.xattr = pkgs.python311Packages.xattr;
       # package doesn't contain binaries, or binary name doesn't match package name
-      packages.python310Packages.xattr = pkgs.python310Packages.xattr;
+      packages.python311Packages.xattr = pkgs.python311Packages.xattr;
       apps.radeontop = { type = "app"; program = "${pkgs.radeontop}/bin/radeontop"; };
       packages.radeontop = pkgs.radeontop;
       apps.rclone = { type = "app"; program = "${pkgs.rclone}/bin/rclone"; };
@@ -890,6 +1058,14 @@
       packages.rfc = pkgs.rfc;
       apps.rocm-smi = { type = "app"; program = "${pkgs.rocm-smi}/bin/rocm-smi"; };
       packages.rocm-smi = pkgs.rocm-smi;
+      apps.roc-conv = { type = "app"; program = "${pkgs.roc-toolkit}/bin/roc-conv"; };
+      packages.roc-conv = pkgs.roc-toolkit;
+      apps.roc-recv = { type = "app"; program = "${pkgs.roc-toolkit}/bin/roc-recv"; };
+      packages.roc-recv = pkgs.roc-toolkit;
+      apps.roc-send = { type = "app"; program = "${pkgs.roc-toolkit}/bin/roc-send"; };
+      packages.roc-send = pkgs.roc-toolkit;
+      # package doesn't contain binaries, or binary name doesn't match package name
+      packages.roc-toolkit = pkgs.roc-toolkit;
       apps.ruff = { type = "app"; program = "${pkgs.ruff}/bin/ruff"; };
       packages.ruff = pkgs.ruff;
       apps.chpst = { type = "app"; program = "${pkgs.runit}/bin/chpst"; };
@@ -910,6 +1086,12 @@
       packages.svlogd = pkgs.runit;
       apps.utmpset = { type = "app"; program = "${pkgs.runit}/bin/utmpset"; };
       packages.utmpset = pkgs.runit;
+      apps.sandbox = { type = "app"; program = "${pkgs.selinux-sandbox}/bin/sandbox"; };
+      packages.sandbox = pkgs.selinux-sandbox;
+      apps.seunshare = { type = "app"; program = "${pkgs.selinux-sandbox}/bin/seunshare"; };
+      packages.seunshare = pkgs.selinux-sandbox;
+      # package doesn't contain binaries, or binary name doesn't match package name
+      packages.selinux-sandbox = pkgs.selinux-sandbox;
       apps.shellcheck = { type = "app"; program = "${pkgs.shellcheck}/bin/shellcheck"; };
       packages.shellcheck = pkgs.shellcheck;
       apps.shellharden = { type = "app"; program = "${pkgs.shellharden}/bin/shellharden"; };
@@ -918,12 +1100,6 @@
       packages.shfmt = pkgs.shfmt;
       apps.sipcalc = { type = "app"; program = "${pkgs.sipcalc}/bin/sipcalc"; };
       packages.sipcalc = pkgs.sipcalc;
-      apps.sandbox = { type = "app"; program = "${pkgs.selinux-sandbox}/bin/sandbox"; };
-      packages.sandbox = pkgs.selinux-sandbox;
-      apps.seunshare = { type = "app"; program = "${pkgs.selinux-sandbox}/bin/seunshare"; };
-      packages.seunshare = pkgs.selinux-sandbox;
-      # package doesn't contain binaries, or binary name doesn't match package name
-      packages.selinux-sandbox = pkgs.selinux-sandbox;
       apps.sqlar = { type = "app"; program = "${pkgs.sqlar}/bin/sqlar"; };
       packages.sqlar = pkgs.sqlar;
       apps.sqlarfs = { type = "app"; program = "${pkgs.sqlar}/bin/sqlarfs"; };
@@ -950,6 +1126,22 @@
       packages.strace-log-merge = pkgs.strace;
       apps.syncthing = { type = "app"; program = "${pkgs.syncthing}/bin/syncthing"; };
       packages.syncthing = pkgs.syncthing;
+      apps.cifsiostat = { type = "app"; program = "${pkgs.sysstat}/bin/cifsiostat"; };
+      packages.cifsiostat = pkgs.sysstat;
+      apps.iostat = { type = "app"; program = "${pkgs.sysstat}/bin/iostat"; };
+      packages.iostat = pkgs.sysstat;
+      apps.mpstat = { type = "app"; program = "${pkgs.sysstat}/bin/mpstat"; };
+      packages.mpstat = pkgs.sysstat;
+      apps.pidstat = { type = "app"; program = "${pkgs.sysstat}/bin/pidstat"; };
+      packages.pidstat = pkgs.sysstat;
+      apps.sadf = { type = "app"; program = "${pkgs.sysstat}/bin/sadf"; };
+      packages.sadf = pkgs.sysstat;
+      apps.sar = { type = "app"; program = "${pkgs.sysstat}/bin/sar"; };
+      packages.sar = pkgs.sysstat;
+      apps.tapestat = { type = "app"; program = "${pkgs.sysstat}/bin/tapestat"; };
+      packages.tapestat = pkgs.sysstat;
+      # package doesn't contain binaries, or binary name doesn't match package name
+      packages.sysstat = pkgs.sysstat;
       apps.tesseract = { type = "app"; program = "${pkgs.tesseract}/bin/tesseract"; };
       packages.tesseract = pkgs.tesseract;
       apps.ptiptop = { type = "app"; program = "${pkgs.tiptop}/bin/ptiptop"; };
@@ -976,6 +1168,8 @@
       packages.unpaper = pkgs.unpaper;
       apps.upnp-router-control = { type = "app"; program = "${pkgs.upnp-router-control}/bin/upnp-router-control"; };
       packages.upnp-router-control = pkgs.upnp-router-control;
+      apps.usbtop = { type = "app"; program = "${pkgs.usbtop}/bin/usbtop"; };
+      packages.usbtop = pkgs.usbtop;
       apps.vips = { type = "app"; program = "${pkgs.vips}/bin/vips"; };
       packages.vips = pkgs.vips;
       apps.vipsedit = { type = "app"; program = "${pkgs.vips}/bin/vipsedit"; };
@@ -1008,6 +1202,16 @@
       packages.zarchive = pkgs.zarchive;
       apps.zathura = { type = "app"; program = "${pkgs.zathura}/bin/zathura"; };
       packages.zathura = pkgs.zathura;
+      apps.zbarcam = { type = "app"; program = "${pkgs.zbar}/bin/zbarcam"; };
+      packages.zbarcam = pkgs.zbar;
+      apps.zbarcam-gtk = { type = "app"; program = "${pkgs.zbar}/bin/zbarcam-gtk"; };
+      packages.zbarcam-gtk = pkgs.zbar;
+      apps.zbarcam-qt = { type = "app"; program = "${pkgs.zbar}/bin/zbarcam-qt"; };
+      packages.zbarcam-qt = pkgs.zbar;
+      apps.zbarimg = { type = "app"; program = "${pkgs.zbar}/bin/zbarimg"; };
+      packages.zbarimg = pkgs.zbar;
+      # package doesn't contain binaries, or binary name doesn't match package name
+      packages.zbar = pkgs.zbar;
       apps.pzstd = { type = "app"; program = "${pkgs.zstd}/bin/pzstd"; };
       packages.pzstd = pkgs.zstd;
       apps.unzstd = { type = "app"; program = "${pkgs.zstd}/bin/unzstd"; };

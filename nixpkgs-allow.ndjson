@@ -1,7 +1,8 @@
 {"package": "alejandra", "__comment": ""}
 {"package": "amdgpu_top", "__comment": ""}
-{"package": "aria", "__comment": ""}
+{"package": "aria", "__comment": "yt-dlp dependency"}
 {"package": "atomicparsley", "__comment": ""}
+{"package": "attr", "__comment": "yt-dlp dependency"}
 {"package": "atuin", "__comment": ""}
 {"package": "azure-cli", "__comment": ""}
 {"package": "bashate", "__comment": ""}
@@ -12,6 +13,7 @@
 {"package": "black", "__comment": ""}
 {"package": "borgbackup", "__comment": ""}
 {"package": "brightnessctl", "__comment": ""}
+{"package": "bsdiff", "__comment": ""}
 {"package": "btop", "__comment": ""}
 {"package": "chars", "__comment": ""}
 {"package": "cicero-tui", "__comment": ""}
@@ -19,46 +21,59 @@
 {"package": "czkawka", "__comment": ""}
 {"package": "dar", "__comment": ""}
 {"package": "dbeaver", "__comment": "", "disabled": "pulls jdk17, flatpak avaliable"}
+{"package": "ddcutil", "__comment": ""}
 {"package": "deno", "__comment": ""}
 {"package": "dialog", "__comment": ""}
 {"package": "dig", "__comment": ""}
 {"package": "dive", "__comment": ""}
+{"package": "dmtx-utils", "__comment": ""}
 {"package": "docker-buildx", "__comment": ""}
 {"package": "docker-client", "__comment": ""}
 {"package": "docker-compose", "__comment": ""}
 {"package": "Fabric", "__comment": ""}
+{"package": "ffmpeg_6-headless", "__comment": "", "disabled": "unstable"}
+{"package": "ffmpeg-headless", "__comment": ""}
 {"package": "fossil", "__comment": ""}
+{"package": "fribidi", "__comment": "yt-dlp dependency"}
 {"package": "fuseiso", "__comment": ""}
-{"package": "gitFull", "__comment": ""}
+{"package": "gifsicle", "__comment": ""}
 {"package": "git-filter-repo", "__comment": ""}
+{"package": "gitFull", "__comment": ""}
 {"package": "git-lfs", "__comment": ""}
 {"package": "gitui", "__comment": ""}
-{"package": "gnome.zenity", "__comment": ""}
+{"package": "gnome.zenity", "__comment": "", "disabled": "pulls gnome"}
 {"package": "gnupatch", "__comment": ""}
 {"package": "graphviz", "__comment": ""}
 {"package": "helvum", "__comment": "", "disabled": "flatpak avaliable"}
 {"package": "hivemind", "__comment": ""}
+{"package": "hocr-tools", "__comment": ""}
 {"package": "honcho", "__comment": ""}
 {"package": "htop", "__comment": ""}
 {"package": "hwinfo", "__comment": ""}
 {"package": "hwloc", "__comment": ""}
+{"package": "iotop", "__comment": ""}
 {"package": "isolate", "__comment": ""}
+{"package": "krb5", "__comment": ""}
 {"package": "kubectl", "__comment": ""}
 {"package": "kubectl-tree", "__comment": ""}
 {"package": "leptonica", "__comment": ""}
+{"package": "libaom", "__comment": ""}
 {"package": "libarchive", "__comment": ""}
+{"package": "libavif", "__comment": ""}
 {"package": "libjxl", "__comment": ""}
-{"package": "libsForQt5.kdeconnect-kde", "__comment": ""}
+{"package": "libsForQt5.kdeconnect-kde", "__comment": "", "disabled": "flatpak avaliable"}
 {"package": "libuchardet", "__comment": ""}
 {"package": "libwebp", "__comment": ""}
 {"package": "light", "__comment": ""}
 {"package": "lnav", "__comment": ""}
 {"package": "lurk", "__comment": ""}
+{"package": "minify", "__comment": ""}
 {"package": "minijail", "__comment": ""}
 {"package": "miniupnpc", "__comment": ""}
 {"package": "mosh", "__comment": ""}
 {"package": "ncdu", "__comment": ""}
 {"package": "ncpamixer", "__comment": ""}
+{"package": "nethogs", "__comment": ""}
 {"package": "networkmanager", "__comment": ""}
 {"package": "newt", "__comment": ""}
 {"package": "nip2", "__comment": ""}
@@ -75,9 +90,11 @@
 {"package": "openldap", "__comment": ""}
 {"package": "openssl", "__comment": ""}
 {"package": "overmind", "__comment": ""}
+{"package": "par2cmdline", "__comment": ""}
 {"package": "parallel", "__comment": ""}
-{"package": "pavucontrol", "__comment": ""}
+{"package": "pavucontrol", "__comment": "", "disabled": "pulls gtk"}
 {"package": "pdfgrep", "__comment": ""}
+{"package": "perf-tools", "__comment": ""}
 {"package": "pikchr", "__comment": ""}
 {"package": "pipectl", "__comment": ""}
 {"package": "pipx", "__comment": ""}
@@ -85,28 +102,30 @@
 {"package": "playerctl", "__comment": ""}
 {"package": "podman-compose", "__comment": ""}
 {"package": "podman-tui", "__comment": ""}
+{"package": "poppler_utils", "__comment": ""}
 {"package": "procodile", "__comment": ""}
 {"package": "profile-cleaner", "__comment": ""}
 {"package": "progress", "__comment": ""}
 {"package": "proxychains-ng", "__comment": ""}
 {"package": "pulseaudio-ctl", "__comment": ""}
 {"package": "pv", "__comment": ""}
-{"package": "python310Packages.chardet", "__comment": ""}
-{"package": "python310Packages.ftfy", "__comment": ""}
-{"package": "python310Packages.xattr", "__comment": ""}
+{"package": "python311Packages.chardet", "__comment": ""}
+{"package": "python311Packages.ftfy", "__comment": ""}
+{"package": "python311Packages.xattr", "__comment": "yt-dlp dependency"}
 {"package": "radeontop", "__comment": ""}
 {"package": "rclone", "__comment": ""}
 {"package": "rfc", "__comment": ""}
 {"package": "rocm-smi", "__comment": ""}
+{"package": "roc-toolkit", "__comment": ""}
 {"package": "ruff", "__comment": ""}
 {"package": "runit", "__comment": ""}
+{"package": "selinux-python", "__comment": "fedora policycoreutils-python-utils", "disabled": "fedora default"}
+{"package": "selinux-sandbox", "__comment": ""}
+{"package": "setools", "__comment": "fedora setools-console", "disabled": "fedora default"}
 {"package": "shellcheck", "__comment": ""}
 {"package": "shellharden", "__comment": ""}
 {"package": "shfmt", "__comment": ""}
 {"package": "sipcalc", "__comment": ""}
-{"package": "setools", "__comment": "fedora setools-console", "disabled": "fedora default"}
-{"package": "selinux-python", "__comment": "fedora policycoreutils-python-utils", "disabled": "fedora default"}
-{"package": "selinux-sandbox", "__comment": ""}
 {"package": "sqlar", "__comment": ""}
 {"package": "sqldiff", "__comment": ""}
 {"package": "sqlite-analyzer", "__comment": ""}
@@ -115,6 +134,7 @@
 {"package": "stc-cli", "__comment": ""}
 {"package": "strace", "__comment": ""}
 {"package": "syncthing", "__comment": ""}
+{"package": "sysstat", "__comment": ""}
 {"package": "temurin-bin-17", "__comment": "", "disabled": "jdk17"}
 {"package": "tesseract", "__comment": ""}
 {"package": "tiptop", "__comment": ""}
@@ -122,6 +142,7 @@
 {"package": "uni", "__comment": ""}
 {"package": "unpaper", "__comment": ""}
 {"package": "upnp-router-control", "__comment": ""}
+{"package": "usbtop", "__comment": ""}
 {"package": "vips", "__comment": ""}
 {"package": "wayland-utils", "__comment": ""}
 {"package": "waypipe", "__comment": ""}
@@ -131,4 +152,6 @@
 {"package": "wtype", "__comment": ""}
 {"package": "zarchive", "__comment": ""}
 {"package": "zathura", "__comment": ""}
+{"package": "zbar", "__comment": ""}
+{"package": "zint", "__comment": "", "disabled": "pulls qt"}
 {"package": "zstd", "__comment": ""}
