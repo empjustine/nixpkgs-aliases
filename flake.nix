@@ -746,6 +746,8 @@
       packages.light = pkgs.light;
       apps.lnav = { type = "app"; program = "${pkgs.lnav}/bin/lnav"; };
       packages.lnav = pkgs.lnav;
+      apps.lshw = { type = "app"; program = "${pkgs.lshw}/bin/lshw"; };
+      packages.lshw = pkgs.lshw;
       apps.lurk = { type = "app"; program = "${pkgs.lurk}/bin/lurk"; };
       packages.lurk = pkgs.lurk;
       apps.minify = { type = "app"; program = "${pkgs.minify}/bin/minify"; };

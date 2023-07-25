@@ -68,6 +68,7 @@
 {"package": "libwebp", "__comment": ""}
 {"package": "light", "__comment": ""}
 {"package": "lnav", "__comment": ""}
+{"package": "lshw", "__comment": ""}
 {"package": "lurk", "__comment": ""}
 {"package": "minify", "__comment": ""}
 {"package": "minijail", "__comment": ""}
