@@ -17,6 +17,7 @@
 {"package": "btop", "__comment": ""}
 {"package": "chars", "__comment": ""}
 {"package": "cicero-tui", "__comment": ""}
+{"package": "cool-retro-term", "__comment": ""}
 {"package": "csvs-to-sqlite", "__comment": ""}
 {"package": "czkawka", "__comment": ""}
 {"package": "dar", "__comment": ""}
@@ -36,6 +37,7 @@
 {"package": "fossil", "__comment": ""}
 {"package": "fribidi", "__comment": "yt-dlp dependency"}
 {"package": "fuseiso", "__comment": ""}
+{"package": "gamescope", "__comment": ""}
 {"package": "gifsicle", "__comment": ""}
 {"package": "git-filter-repo", "__comment": ""}
 {"package": "gitFull", "__comment": ""}

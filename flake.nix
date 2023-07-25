@@ -342,6 +342,8 @@
       packages.cicero = pkgs.cicero-tui;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.cicero-tui = pkgs.cicero-tui;
+      apps.cool-retro-term = { type = "app"; program = "${pkgs.cool-retro-term}/bin/cool-retro-term"; };
+      packages.cool-retro-term = pkgs.cool-retro-term;
       apps.csvs-to-sqlite = { type = "app"; program = "${pkgs.csvs-to-sqlite}/bin/csvs-to-sqlite"; };
       packages.csvs-to-sqlite = pkgs.csvs-to-sqlite;
       apps.czkawka_cli = { type = "app"; program = "${pkgs.czkawka}/bin/czkawka_cli"; };
@@ -410,6 +412,8 @@
       packages.fribidi = pkgs.fribidi;
       apps.fuseiso = { type = "app"; program = "${pkgs.fuseiso}/bin/fuseiso"; };
       packages.fuseiso = pkgs.fuseiso;
+      apps.gamescope = { type = "app"; program = "${pkgs.gamescope}/bin/gamescope"; };
+      packages.gamescope = pkgs.gamescope;
       apps.gifdiff = { type = "app"; program = "${pkgs.gifsicle}/bin/gifdiff"; };
       packages.gifdiff = pkgs.gifsicle;
       apps.gifsicle = { type = "app"; program = "${pkgs.gifsicle}/bin/gifsicle"; };
@@ -594,8 +598,6 @@
       packages.hwloc-patch = pkgs.hwloc;
       apps.hwloc-ps = { type = "app"; program = "${pkgs.hwloc}/bin/hwloc-ps"; };
       packages.hwloc-ps = pkgs.hwloc;
-      apps.lstopo = { type = "app"; program = "${pkgs.hwloc}/bin/lstopo"; };
-      packages.lstopo = pkgs.hwloc;
       apps.lstopo-no-graphics = { type = "app"; program = "${pkgs.hwloc}/bin/lstopo-no-graphics"; };
       packages.lstopo-no-graphics = pkgs.hwloc;
       apps.netloc_draw_to_json = { type = "app"; program = "${pkgs.hwloc}/bin/netloc_draw_to_json"; };
@@ -604,6 +606,8 @@
       packages.netloc_ib_extract_dats = pkgs.hwloc;
       apps.netloc_ib_gather_raw = { type = "app"; program = "${pkgs.hwloc}/bin/netloc_ib_gather_raw"; };
       packages.netloc_ib_gather_raw = pkgs.hwloc;
+      apps.lstopo = { type = "app"; program = "${pkgs.hwloc}/bin/lstopo"; };
+      packages.lstopo = pkgs.hwloc;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.hwloc = pkgs.hwloc;
       apps.iotop = { type = "app"; program = "${pkgs.iotop}/bin/iotop"; };
@@ -1212,18 +1216,18 @@
       packages.zbarimg = pkgs.zbar;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.zbar = pkgs.zbar;
-      apps.pzstd = { type = "app"; program = "${pkgs.zstd}/bin/pzstd"; };
-      packages.pzstd = pkgs.zstd;
       apps.unzstd = { type = "app"; program = "${pkgs.zstd}/bin/unzstd"; };
       packages.unzstd = pkgs.zstd;
       apps.zstd = { type = "app"; program = "${pkgs.zstd}/bin/zstd"; };
       packages.zstd = pkgs.zstd;
-      apps.zstdcat = { type = "app"; program = "${pkgs.zstd}/bin/zstdcat"; };
-      packages.zstdcat = pkgs.zstd;
       apps.zstdgrep = { type = "app"; program = "${pkgs.zstd}/bin/zstdgrep"; };
       packages.zstdgrep = pkgs.zstd;
       apps.zstdless = { type = "app"; program = "${pkgs.zstd}/bin/zstdless"; };
       packages.zstdless = pkgs.zstd;
+      apps.pzstd = { type = "app"; program = "${pkgs.zstd}/bin/pzstd"; };
+      packages.pzstd = pkgs.zstd;
+      apps.zstdcat = { type = "app"; program = "${pkgs.zstd}/bin/zstdcat"; };
+      packages.zstdcat = pkgs.zstd;
       apps.zstdmt = { type = "app"; program = "${pkgs.zstd}/bin/zstdmt"; };
       packages.zstdmt = pkgs.zstd;
 
