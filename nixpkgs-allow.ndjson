@@ -55,6 +55,7 @@
 {"package": "hwloc", "__comment": ""}
 {"package": "iotop", "__comment": ""}
 {"package": "isolate", "__comment": ""}
+{"package": "kio-fuse", "__comment": ""}
 {"package": "krb5", "__comment": ""}
 {"package": "kubectl", "__comment": ""}
 {"package": "kubectl-tree", "__comment": ""}

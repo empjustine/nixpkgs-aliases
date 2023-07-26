@@ -474,8 +474,6 @@
       packages.dot_builtins = pkgs.graphviz;
       apps.edgepaint = { type = "app"; program = "${pkgs.graphviz}/bin/edgepaint"; };
       packages.edgepaint = pkgs.graphviz;
-      apps.fdp = { type = "app"; program = "${pkgs.graphviz}/bin/fdp"; };
-      packages.fdp = pkgs.graphviz;
       apps.gc = { type = "app"; program = "${pkgs.graphviz}/bin/gc"; };
       packages.gc = pkgs.graphviz;
       apps.gml2gv = { type = "app"; program = "${pkgs.graphviz}/bin/gml2gv"; };
@@ -484,8 +482,6 @@
       packages.graphml2gv = pkgs.graphviz;
       apps.gv2gml = { type = "app"; program = "${pkgs.graphviz}/bin/gv2gml"; };
       packages.gv2gml = pkgs.graphviz;
-      apps.gv2gxl = { type = "app"; program = "${pkgs.graphviz}/bin/gv2gxl"; };
-      packages.gv2gxl = pkgs.graphviz;
       apps.gvcolor = { type = "app"; program = "${pkgs.graphviz}/bin/gvcolor"; };
       packages.gvcolor = pkgs.graphviz;
       apps.gvgen = { type = "app"; program = "${pkgs.graphviz}/bin/gvgen"; };
@@ -498,34 +494,38 @@
       packages.gvpack = pkgs.graphviz;
       apps.gvpr = { type = "app"; program = "${pkgs.graphviz}/bin/gvpr"; };
       packages.gvpr = pkgs.graphviz;
-      apps.gxl2dot = { type = "app"; program = "${pkgs.graphviz}/bin/gxl2dot"; };
-      packages.gxl2dot = pkgs.graphviz;
       apps.gxl2gv = { type = "app"; program = "${pkgs.graphviz}/bin/gxl2gv"; };
       packages.gxl2gv = pkgs.graphviz;
       apps.mm2gv = { type = "app"; program = "${pkgs.graphviz}/bin/mm2gv"; };
       packages.mm2gv = pkgs.graphviz;
-      apps.neato = { type = "app"; program = "${pkgs.graphviz}/bin/neato"; };
-      packages.neato = pkgs.graphviz;
       apps.nop = { type = "app"; program = "${pkgs.graphviz}/bin/nop"; };
       packages.nop = pkgs.graphviz;
-      apps.osage = { type = "app"; program = "${pkgs.graphviz}/bin/osage"; };
-      packages.osage = pkgs.graphviz;
-      apps.patchwork = { type = "app"; program = "${pkgs.graphviz}/bin/patchwork"; };
-      packages.patchwork = pkgs.graphviz;
       apps.prune = { type = "app"; program = "${pkgs.graphviz}/bin/prune"; };
       packages.prune = pkgs.graphviz;
       apps.sccmap = { type = "app"; program = "${pkgs.graphviz}/bin/sccmap"; };
       packages.sccmap = pkgs.graphviz;
-      apps.sfdp = { type = "app"; program = "${pkgs.graphviz}/bin/sfdp"; };
-      packages.sfdp = pkgs.graphviz;
       apps.tred = { type = "app"; program = "${pkgs.graphviz}/bin/tred"; };
       packages.tred = pkgs.graphviz;
-      apps.twopi = { type = "app"; program = "${pkgs.graphviz}/bin/twopi"; };
-      packages.twopi = pkgs.graphviz;
       apps.unflatten = { type = "app"; program = "${pkgs.graphviz}/bin/unflatten"; };
       packages.unflatten = pkgs.graphviz;
       apps.vimdot = { type = "app"; program = "${pkgs.graphviz}/bin/vimdot"; };
       packages.vimdot = pkgs.graphviz;
+      apps.fdp = { type = "app"; program = "${pkgs.graphviz}/bin/fdp"; };
+      packages.fdp = pkgs.graphviz;
+      apps.gv2gxl = { type = "app"; program = "${pkgs.graphviz}/bin/gv2gxl"; };
+      packages.gv2gxl = pkgs.graphviz;
+      apps.gxl2dot = { type = "app"; program = "${pkgs.graphviz}/bin/gxl2dot"; };
+      packages.gxl2dot = pkgs.graphviz;
+      apps.neato = { type = "app"; program = "${pkgs.graphviz}/bin/neato"; };
+      packages.neato = pkgs.graphviz;
+      apps.osage = { type = "app"; program = "${pkgs.graphviz}/bin/osage"; };
+      packages.osage = pkgs.graphviz;
+      apps.patchwork = { type = "app"; program = "${pkgs.graphviz}/bin/patchwork"; };
+      packages.patchwork = pkgs.graphviz;
+      apps.sfdp = { type = "app"; program = "${pkgs.graphviz}/bin/sfdp"; };
+      packages.sfdp = pkgs.graphviz;
+      apps.twopi = { type = "app"; program = "${pkgs.graphviz}/bin/twopi"; };
+      packages.twopi = pkgs.graphviz;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.graphviz = pkgs.graphviz;
       apps.hivemind = { type = "app"; program = "${pkgs.hivemind}/bin/hivemind"; };
@@ -614,6 +614,8 @@
       packages.iotop = pkgs.iotop;
       apps.isolate = { type = "app"; program = "${pkgs.isolate}/bin/isolate"; };
       packages.isolate = pkgs.isolate;
+      # package doesn't contain binaries, or binary name doesn't match package name
+      packages.kio-fuse = pkgs.kio-fuse;
       apps.compile_et = { type = "app"; program = "${pkgs.krb5}/bin/compile_et"; };
       packages.compile_et = pkgs.krb5;
       apps.gss-client = { type = "app"; program = "${pkgs.krb5}/bin/gss-client"; };
@@ -644,8 +646,6 @@
       packages.kpropd = pkgs.krb5;
       apps.kproplog = { type = "app"; program = "${pkgs.krb5}/bin/kproplog"; };
       packages.kproplog = pkgs.krb5;
-      apps.krb5-send-pr = { type = "app"; program = "${pkgs.krb5}/bin/krb5-send-pr"; };
-      packages.krb5-send-pr = pkgs.krb5;
       apps.krb5kdc = { type = "app"; program = "${pkgs.krb5}/bin/krb5kdc"; };
       packages.krb5kdc = pkgs.krb5;
       apps.ksu = { type = "app"; program = "${pkgs.krb5}/bin/ksu"; };
@@ -668,6 +668,8 @@
       packages.uuclient = pkgs.krb5;
       apps.uuserver = { type = "app"; program = "${pkgs.krb5}/bin/uuserver"; };
       packages.uuserver = pkgs.krb5;
+      apps.krb5-send-pr = { type = "app"; program = "${pkgs.krb5}/bin/krb5-send-pr"; };
+      packages.krb5-send-pr = pkgs.krb5;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.krb5 = pkgs.krb5;
       apps.kubectl = { type = "app"; program = "${pkgs.kubectl}/bin/kubectl"; };
