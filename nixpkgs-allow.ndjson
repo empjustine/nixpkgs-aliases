@@ -37,7 +37,7 @@
 {"package": "fossil", "__comment": ""}
 {"package": "fribidi", "__comment": "yt-dlp dependency"}
 {"package": "fuseiso", "__comment": ""}
-{"package": "gamescope", "__comment": ""}
+{"package": "gamescope", "__comment": "", "disabled": "not working"}
 {"package": "gifsicle", "__comment": ""}
 {"package": "git-filter-repo", "__comment": ""}
 {"package": "gitFull", "__comment": ""}
@@ -71,6 +71,7 @@
 {"package": "lnav", "__comment": ""}
 {"package": "lshw", "__comment": ""}
 {"package": "lurk", "__comment": ""}
+{"package": "maturin", "__comment": ""}
 {"package": "minify", "__comment": ""}
 {"package": "minijail", "__comment": ""}
 {"package": "miniupnpc", "__comment": ""}
@@ -86,8 +87,11 @@
 {"package": "nixos-rebuild", "__comment": ""}
 {"package": "nixStatic", "__comment": ""}
 {"package": "nix-tree", "__comment": ""}
+{"package": "nodePackages.bash-language-server", "__comment": "", "disabled": "test"}
 {"package": "nodePackages.eslint", "__comment": ""}
 {"package": "nodePackages.prettier", "__comment": ""}
+{"package": "nodePackages.typescript-language-server", "__comment": "", "disabled": "test"}
+{"package": "nodePackages.vscode-langservers-extracted", "__comment": "", "disabled": "test"}
 {"package": "numactl", "__comment": ""}
 {"package": "oath-toolkit", "__comment": ""}
 {"package": "openal", "__comment": ""}
@@ -106,7 +110,7 @@
 {"package": "playerctl", "__comment": ""}
 {"package": "podman-compose", "__comment": ""}
 {"package": "podman-tui", "__comment": ""}
-{"package": "poppler_utils", "__comment": ""}
+{"package": "poppler_utils", "__comment": "deb poppler-utils"}
 {"package": "procodile", "__comment": ""}
 {"package": "profile-cleaner", "__comment": ""}
 {"package": "progress", "__comment": ""}
@@ -148,6 +152,7 @@
 {"package": "upnp-router-control", "__comment": ""}
 {"package": "usbtop", "__comment": ""}
 {"package": "vips", "__comment": ""}
+{"package": "waifu2x-converter-cpp", "__comment": ""}
 {"package": "wayland-utils", "__comment": ""}
 {"package": "waypipe", "__comment": ""}
 {"package": "wl-clipboard", "__comment": ""}
