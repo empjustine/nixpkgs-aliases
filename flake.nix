@@ -608,6 +608,16 @@
       packages.netloc_ib_gather_raw = pkgs.hwloc;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.hwloc = pkgs.hwloc;
+      apps.extresso = { type = "app"; program = "${pkgs.icoutils}/bin/extresso"; };
+      packages.extresso = pkgs.icoutils;
+      apps.genresscript = { type = "app"; program = "${pkgs.icoutils}/bin/genresscript"; };
+      packages.genresscript = pkgs.icoutils;
+      apps.icotool = { type = "app"; program = "${pkgs.icoutils}/bin/icotool"; };
+      packages.icotool = pkgs.icoutils;
+      apps.wrestool = { type = "app"; program = "${pkgs.icoutils}/bin/wrestool"; };
+      packages.wrestool = pkgs.icoutils;
+      # package doesn't contain binaries, or binary name doesn't match package name
+      packages.icoutils = pkgs.icoutils;
       apps.iotop = { type = "app"; program = "${pkgs.iotop}/bin/iotop"; };
       packages.iotop = pkgs.iotop;
       apps.isolate = { type = "app"; program = "${pkgs.isolate}/bin/isolate"; };

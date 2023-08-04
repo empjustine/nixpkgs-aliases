@@ -53,6 +53,7 @@
 {"package": "htop", "__comment": ""}
 {"package": "hwinfo", "__comment": ""}
 {"package": "hwloc", "__comment": ""}
+{"package": "icoutils", "__comment": ""}
 {"package": "iotop", "__comment": ""}
 {"package": "isolate", "__comment": ""}
 {"package": "kio-fuse", "__comment": ""}
