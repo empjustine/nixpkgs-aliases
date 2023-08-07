@@ -15,6 +15,7 @@
 {"package": "brightnessctl", "__comment": ""}
 {"package": "bsdiff", "__comment": ""}
 {"package": "btop", "__comment": ""}
+{"package": "cdesktopenv", "__comment": "", "disabled": "libsForQt5.qtstyleplugin-kvantum"}
 {"package": "chars", "__comment": ""}
 {"package": "cicero-tui", "__comment": ""}
 {"package": "cool-retro-term", "__comment": ""}
@@ -66,6 +67,7 @@
 {"package": "libavif", "__comment": ""}
 {"package": "libjxl", "__comment": ""}
 {"package": "libsForQt5.kdeconnect-kde", "__comment": "", "disabled": "flatpak avaliable"}
+{"package": "libsForQt5.qtstyleplugin-kvantum", "__comment": "", "disabled": "using native fedora kde+kvantum"}
 {"package": "libuchardet", "__comment": ""}
 {"package": "libwebp", "__comment": ""}
 {"package": "light", "__comment": ""}
@@ -77,6 +79,7 @@
 {"package": "minijail", "__comment": ""}
 {"package": "miniupnpc", "__comment": ""}
 {"package": "mosh", "__comment": ""}
+{"package": "motif", "__comment": "", "disabled": "libsForQt5.qtstyleplugin-kvantum"}
 {"package": "ncdu", "__comment": ""}
 {"package": "ncpamixer", "__comment": ""}
 {"package": "nethogs", "__comment": ""}
