@@ -128,6 +128,7 @@
 {"package": "python311Packages.ftfy", "__comment": ""}
 {"package": "python311Packages.xattr", "__comment": "yt-dlp dependency"}
 {"package": "radeontop", "__comment": ""}
+{"package": "rancher", "__comment": ""}
 {"package": "rclone", "__comment": ""}
 {"package": "rfc", "__comment": ""}
 {"package": "rocm-smi", "__comment": ""}

@@ -468,6 +468,8 @@
       packages.dot_builtins = pkgs.graphviz;
       apps.edgepaint = { type = "app"; program = "${pkgs.graphviz}/bin/edgepaint"; };
       packages.edgepaint = pkgs.graphviz;
+      apps.fdp = { type = "app"; program = "${pkgs.graphviz}/bin/fdp"; };
+      packages.fdp = pkgs.graphviz;
       apps.gc = { type = "app"; program = "${pkgs.graphviz}/bin/gc"; };
       packages.gc = pkgs.graphviz;
       apps.gml2gv = { type = "app"; program = "${pkgs.graphviz}/bin/gml2gv"; };
@@ -476,6 +478,8 @@
       packages.graphml2gv = pkgs.graphviz;
       apps.gv2gml = { type = "app"; program = "${pkgs.graphviz}/bin/gv2gml"; };
       packages.gv2gml = pkgs.graphviz;
+      apps.gv2gxl = { type = "app"; program = "${pkgs.graphviz}/bin/gv2gxl"; };
+      packages.gv2gxl = pkgs.graphviz;
       apps.gvcolor = { type = "app"; program = "${pkgs.graphviz}/bin/gvcolor"; };
       packages.gvcolor = pkgs.graphviz;
       apps.gvgen = { type = "app"; program = "${pkgs.graphviz}/bin/gvgen"; };
@@ -488,38 +492,34 @@
       packages.gvpack = pkgs.graphviz;
       apps.gvpr = { type = "app"; program = "${pkgs.graphviz}/bin/gvpr"; };
       packages.gvpr = pkgs.graphviz;
+      apps.gxl2dot = { type = "app"; program = "${pkgs.graphviz}/bin/gxl2dot"; };
+      packages.gxl2dot = pkgs.graphviz;
       apps.gxl2gv = { type = "app"; program = "${pkgs.graphviz}/bin/gxl2gv"; };
       packages.gxl2gv = pkgs.graphviz;
       apps.mm2gv = { type = "app"; program = "${pkgs.graphviz}/bin/mm2gv"; };
       packages.mm2gv = pkgs.graphviz;
-      apps.nop = { type = "app"; program = "${pkgs.graphviz}/bin/nop"; };
-      packages.nop = pkgs.graphviz;
-      apps.prune = { type = "app"; program = "${pkgs.graphviz}/bin/prune"; };
-      packages.prune = pkgs.graphviz;
-      apps.sccmap = { type = "app"; program = "${pkgs.graphviz}/bin/sccmap"; };
-      packages.sccmap = pkgs.graphviz;
-      apps.tred = { type = "app"; program = "${pkgs.graphviz}/bin/tred"; };
-      packages.tred = pkgs.graphviz;
-      apps.unflatten = { type = "app"; program = "${pkgs.graphviz}/bin/unflatten"; };
-      packages.unflatten = pkgs.graphviz;
-      apps.vimdot = { type = "app"; program = "${pkgs.graphviz}/bin/vimdot"; };
-      packages.vimdot = pkgs.graphviz;
-      apps.fdp = { type = "app"; program = "${pkgs.graphviz}/bin/fdp"; };
-      packages.fdp = pkgs.graphviz;
-      apps.gv2gxl = { type = "app"; program = "${pkgs.graphviz}/bin/gv2gxl"; };
-      packages.gv2gxl = pkgs.graphviz;
-      apps.gxl2dot = { type = "app"; program = "${pkgs.graphviz}/bin/gxl2dot"; };
-      packages.gxl2dot = pkgs.graphviz;
       apps.neato = { type = "app"; program = "${pkgs.graphviz}/bin/neato"; };
       packages.neato = pkgs.graphviz;
+      apps.nop = { type = "app"; program = "${pkgs.graphviz}/bin/nop"; };
+      packages.nop = pkgs.graphviz;
       apps.osage = { type = "app"; program = "${pkgs.graphviz}/bin/osage"; };
       packages.osage = pkgs.graphviz;
       apps.patchwork = { type = "app"; program = "${pkgs.graphviz}/bin/patchwork"; };
       packages.patchwork = pkgs.graphviz;
+      apps.prune = { type = "app"; program = "${pkgs.graphviz}/bin/prune"; };
+      packages.prune = pkgs.graphviz;
+      apps.sccmap = { type = "app"; program = "${pkgs.graphviz}/bin/sccmap"; };
+      packages.sccmap = pkgs.graphviz;
       apps.sfdp = { type = "app"; program = "${pkgs.graphviz}/bin/sfdp"; };
       packages.sfdp = pkgs.graphviz;
+      apps.tred = { type = "app"; program = "${pkgs.graphviz}/bin/tred"; };
+      packages.tred = pkgs.graphviz;
       apps.twopi = { type = "app"; program = "${pkgs.graphviz}/bin/twopi"; };
       packages.twopi = pkgs.graphviz;
+      apps.unflatten = { type = "app"; program = "${pkgs.graphviz}/bin/unflatten"; };
+      packages.unflatten = pkgs.graphviz;
+      apps.vimdot = { type = "app"; program = "${pkgs.graphviz}/bin/vimdot"; };
+      packages.vimdot = pkgs.graphviz;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.graphviz = pkgs.graphviz;
       apps.hivemind = { type = "app"; program = "${pkgs.hivemind}/bin/hivemind"; };
@@ -592,6 +592,8 @@
       packages.hwloc-patch = pkgs.hwloc;
       apps.hwloc-ps = { type = "app"; program = "${pkgs.hwloc}/bin/hwloc-ps"; };
       packages.hwloc-ps = pkgs.hwloc;
+      apps.lstopo = { type = "app"; program = "${pkgs.hwloc}/bin/lstopo"; };
+      packages.lstopo = pkgs.hwloc;
       apps.lstopo-no-graphics = { type = "app"; program = "${pkgs.hwloc}/bin/lstopo-no-graphics"; };
       packages.lstopo-no-graphics = pkgs.hwloc;
       apps.netloc_draw_to_json = { type = "app"; program = "${pkgs.hwloc}/bin/netloc_draw_to_json"; };
@@ -600,8 +602,6 @@
       packages.netloc_ib_extract_dats = pkgs.hwloc;
       apps.netloc_ib_gather_raw = { type = "app"; program = "${pkgs.hwloc}/bin/netloc_ib_gather_raw"; };
       packages.netloc_ib_gather_raw = pkgs.hwloc;
-      apps.lstopo = { type = "app"; program = "${pkgs.hwloc}/bin/lstopo"; };
-      packages.lstopo = pkgs.hwloc;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.hwloc = pkgs.hwloc;
       apps.iotop = { type = "app"; program = "${pkgs.iotop}/bin/iotop"; };
@@ -1194,6 +1194,8 @@
       packages.zstdcat = pkgs.zstd;
       apps.zstdmt = { type = "app"; program = "${pkgs.zstd}/bin/zstdmt"; };
       packages.zstdmt = pkgs.zstd;
+      apps.rancher = { type = "app"; program = "${pkgs.rancher}/bin/rancher"; };
+      packages.rancher = pkgs.rancher;
 
       # special case for git-gui, from /libexec/git-core/git-gui
       apps.git-gui = { type = "app"; program = "${pkgs.gitFull}/libexec/git-core/git-gui"; };
