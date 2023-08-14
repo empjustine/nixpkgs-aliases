@@ -328,8 +328,6 @@
       packages.borgfs = pkgs.borgbackup;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.borgbackup = pkgs.borgbackup;
-      apps.brightnessctl = { type = "app"; program = "${pkgs.brightnessctl}/bin/brightnessctl"; };
-      packages.brightnessctl = pkgs.brightnessctl;
       apps.bsdiff = { type = "app"; program = "${pkgs.bsdiff}/bin/bsdiff"; };
       packages.bsdiff = pkgs.bsdiff;
       apps.bspatch = { type = "app"; program = "${pkgs.bsdiff}/bin/bspatch"; };
@@ -342,8 +340,6 @@
       packages.cicero = pkgs.cicero-tui;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.cicero-tui = pkgs.cicero-tui;
-      apps.cool-retro-term = { type = "app"; program = "${pkgs.cool-retro-term}/bin/cool-retro-term"; };
-      packages.cool-retro-term = pkgs.cool-retro-term;
       apps.csvs-to-sqlite = { type = "app"; program = "${pkgs.csvs-to-sqlite}/bin/csvs-to-sqlite"; };
       packages.csvs-to-sqlite = pkgs.csvs-to-sqlite;
       apps.czkawka_cli = { type = "app"; program = "${pkgs.czkawka}/bin/czkawka_cli"; };
@@ -364,8 +360,6 @@
       packages.dar_split = pkgs.dar;
       apps.dar_xform = { type = "app"; program = "${pkgs.dar}/bin/dar_xform"; };
       packages.dar_xform = pkgs.dar;
-      apps.ddcutil = { type = "app"; program = "${pkgs.ddcutil}/bin/ddcutil"; };
-      packages.ddcutil = pkgs.ddcutil;
       apps.deno = { type = "app"; program = "${pkgs.deno}/bin/deno"; };
       packages.deno = pkgs.deno;
       apps.dialog = { type = "app"; program = "${pkgs.dialog}/bin/dialog"; };
@@ -406,12 +400,14 @@
       packages.ffprobe = pkgs.ffmpeg-headless;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.ffmpeg-headless = pkgs.ffmpeg-headless;
+      apps.fnott = { type = "app"; program = "${pkgs.fnott}/bin/fnott"; };
+      packages.fnott = pkgs.fnott;
+      apps.fnottctl = { type = "app"; program = "${pkgs.fnott}/bin/fnottctl"; };
+      packages.fnottctl = pkgs.fnott;
       apps.fossil = { type = "app"; program = "${pkgs.fossil}/bin/fossil"; };
       packages.fossil = pkgs.fossil;
       apps.fribidi = { type = "app"; program = "${pkgs.fribidi}/bin/fribidi"; };
       packages.fribidi = pkgs.fribidi;
-      apps.fuseiso = { type = "app"; program = "${pkgs.fuseiso}/bin/fuseiso"; };
-      packages.fuseiso = pkgs.fuseiso;
       apps.gifdiff = { type = "app"; program = "${pkgs.gifsicle}/bin/gifdiff"; };
       packages.gifdiff = pkgs.gifsicle;
       apps.gifsicle = { type = "app"; program = "${pkgs.gifsicle}/bin/gifsicle"; };
@@ -702,8 +698,6 @@
       packages.xtractprotos = pkgs.leptonica;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.leptonica = pkgs.leptonica;
-      # package doesn't contain binaries, or binary name doesn't match package name
-      packages.libaom = pkgs.libaom;
       apps.bsdcat = { type = "app"; program = "${pkgs.libarchive}/bin/bsdcat"; };
       packages.bsdcat = pkgs.libarchive;
       apps.bsdcpio = { type = "app"; program = "${pkgs.libarchive}/bin/bsdcpio"; };
@@ -712,12 +706,6 @@
       packages.bsdtar = pkgs.libarchive;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.libarchive = pkgs.libarchive;
-      apps.avifdec = { type = "app"; program = "${pkgs.libavif}/bin/avifdec"; };
-      packages.avifdec = pkgs.libavif;
-      apps.avifenc = { type = "app"; program = "${pkgs.libavif}/bin/avifenc"; };
-      packages.avifenc = pkgs.libavif;
-      # package doesn't contain binaries, or binary name doesn't match package name
-      packages.libavif = pkgs.libavif;
       apps.benchmark_xl = { type = "app"; program = "${pkgs.libjxl}/bin/benchmark_xl"; };
       packages.benchmark_xl = pkgs.libjxl;
       apps.cjpeg_hdr = { type = "app"; program = "${pkgs.libjxl}/bin/cjpeg_hdr"; };
@@ -748,8 +736,6 @@
       packages.webpmux = pkgs.libwebp;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.libwebp = pkgs.libwebp;
-      apps.light = { type = "app"; program = "${pkgs.light}/bin/light"; };
-      packages.light = pkgs.light;
       apps.lnav = { type = "app"; program = "${pkgs.lnav}/bin/lnav"; };
       packages.lnav = pkgs.lnav;
       apps.lshw = { type = "app"; program = "${pkgs.lshw}/bin/lshw"; };
@@ -760,10 +746,6 @@
       packages.maturin = pkgs.maturin;
       apps.minify = { type = "app"; program = "${pkgs.minify}/bin/minify"; };
       packages.minify = pkgs.minify;
-      apps.minijail0 = { type = "app"; program = "${pkgs.minijail}/bin/minijail0"; };
-      packages.minijail0 = pkgs.minijail;
-      # package doesn't contain binaries, or binary name doesn't match package name
-      packages.minijail = pkgs.minijail;
       apps.external-ip = { type = "app"; program = "${pkgs.miniupnpc}/bin/external-ip"; };
       packages.external-ip = pkgs.miniupnpc;
       apps.upnpc = { type = "app"; program = "${pkgs.miniupnpc}/bin/upnpc"; };
@@ -776,6 +758,10 @@
       packages.mosh-client = pkgs.mosh;
       apps.mosh-server = { type = "app"; program = "${pkgs.mosh}/bin/mosh-server"; };
       packages.mosh-server = pkgs.mosh;
+      apps.mpvpaper = { type = "app"; program = "${pkgs.mpvpaper}/bin/mpvpaper"; };
+      packages.mpvpaper = pkgs.mpvpaper;
+      apps.mpvpaper-holder = { type = "app"; program = "${pkgs.mpvpaper}/bin/mpvpaper-holder"; };
+      packages.mpvpaper-holder = pkgs.mpvpaper;
       apps.ncdu = { type = "app"; program = "${pkgs.ncdu}/bin/ncdu"; };
       packages.ncdu = pkgs.ncdu;
       apps.nethogs = { type = "app"; program = "${pkgs.nethogs}/bin/nethogs"; };
@@ -794,8 +780,6 @@
       packages.nmtui-hostname = pkgs.networkmanager;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.networkmanager = pkgs.networkmanager;
-      apps.nip2 = { type = "app"; program = "${pkgs.nip2}/bin/nip2"; };
-      packages.nip2 = pkgs.nip2;
       apps.nix-bundle = { type = "app"; program = "${pkgs.nix-bundle}/bin/nix-bundle"; };
       packages.nix-bundle = pkgs.nix-bundle;
       apps.nix-run = { type = "app"; program = "${pkgs.nix-bundle}/bin/nix-run"; };
@@ -998,8 +982,6 @@
       packages.playerctld = pkgs.playerctl;
       apps.podman-compose = { type = "app"; program = "${pkgs.podman-compose}/bin/podman-compose"; };
       packages.podman-compose = pkgs.podman-compose;
-      apps.podman-tui = { type = "app"; program = "${pkgs.podman-tui}/bin/podman-tui"; };
-      packages.podman-tui = pkgs.podman-tui;
       apps.pdfattach = { type = "app"; program = "${pkgs.poppler_utils}/bin/pdfattach"; };
       packages.pdfattach = pkgs.poppler_utils;
       apps.pdfdetach = { type = "app"; program = "${pkgs.poppler_utils}/bin/pdfdetach"; };
@@ -1036,14 +1018,6 @@
       packages.profile-cleaner = pkgs.profile-cleaner;
       apps.progress = { type = "app"; program = "${pkgs.progress}/bin/progress"; };
       packages.progress = pkgs.progress;
-      apps.proxychains4 = { type = "app"; program = "${pkgs.proxychains-ng}/bin/proxychains4"; };
-      packages.proxychains4 = pkgs.proxychains-ng;
-      apps.proxychains4-daemon = { type = "app"; program = "${pkgs.proxychains-ng}/bin/proxychains4-daemon"; };
-      packages.proxychains4-daemon = pkgs.proxychains-ng;
-      # package doesn't contain binaries, or binary name doesn't match package name
-      packages.proxychains-ng = pkgs.proxychains-ng;
-      apps.pulseaudio-ctl = { type = "app"; program = "${pkgs.pulseaudio-ctl}/bin/pulseaudio-ctl"; };
-      packages.pulseaudio-ctl = pkgs.pulseaudio-ctl;
       apps.pv = { type = "app"; program = "${pkgs.pv}/bin/pv"; };
       packages.pv = pkgs.pv;
       apps.chardetect = { type = "app"; program = "${pkgs.python311Packages.chardet}/bin/chardetect"; };
@@ -1094,12 +1068,6 @@
       packages.svlogd = pkgs.runit;
       apps.utmpset = { type = "app"; program = "${pkgs.runit}/bin/utmpset"; };
       packages.utmpset = pkgs.runit;
-      apps.sandbox = { type = "app"; program = "${pkgs.selinux-sandbox}/bin/sandbox"; };
-      packages.sandbox = pkgs.selinux-sandbox;
-      apps.seunshare = { type = "app"; program = "${pkgs.selinux-sandbox}/bin/seunshare"; };
-      packages.seunshare = pkgs.selinux-sandbox;
-      # package doesn't contain binaries, or binary name doesn't match package name
-      packages.selinux-sandbox = pkgs.selinux-sandbox;
       apps.shellcheck = { type = "app"; program = "${pkgs.shellcheck}/bin/shellcheck"; };
       packages.shellcheck = pkgs.shellcheck;
       apps.shellharden = { type = "app"; program = "${pkgs.shellharden}/bin/shellharden"; };
@@ -1124,10 +1092,6 @@
       packages.sqlite-interactive = pkgs.sqlite-interactive;
       apps.sqlite-utils = { type = "app"; program = "${pkgs.sqlite-utils}/bin/sqlite-utils"; };
       packages.sqlite-utils = pkgs.sqlite-utils;
-      apps.stc = { type = "app"; program = "${pkgs.stc-cli}/bin/stc"; };
-      packages.stc = pkgs.stc-cli;
-      # package doesn't contain binaries, or binary name doesn't match package name
-      packages.stc-cli = pkgs.stc-cli;
       apps.strace = { type = "app"; program = "${pkgs.strace}/bin/strace"; };
       packages.strace = pkgs.strace;
       apps.strace-log-merge = { type = "app"; program = "${pkgs.strace}/bin/strace-log-merge"; };
@@ -1174,8 +1138,6 @@
       packages.uni = pkgs.uni;
       apps.unpaper = { type = "app"; program = "${pkgs.unpaper}/bin/unpaper"; };
       packages.unpaper = pkgs.unpaper;
-      apps.upnp-router-control = { type = "app"; program = "${pkgs.upnp-router-control}/bin/upnp-router-control"; };
-      packages.upnp-router-control = pkgs.upnp-router-control;
       apps.usbtop = { type = "app"; program = "${pkgs.usbtop}/bin/usbtop"; };
       packages.usbtop = pkgs.usbtop;
       apps.vips = { type = "app"; program = "${pkgs.vips}/bin/vips"; };
@@ -1188,14 +1150,18 @@
       packages.vipsprofile = pkgs.vips;
       apps.vipsthumbnail = { type = "app"; program = "${pkgs.vips}/bin/vipsthumbnail"; };
       packages.vipsthumbnail = pkgs.vips;
-      apps.waifu2x-converter-cpp = { type = "app"; program = "${pkgs.waifu2x-converter-cpp}/bin/waifu2x-converter-cpp"; };
-      packages.waifu2x-converter-cpp = pkgs.waifu2x-converter-cpp;
       apps.wayland-info = { type = "app"; program = "${pkgs.wayland-utils}/bin/wayland-info"; };
       packages.wayland-info = pkgs.wayland-utils;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.wayland-utils = pkgs.wayland-utils;
       apps.waypipe = { type = "app"; program = "${pkgs.waypipe}/bin/waypipe"; };
       packages.waypipe = pkgs.waypipe;
+      apps.wayvnc = { type = "app"; program = "${pkgs.wayvnc}/bin/wayvnc"; };
+      packages.wayvnc = pkgs.wayvnc;
+      apps.wayvncctl = { type = "app"; program = "${pkgs.wayvnc}/bin/wayvncctl"; };
+      packages.wayvncctl = pkgs.wayvnc;
+      apps.wdomirror = { type = "app"; program = "${pkgs.wdomirror}/bin/wdomirror"; };
+      packages.wdomirror = pkgs.wdomirror;
       apps.wev = { type = "app"; program = "${pkgs.wev}/bin/wev"; };
       packages.wev = pkgs.wev;
       apps.wl-copy = { type = "app"; program = "${pkgs.wl-clipboard}/bin/wl-copy"; };
@@ -1210,6 +1176,8 @@
       packages.wl-present = pkgs.wl-mirror;
       apps.wlrctl = { type = "app"; program = "${pkgs.wlrctl}/bin/wlrctl"; };
       packages.wlrctl = pkgs.wlrctl;
+      # package doesn't contain binaries, or binary name doesn't match package name
+      packages.wlroots = pkgs.wlroots;
       apps.wmctrl = { type = "app"; program = "${pkgs.wmctrl}/bin/wmctrl"; };
       packages.wmctrl = pkgs.wmctrl;
       apps.wtype = { type = "app"; program = "${pkgs.wtype}/bin/wtype"; };
