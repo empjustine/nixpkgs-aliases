@@ -56,8 +56,8 @@
 {"package": "hwloc", "__comment": ""}
 {"package": "icoutils", "__comment": ""}
 {"package": "iotop", "__comment": ""}
-{"package": "isolate", "__comment": ""}
-{"package": "kio-fuse", "__comment": ""}
+{"package": "isolate", "__comment": "", "disabled": "pulls kde"}
+{"package": "kio-fuse", "__comment": "", "disabled": "pulls kde"}
 {"package": "krb5", "__comment": ""}
 {"package": "kubectl", "__comment": ""}
 {"package": "kubectl-tree", "__comment": ""}
@@ -81,10 +81,10 @@
 {"package": "mosh", "__comment": ""}
 {"package": "motif", "__comment": "", "disabled": "libsForQt5.qtstyleplugin-kvantum"}
 {"package": "ncdu", "__comment": ""}
-{"package": "ncpamixer", "__comment": ""}
+{"package": "ncpamixer", "__comment": "", "disabled": "pavucontrol sericea default"}
 {"package": "nethogs", "__comment": ""}
 {"package": "networkmanager", "__comment": ""}
-{"package": "newt", "__comment": ""}
+{"package": "newt", "__comment": "", "disabled": "use dialog instead of whiptail?"}
 {"package": "nip2", "__comment": ""}
 {"package": "nix-bundle", "__comment": ""}
 {"package": "nix-index", "__comment": ""}
@@ -159,7 +159,9 @@
 {"package": "waifu2x-converter-cpp", "__comment": ""}
 {"package": "wayland-utils", "__comment": ""}
 {"package": "waypipe", "__comment": ""}
+{"package": "wev", "__comment": ""}
 {"package": "wl-clipboard", "__comment": ""}
+{"package": "wl-mirror", "__comment": ""}
 {"package": "wlrctl", "__comment": ""}
 {"package": "wmctrl", "__comment": ""}
 {"package": "wtype", "__comment": ""}

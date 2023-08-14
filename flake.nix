@@ -620,10 +620,6 @@
       packages.icoutils = pkgs.icoutils;
       apps.iotop = { type = "app"; program = "${pkgs.iotop}/bin/iotop"; };
       packages.iotop = pkgs.iotop;
-      apps.isolate = { type = "app"; program = "${pkgs.isolate}/bin/isolate"; };
-      packages.isolate = pkgs.isolate;
-      # package doesn't contain binaries, or binary name doesn't match package name
-      packages.kio-fuse = pkgs.kio-fuse;
       apps.compile_et = { type = "app"; program = "${pkgs.krb5}/bin/compile_et"; };
       packages.compile_et = pkgs.krb5;
       apps.gss-client = { type = "app"; program = "${pkgs.krb5}/bin/gss-client"; };
@@ -782,8 +778,6 @@
       packages.mosh-server = pkgs.mosh;
       apps.ncdu = { type = "app"; program = "${pkgs.ncdu}/bin/ncdu"; };
       packages.ncdu = pkgs.ncdu;
-      apps.ncpamixer = { type = "app"; program = "${pkgs.ncpamixer}/bin/ncpamixer"; };
-      packages.ncpamixer = pkgs.ncpamixer;
       apps.nethogs = { type = "app"; program = "${pkgs.nethogs}/bin/nethogs"; };
       packages.nethogs = pkgs.nethogs;
       apps.nm-online = { type = "app"; program = "${pkgs.networkmanager}/bin/nm-online"; };
@@ -800,10 +794,6 @@
       packages.nmtui-hostname = pkgs.networkmanager;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.networkmanager = pkgs.networkmanager;
-      apps.whiptail = { type = "app"; program = "${pkgs.newt}/bin/whiptail"; };
-      packages.whiptail = pkgs.newt;
-      # package doesn't contain binaries, or binary name doesn't match package name
-      packages.newt = pkgs.newt;
       apps.nip2 = { type = "app"; program = "${pkgs.nip2}/bin/nip2"; };
       packages.nip2 = pkgs.nip2;
       apps.nix-bundle = { type = "app"; program = "${pkgs.nix-bundle}/bin/nix-bundle"; };
@@ -1206,12 +1196,18 @@
       packages.wayland-utils = pkgs.wayland-utils;
       apps.waypipe = { type = "app"; program = "${pkgs.waypipe}/bin/waypipe"; };
       packages.waypipe = pkgs.waypipe;
+      apps.wev = { type = "app"; program = "${pkgs.wev}/bin/wev"; };
+      packages.wev = pkgs.wev;
       apps.wl-copy = { type = "app"; program = "${pkgs.wl-clipboard}/bin/wl-copy"; };
       packages.wl-copy = pkgs.wl-clipboard;
       apps.wl-paste = { type = "app"; program = "${pkgs.wl-clipboard}/bin/wl-paste"; };
       packages.wl-paste = pkgs.wl-clipboard;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.wl-clipboard = pkgs.wl-clipboard;
+      apps.wl-mirror = { type = "app"; program = "${pkgs.wl-mirror}/bin/wl-mirror"; };
+      packages.wl-mirror = pkgs.wl-mirror;
+      apps.wl-present = { type = "app"; program = "${pkgs.wl-mirror}/bin/wl-present"; };
+      packages.wl-present = pkgs.wl-mirror;
       apps.wlrctl = { type = "app"; program = "${pkgs.wlrctl}/bin/wlrctl"; };
       packages.wlrctl = pkgs.wlrctl;
       apps.wmctrl = { type = "app"; program = "${pkgs.wmctrl}/bin/wmctrl"; };
