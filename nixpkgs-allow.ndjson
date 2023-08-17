@@ -149,6 +149,7 @@
 {"package": "sqlite-utils", "__comment": ""}
 {"package": "stc-cli", "__comment": "syncthing cli tool", "disabled": "broken"}
 {"package": "strace", "__comment": ""}
+{"package": "stun", "__comment": ""}
 {"package": "syncthing", "__comment": ""}
 {"package": "sysstat", "__comment": ""}
 {"package": "temurin-bin-17", "__comment": "", "disabled": "jdk17"}

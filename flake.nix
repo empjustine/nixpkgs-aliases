@@ -1022,6 +1022,8 @@
       packages.python311Packages.xattr = pkgs.python311Packages.xattr;
       apps.radeontop = { type = "app"; program = "${pkgs.radeontop}/bin/radeontop"; };
       packages.radeontop = pkgs.radeontop;
+      apps.rancher = { type = "app"; program = "${pkgs.rancher}/bin/rancher"; };
+      packages.rancher = pkgs.rancher;
       apps.rclone = { type = "app"; program = "${pkgs.rclone}/bin/rclone"; };
       packages.rclone = pkgs.rclone;
       apps.rfc = { type = "app"; program = "${pkgs.rfc}/bin/rfc"; };
@@ -1084,6 +1086,8 @@
       packages.strace = pkgs.strace;
       apps.strace-log-merge = { type = "app"; program = "${pkgs.strace}/bin/strace-log-merge"; };
       packages.strace-log-merge = pkgs.strace;
+      apps.stun = { type = "app"; program = "${pkgs.stun}/bin/stun"; };
+      packages.stun = pkgs.stun;
       apps.syncthing = { type = "app"; program = "${pkgs.syncthing}/bin/syncthing"; };
       packages.syncthing = pkgs.syncthing;
       apps.cifsiostat = { type = "app"; program = "${pkgs.sysstat}/bin/cifsiostat"; };
@@ -1194,8 +1198,6 @@
       packages.zstdcat = pkgs.zstd;
       apps.zstdmt = { type = "app"; program = "${pkgs.zstd}/bin/zstdmt"; };
       packages.zstdmt = pkgs.zstd;
-      apps.rancher = { type = "app"; program = "${pkgs.rancher}/bin/rancher"; };
-      packages.rancher = pkgs.rancher;
 
       # special case for git-gui, from /libexec/git-core/git-gui
       apps.git-gui = { type = "app"; program = "${pkgs.gitFull}/libexec/git-core/git-gui"; };
