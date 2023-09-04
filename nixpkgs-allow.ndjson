@@ -9,20 +9,23 @@
 {"package": "bash-preexec", "__comment": ""}
 {"package": "bcc", "__comment": ""}
 {"package": "bchunk", "__comment": ""}
+{"package": "bindfs", "__comment": "bind with fuse"}
 {"package": "bitwarden-cli", "__comment": ""}
 {"package": "black", "__comment": ""}
 {"package": "borgbackup", "__comment": ""}
 {"package": "brightnessctl", "__comment": "", "disabled": "tmp"}
 {"package": "bsdiff", "__comment": ""}
+{"package": "btfs", "__comment": "bittorent fuse"}
 {"package": "btop", "__comment": ""}
-{"package": "cdesktopenv", "__comment": "", "disabled": "libsForQt5.qtstyleplugin-kvantum"}
+{"package": "cdesktopenv", "__comment": "libsForQt5.qtstyleplugin-kvantum", "disabled": "tmp"}
 {"package": "chars", "__comment": ""}
 {"package": "cicero-tui", "__comment": ""}
+{"package": "cntr", "__comment": "attach host to container"}
 {"package": "cool-retro-term", "__comment": "", "disabled": "broken"}
 {"package": "csvs-to-sqlite", "__comment": ""}
 {"package": "czkawka", "__comment": ""}
 {"package": "dar", "__comment": ""}
-{"package": "dbeaver", "__comment": "", "disabled": "pulls jdk17, flatpak avaliable"}
+{"package": "dbeaver", "__comment": "", "disabled": "flatpak avaliable"}
 {"package": "ddcutil", "__comment": "", "disabled": "tmp"}
 {"package": "deno", "__comment": ""}
 {"package": "dialog", "__comment": ""}
@@ -32,23 +35,27 @@
 {"package": "docker-buildx", "__comment": ""}
 {"package": "docker-client", "__comment": ""}
 {"package": "docker-compose", "__comment": ""}
+{"package": "envfs", "__comment": "fuse mount /usr/bin with $PATH for nix", "disabled": "tmp"}
 {"package": "Fabric", "__comment": ""}
 {"package": "ffmpeg_6-headless", "__comment": "", "disabled": "unstable"}
 {"package": "ffmpeg-headless", "__comment": ""}
-{"package": "fnott", "__comment": "wlroots notification daemon"}
+{"package": "fnott", "__comment": "wlroots notification daemon", "disabled": "tmp"}
 {"package": "fossil", "__comment": ""}
 {"package": "fribidi", "__comment": "yt-dlp dependency"}
 {"package": "fuseiso", "__comment": "", "disabled": "tmp"}
-{"package": "gamescope", "__comment": "", "disabled": "broken"}
+{"package": "gamescope", "__comment": "", "disabled": "steam container"}
 {"package": "gifsicle", "__comment": ""}
 {"package": "git-filter-repo", "__comment": ""}
+{"package": "gitfs", "__comment": "git fuse"}
 {"package": "gitFull", "__comment": ""}
 {"package": "git-lfs", "__comment": ""}
 {"package": "gitui", "__comment": ""}
 {"package": "gnome.file-roller", "__comment": "gnome archive file manager", "disabled": "tmp"}
+{"package": "gnome.gvfs", "__comment": "",  "disabled": "gvfs"}
 {"package": "gnome.zenity", "__comment": "", "disabled": "use dialog"}
 {"package": "gnupatch", "__comment": ""}
 {"package": "graphviz", "__comment": ""}
+{"package": "gvfs", "__comment": ""}
 {"package": "helvum", "__comment": "", "disabled": "flatpak avaliable"}
 {"package": "hivemind", "__comment": ""}
 {"package": "hocr-tools", "__comment": ""}
@@ -64,13 +71,13 @@
 {"package": "kubectl", "__comment": ""}
 {"package": "kubectl-tree", "__comment": "", "disabled": "tmp"}
 {"package": "leptonica", "__comment": ""}
-{"package": "libaom", "__comment": "", "disabled": "tmp"}
+{"package": "libaom", "__comment": "", "disabled": "sericea default"}
 {"package": "libarchive", "__comment": "bsdtar bsdcpio bsdcat"}
 {"package": "libavif", "__comment": "", "disabled": "tmp"}
 {"package": "libjxl", "__comment": ""}
 {"package": "libsForQt5.ark", "__comment": "kde archive file manager", "disabled": "tmp"}
 {"package": "libsForQt5.kdeconnect-kde", "__comment": "", "disabled": "tmp"}
-{"package": "libsForQt5.qtstyleplugin-kvantum", "__comment": "", "disabled": "Commonality kde+kvantum CDE theme"}
+{"package": "libsForQt5.qtstyleplugin-kvantum", "__comment": "Commonality kde+kvantum CDE theme", "disabled": "tmp"}
 {"package": "libuchardet", "__comment": ""}
 {"package": "libwebp", "__comment": ""}
 {"package": "light", "__comment": "", "disabled": "tmp"}
@@ -89,7 +96,7 @@
 {"package": "nethogs", "__comment": ""}
 {"package": "networkmanager", "__comment": ""}
 {"package": "newt", "__comment": "whiptail", "disabled": "use dialog"}
-{"package": "nip2", "__comment": "vips gui", "disabled": "tmp"}
+{"package": "nip2", "__comment": "vips gui", "disabled": "gui"}
 {"package": "nix-bundle", "__comment": ""}
 {"package": "nix-index", "__comment": ""}
 {"package": "nixos-rebuild", "__comment": ""}
@@ -108,7 +115,7 @@
 {"package": "overmind", "__comment": ""}
 {"package": "par2cmdline", "__comment": ""}
 {"package": "parallel", "__comment": ""}
-{"package": "pavucontrol", "__comment": "", "disabled": "pavucontrol sericea default"}
+{"package": "pavucontrol", "__comment": "", "disabled": "sericea default"}
 {"package": "pdfgrep", "__comment": ""}
 {"package": "perf-tools", "__comment": ""}
 {"package": "pikchr", "__comment": ""}
@@ -130,6 +137,7 @@
 {"package": "radeontop", "__comment": ""}
 {"package": "rancher", "__comment": ""}
 {"package": "rclone", "__comment": ""}
+{"package": "rewritefs", "__comment": "mod_rewrite for filesystems with fuse", "disabled": "tmp"}
 {"package": "rfc", "__comment": ""}
 {"package": "rocm-smi", "__comment": ""}
 {"package": "roc-toolkit", "__comment": ""}
@@ -142,12 +150,13 @@
 {"package": "shellharden", "__comment": ""}
 {"package": "shfmt", "__comment": ""}
 {"package": "sipcalc", "__comment": ""}
+{"package": "speechd", "__comment": "speech-dispatcher", "disabled": "tmp"}
 {"package": "sqlar", "__comment": ""}
 {"package": "sqldiff", "__comment": ""}
 {"package": "sqlite-analyzer", "__comment": ""}
 {"package": "sqlite-interactive", "__comment": ""}
 {"package": "sqlite-utils", "__comment": ""}
-{"package": "stc-cli", "__comment": "syncthing cli tool", "disabled": "broken"}
+{"package": "squashfuse", "__comment": "squashfs fuse"}
 {"package": "strace", "__comment": ""}
 {"package": "stun", "__comment": ""}
 {"package": "syncthing", "__comment": ""}
@@ -158,13 +167,12 @@
 {"package": "transmission", "__comment": ""}
 {"package": "uni", "__comment": "inspect unicode codepoints"}
 {"package": "unpaper", "__comment": ""}
-{"package": "upnp-router-control", "__comment": "", "disabled": "gui, use miniupnpc(upnpc) instead"}
 {"package": "usbtop", "__comment": ""}
 {"package": "vips", "__comment": ""}
 {"package": "waifu2x-converter-cpp", "__comment": "", "disabled": "tmp"}
 {"package": "wayland-utils", "__comment": ""}
 {"package": "waypipe", "__comment": ""}
-{"package": "wayvnc", "__comment": "", "disabled": "tmp"}
+{"package": "wayvnc", "__comment": ""}
 {"package": "wdomirror", "__comment": ""}
 {"package": "wev", "__comment": ""}
 {"package": "wl-clipboard", "__comment": ""}
@@ -173,8 +181,9 @@
 {"package": "wlroots", "__comment": ""}
 {"package": "wmctrl", "__comment": ""}
 {"package": "wtype", "__comment": ""}
+{"package": "xterm", "__comment": ""}
 {"package": "zarchive", "__comment": ""}
 {"package": "zathura", "__comment": ""}
 {"package": "zbar", "__comment": ""}
-{"package": "zint", "__comment": "", "disabled": "pulls qt"}
+{"package": "zint", "__comment": "", "disabled": "gui"}
 {"package": "zstd", "__comment": ""}
