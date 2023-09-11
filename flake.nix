@@ -314,6 +314,10 @@
       packages.bcc = pkgs.bcc;
       apps.bchunk = { type = "app"; program = "${pkgs.bchunk}/bin/bchunk"; };
       packages.bchunk = pkgs.bchunk;
+      apps.bindfs = { type = "app"; program = "${pkgs.bindfs}/bin/bindfs"; };
+      packages.bindfs = pkgs.bindfs;
+      apps."mount.fuse.bindfs" = { type = "app"; program = "${pkgs.bindfs}/bin/mount.fuse.bindfs"; };
+      packages."mount.fuse.bindfs" = pkgs.bindfs;
       apps.bw = { type = "app"; program = "${pkgs.bitwarden-cli}/lib/node_modules/.bin/bw"; };
       packages.bw = pkgs.bitwarden-cli;
       # package doesn't contain binaries, or binary name doesn't match package name
@@ -332,6 +336,12 @@
       packages.bsdiff = pkgs.bsdiff;
       apps.bspatch = { type = "app"; program = "${pkgs.bsdiff}/bin/bspatch"; };
       packages.bspatch = pkgs.bsdiff;
+      apps.btfs = { type = "app"; program = "${pkgs.btfs}/bin/btfs"; };
+      packages.btfs = pkgs.btfs;
+      apps.btfsstat = { type = "app"; program = "${pkgs.btfs}/bin/btfsstat"; };
+      packages.btfsstat = pkgs.btfs;
+      apps.btplay = { type = "app"; program = "${pkgs.btfs}/bin/btplay"; };
+      packages.btplay = pkgs.btfs;
       apps.btop = { type = "app"; program = "${pkgs.btop}/bin/btop"; };
       packages.btop = pkgs.btop;
       apps.chars = { type = "app"; program = "${pkgs.chars}/bin/chars"; };
@@ -340,6 +350,8 @@
       packages.cicero = pkgs.cicero-tui;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.cicero-tui = pkgs.cicero-tui;
+      apps.cntr = { type = "app"; program = "${pkgs.cntr}/bin/cntr"; };
+      packages.cntr = pkgs.cntr;
       apps.csvs-to-sqlite = { type = "app"; program = "${pkgs.csvs-to-sqlite}/bin/csvs-to-sqlite"; };
       packages.csvs-to-sqlite = pkgs.csvs-to-sqlite;
       apps.czkawka_cli = { type = "app"; program = "${pkgs.czkawka}/bin/czkawka_cli"; };
@@ -400,10 +412,6 @@
       packages.ffprobe = pkgs.ffmpeg-headless;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.ffmpeg-headless = pkgs.ffmpeg-headless;
-      apps.fnott = { type = "app"; program = "${pkgs.fnott}/bin/fnott"; };
-      packages.fnott = pkgs.fnott;
-      apps.fnottctl = { type = "app"; program = "${pkgs.fnott}/bin/fnottctl"; };
-      packages.fnottctl = pkgs.fnott;
       apps.fossil = { type = "app"; program = "${pkgs.fossil}/bin/fossil"; };
       packages.fossil = pkgs.fossil;
       apps.fribidi = { type = "app"; program = "${pkgs.fribidi}/bin/fribidi"; };
@@ -414,28 +422,30 @@
       packages.gifsicle = pkgs.gifsicle;
       apps.git-filter-repo = { type = "app"; program = "${pkgs.git-filter-repo}/bin/git-filter-repo"; };
       packages.git-filter-repo = pkgs.git-filter-repo;
-      apps.git-credential-libsecret = { type = "app"; program = "${pkgs.gitFull}/bin/git-credential-libsecret"; };
-      packages.git-credential-libsecret = pkgs.gitFull;
+      apps.gitfs = { type = "app"; program = "${pkgs.gitfs}/bin/gitfs"; };
+      packages.gitfs = pkgs.gitfs;
       apps.git-credential-netrc = { type = "app"; program = "${pkgs.gitFull}/bin/git-credential-netrc"; };
       packages.git-credential-netrc = pkgs.gitFull;
       apps.git-cvsserver = { type = "app"; program = "${pkgs.gitFull}/bin/git-cvsserver"; };
       packages.git-cvsserver = pkgs.gitFull;
+      apps.git-shell = { type = "app"; program = "${pkgs.gitFull}/bin/git-shell"; };
+      packages.git-shell = pkgs.gitFull;
+      apps.scalar = { type = "app"; program = "${pkgs.gitFull}/bin/scalar"; };
+      packages.scalar = pkgs.gitFull;
+      apps.git-credential-libsecret = { type = "app"; program = "${pkgs.gitFull}/bin/git-credential-libsecret"; };
+      packages.git-credential-libsecret = pkgs.gitFull;
       apps.git-http-backend = { type = "app"; program = "${pkgs.gitFull}/bin/git-http-backend"; };
       packages.git-http-backend = pkgs.gitFull;
       apps.git-jump = { type = "app"; program = "${pkgs.gitFull}/bin/git-jump"; };
       packages.git-jump = pkgs.gitFull;
       apps.git-receive-pack = { type = "app"; program = "${pkgs.gitFull}/bin/git-receive-pack"; };
       packages.git-receive-pack = pkgs.gitFull;
-      apps.git-shell = { type = "app"; program = "${pkgs.gitFull}/bin/git-shell"; };
-      packages.git-shell = pkgs.gitFull;
-      apps.gitk = { type = "app"; program = "${pkgs.gitFull}/bin/gitk"; };
-      packages.gitk = pkgs.gitFull;
-      apps.scalar = { type = "app"; program = "${pkgs.gitFull}/bin/scalar"; };
-      packages.scalar = pkgs.gitFull;
       apps.git-upload-archive = { type = "app"; program = "${pkgs.gitFull}/bin/git-upload-archive"; };
       packages.git-upload-archive = pkgs.gitFull;
       apps.git-upload-pack = { type = "app"; program = "${pkgs.gitFull}/bin/git-upload-pack"; };
       packages.git-upload-pack = pkgs.gitFull;
+      apps.gitk = { type = "app"; program = "${pkgs.gitFull}/bin/gitk"; };
+      packages.gitk = pkgs.gitFull;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.gitFull = pkgs.gitFull;
       apps.git-lfs = { type = "app"; program = "${pkgs.git-lfs}/bin/git-lfs"; };
@@ -468,8 +478,6 @@
       packages.dot_builtins = pkgs.graphviz;
       apps.edgepaint = { type = "app"; program = "${pkgs.graphviz}/bin/edgepaint"; };
       packages.edgepaint = pkgs.graphviz;
-      apps.fdp = { type = "app"; program = "${pkgs.graphviz}/bin/fdp"; };
-      packages.fdp = pkgs.graphviz;
       apps.gc = { type = "app"; program = "${pkgs.graphviz}/bin/gc"; };
       packages.gc = pkgs.graphviz;
       apps.gml2gv = { type = "app"; program = "${pkgs.graphviz}/bin/gml2gv"; };
@@ -478,8 +486,6 @@
       packages.graphml2gv = pkgs.graphviz;
       apps.gv2gml = { type = "app"; program = "${pkgs.graphviz}/bin/gv2gml"; };
       packages.gv2gml = pkgs.graphviz;
-      apps.gv2gxl = { type = "app"; program = "${pkgs.graphviz}/bin/gv2gxl"; };
-      packages.gv2gxl = pkgs.graphviz;
       apps.gvcolor = { type = "app"; program = "${pkgs.graphviz}/bin/gvcolor"; };
       packages.gvcolor = pkgs.graphviz;
       apps.gvgen = { type = "app"; program = "${pkgs.graphviz}/bin/gvgen"; };
@@ -492,36 +498,42 @@
       packages.gvpack = pkgs.graphviz;
       apps.gvpr = { type = "app"; program = "${pkgs.graphviz}/bin/gvpr"; };
       packages.gvpr = pkgs.graphviz;
-      apps.gxl2dot = { type = "app"; program = "${pkgs.graphviz}/bin/gxl2dot"; };
-      packages.gxl2dot = pkgs.graphviz;
       apps.gxl2gv = { type = "app"; program = "${pkgs.graphviz}/bin/gxl2gv"; };
       packages.gxl2gv = pkgs.graphviz;
       apps.mm2gv = { type = "app"; program = "${pkgs.graphviz}/bin/mm2gv"; };
       packages.mm2gv = pkgs.graphviz;
-      apps.neato = { type = "app"; program = "${pkgs.graphviz}/bin/neato"; };
-      packages.neato = pkgs.graphviz;
       apps.nop = { type = "app"; program = "${pkgs.graphviz}/bin/nop"; };
       packages.nop = pkgs.graphviz;
-      apps.osage = { type = "app"; program = "${pkgs.graphviz}/bin/osage"; };
-      packages.osage = pkgs.graphviz;
-      apps.patchwork = { type = "app"; program = "${pkgs.graphviz}/bin/patchwork"; };
-      packages.patchwork = pkgs.graphviz;
       apps.prune = { type = "app"; program = "${pkgs.graphviz}/bin/prune"; };
       packages.prune = pkgs.graphviz;
       apps.sccmap = { type = "app"; program = "${pkgs.graphviz}/bin/sccmap"; };
       packages.sccmap = pkgs.graphviz;
-      apps.sfdp = { type = "app"; program = "${pkgs.graphviz}/bin/sfdp"; };
-      packages.sfdp = pkgs.graphviz;
       apps.tred = { type = "app"; program = "${pkgs.graphviz}/bin/tred"; };
       packages.tred = pkgs.graphviz;
-      apps.twopi = { type = "app"; program = "${pkgs.graphviz}/bin/twopi"; };
-      packages.twopi = pkgs.graphviz;
       apps.unflatten = { type = "app"; program = "${pkgs.graphviz}/bin/unflatten"; };
       packages.unflatten = pkgs.graphviz;
       apps.vimdot = { type = "app"; program = "${pkgs.graphviz}/bin/vimdot"; };
       packages.vimdot = pkgs.graphviz;
+      apps.fdp = { type = "app"; program = "${pkgs.graphviz}/bin/fdp"; };
+      packages.fdp = pkgs.graphviz;
+      apps.gv2gxl = { type = "app"; program = "${pkgs.graphviz}/bin/gv2gxl"; };
+      packages.gv2gxl = pkgs.graphviz;
+      apps.gxl2dot = { type = "app"; program = "${pkgs.graphviz}/bin/gxl2dot"; };
+      packages.gxl2dot = pkgs.graphviz;
+      apps.neato = { type = "app"; program = "${pkgs.graphviz}/bin/neato"; };
+      packages.neato = pkgs.graphviz;
+      apps.osage = { type = "app"; program = "${pkgs.graphviz}/bin/osage"; };
+      packages.osage = pkgs.graphviz;
+      apps.patchwork = { type = "app"; program = "${pkgs.graphviz}/bin/patchwork"; };
+      packages.patchwork = pkgs.graphviz;
+      apps.sfdp = { type = "app"; program = "${pkgs.graphviz}/bin/sfdp"; };
+      packages.sfdp = pkgs.graphviz;
+      apps.twopi = { type = "app"; program = "${pkgs.graphviz}/bin/twopi"; };
+      packages.twopi = pkgs.graphviz;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.graphviz = pkgs.graphviz;
+      # package doesn't contain binaries, or binary name doesn't match package name
+      packages.gvfs = pkgs.gvfs;
       apps.hivemind = { type = "app"; program = "${pkgs.hivemind}/bin/hivemind"; };
       packages.hivemind = pkgs.hivemind;
       apps.hocr-check = { type = "app"; program = "${pkgs.hocr-tools}/bin/hocr-check"; };
@@ -592,8 +604,6 @@
       packages.hwloc-patch = pkgs.hwloc;
       apps.hwloc-ps = { type = "app"; program = "${pkgs.hwloc}/bin/hwloc-ps"; };
       packages.hwloc-ps = pkgs.hwloc;
-      apps.lstopo = { type = "app"; program = "${pkgs.hwloc}/bin/lstopo"; };
-      packages.lstopo = pkgs.hwloc;
       apps.lstopo-no-graphics = { type = "app"; program = "${pkgs.hwloc}/bin/lstopo-no-graphics"; };
       packages.lstopo-no-graphics = pkgs.hwloc;
       apps.netloc_draw_to_json = { type = "app"; program = "${pkgs.hwloc}/bin/netloc_draw_to_json"; };
@@ -602,6 +612,8 @@
       packages.netloc_ib_extract_dats = pkgs.hwloc;
       apps.netloc_ib_gather_raw = { type = "app"; program = "${pkgs.hwloc}/bin/netloc_ib_gather_raw"; };
       packages.netloc_ib_gather_raw = pkgs.hwloc;
+      apps.lstopo = { type = "app"; program = "${pkgs.hwloc}/bin/lstopo"; };
+      packages.lstopo = pkgs.hwloc;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.hwloc = pkgs.hwloc;
       apps.iotop = { type = "app"; program = "${pkgs.iotop}/bin/iotop"; };
@@ -838,8 +850,6 @@
       packages.openal-info = pkgs.openal;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.openal = pkgs.openal;
-      apps.ldapadd = { type = "app"; program = "${pkgs.openldap}/bin/ldapadd"; };
-      packages.ldapadd = pkgs.openldap;
       apps.ldapcompare = { type = "app"; program = "${pkgs.openldap}/bin/ldapcompare"; };
       packages.ldapcompare = pkgs.openldap;
       apps.ldapdelete = { type = "app"; program = "${pkgs.openldap}/bin/ldapdelete"; };
@@ -860,6 +870,8 @@
       packages.ldapvc = pkgs.openldap;
       apps.ldapwhoami = { type = "app"; program = "${pkgs.openldap}/bin/ldapwhoami"; };
       packages.ldapwhoami = pkgs.openldap;
+      apps.ldapadd = { type = "app"; program = "${pkgs.openldap}/bin/ldapadd"; };
+      packages.ldapadd = pkgs.openldap;
       apps.slapacl = { type = "app"; program = "${pkgs.openldap}/bin/slapacl"; };
       packages.slapacl = pkgs.openldap;
       apps.slapadd = { type = "app"; program = "${pkgs.openldap}/bin/slapadd"; };
@@ -1082,6 +1094,10 @@
       packages.sqlite-interactive = pkgs.sqlite-interactive;
       apps.sqlite-utils = { type = "app"; program = "${pkgs.sqlite-utils}/bin/sqlite-utils"; };
       packages.sqlite-utils = pkgs.sqlite-utils;
+      apps.squashfuse = { type = "app"; program = "${pkgs.squashfuse}/bin/squashfuse"; };
+      packages.squashfuse = pkgs.squashfuse;
+      apps.squashfuse_ll = { type = "app"; program = "${pkgs.squashfuse}/bin/squashfuse_ll"; };
+      packages.squashfuse_ll = pkgs.squashfuse;
       apps.strace = { type = "app"; program = "${pkgs.strace}/bin/strace"; };
       packages.strace = pkgs.strace;
       apps.strace-log-merge = { type = "app"; program = "${pkgs.strace}/bin/strace-log-merge"; };
@@ -1112,6 +1128,8 @@
       packages.ptiptop = pkgs.tiptop;
       apps.tiptop = { type = "app"; program = "${pkgs.tiptop}/bin/tiptop"; };
       packages.tiptop = pkgs.tiptop;
+      apps.tmux = { type = "app"; program = "${pkgs.tmux}/bin/tmux"; };
+      packages.tmux = pkgs.tmux;
       apps.transmission-cli = { type = "app"; program = "${pkgs.transmission}/bin/transmission-cli"; };
       packages.transmission-cli = pkgs.transmission;
       apps.transmission-create = { type = "app"; program = "${pkgs.transmission}/bin/transmission-create"; };
@@ -1148,6 +1166,10 @@
       packages.wayland-utils = pkgs.wayland-utils;
       apps.waypipe = { type = "app"; program = "${pkgs.waypipe}/bin/waypipe"; };
       packages.waypipe = pkgs.waypipe;
+      apps.wayvnc = { type = "app"; program = "${pkgs.wayvnc}/bin/wayvnc"; };
+      packages.wayvnc = pkgs.wayvnc;
+      apps.wayvncctl = { type = "app"; program = "${pkgs.wayvnc}/bin/wayvncctl"; };
+      packages.wayvncctl = pkgs.wayvnc;
       apps.wdomirror = { type = "app"; program = "${pkgs.wdomirror}/bin/wdomirror"; };
       packages.wdomirror = pkgs.wdomirror;
       apps.wev = { type = "app"; program = "${pkgs.wev}/bin/wev"; };
@@ -1170,20 +1192,18 @@
       packages.wmctrl = pkgs.wmctrl;
       apps.wtype = { type = "app"; program = "${pkgs.wtype}/bin/wtype"; };
       packages.wtype = pkgs.wtype;
+      apps.koi8rxterm = { type = "app"; program = "${pkgs.xterm}/bin/koi8rxterm"; };
+      packages.koi8rxterm = pkgs.xterm;
+      apps.resize = { type = "app"; program = "${pkgs.xterm}/bin/resize"; };
+      packages.resize = pkgs.xterm;
+      apps.uxterm = { type = "app"; program = "${pkgs.xterm}/bin/uxterm"; };
+      packages.uxterm = pkgs.xterm;
+      apps.xterm = { type = "app"; program = "${pkgs.xterm}/bin/xterm"; };
+      packages.xterm = pkgs.xterm;
       apps.zarchive = { type = "app"; program = "${pkgs.zarchive}/bin/zarchive"; };
       packages.zarchive = pkgs.zarchive;
       apps.zathura = { type = "app"; program = "${pkgs.zathura}/bin/zathura"; };
       packages.zathura = pkgs.zathura;
-      apps.zbarcam = { type = "app"; program = "${pkgs.zbar}/bin/zbarcam"; };
-      packages.zbarcam = pkgs.zbar;
-      apps.zbarcam-gtk = { type = "app"; program = "${pkgs.zbar}/bin/zbarcam-gtk"; };
-      packages.zbarcam-gtk = pkgs.zbar;
-      apps.zbarcam-qt = { type = "app"; program = "${pkgs.zbar}/bin/zbarcam-qt"; };
-      packages.zbarcam-qt = pkgs.zbar;
-      apps.zbarimg = { type = "app"; program = "${pkgs.zbar}/bin/zbarimg"; };
-      packages.zbarimg = pkgs.zbar;
-      # package doesn't contain binaries, or binary name doesn't match package name
-      packages.zbar = pkgs.zbar;
       apps.pzstd = { type = "app"; program = "${pkgs.zstd}/bin/pzstd"; };
       packages.pzstd = pkgs.zstd;
       apps.unzstd = { type = "app"; program = "${pkgs.zstd}/bin/unzstd"; };
