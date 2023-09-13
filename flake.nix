@@ -386,12 +386,12 @@
       packages.nsupdate = pkgs.dig;
       apps.dive = { type = "app"; program = "${pkgs.dive}/bin/dive"; };
       packages.dive = pkgs.dive;
-      apps.dmtxquery = { type = "app"; program = "${pkgs.dmtx-utils}/bin/dmtxquery"; };
-      packages.dmtxquery = pkgs.dmtx-utils;
       apps.dmtxread = { type = "app"; program = "${pkgs.dmtx-utils}/bin/dmtxread"; };
       packages.dmtxread = pkgs.dmtx-utils;
       apps.dmtxwrite = { type = "app"; program = "${pkgs.dmtx-utils}/bin/dmtxwrite"; };
       packages.dmtxwrite = pkgs.dmtx-utils;
+      apps.dmtxquery = { type = "app"; program = "${pkgs.dmtx-utils}/bin/dmtxquery"; };
+      packages.dmtxquery = pkgs.dmtx-utils;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.dmtx-utils = pkgs.dmtx-utils;
       apps.docker-buildx = { type = "app"; program = "${pkgs.docker-buildx}/bin/docker-buildx"; };
@@ -624,8 +624,6 @@
       packages.gss-client = pkgs.krb5;
       apps.gss-server = { type = "app"; program = "${pkgs.krb5}/bin/gss-server"; };
       packages.gss-server = pkgs.krb5;
-      apps.k5srvutil = { type = "app"; program = "${pkgs.krb5}/bin/k5srvutil"; };
-      packages.k5srvutil = pkgs.krb5;
       apps.kadmin = { type = "app"; program = "${pkgs.krb5}/bin/kadmin"; };
       packages.kadmin = pkgs.krb5;
       apps."kadmin.local" = { type = "app"; program = "${pkgs.krb5}/bin/kadmin.local"; };
@@ -648,8 +646,6 @@
       packages.kpropd = pkgs.krb5;
       apps.kproplog = { type = "app"; program = "${pkgs.krb5}/bin/kproplog"; };
       packages.kproplog = pkgs.krb5;
-      apps.krb5-send-pr = { type = "app"; program = "${pkgs.krb5}/bin/krb5-send-pr"; };
-      packages.krb5-send-pr = pkgs.krb5;
       apps.krb5kdc = { type = "app"; program = "${pkgs.krb5}/bin/krb5kdc"; };
       packages.krb5kdc = pkgs.krb5;
       apps.ksu = { type = "app"; program = "${pkgs.krb5}/bin/ksu"; };
@@ -672,6 +668,10 @@
       packages.uuclient = pkgs.krb5;
       apps.uuserver = { type = "app"; program = "${pkgs.krb5}/bin/uuserver"; };
       packages.uuserver = pkgs.krb5;
+      apps.k5srvutil = { type = "app"; program = "${pkgs.krb5}/bin/k5srvutil"; };
+      packages.k5srvutil = pkgs.krb5;
+      apps.krb5-send-pr = { type = "app"; program = "${pkgs.krb5}/bin/krb5-send-pr"; };
+      packages.krb5-send-pr = pkgs.krb5;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.krb5 = pkgs.krb5;
       apps.kubectl = { type = "app"; program = "${pkgs.kubectl}/bin/kubectl"; };
@@ -1156,10 +1156,10 @@
       packages.vipsedit = pkgs.vips;
       apps.vipsheader = { type = "app"; program = "${pkgs.vips}/bin/vipsheader"; };
       packages.vipsheader = pkgs.vips;
-      apps.vipsprofile = { type = "app"; program = "${pkgs.vips}/bin/vipsprofile"; };
-      packages.vipsprofile = pkgs.vips;
       apps.vipsthumbnail = { type = "app"; program = "${pkgs.vips}/bin/vipsthumbnail"; };
       packages.vipsthumbnail = pkgs.vips;
+      apps.vipsprofile = { type = "app"; program = "${pkgs.vips}/bin/vipsprofile"; };
+      packages.vipsprofile = pkgs.vips;
       apps.wayland-info = { type = "app"; program = "${pkgs.wayland-utils}/bin/wayland-info"; };
       packages.wayland-info = pkgs.wayland-utils;
       # package doesn't contain binaries, or binary name doesn't match package name
