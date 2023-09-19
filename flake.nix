@@ -386,12 +386,12 @@
       packages.nsupdate = pkgs.dig;
       apps.dive = { type = "app"; program = "${pkgs.dive}/bin/dive"; };
       packages.dive = pkgs.dive;
+      apps.dmtxquery = { type = "app"; program = "${pkgs.dmtx-utils}/bin/dmtxquery"; };
+      packages.dmtxquery = pkgs.dmtx-utils;
       apps.dmtxread = { type = "app"; program = "${pkgs.dmtx-utils}/bin/dmtxread"; };
       packages.dmtxread = pkgs.dmtx-utils;
       apps.dmtxwrite = { type = "app"; program = "${pkgs.dmtx-utils}/bin/dmtxwrite"; };
       packages.dmtxwrite = pkgs.dmtx-utils;
-      apps.dmtxquery = { type = "app"; program = "${pkgs.dmtx-utils}/bin/dmtxquery"; };
-      packages.dmtxquery = pkgs.dmtx-utils;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.dmtx-utils = pkgs.dmtx-utils;
       apps.docker-buildx = { type = "app"; program = "${pkgs.docker-buildx}/bin/docker-buildx"; };
@@ -424,28 +424,28 @@
       packages.git-filter-repo = pkgs.git-filter-repo;
       apps.gitfs = { type = "app"; program = "${pkgs.gitfs}/bin/gitfs"; };
       packages.gitfs = pkgs.gitfs;
+      apps.git-credential-libsecret = { type = "app"; program = "${pkgs.gitFull}/bin/git-credential-libsecret"; };
+      packages.git-credential-libsecret = pkgs.gitFull;
       apps.git-credential-netrc = { type = "app"; program = "${pkgs.gitFull}/bin/git-credential-netrc"; };
       packages.git-credential-netrc = pkgs.gitFull;
       apps.git-cvsserver = { type = "app"; program = "${pkgs.gitFull}/bin/git-cvsserver"; };
       packages.git-cvsserver = pkgs.gitFull;
-      apps.git-shell = { type = "app"; program = "${pkgs.gitFull}/bin/git-shell"; };
-      packages.git-shell = pkgs.gitFull;
-      apps.scalar = { type = "app"; program = "${pkgs.gitFull}/bin/scalar"; };
-      packages.scalar = pkgs.gitFull;
-      apps.git-credential-libsecret = { type = "app"; program = "${pkgs.gitFull}/bin/git-credential-libsecret"; };
-      packages.git-credential-libsecret = pkgs.gitFull;
       apps.git-http-backend = { type = "app"; program = "${pkgs.gitFull}/bin/git-http-backend"; };
       packages.git-http-backend = pkgs.gitFull;
       apps.git-jump = { type = "app"; program = "${pkgs.gitFull}/bin/git-jump"; };
       packages.git-jump = pkgs.gitFull;
       apps.git-receive-pack = { type = "app"; program = "${pkgs.gitFull}/bin/git-receive-pack"; };
       packages.git-receive-pack = pkgs.gitFull;
+      apps.git-shell = { type = "app"; program = "${pkgs.gitFull}/bin/git-shell"; };
+      packages.git-shell = pkgs.gitFull;
       apps.git-upload-archive = { type = "app"; program = "${pkgs.gitFull}/bin/git-upload-archive"; };
       packages.git-upload-archive = pkgs.gitFull;
       apps.git-upload-pack = { type = "app"; program = "${pkgs.gitFull}/bin/git-upload-pack"; };
       packages.git-upload-pack = pkgs.gitFull;
       apps.gitk = { type = "app"; program = "${pkgs.gitFull}/bin/gitk"; };
       packages.gitk = pkgs.gitFull;
+      apps.scalar = { type = "app"; program = "${pkgs.gitFull}/bin/scalar"; };
+      packages.scalar = pkgs.gitFull;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.gitFull = pkgs.gitFull;
       apps.git-lfs = { type = "app"; program = "${pkgs.git-lfs}/bin/git-lfs"; };
@@ -478,6 +478,8 @@
       packages.dot_builtins = pkgs.graphviz;
       apps.edgepaint = { type = "app"; program = "${pkgs.graphviz}/bin/edgepaint"; };
       packages.edgepaint = pkgs.graphviz;
+      apps.fdp = { type = "app"; program = "${pkgs.graphviz}/bin/fdp"; };
+      packages.fdp = pkgs.graphviz;
       apps.gc = { type = "app"; program = "${pkgs.graphviz}/bin/gc"; };
       packages.gc = pkgs.graphviz;
       apps.gml2gv = { type = "app"; program = "${pkgs.graphviz}/bin/gml2gv"; };
@@ -486,6 +488,8 @@
       packages.graphml2gv = pkgs.graphviz;
       apps.gv2gml = { type = "app"; program = "${pkgs.graphviz}/bin/gv2gml"; };
       packages.gv2gml = pkgs.graphviz;
+      apps.gv2gxl = { type = "app"; program = "${pkgs.graphviz}/bin/gv2gxl"; };
+      packages.gv2gxl = pkgs.graphviz;
       apps.gvcolor = { type = "app"; program = "${pkgs.graphviz}/bin/gvcolor"; };
       packages.gvcolor = pkgs.graphviz;
       apps.gvgen = { type = "app"; program = "${pkgs.graphviz}/bin/gvgen"; };
@@ -498,38 +502,34 @@
       packages.gvpack = pkgs.graphviz;
       apps.gvpr = { type = "app"; program = "${pkgs.graphviz}/bin/gvpr"; };
       packages.gvpr = pkgs.graphviz;
+      apps.gxl2dot = { type = "app"; program = "${pkgs.graphviz}/bin/gxl2dot"; };
+      packages.gxl2dot = pkgs.graphviz;
       apps.gxl2gv = { type = "app"; program = "${pkgs.graphviz}/bin/gxl2gv"; };
       packages.gxl2gv = pkgs.graphviz;
       apps.mm2gv = { type = "app"; program = "${pkgs.graphviz}/bin/mm2gv"; };
       packages.mm2gv = pkgs.graphviz;
-      apps.nop = { type = "app"; program = "${pkgs.graphviz}/bin/nop"; };
-      packages.nop = pkgs.graphviz;
-      apps.prune = { type = "app"; program = "${pkgs.graphviz}/bin/prune"; };
-      packages.prune = pkgs.graphviz;
-      apps.sccmap = { type = "app"; program = "${pkgs.graphviz}/bin/sccmap"; };
-      packages.sccmap = pkgs.graphviz;
-      apps.tred = { type = "app"; program = "${pkgs.graphviz}/bin/tred"; };
-      packages.tred = pkgs.graphviz;
-      apps.unflatten = { type = "app"; program = "${pkgs.graphviz}/bin/unflatten"; };
-      packages.unflatten = pkgs.graphviz;
-      apps.vimdot = { type = "app"; program = "${pkgs.graphviz}/bin/vimdot"; };
-      packages.vimdot = pkgs.graphviz;
-      apps.fdp = { type = "app"; program = "${pkgs.graphviz}/bin/fdp"; };
-      packages.fdp = pkgs.graphviz;
-      apps.gv2gxl = { type = "app"; program = "${pkgs.graphviz}/bin/gv2gxl"; };
-      packages.gv2gxl = pkgs.graphviz;
-      apps.gxl2dot = { type = "app"; program = "${pkgs.graphviz}/bin/gxl2dot"; };
-      packages.gxl2dot = pkgs.graphviz;
       apps.neato = { type = "app"; program = "${pkgs.graphviz}/bin/neato"; };
       packages.neato = pkgs.graphviz;
+      apps.nop = { type = "app"; program = "${pkgs.graphviz}/bin/nop"; };
+      packages.nop = pkgs.graphviz;
       apps.osage = { type = "app"; program = "${pkgs.graphviz}/bin/osage"; };
       packages.osage = pkgs.graphviz;
       apps.patchwork = { type = "app"; program = "${pkgs.graphviz}/bin/patchwork"; };
       packages.patchwork = pkgs.graphviz;
+      apps.prune = { type = "app"; program = "${pkgs.graphviz}/bin/prune"; };
+      packages.prune = pkgs.graphviz;
+      apps.sccmap = { type = "app"; program = "${pkgs.graphviz}/bin/sccmap"; };
+      packages.sccmap = pkgs.graphviz;
       apps.sfdp = { type = "app"; program = "${pkgs.graphviz}/bin/sfdp"; };
       packages.sfdp = pkgs.graphviz;
+      apps.tred = { type = "app"; program = "${pkgs.graphviz}/bin/tred"; };
+      packages.tred = pkgs.graphviz;
       apps.twopi = { type = "app"; program = "${pkgs.graphviz}/bin/twopi"; };
       packages.twopi = pkgs.graphviz;
+      apps.unflatten = { type = "app"; program = "${pkgs.graphviz}/bin/unflatten"; };
+      packages.unflatten = pkgs.graphviz;
+      apps.vimdot = { type = "app"; program = "${pkgs.graphviz}/bin/vimdot"; };
+      packages.vimdot = pkgs.graphviz;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.graphviz = pkgs.graphviz;
       # package doesn't contain binaries, or binary name doesn't match package name
@@ -822,10 +822,18 @@
       packages.eslint = pkgs.nodePackages.eslint;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.nodePackages.eslint = pkgs.nodePackages.eslint;
+      apps.eslint_d = { type = "app"; program = "${pkgs.nodePackages.eslint_d}/lib/node_modules/.bin/eslint_d"; };
+      packages.eslint_d = pkgs.nodePackages.eslint_d;
+      # package doesn't contain binaries, or binary name doesn't match package name
+      packages.nodePackages.eslint_d = pkgs.nodePackages.eslint_d;
       apps.prettier = { type = "app"; program = "${pkgs.nodePackages.prettier}/lib/node_modules/.bin/prettier"; };
       packages.prettier = pkgs.nodePackages.prettier;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.nodePackages.prettier = pkgs.nodePackages.prettier;
+      apps.prettier_d_slim = { type = "app"; program = "${pkgs.nodePackages.prettier_d_slim}/lib/node_modules/.bin/prettier_d_slim"; };
+      packages.prettier_d_slim = pkgs.nodePackages.prettier_d_slim;
+      # package doesn't contain binaries, or binary name doesn't match package name
+      packages.nodePackages.prettier_d_slim = pkgs.nodePackages.prettier_d_slim;
       apps.memhog = { type = "app"; program = "${pkgs.numactl}/bin/memhog"; };
       packages.memhog = pkgs.numactl;
       apps.migratepages = { type = "app"; program = "${pkgs.numactl}/bin/migratepages"; };
@@ -1156,10 +1164,10 @@
       packages.vipsedit = pkgs.vips;
       apps.vipsheader = { type = "app"; program = "${pkgs.vips}/bin/vipsheader"; };
       packages.vipsheader = pkgs.vips;
-      apps.vipsthumbnail = { type = "app"; program = "${pkgs.vips}/bin/vipsthumbnail"; };
-      packages.vipsthumbnail = pkgs.vips;
       apps.vipsprofile = { type = "app"; program = "${pkgs.vips}/bin/vipsprofile"; };
       packages.vipsprofile = pkgs.vips;
+      apps.vipsthumbnail = { type = "app"; program = "${pkgs.vips}/bin/vipsthumbnail"; };
+      packages.vipsthumbnail = pkgs.vips;
       apps.wayland-info = { type = "app"; program = "${pkgs.wayland-utils}/bin/wayland-info"; };
       packages.wayland-info = pkgs.wayland-utils;
       # package doesn't contain binaries, or binary name doesn't match package name

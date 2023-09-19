@@ -36,9 +36,21 @@
     "__reason": "double import"
   },
   {
+    "package": "nodePackages.eslint_d",
+    "path": "bin",
+    "bin": "eslint_d",
+    "__reason": "double import"
+  },
+  {
     "package": "nodePackages.prettier",
     "path": "bin",
     "bin": "prettier",
+    "__reason": "double import"
+  },
+  {
+    "package": "nodePackages.prettier_d_slim",
+    "path": "bin",
+    "bin": "prettier_d_slim",
     "__reason": "double import"
   },
   {

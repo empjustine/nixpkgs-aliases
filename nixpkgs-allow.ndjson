@@ -104,7 +104,9 @@
 {"package": "nix-tree", "__comment": ""}
 {"package": "nodePackages.bash-language-server", "__comment": "", "disabled": "tmp"}
 {"package": "nodePackages.eslint", "__comment": ""}
+{"package": "nodePackages.eslint_d", "__comment": ""}
 {"package": "nodePackages.prettier", "__comment": ""}
+{"package": "nodePackages.prettier_d_slim", "__comment": ""}
 {"package": "nodePackages.typescript-language-server", "__comment": "", "disabled": "tmp"}
 {"package": "nodePackages.vscode-langservers-extracted", "__comment": "", "disabled": "tmp"}
 {"package": "numactl", "__comment": ""}
