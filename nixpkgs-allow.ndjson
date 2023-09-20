@@ -3,8 +3,8 @@
 {"package": "aria", "__comment": "yt-dlp dependency"}
 {"package": "atomicparsley", "__comment": ""}
 {"package": "attr", "__comment": "yt-dlp dependency"}
-{"package": "atuin", "__comment": ""}
-{"package": "azure-cli", "__comment": ""}
+{"package": "atuin", "__comment": "shell history"}
+{"package": "azure-cli", "__comment": "", "disabled": "big"}
 {"package": "bashate", "__comment": ""}
 {"package": "bash-preexec", "__comment": ""}
 {"package": "bcc", "__comment": ""}
@@ -51,11 +51,11 @@
 {"package": "git-lfs", "__comment": ""}
 {"package": "gitui", "__comment": ""}
 {"package": "gnome.file-roller", "__comment": "gnome archive file manager", "disabled": "tmp"}
-{"package": "gnome.gvfs", "__comment": "",  "disabled": "gvfs"}
+{"package": "gnome.gvfs", "__comment": "", "disabled": "gvfs"}
 {"package": "gnome.zenity", "__comment": "", "disabled": "use dialog"}
 {"package": "gnupatch", "__comment": ""}
 {"package": "graphviz", "__comment": ""}
-{"package": "gvfs", "__comment": ""}
+{"package": "gvfs", "__comment": "", "disabled": "gvfs"}
 {"package": "helvum", "__comment": "", "disabled": "flatpak avaliable"}
 {"package": "hivemind", "__comment": ""}
 {"package": "hocr-tools", "__comment": ""}
@@ -84,7 +84,7 @@
 {"package": "lnav", "__comment": ""}
 {"package": "lshw", "__comment": ""}
 {"package": "lurk", "__comment": ""}
-{"package": "maturin", "__comment": ""}
+{"package": "maturin", "__comment": "build pypi packages with rust"}
 {"package": "minify", "__comment": ""}
 {"package": "minijail", "__comment": "", "disabled": "tmp"}
 {"package": "miniupnpc", "__comment": ""}
@@ -99,7 +99,7 @@
 {"package": "nip2", "__comment": "vips gui", "disabled": "gui"}
 {"package": "nix-bundle", "__comment": ""}
 {"package": "nix-index", "__comment": ""}
-{"package": "nixos-rebuild", "__comment": ""}
+{"package": "nixos-rebuild", "__comment": "Rebuild your NixOS configuration and switch to it, on local hosts and remote", "disabled": "tmp"}
 {"package": "nixStatic", "__comment": ""}
 {"package": "nix-tree", "__comment": ""}
 {"package": "nodePackages.bash-language-server", "__comment": "", "disabled": "tmp"}
@@ -111,10 +111,10 @@
 {"package": "nodePackages.vscode-langservers-extracted", "__comment": "", "disabled": "tmp"}
 {"package": "numactl", "__comment": ""}
 {"package": "oath-toolkit", "__comment": ""}
-{"package": "openal", "__comment": ""}
-{"package": "openldap", "__comment": ""}
+{"package": "openal", "__comment": "openal-info"}
+{"package": "openldap", "__comment": "ldapsearch"}
 {"package": "openssl", "__comment": ""}
-{"package": "overmind", "__comment": ""}
+{"package": "overmind", "__comment": "Procfile+tmux"}
 {"package": "par2cmdline", "__comment": ""}
 {"package": "parallel", "__comment": ""}
 {"package": "pavucontrol", "__comment": "", "disabled": "sericea default"}
