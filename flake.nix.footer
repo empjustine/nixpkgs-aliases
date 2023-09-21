@@ -1,4 +1,8 @@
 
+      # special case for az
+      apps.az = { type = "app"; program = "${pkgs.azure-cli}/bin/az"; };
+      packages.az = pkgs.azure-cli;
+
       # special case for git-gui, from /libexec/git-core/git-gui
       apps.git-gui = { type = "app"; program = "${pkgs.gitFull}/libexec/git-core/git-gui"; };
       packages.git-gui = pkgs.gitFull;

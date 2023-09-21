@@ -158,10 +158,10 @@ def _process_nixpkg_allow(
                 NIXPKGS_ALIASES_ALIASES_FOLDER.joinpath(_bin).symlink_to(
                     NIXPKGS_ALIASES_RUN_FILE
                 )
-    NIXPKGS_ALIASES_GCROOTS_FOLDER.joinpath(f"r-{_package_name}").symlink_to(
+    NIXPKGS_ALIASES_GCROOTS_FOLDER.joinpath(f"system-{_package_name}").symlink_to(
         pathlib.Path(_package_store_absolute_path)
     )
-    NIXPKGS_ALIASES_GCROOTS_FOLDER.joinpath(f"c-{_package_name}").symlink_to(
+    NIXPKGS_ALIASES_GCROOTS_FOLDER.joinpath(f"user-{_package_name}").symlink_to(
         pathlib.Path("../../nix/root", _package_store_relative_path)
         # nixpkgs-aliases/chroot/../../nix/root
     )

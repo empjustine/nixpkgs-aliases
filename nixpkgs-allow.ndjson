@@ -1,5 +1,5 @@
 {"package": "alejandra", "__comment": ""}
-{"package": "amdgpu_top", "__comment": ""}
+{"package": "amdgpu_top", "__comment": "", "disabled": "amdgpu"}
 {"package": "aria", "__comment": "yt-dlp dependency"}
 {"package": "atomicparsley", "__comment": ""}
 {"package": "attr", "__comment": "yt-dlp dependency"}
@@ -104,14 +104,14 @@
 {"package": "nix-tree", "__comment": ""}
 {"package": "nodePackages.bash-language-server", "__comment": "", "disabled": "tmp"}
 {"package": "nodePackages.eslint", "__comment": ""}
-{"package": "nodePackages.eslint_d", "__comment": ""}
+{"package": "nodePackages.eslint_d", "__comment": "", "disabled": "broken"}
 {"package": "nodePackages.prettier", "__comment": ""}
-{"package": "nodePackages.prettier_d_slim", "__comment": ""}
+{"package": "nodePackages.prettier_d_slim", "__comment": "", "disabled": "broken"}
 {"package": "nodePackages.typescript-language-server", "__comment": "", "disabled": "tmp"}
 {"package": "nodePackages.vscode-langservers-extracted", "__comment": "", "disabled": "tmp"}
-{"package": "numactl", "__comment": ""}
+{"package": "numactl", "__comment": "", "disabled": "tmp"}
 {"package": "oath-toolkit", "__comment": ""}
-{"package": "openal", "__comment": "openal-info"}
+{"package": "openal", "__comment": "openal-info", "disabled": "tmp"}
 {"package": "openldap", "__comment": "ldapsearch"}
 {"package": "openssl", "__comment": ""}
 {"package": "overmind", "__comment": "Procfile+tmux"}
@@ -119,29 +119,31 @@
 {"package": "parallel", "__comment": ""}
 {"package": "pavucontrol", "__comment": "", "disabled": "sericea default"}
 {"package": "pdfgrep", "__comment": ""}
-{"package": "perf-tools", "__comment": ""}
+{"package": "perf-tools", "__comment": "", "disabled": "tmp"}
 {"package": "pikchr", "__comment": ""}
-{"package": "pipectl", "__comment": ""}
+{"package": "pipectl", "__comment": "named pipe manager"}
 {"package": "pipx", "__comment": ""}
 {"package": "plantuml-c4", "__comment": "", "disabled": "pulls jdk19"}
-{"package": "playerctl", "__comment": ""}
-{"package": "podman-compose", "__comment": ""}
+{"package": "playerctl", "__comment": "CLI MPRIS media player manager"}
+{"package": "podman-compose", "__comment": "", "disabled": "tmp"}
 {"package": "poppler_utils", "__comment": "deb poppler-utils"}
-{"package": "procodile", "__comment": ""}
-{"package": "profile-cleaner", "__comment": ""}
+{"package": "procodile", "__comment": "run Procfile"}
+{"package": "profile-cleaner", "__comment": "", "disabled": "broken"}
 {"package": "progress", "__comment": ""}
 {"package": "proxychains-ng", "__comment": "", "disabled": "tmp"}
 {"package": "pulseaudio-ctl", "__comment": "", "disabled": "broken"}
 {"package": "pv", "__comment": ""}
 {"package": "python311Packages.chardet", "__comment": ""}
 {"package": "python311Packages.ftfy", "__comment": ""}
+{"package": "python311Packages.paramiko", "__comment": ""}
+{"package": "python311Packages.pyupgrade", "__comment": ""}
 {"package": "python311Packages.xattr", "__comment": "yt-dlp dependency"}
-{"package": "radeontop", "__comment": ""}
+{"package": "radeontop", "__comment": "", "disabled": "amdgpu"}
 {"package": "rancher", "__comment": ""}
 {"package": "rclone", "__comment": ""}
-{"package": "rewritefs", "__comment": "mod_rewrite for filesystems with fuse", "disabled": "tmp"}
+{"package": "rewritefs", "__comment": "mod_rewrite using fuse", "disabled": "tmp"}
 {"package": "rfc", "__comment": ""}
-{"package": "rocm-smi", "__comment": ""}
+{"package": "rocm-smi", "__comment": "", "disabled": "amdgpu"}
 {"package": "roc-toolkit", "__comment": ""}
 {"package": "ruff", "__comment": ""}
 {"package": "runit", "__comment": ""}
@@ -151,7 +153,7 @@
 {"package": "shellcheck", "__comment": ""}
 {"package": "shellharden", "__comment": ""}
 {"package": "shfmt", "__comment": ""}
-{"package": "sipcalc", "__comment": ""}
+{"package": "sipcalc", "__comment": "", "disabled": "https://docs.python.org/3/library/ipaddress.html"}
 {"package": "speechd", "__comment": "speech-dispatcher", "disabled": "tmp"}
 {"package": "sqlar", "__comment": ""}
 {"package": "sqldiff", "__comment": ""}
@@ -160,12 +162,12 @@
 {"package": "sqlite-utils", "__comment": ""}
 {"package": "squashfuse", "__comment": "squashfs fuse"}
 {"package": "strace", "__comment": ""}
-{"package": "stun", "__comment": ""}
+{"package": "stun", "__comment": "stun,stund", "disabled": "tmp"}
 {"package": "syncthing", "__comment": ""}
-{"package": "sysstat", "__comment": ""}
+{"package": "sysstat", "__comment": "tapestat,sar,pidstat,mpstat,iostat,cifsiostat,sadf"}
 {"package": "temurin-bin-17", "__comment": "", "disabled": "jdk17"}
 {"package": "tesseract", "__comment": ""}
-{"package": "tiptop", "__comment": ""}
+{"package": "tiptop", "__comment": "ptiptop,tiptop"}
 {"package": "tmux", "__comment": ""}
 {"package": "transmission", "__comment": ""}
 {"package": "uni", "__comment": "inspect unicode codepoints"}
@@ -176,18 +178,17 @@
 {"package": "waifu2x-converter-cpp", "__comment": "", "disabled": "tmp"}
 {"package": "wayland-utils", "__comment": ""}
 {"package": "waypipe", "__comment": ""}
-{"package": "wayvnc", "__comment": ""}
-{"package": "wdomirror", "__comment": ""}
+{"package": "wayvnc", "__comment": "wlroots vnc"}
+{"package": "wdomirror", "__comment": "wlroots output mirror to a window"}
 {"package": "wev", "__comment": ""}
 {"package": "wl-clipboard", "__comment": ""}
 {"package": "wl-mirror", "__comment": ""}
-{"package": "wlrctl", "__comment": ""}
+{"package": "wlrctl", "__comment": "wlroots extensions manager"}
 {"package": "wlroots", "__comment": ""}
 {"package": "wmctrl", "__comment": ""}
 {"package": "wtype", "__comment": ""}
 {"package": "xterm", "__comment": ""}
-{"package": "zarchive", "__comment": ""}
-{"package": "zarchive", "__comment": "", "disabled": "tmp"}
+{"package": "zarchive", "__comment": "zstd-compressed file archives (.zar) with random-access reads", "disabled": "tmp"}
 {"package": "zathura", "__comment": ""}
 {"package": "zbar", "__comment": "", "disabled": "qt"}
 {"package": "zint", "__comment": "", "disabled": "qt"}
