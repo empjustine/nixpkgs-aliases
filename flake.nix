@@ -398,12 +398,16 @@
       packages.fab = pkgs.Fabric;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.Fabric = pkgs.Fabric;
-      apps.ffmpeg = { type = "app"; program = "${pkgs.ffmpeg-headless}/bin/ffmpeg"; };
-      packages.ffmpeg = pkgs.ffmpeg-headless;
-      apps.ffprobe = { type = "app"; program = "${pkgs.ffmpeg-headless}/bin/ffprobe"; };
-      packages.ffprobe = pkgs.ffmpeg-headless;
+      apps.ffmpeg = { type = "app"; program = "${pkgs.ffmpeg_6-full}/bin/ffmpeg"; };
+      packages.ffmpeg = pkgs.ffmpeg_6-full;
+      apps.ffplay = { type = "app"; program = "${pkgs.ffmpeg_6-full}/bin/ffplay"; };
+      packages.ffplay = pkgs.ffmpeg_6-full;
+      apps.ffprobe = { type = "app"; program = "${pkgs.ffmpeg_6-full}/bin/ffprobe"; };
+      packages.ffprobe = pkgs.ffmpeg_6-full;
+      apps.qt-faststart = { type = "app"; program = "${pkgs.ffmpeg_6-full}/bin/qt-faststart"; };
+      packages.qt-faststart = pkgs.ffmpeg_6-full;
       # package doesn't contain binaries, or binary name doesn't match package name
-      packages.ffmpeg-headless = pkgs.ffmpeg-headless;
+      packages.ffmpeg_6-full = pkgs.ffmpeg_6-full;
       apps.fossil = { type = "app"; program = "${pkgs.fossil}/bin/fossil"; };
       packages.fossil = pkgs.fossil;
       apps.fribidi = { type = "app"; program = "${pkgs.fribidi}/bin/fribidi"; };
@@ -614,6 +618,8 @@
       packages.gss-client = pkgs.krb5;
       apps.gss-server = { type = "app"; program = "${pkgs.krb5}/bin/gss-server"; };
       packages.gss-server = pkgs.krb5;
+      apps.k5srvutil = { type = "app"; program = "${pkgs.krb5}/bin/k5srvutil"; };
+      packages.k5srvutil = pkgs.krb5;
       apps.kadmin = { type = "app"; program = "${pkgs.krb5}/bin/kadmin"; };
       packages.kadmin = pkgs.krb5;
       apps."kadmin.local" = { type = "app"; program = "${pkgs.krb5}/bin/kadmin.local"; };
@@ -658,8 +664,6 @@
       packages.uuclient = pkgs.krb5;
       apps.uuserver = { type = "app"; program = "${pkgs.krb5}/bin/uuserver"; };
       packages.uuserver = pkgs.krb5;
-      apps.k5srvutil = { type = "app"; program = "${pkgs.krb5}/bin/k5srvutil"; };
-      packages.k5srvutil = pkgs.krb5;
       apps.krb5-send-pr = { type = "app"; program = "${pkgs.krb5}/bin/krb5-send-pr"; };
       packages.krb5-send-pr = pkgs.krb5;
       # package doesn't contain binaries, or binary name doesn't match package name
@@ -818,6 +822,8 @@
       packages.oathtool = pkgs.oath-toolkit;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.oath-toolkit = pkgs.oath-toolkit;
+      apps.ldapadd = { type = "app"; program = "${pkgs.openldap}/bin/ldapadd"; };
+      packages.ldapadd = pkgs.openldap;
       apps.ldapcompare = { type = "app"; program = "${pkgs.openldap}/bin/ldapcompare"; };
       packages.ldapcompare = pkgs.openldap;
       apps.ldapdelete = { type = "app"; program = "${pkgs.openldap}/bin/ldapdelete"; };
@@ -838,8 +844,6 @@
       packages.ldapvc = pkgs.openldap;
       apps.ldapwhoami = { type = "app"; program = "${pkgs.openldap}/bin/ldapwhoami"; };
       packages.ldapwhoami = pkgs.openldap;
-      apps.ldapadd = { type = "app"; program = "${pkgs.openldap}/bin/ldapadd"; };
-      packages.ldapadd = pkgs.openldap;
       apps.slapacl = { type = "app"; program = "${pkgs.openldap}/bin/slapacl"; };
       packages.slapacl = pkgs.openldap;
       apps.slapadd = { type = "app"; program = "${pkgs.openldap}/bin/slapadd"; };
@@ -1114,6 +1118,8 @@
       packages.wdomirror = pkgs.wdomirror;
       apps.wev = { type = "app"; program = "${pkgs.wev}/bin/wev"; };
       packages.wev = pkgs.wev;
+      apps.wf-recorder = { type = "app"; program = "${pkgs.wf-recorder}/bin/wf-recorder"; };
+      packages.wf-recorder = pkgs.wf-recorder;
       apps.wl-copy = { type = "app"; program = "${pkgs.wl-clipboard}/bin/wl-copy"; };
       packages.wl-copy = pkgs.wl-clipboard;
       apps.wl-paste = { type = "app"; program = "${pkgs.wl-clipboard}/bin/wl-paste"; };

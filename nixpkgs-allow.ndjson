@@ -37,8 +37,9 @@
 {"package": "docker-compose", "__comment": ""}
 {"package": "envfs", "__comment": "fuse mount /usr/bin with $PATH for nix", "disabled": "tmp"}
 {"package": "Fabric", "__comment": ""}
-{"package": "ffmpeg_6-headless", "__comment": "", "disabled": "unstable"}
-{"package": "ffmpeg-headless", "__comment": ""}
+{"package": "ffmpeg_6-full", "__comment": ""}
+{"package": "ffmpeg_6-headless", "__comment": "", "disabled": "no ffplay"}
+{"package": "ffmpeg-headless", "__comment": "", "disabled": "no ffplay"}
 {"package": "fnott", "__comment": "wlroots notification daemon", "disabled": "dunst sericea default"}
 {"package": "fossil", "__comment": ""}
 {"package": "fribidi", "__comment": "yt-dlp dependency"}
@@ -181,6 +182,7 @@
 {"package": "wayvnc", "__comment": "wlroots vnc"}
 {"package": "wdomirror", "__comment": "wlroots output mirror to a window"}
 {"package": "wev", "__comment": ""}
+{"package": "wf-recorder", "__comment": "wlroots screen recorder"}
 {"package": "wl-clipboard", "__comment": ""}
 {"package": "wl-mirror", "__comment": ""}
 {"package": "wlrctl", "__comment": "wlroots extensions manager"}
