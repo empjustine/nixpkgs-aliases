@@ -598,6 +598,8 @@
       packages.hwloc-patch = pkgs.hwloc;
       apps.hwloc-ps = { type = "app"; program = "${pkgs.hwloc}/bin/hwloc-ps"; };
       packages.hwloc-ps = pkgs.hwloc;
+      apps.lstopo = { type = "app"; program = "${pkgs.hwloc}/bin/lstopo"; };
+      packages.lstopo = pkgs.hwloc;
       apps.lstopo-no-graphics = { type = "app"; program = "${pkgs.hwloc}/bin/lstopo-no-graphics"; };
       packages.lstopo-no-graphics = pkgs.hwloc;
       apps.netloc_draw_to_json = { type = "app"; program = "${pkgs.hwloc}/bin/netloc_draw_to_json"; };
@@ -606,8 +608,6 @@
       packages.netloc_ib_extract_dats = pkgs.hwloc;
       apps.netloc_ib_gather_raw = { type = "app"; program = "${pkgs.hwloc}/bin/netloc_ib_gather_raw"; };
       packages.netloc_ib_gather_raw = pkgs.hwloc;
-      apps.lstopo = { type = "app"; program = "${pkgs.hwloc}/bin/lstopo"; };
-      packages.lstopo = pkgs.hwloc;
       # package doesn't contain binaries, or binary name doesn't match package name
       packages.hwloc = pkgs.hwloc;
       apps.iotop = { type = "app"; program = "${pkgs.iotop}/bin/iotop"; };
@@ -1024,6 +1024,8 @@
       packages.shellharden = pkgs.shellharden;
       apps.shfmt = { type = "app"; program = "${pkgs.shfmt}/bin/shfmt"; };
       packages.shfmt = pkgs.shfmt;
+      apps.sommelier = { type = "app"; program = "${pkgs.sommelier}/bin/sommelier"; };
+      packages.sommelier = pkgs.sommelier;
       apps.sqlar = { type = "app"; program = "${pkgs.sqlar}/bin/sqlar"; };
       packages.sqlar = pkgs.sqlar;
       apps.sqlarfs = { type = "app"; program = "${pkgs.sqlar}/bin/sqlarfs"; };
