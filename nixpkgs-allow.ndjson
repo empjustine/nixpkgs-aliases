@@ -22,7 +22,7 @@
 {"package": "cicero-tui", "__comment": ""}
 {"package": "cntr", "__comment": "attach host to container"}
 {"package": "cool-retro-term", "__comment": "", "disabled": "broken"}
-{"package": "csvs-to-sqlite", "__comment": ""}
+{"package": "csvs-to-sqlite", "__comment": "", "disabled": "pipx"}
 {"package": "czkawka", "__comment": ""}
 {"package": "dar", "__comment": ""}
 {"package": "dbeaver", "__comment": "", "disabled": "flatpak avaliable"}
@@ -36,7 +36,7 @@
 {"package": "docker-client", "__comment": ""}
 {"package": "docker-compose", "__comment": ""}
 {"package": "envfs", "__comment": "fuse mount /usr/bin with $PATH for nix", "disabled": "tmp"}
-{"package": "Fabric", "__comment": ""}
+{"package": "Fabric", "__comment": "", "disabled": "pipx"}
 {"package": "ffmpeg_6-full", "__comment": ""}
 {"package": "ffmpeg_6-headless", "__comment": "", "disabled": "no ffplay"}
 {"package": "ffmpeg-headless", "__comment": "", "disabled": "no ffplay"}
@@ -60,7 +60,7 @@
 {"package": "helvum", "__comment": "", "disabled": "flatpak avaliable"}
 {"package": "hivemind", "__comment": ""}
 {"package": "hocr-tools", "__comment": ""}
-{"package": "honcho", "__comment": ""}
+{"package": "honcho", "__comment": "", "disabled": "pipx"}
 {"package": "htop", "__comment": ""}
 {"package": "hwinfo", "__comment": ""}
 {"package": "hwloc", "__comment": ""}
@@ -68,8 +68,8 @@
 {"package": "iotop", "__comment": ""}
 {"package": "isolate", "__comment": "", "disabled": "tmp"}
 {"package": "kio-fuse", "__comment": "", "disabled": "tmp"}
-{"package": "krb5", "__comment": ""}
-{"package": "kubectl", "__comment": ""}
+{"package": "krb5", "__comment": "", "disabled": "tmp"}
+{"package": "kubectl", "__comment": "", "disabled": "bundled with rancher"}
 {"package": "kubectl-tree", "__comment": "", "disabled": "tmp"}
 {"package": "leptonica", "__comment": ""}
 {"package": "libaom", "__comment": "", "disabled": "sericea default"}
@@ -89,7 +89,7 @@
 {"package": "minify", "__comment": ""}
 {"package": "minijail", "__comment": "", "disabled": "tmp"}
 {"package": "miniupnpc", "__comment": ""}
-{"package": "mosh", "__comment": ""}
+{"package": "mosh", "__comment": "", "disabled": "tmp"}
 {"package": "motif", "__comment": "", "disabled": "libsForQt5.qtstyleplugin-kvantum"}
 {"package": "mpvpaper", "__comment": "video wallpaper for wlroots"}
 {"package": "ncdu", "__comment": ""}
@@ -104,9 +104,9 @@
 {"package": "nixStatic", "__comment": ""}
 {"package": "nix-tree", "__comment": ""}
 {"package": "nodePackages.bash-language-server", "__comment": "", "disabled": "tmp"}
-{"package": "nodePackages.eslint", "__comment": ""}
+{"package": "nodePackages.eslint", "__comment": "", "disabled": "broken plugins"}
 {"package": "nodePackages.eslint_d", "__comment": "", "disabled": "broken"}
-{"package": "nodePackages.prettier", "__comment": ""}
+{"package": "nodePackages.prettier", "__comment": "", "disabled": "broken plugins"}
 {"package": "nodePackages.prettier_d_slim", "__comment": "", "disabled": "broken"}
 {"package": "nodePackages.typescript-language-server", "__comment": "", "disabled": "tmp"}
 {"package": "nodePackages.vscode-langservers-extracted", "__comment": "", "disabled": "tmp"}
@@ -128,16 +128,16 @@
 {"package": "playerctl", "__comment": "CLI MPRIS media player manager"}
 {"package": "podman-compose", "__comment": "", "disabled": "tmp"}
 {"package": "poppler_utils", "__comment": "deb poppler-utils"}
-{"package": "procodile", "__comment": "run Procfile"}
+{"package": "procodile", "__comment": "run Procfile", "disabled": "ruby"}
 {"package": "profile-cleaner", "__comment": "", "disabled": "broken"}
 {"package": "progress", "__comment": ""}
 {"package": "proxychains-ng", "__comment": "", "disabled": "tmp"}
 {"package": "pulseaudio-ctl", "__comment": "", "disabled": "broken"}
 {"package": "pv", "__comment": ""}
-{"package": "python311Packages.chardet", "__comment": ""}
-{"package": "python311Packages.ftfy", "__comment": ""}
-{"package": "python311Packages.paramiko", "__comment": ""}
-{"package": "python311Packages.pyupgrade", "__comment": ""}
+{"package": "python311Packages.chardet", "__comment": "", "disabled": "pipx"}
+{"package": "python311Packages.ftfy", "__comment": "", "disabled": "pipx"}
+{"package": "python311Packages.paramiko", "__comment": "", "disabled": "pipx"}
+{"package": "python311Packages.pyupgrade", "__comment": "", "disabled": "pipx"}
 {"package": "python311Packages.xattr", "__comment": "yt-dlp dependency"}
 {"package": "radeontop", "__comment": "", "disabled": "amdgpu"}
 {"package": "rancher", "__comment": ""}
@@ -147,9 +147,9 @@
 {"package": "rocm-smi", "__comment": "", "disabled": "amdgpu"}
 {"package": "roc-toolkit", "__comment": ""}
 {"package": "ruff", "__comment": ""}
-{"package": "runit", "__comment": ""}
-{"package": "selinux-python", "__comment": "fedora policycoreutils-devel(sepolicy) policycoreutils-python-utils(semanage)", "disabled": "tmp"}
-{"package": "selinux-sandbox", "__comment": "", "disabled": "tmp"}
+{"package": "runit", "__comment": "", "disabled": "tmp"}
+{"package": "selinux-python", "__comment": "fedora policycoreutils-devel(sepolicy) policycoreutils-python-utils(semanage)", "disabled": "pipx"}
+{"package": "selinux-sandbox", "__comment": "", "disabled": "broken"}
 {"package": "setools", "__comment": "setools-console-analyses(sedta) setools-console(sechecker) setools-console-analyses(seinfoflow) setools-gui(apol)", "disabled": "tmp"}
 {"package": "shellcheck", "__comment": ""}
 {"package": "shellharden", "__comment": ""}
@@ -161,7 +161,7 @@
 {"package": "sqldiff", "__comment": ""}
 {"package": "sqlite-analyzer", "__comment": ""}
 {"package": "sqlite-interactive", "__comment": ""}
-{"package": "sqlite-utils", "__comment": ""}
+{"package": "sqlite-utils", "__comment": "", "disabled": "pipx"}
 {"package": "squashfuse", "__comment": "squashfs fuse"}
 {"package": "strace", "__comment": ""}
 {"package": "stun", "__comment": "stun,stund", "disabled": "tmp"}
@@ -186,10 +186,10 @@
 {"package": "wf-recorder", "__comment": "wlroots screen recorder"}
 {"package": "wl-clipboard", "__comment": ""}
 {"package": "wl-mirror", "__comment": ""}
-{"package": "wlrctl", "__comment": "wlroots extensions manager"}
+{"package": "wlrctl", "__comment": "wlroots extensions ctl"}
 {"package": "wlroots", "__comment": ""}
-{"package": "wmctrl", "__comment": ""}
-{"package": "wtype", "__comment": ""}
+{"package": "wmctrl", "__comment": "EWMH/NetWM X Window Manager ctl"}
+{"package": "wtype", "__comment": "xdotool type for wayland"}
 {"package": "xterm", "__comment": ""}
 {"package": "zarchive", "__comment": "zstd-compressed file archives (.zar) with random-access reads", "disabled": "tmp"}
 {"package": "zathura", "__comment": ""}
