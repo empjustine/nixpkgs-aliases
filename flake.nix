@@ -608,5 +608,9 @@
       # special case for git-gui, from /libexec/git-core/git-gui
       apps.git-gui = { type = "app"; program = "${pkgs.gitFull}/libexec/git-core/git-gui"; };
       packages.git-gui = pkgs.gitFull;
+
+      # special case for gitk
+      apps.gitk = { type = "app"; program = "${pkgs.gitFull}/bin/gitk"; };
+      packages.gitk = pkgs.gitFull;
     });
 }
