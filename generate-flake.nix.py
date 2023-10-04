@@ -142,6 +142,12 @@ def main():
     _rev = _nixpkgs_flakeref()
 
     with sqlite3_autocommit_connection("database.sqlite3") as con:
+        with transaction(con):
+            con.execute(
+                "DELETE FROM nixpkg_rev WHERE nixpkg_rev.rev = :rev", {"rev": _rev}
+            )
+            con.execute(CLEAN_NIXPKG_REV)
+
         _data = [
             {
                 "pname": _row[0],
@@ -151,8 +157,6 @@ def main():
                 "SELECT nixpkg.pname FROM nixpkg WHERE nixpkg.disabled IS NULL"
             )
         ]
-        with transaction(con):
-            con.execute(CLEAN_NIXPKG_REV)
 
     # with multiprocessing.Pool(2) as pool:
     #     for i in pool.imap_unordered(_process_nixpkg_allow, _data):
@@ -162,6 +166,10 @@ def main():
 
     with sqlite3_autocommit_connection("database.sqlite3") as con:
         with transaction(con):
+            con.execute(
+                "DELETE FROM nixpkg_rev_bin WHERE nixpkg_rev_bin.rev = :rev",
+                {"rev": _rev},
+            )
             con.execute(CLEAN_NIXPKG_REV_BIN)
         _data2 = [
             {
