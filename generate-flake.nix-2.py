@@ -7,6 +7,33 @@ import shlex
 import subprocess
 import sqlite3
 
+CLEAN_REV = """
+WITH revs_to_preserve AS (
+    SELECT rev.rev
+    FROM rev
+    ORDER BY rev.ctime DESC
+    LIMIT 3
+)
+DELETE FROM rev
+WHERE rev.rev NOT IN (SELECT rev FROM revs_to_preserve);
+"""
+CLEAN_NIXPKG_REV = """
+WITH revs_to_keep AS (
+    SELECT DISTINCT rev.rev
+    FROM rev
+)
+DELETE FROM nixpkg_rev
+WHERE nixpkg_rev.rev NOT IN (SELECT rev FROM revs_to_keep);
+"""
+CLEAN_NIXPKG_REV_BIN = """
+WITH revs_to_keep AS (
+    SELECT DISTINCT rev.rev
+    FROM rev
+)
+DELETE FROM nixpkg_rev_bin
+WHERE nixpkg_rev_bin.rev NOT IN (SELECT rev FROM revs_to_keep);
+"""
+
 NIXPKGS_ALIASES_FLAKE_NIX_FILE = pathlib.Path("flake.nix")
 NIXPKGS_ALIASES_FLAKE_LOCK_FILE = pathlib.Path("flake.lock")
 NIXPKGS_ALIASES_FLAKE_NIX_FOOTER_FILE = pathlib.Path("flake.nix.footer")
@@ -19,7 +46,6 @@ NIXPKG_BINARY_SEARCH_PATHS = [
     "bin",
     "lib/node_modules/.bin",
 ]
-NIXPKGS_ALIASES_DENY_LIST = json.loads(pathlib.Path("nixpkgs-deny.json").read_text())
 
 XDG_DATA_HOME_FOLDER = pathlib.Path("../.local/share")
 NIX_CHROOT_FOLDER = pathlib.Path("../nix/root")
@@ -34,15 +60,19 @@ def _nixpkgs_flakeref():
             "nix --extra-experimental-features 'nix-command flakes' flake update path:."
         ),
     )
-    with NIXPKGS_ALIASES_FLAKE_LOCK_FILE.open() as _flake_lock_file:
-        _flake_lock = json.load(_flake_lock_file)
-        _rev = _flake_lock["nodes"]["nixpkgs"]["locked"]["rev"]
+    _flake_lock = json.loads(NIXPKGS_ALIASES_FLAKE_LOCK_FILE.read_text())
+    _rev = _flake_lock["nodes"]["nixpkgs"]["locked"]["rev"]
     with sqlite3_autocommit_connection("database.sqlite3") as con:
-        with contextlib.suppress(sqlite3.IntegrityError):
-            con.execute(
-                "INSERT INTO rev(rev, flakeref) VALUES (:rev, 'github:NixOS/nixpkgs/nixos-23.05')",
-                {"rev": _rev},
-            )
+        with transaction(con):
+            with contextlib.suppress(sqlite3.IntegrityError):
+                con.execute(
+                    "INSERT INTO rev(rev, flakeref) VALUES (:rev, 'github:NixOS/nixpkgs/nixos-23.05')",
+                    {"rev": _rev},
+                )
+        with transaction(con):
+            with contextlib.suppress(sqlite3.IntegrityError):
+                con.execute(CLEAN_REV)
+
     return _rev
 
 
@@ -92,16 +122,6 @@ def transaction(_connection: sqlite3.Connection):
         _connection.commit()
 
 
-def _deny_list(_package, _path, _bin):
-    for _denylist_entry in NIXPKGS_ALIASES_DENY_LIST:
-        if (
-            _denylist_entry["package"] == _package
-            and _denylist_entry["path"] == _path
-            and _denylist_entry["bin"] == _bin
-        ):
-            return True
-
-
 def main():
     NIXPKGS_ALIASES_ALIASES_FOLDER.mkdir(parents=True, exist_ok=True)
     NIXPKGS_ALIASES_GCROOTS_FOLDER.mkdir(parents=True, exist_ok=True)
@@ -131,6 +151,8 @@ def main():
                 "SELECT nixpkg.pname FROM nixpkg WHERE nixpkg.disabled IS NULL"
             )
         ]
+        with transaction(con):
+            con.execute(CLEAN_NIXPKG_REV)
 
     # with multiprocessing.Pool(2) as pool:
     #     for i in pool.imap_unordered(_process_nixpkg_allow, _data):
@@ -139,6 +161,8 @@ def main():
         _process_nixpkg_allow(_d)
 
     with sqlite3_autocommit_connection("database.sqlite3") as con:
+        with transaction(con):
+            con.execute(CLEAN_NIXPKG_REV_BIN)
         _data2 = [
             {
                 "pname": _row[0],
@@ -202,7 +226,7 @@ def _process_nixpkg_allow(_data):
         with contextlib.suppress(sqlite3.IntegrityError):
             with transaction(con):
                 con.execute(
-                    "INSERT INTO nixpkg_rev(pname, hash, etc) VALUES (:pname, :hash, :etc)",
+                    "INSERT INTO nixpkg_rev(pname, rev, etc) VALUES (:pname, :hash, :etc)",
                     {
                         "pname": _pname,
                         "hash": _rev,
