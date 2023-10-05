@@ -17,7 +17,9 @@ NIXPKGS_ALIASES_RUN_FILE = pathlib.Path("../nixpkgs-aliases-run.sh")
 NIXPKGS_ALIASES_GCROOTS_FOLDER = pathlib.Path("gcroots")
 NIXPKGS_ALIASES_ALIASES_FOLDER = pathlib.Path("aliases")
 
-CMD_UPDATE_FLAKE = shlex.split("nix --extra-experimental-features 'nix-command flakes' flake update path:.")
+CMD_UPDATE_FLAKE = shlex.split(
+    "nix --extra-experimental-features 'nix-command flakes' flake update path:."
+)
 
 NIXPKG_BINARY_SEARCH_PATHS = [
     "bin",
@@ -83,13 +85,19 @@ def main():
     NIXPKGS_ALIASES_GCROOTS_FOLDER.mkdir(parents=True, exist_ok=True)
 
     if cleanup:
-        for _folder in NIXPKGS_ALIASES_ALIASES_FOLDER, NIXPKGS_ALIASES_GCROOTS_FOLDER, NIXPKGS_ALIASES_GCROOTS_FOLDER:
+        for _folder in (
+            NIXPKGS_ALIASES_ALIASES_FOLDER,
+            NIXPKGS_ALIASES_GCROOTS_FOLDER,
+            NIXPKGS_ALIASES_GCROOTS_FOLDER,
+        ):
             for _file in _folder.glob("*"):
                 with contextlib.suppress(FileNotFoundError):
-                        _file.unlink()
+                    _file.unlink()
 
     subprocess.run(CMD_UPDATE_FLAKE)
-    _rev = json.loads(NIXPKGS_ALIASES_FLAKE_LOCK_FILE.read_text())["nodes"]["nixpkgs"]["locked"]["rev"]
+    _rev = json.loads(NIXPKGS_ALIASES_FLAKE_LOCK_FILE.read_text())["nodes"]["nixpkgs"][
+        "locked"
+    ]["rev"]
     with sqlite3_autocommit_connection("database.sqlite3") as _con_map:
         if cleanup:
             for _statement in [
@@ -104,7 +112,7 @@ def main():
             "DELETE FROM nixpkg_rev_bin WHERE nixpkg_rev_bin.rev = :rev;",
         ]:
             with transaction(_con_map):
-                _con_map.execute(_statement , {"rev": _rev})
+                _con_map.execute(_statement, {"rev": _rev})
         with transaction(_con_map):
             _con_map.execute(
                 "INSERT INTO rev(rev, flakeref) VALUES (:rev, 'github:NixOS/nixpkgs/nixos-23.05') ON CONFLICT DO NOTHING;",
@@ -120,7 +128,7 @@ def main():
             )
         ]
 
-    with multiprocessing.Pool(2) as pool:
+    with multiprocessing.Pool(2):
         ...
     #    for _ in pool.imap_unordered(_process_nixpkg, _nixpkgs):
     #         ...
@@ -128,10 +136,7 @@ def main():
         _process_nixpkg(_nixpkg)
     with sqlite3_autocommit_connection("database.sqlite3") as _con_reduce:
         _binaries = [
-            {
-                "pname": _row[0],
-                "bin": _row[1]
-            }
+            {"pname": _row[0], "bin": _row[1]}
             for _row in _con_reduce.execute(
                 "SELECT pname, bin FROM nixpkg_rev_bin WHERE rev = :rev ORDER BY pname, bin;",
                 {"rev": _rev},
@@ -167,19 +172,17 @@ class NixpkgEntry(typing.TypedDict):
     rev: str
     pname: str
 
+
 def _process_nixpkg(_data: NixpkgEntry):
     _rev = _data["rev"]
     _pname = _data["pname"]
-    _build_results = json.loads(
-        subprocess.run(
-            [
-                *shlex.split(
-                    "nix --extra-experimental-features 'nix-command flakes' build --json --no-link"
-                ),
-                f"github:NixOS/nixpkgs/{_rev}#{_pname}",
-            ],
-            capture_output=True,
-        ).stdout
+    subprocess.run(
+        [
+            *shlex.split(
+                "nix --extra-experimental-features 'nix-command flakes' build --json --no-link"
+            ),
+            f"github:NixOS/nixpkgs/{_rev}#{_pname}",
+        ],
     )
     _eval_path = json.loads(
         subprocess.run(
@@ -194,9 +197,7 @@ def _process_nixpkg(_data: NixpkgEntry):
     )
     _prefix = pathlib.Path(_eval_path)
 
-    NIXPKGS_ALIASES_GCROOTS_FOLDER.joinpath(
-        f"system-{_pname}"
-    ).symlink_to(_eval_path)
+    NIXPKGS_ALIASES_GCROOTS_FOLDER.joinpath(f"system-{_pname}").symlink_to(_eval_path)
 
     with sqlite3_autocommit_connection("database.sqlite3") as con:
         con.execute(
@@ -212,7 +213,12 @@ def _process_nixpkg(_data: NixpkgEntry):
             if _candidate_bin_path.is_dir():
                 continue
             _bin = _candidate_bin_path.name
-            if _bin.startswith(".") or _bin.endswith(".so") or _bin.endswith("-wrapped") or _bin.endswith("-wrapped_"):
+            if (
+                _bin.startswith(".")
+                or _bin.endswith(".so")
+                or _bin.endswith("-wrapped")
+                or _bin.endswith("-wrapped_")
+            ):
                 continue
 
             if (
@@ -222,8 +228,10 @@ def _process_nixpkg(_data: NixpkgEntry):
                 _candidate_bin_path.is_symlink()
                 and _candidate_bin_path.resolve().stat().st_mode & 0o111
             ):
-                _suffix = _candidate_bin_path.as_posix().removeprefix(_prefix.as_posix())
-                if not _suffix.startswith('/bin/'):
+                _suffix = _candidate_bin_path.as_posix().removeprefix(
+                    _prefix.as_posix()
+                )
+                if not _suffix.startswith("/bin/"):
                     continue
 
                 with sqlite3_autocommit_connection("database.sqlite3") as con:
