@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import collections.abc
 import contextlib
 import json
 import logging
@@ -128,12 +129,8 @@ def main():
             )
         ]
 
-    with multiprocessing.Pool(2):
-        ...
-    #    for _ in pool.imap_unordered(_process_nixpkg, _nixpkgs):
-    #         ...
-    for _nixpkg in _nixpkgs:
-        _process_nixpkg(_nixpkg)
+    do_multiprocessing(_process_nixpkg, _nixpkgs, 3)
+
     with sqlite3_autocommit_connection("database.sqlite3") as _con_reduce:
         _binaries = [
             {"pname": _row[0], "bin": _row[1]}
@@ -166,6 +163,20 @@ def main():
                     f"      packages.{_escape_nix_set_key(_binary['pname'])} = pkgs.{_binary['pname']};\n"
                 )
             _flake_file.write(NIXPKGS_ALIASES_FLAKE_NIX_FOOTER_FILE.read_text())
+
+
+MULTIPROCESSING = True
+T = typing.TypeVar("T")
+
+
+def do_multiprocessing(_worker: collections.abc.Callable[[T], typing.Any], _jobs: typing.Iterable[T], _pool_size: int):
+    if MULTIPROCESSING:
+        with multiprocessing.Pool(_pool_size) as _pool:
+            for _completed_job in _pool.imap_unordered(func=_worker, iterable=_jobs):
+                ...
+    else:
+        for _job in _jobs:
+            _worker(_job)
 
 
 class NixpkgEntry(typing.TypedDict):
