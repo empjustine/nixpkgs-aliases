@@ -114,11 +114,10 @@ def main():
         ]:
             with transaction(_con_map):
                 _con_map.execute(_statement, {"rev": _rev})
-        with transaction(_con_map):
-            _con_map.execute(
-                "INSERT INTO rev(rev, flakeref) VALUES (:rev, 'github:NixOS/nixpkgs/nixos-23.05') ON CONFLICT DO NOTHING;",
-                {"rev": _rev},
-            )
+        _con_map.execute(
+            "INSERT INTO rev(rev, flakeref) VALUES (:rev, 'github:NixOS/nixpkgs/nixos-23.05') ON CONFLICT DO NOTHING;",
+            {"rev": _rev},
+        )
         _nixpkgs: list[NixpkgEntry] = [
             {
                 "pname": _row[0],
@@ -144,7 +143,7 @@ def main():
                 "pname": _row[0],
             }
             for _row in _con_reduce.execute(
-                "SELECT DISTINCT pname FROM nixpkg_rev WHERE rev = :rev ORDER BY pname;",
+                "SELECT DISTINCT pname FROM nixpkg ORDER BY pname;",
                 {"rev": _rev},
             )
         ]
@@ -169,7 +168,11 @@ MULTIPROCESSING = True
 T = typing.TypeVar("T")
 
 
-def do_multiprocessing(_worker: collections.abc.Callable[[T], typing.Any], _jobs: typing.Iterable[T], _pool_size: int):
+def do_multiprocessing(
+    _worker: collections.abc.Callable[[T], typing.Any],
+    _jobs: typing.Iterable[T],
+    _pool_size: int,
+):
     if MULTIPROCESSING:
         with multiprocessing.Pool(_pool_size) as _pool:
             for _completed_job in _pool.imap_unordered(func=_worker, iterable=_jobs):
