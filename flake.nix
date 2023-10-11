@@ -158,6 +158,7 @@
       apps.nmtui-hostname = { type = "app"; program = "${pkgs.networkmanager}/bin/nmtui-hostname"; };
       apps.nix-bundle = { type = "app"; program = "${pkgs.nix-bundle}/bin/nix-bundle"; };
       apps.nix-run = { type = "app"; program = "${pkgs.nix-bundle}/bin/nix-run"; };
+      apps.nix-eval-jobs = { type = "app"; program = "${pkgs.nix-eval-jobs}/bin/nix-eval-jobs"; };
       apps.nix-channel-index = { type = "app"; program = "${pkgs.nix-index}/bin/nix-channel-index"; };
       apps.nix-index = { type = "app"; program = "${pkgs.nix-index}/bin/nix-index"; };
       apps.nix-locate = { type = "app"; program = "${pkgs.nix-index}/bin/nix-locate"; };
@@ -390,6 +391,7 @@
       packages.lshw = pkgs.lshw;
       packages.lurk = pkgs.lurk;
       packages.maturin = pkgs.maturin;
+      packages.mimalloc = pkgs.mimalloc;
       packages.minify = pkgs.minify;
       packages.minijail = pkgs.minijail;
       packages.miniupnpc = pkgs.miniupnpc;
@@ -404,6 +406,7 @@
       packages.newt = pkgs.newt;
       packages.nip2 = pkgs.nip2;
       packages.nix-bundle = pkgs.nix-bundle;
+      packages.nix-eval-jobs = pkgs.nix-eval-jobs;
       packages.nix-index = pkgs.nix-index;
       packages.nix-tree = pkgs.nix-tree;
       packages.nixStatic = pkgs.nixStatic;

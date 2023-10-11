@@ -214,14 +214,14 @@ def _process_nixpkg(_data: NixpkgEntry):
     NIXPKGS_ALIASES_GCROOTS_FOLDER.joinpath(f"system-{_pname}").symlink_to(_eval_path)
 
     with sqlite3_autocommit_connection("database.sqlite3") as con:
-        con.execute(
-            "INSERT INTO nixpkg_rev(pname, rev, etc) VALUES (:pname, :rev, :etc);",
-            {
-                "pname": _pname,
-                "rev": _rev,
-                "etc": _eval_path,
-            },
-        )
+        # con.execute(
+        #     "INSERT INTO nixpkg_rev(pname, rev, etc) VALUES (:pname, :rev, :etc);",
+        #     {
+        #         "pname": _pname,
+        #         "rev": _rev,
+        #         "etc": _eval_path,
+        #     },
+        # )
 
         for _candidate_bin_path in _prefix.rglob("*"):
             if _candidate_bin_path.is_dir():
