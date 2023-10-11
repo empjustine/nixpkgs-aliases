@@ -10,6 +10,9 @@ import sqlite3
 import multiprocessing
 import typing
 
+if __name__ == "__main__":
+    logging.basicConfig(level=logging.DEBUG)
+
 NIXPKGS_ALIASES_FLAKE_NIX_FILE = pathlib.Path("flake.nix")
 NIXPKGS_ALIASES_FLAKE_LOCK_FILE = pathlib.Path("flake.lock")
 NIXPKGS_ALIASES_FLAKE_NIX_FOOTER_FILE = pathlib.Path("flake.nix.footer")
@@ -29,9 +32,6 @@ NIXPKG_BINARY_SEARCH_PATHS = [
 
 XDG_DATA_HOME_FOLDER = pathlib.Path("../.local/share")
 NIX_CHROOT_FOLDER = pathlib.Path("../nix/root")
-
-if __name__ == "__main__":
-    logging.basicConfig(level=logging.DEBUG)
 
 
 def _escape_nix_set_key(_name):

@@ -232,6 +232,7 @@
       apps.parsort = { type = "app"; program = "${pkgs.parallel}/bin/parsort"; };
       apps.sem = { type = "app"; program = "${pkgs.parallel}/bin/sem"; };
       apps.sql = { type = "app"; program = "${pkgs.parallel}/bin/sql"; };
+      apps.patchelf = { type = "app"; program = "${pkgs.patchelf}/bin/patchelf"; };
       apps.pipectl = { type = "app"; program = "${pkgs.pipectl}/bin/pipectl"; };
       apps.pipx = { type = "app"; program = "${pkgs.pipx}/bin/pipx"; };
       apps.playerctl = { type = "app"; program = "${pkgs.playerctl}/bin/playerctl"; };
@@ -453,6 +454,7 @@
       packages.overmind = pkgs.overmind;
       packages.par2cmdline = pkgs.par2cmdline;
       packages.parallel = pkgs.parallel;
+      packages.patchelf = pkgs.patchelf;
       packages.pavucontrol = pkgs.pavucontrol;
       packages.pdfgrep = pkgs.pdfgrep;
       packages.perf-tools = pkgs.perf-tools;

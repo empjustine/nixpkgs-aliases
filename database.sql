@@ -133,6 +133,7 @@ INSERT INTO nixpkg VALUES('openssl',NULL,NULL,NULL,'A cryptographic library that
 INSERT INTO nixpkg VALUES('overmind',NULL,NULL,NULL,'Process manager for Procfile-based applications and tmux');
 INSERT INTO nixpkg VALUES('par2cmdline',NULL,'tmp',NULL,'PAR 2.0 compatible file verification and repair tool');
 INSERT INTO nixpkg VALUES('parallel',NULL,NULL,NULL,'Shell tool for executing jobs in parallel');
+INSERT INTO nixpkg VALUES('patchelf',NULL,NULL,NULL,NULL);
 INSERT INTO nixpkg VALUES('pavucontrol',NULL,'sericea default',NULL,'PulseAudio Volume Control');
 INSERT INTO nixpkg VALUES('pdfgrep',NULL,'tmp',NULL,'Commandline utility to search text in PDF files');
 INSERT INTO nixpkg VALUES('perf-tools',NULL,'tmp',NULL,'Performance analysis tools based on Linux perf_events (aka perf) and ftrace');
@@ -859,6 +860,7 @@ INSERT INTO nixpkg_rev_bin VALUES('parallel','/bin/sem','bd1cde45c77891214131cbb
 INSERT INTO nixpkg_rev_bin VALUES('parallel','/bin/sql','5a237aecb57296f67276ac9ab296a41c23981f56');
 INSERT INTO nixpkg_rev_bin VALUES('parallel','/bin/sql','8a4c17493e5c39769f79117937c79e1c88de6729');
 INSERT INTO nixpkg_rev_bin VALUES('parallel','/bin/sql','bd1cde45c77891214131cbbea5b1203e485a9d51');
+INSERT INTO nixpkg_rev_bin VALUES('patchelf','/bin/patchelf','bd1cde45c77891214131cbbea5b1203e485a9d51');
 INSERT INTO nixpkg_rev_bin VALUES('pipectl','/bin/pipectl','5a237aecb57296f67276ac9ab296a41c23981f56');
 INSERT INTO nixpkg_rev_bin VALUES('pipectl','/bin/pipectl','8a4c17493e5c39769f79117937c79e1c88de6729');
 INSERT INTO nixpkg_rev_bin VALUES('pipectl','/bin/pipectl','bd1cde45c77891214131cbbea5b1203e485a9d51');
