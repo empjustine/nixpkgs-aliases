@@ -287,11 +287,6 @@
       apps.transmission-remote = { type = "app"; program = "${pkgs.transmission}/bin/transmission-remote"; };
       apps.transmission-show = { type = "app"; program = "${pkgs.transmission}/bin/transmission-show"; };
       apps.unpaper = { type = "app"; program = "${pkgs.unpaper}/bin/unpaper"; };
-      apps.vips = { type = "app"; program = "${pkgs.vips}/bin/vips"; };
-      apps.vipsedit = { type = "app"; program = "${pkgs.vips}/bin/vipsedit"; };
-      apps.vipsheader = { type = "app"; program = "${pkgs.vips}/bin/vipsheader"; };
-      apps.vipsprofile = { type = "app"; program = "${pkgs.vips}/bin/vipsprofile"; };
-      apps.vipsthumbnail = { type = "app"; program = "${pkgs.vips}/bin/vipsthumbnail"; };
       apps.wayland-info = { type = "app"; program = "${pkgs.wayland-utils}/bin/wayland-info"; };
       apps.waypipe = { type = "app"; program = "${pkgs.waypipe}/bin/waypipe"; };
       apps.wayvnc = { type = "app"; program = "${pkgs.wayvnc}/bin/wayvnc"; };
@@ -362,6 +357,7 @@
       packages.docker-client = pkgs.docker-client;
       packages.docker-compose = pkgs.docker-compose;
       packages.envfs = pkgs.envfs;
+      packages.f3 = pkgs.f3;
       packages.ffmpeg-headless = pkgs.ffmpeg-headless;
       packages.ffmpeg_6-full = pkgs.ffmpeg_6-full;
       packages.ffmpeg_6-headless = pkgs.ffmpeg_6-headless;
