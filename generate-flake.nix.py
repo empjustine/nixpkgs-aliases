@@ -4,6 +4,7 @@ import contextlib
 import json
 import logging
 import pathlib
+import random
 import shlex
 import subprocess
 import sqlite3
@@ -13,8 +14,6 @@ import typing
 if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG)
 
-NIXPKGS_ALIASES_FLAKE_NIX_FILE = pathlib.Path("flake.nix")
-NIXPKGS_ALIASES_FLAKE_LOCK_FILE = pathlib.Path("flake.lock")
 NIXPKGS_ALIASES_FLAKE_NIX_FOOTER_FILE = pathlib.Path("flake.nix.footer")
 NIXPKGS_ALIASES_FLAKE_NIX_HEADER_FILE = pathlib.Path("flake.nix.header")
 NIXPKGS_ALIASES_RUN_FILE = pathlib.Path("../nixpkgs-aliases-run.sh")
@@ -24,14 +23,6 @@ NIXPKGS_ALIASES_ALIASES_FOLDER = pathlib.Path("aliases")
 CMD_UPDATE_FLAKE = shlex.split(
     "nix --extra-experimental-features 'nix-command flakes' flake update path:."
 )
-
-NIXPKG_BINARY_SEARCH_PATHS = [
-    "bin",
-    "lib/node_modules/.bin",
-]
-
-XDG_DATA_HOME_FOLDER = pathlib.Path("../.local/share")
-NIX_CHROOT_FOLDER = pathlib.Path("../nix/root")
 
 
 def _escape_nix_set_key(_name):
@@ -96,7 +87,7 @@ def main():
                     _file.unlink()
 
     subprocess.run(CMD_UPDATE_FLAKE)
-    _rev = json.loads(NIXPKGS_ALIASES_FLAKE_LOCK_FILE.read_text())["nodes"]["nixpkgs"][
+    _rev = json.loads(pathlib.Path("flake.lock").read_text())["nodes"]["nixpkgs"][
         "locked"
     ]["rev"]
     with sqlite3_autocommit_connection("database.sqlite3") as _con_map:
@@ -128,6 +119,7 @@ def main():
             )
         ]
 
+    random.shuffle(_nixpkgs)
     do_multiprocessing(_process_nixpkg, _nixpkgs, 3)
 
     with sqlite3_autocommit_connection("database.sqlite3") as _con_reduce:
@@ -147,15 +139,14 @@ def main():
                 {"rev": _rev},
             )
         ]
-        with NIXPKGS_ALIASES_FLAKE_NIX_FILE.open("w") as _flake_file:
+        with pathlib.Path("flake.nix").open("w") as _flake_file:
             _flake_file.write(NIXPKGS_ALIASES_FLAKE_NIX_HEADER_FILE.read_text())
             for _binary in _binaries:
                 _pname = _binary["pname"]
                 _suffix = _binary["bin"]
                 _raw_nix_key = _suffix.removeprefix("/bin/")
-                _nix_key = _escape_nix_set_key(_raw_nix_key)
                 _flake_file.write(
-                    f"      apps.{_nix_key} = {'{'} type = \"app\"; program = \"${'{'}pkgs.{_pname}{'}'}{_suffix}\"; {'}'};\n"
+                    f"      apps.{_escape_nix_set_key(_raw_nix_key)} = {'{'} type = \"app\"; program = \"${'{'}pkgs.{_pname}{'}'}{_suffix}\"; {'}'};\n"
                 )
             for _binary in _packages:
                 _flake_file.write(

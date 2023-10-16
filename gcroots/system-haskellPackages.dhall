@@ -1,1 +1,1 @@
-/nix/store/8qj06b21600l5ncp9j35y3sgxxa1yjgg-dhall-1.41.2
+/nix/store/s0yj21r407fp0rrfc8hwplypi9g0znz5-dhall-1.41.2
