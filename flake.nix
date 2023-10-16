@@ -166,6 +166,7 @@
       apps.maturin = { type = "app"; program = "${pkgs.maturin}/bin/maturin"; };
       apps.external-ip = { type = "app"; program = "${pkgs.miniupnpc}/bin/external-ip"; };
       apps.upnpc = { type = "app"; program = "${pkgs.miniupnpc}/bin/upnpc"; };
+      apps.mkpasswd = { type = "app"; program = "${pkgs.mkpasswd}/bin/mkpasswd"; };
       apps.mpvpaper = { type = "app"; program = "${pkgs.mpvpaper}/bin/mpvpaper"; };
       apps.mpvpaper-holder = { type = "app"; program = "${pkgs.mpvpaper}/bin/mpvpaper-holder"; };
       apps.dmypy = { type = "app"; program = "${pkgs.mypy}/bin/dmypy"; };
@@ -418,6 +419,7 @@
       packages.minify = pkgs.minify;
       packages.minijail = pkgs.minijail;
       packages.miniupnpc = pkgs.miniupnpc;
+      packages.mkpasswd = pkgs.mkpasswd;
       packages.mosh = pkgs.mosh;
       packages.motif = pkgs.motif;
       packages.mpvpaper = pkgs.mpvpaper;
