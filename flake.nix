@@ -18,6 +18,7 @@
       apps."mount.fuse.bindfs" = { type = "app"; program = "${pkgs.bindfs}/bin/mount.fuse.bindfs"; };
       apps.black = { type = "app"; program = "${pkgs.black}/bin/black"; };
       apps.blackd = { type = "app"; program = "${pkgs.black}/bin/blackd"; };
+      apps.blacken-docs = { type = "app"; program = "${pkgs.blacken-docs}/bin/blacken-docs"; };
       apps.borg = { type = "app"; program = "${pkgs.borgbackup}/bin/borg"; };
       apps.borgfs = { type = "app"; program = "${pkgs.borgbackup}/bin/borgfs"; };
       apps.cntr = { type = "app"; program = "${pkgs.cntr}/bin/cntr"; };
@@ -252,6 +253,7 @@
       apps.pdftotext = { type = "app"; program = "${pkgs.poppler_utils}/bin/pdftotext"; };
       apps.pdfunite = { type = "app"; program = "${pkgs.poppler_utils}/bin/pdfunite"; };
       apps.progress = { type = "app"; program = "${pkgs.progress}/bin/progress"; };
+      apps.proselint = { type = "app"; program = "${pkgs.proselint}/bin/proselint"; };
       apps.pv = { type = "app"; program = "${pkgs.pv}/bin/pv"; };
       apps.zfec = { type = "app"; program = "${pkgs.python311Packages.zfec}/bin/zfec"; };
       apps.zunfec = { type = "app"; program = "${pkgs.python311Packages.zfec}/bin/zunfec"; };
@@ -334,6 +336,7 @@
       packages.bindfs = pkgs.bindfs;
       packages.bitwarden-cli = pkgs.bitwarden-cli;
       packages.black = pkgs.black;
+      packages.blacken-docs = pkgs.blacken-docs;
       packages.borgbackup = pkgs.borgbackup;
       packages.brightnessctl = pkgs.brightnessctl;
       packages.bsdiff = pkgs.bsdiff;
@@ -466,6 +469,7 @@
       packages.procodile = pkgs.procodile;
       packages.profile-cleaner = pkgs.profile-cleaner;
       packages.progress = pkgs.progress;
+      packages.proselint = pkgs.proselint;
       packages.proxychains-ng = pkgs.proxychains-ng;
       packages.pulseaudio-ctl = pkgs.pulseaudio-ctl;
       packages.pv = pkgs.pv;
