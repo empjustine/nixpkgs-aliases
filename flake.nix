@@ -124,6 +124,7 @@
       apps.dhall-to-json = { type = "app"; program = "${pkgs.haskellPackages.dhall-json}/bin/dhall-to-json"; };
       apps.dhall-to-yaml = { type = "app"; program = "${pkgs.haskellPackages.dhall-json}/bin/dhall-to-yaml"; };
       apps.json-to-dhall = { type = "app"; program = "${pkgs.haskellPackages.dhall-json}/bin/json-to-dhall"; };
+      apps.keychain = { type = "app"; program = "${pkgs.keychain}/bin/keychain"; };
       apps.kubectl = { type = "app"; program = "${pkgs.kubectl}/bin/kubectl"; };
       apps.bsdcat = { type = "app"; program = "${pkgs.libarchive}/bin/bsdcat"; };
       apps.bsdcpio = { type = "app"; program = "${pkgs.libarchive}/bin/bsdcpio"; };
@@ -415,6 +416,7 @@
       packages.iotop = pkgs.iotop;
       packages.isolate = pkgs.isolate;
       packages.kanshi = pkgs.kanshi;
+      packages.keychain = pkgs.keychain;
       packages.kio-fuse = pkgs.kio-fuse;
       packages.krb5 = pkgs.krb5;
       packages.kubectl = pkgs.kubectl;
