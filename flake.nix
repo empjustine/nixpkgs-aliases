@@ -37,6 +37,8 @@
       apps.ffplay = { type = "app"; program = "${pkgs.ffmpeg_6-full}/bin/ffplay"; };
       apps.ffprobe = { type = "app"; program = "${pkgs.ffmpeg_6-full}/bin/ffprobe"; };
       apps.qt-faststart = { type = "app"; program = "${pkgs.ffmpeg_6-full}/bin/qt-faststart"; };
+      apps.foot = { type = "app"; program = "${pkgs.foot}/bin/foot"; };
+      apps.footclient = { type = "app"; program = "${pkgs.foot}/bin/footclient"; };
       apps.gifdiff = { type = "app"; program = "${pkgs.gifsicle}/bin/gifdiff"; };
       apps.gifsicle = { type = "app"; program = "${pkgs.gifsicle}/bin/gifsicle"; };
       apps.git-lfs = { type = "app"; program = "${pkgs.git-lfs}/bin/git-lfs"; };
@@ -380,6 +382,7 @@
       packages.ffmpeg_6-full = pkgs.ffmpeg_6-full;
       packages.ffmpeg_6-headless = pkgs.ffmpeg_6-headless;
       packages.fnott = pkgs.fnott;
+      packages.foot = pkgs.foot;
       packages.fossil = pkgs.fossil;
       packages.fribidi = pkgs.fribidi;
       packages.fuseiso = pkgs.fuseiso;
