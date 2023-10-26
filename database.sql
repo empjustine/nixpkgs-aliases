@@ -1299,7 +1299,7 @@ INSERT INTO nixpkg VALUES('pipectl',NULL,NULL,NULL,'a simple named pipe manageme
 INSERT INTO nixpkg VALUES('piper',NULL,'tmp',NULL,'GTK frontend for ratbagd mouse config daemon');
 INSERT INTO nixpkg VALUES('pipx',NULL,NULL,NULL,'Install and run Python applications in isolated environments');
 INSERT INTO nixpkg VALUES('plantuml-c4',NULL,NULL,NULL,'PlantUML bundled with C4-Plantuml and plantuml sprites library');
-INSERT INTO nixpkg VALUES('plantuml',NULL,NULL,NULL,'Draw UML diagrams using a simple and human readable text description');
+INSERT INTO nixpkg VALUES('plantuml',NULL,'plantuml-c4',NULL,'Draw UML diagrams using a simple and human readable text description');
 INSERT INTO nixpkg VALUES('plantuml-server',NULL,NULL,NULL,'A web application to generate UML diagrams on-the-fly.');
 INSERT INTO nixpkg VALUES('playerctl',NULL,NULL,NULL,'Command-line utility and library for controlling media players that implement MPRIS');
 INSERT INTO nixpkg VALUES('playwright',NULL,'tmp',NULL,'Python version of the Playwright testing and automation library');
