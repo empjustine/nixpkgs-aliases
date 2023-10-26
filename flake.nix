@@ -305,16 +305,7 @@
       apps.sqlite3_analyzer = { type = "app"; program = "${pkgs.sqlite-analyzer}/bin/sqlite3_analyzer"; };
       apps.sqlite3 = { type = "app"; program = "${pkgs.sqlite-interactive}/bin/sqlite3"; };
       apps.sqlite-utils = { type = "app"; program = "${pkgs.sqlite-utils}/bin/sqlite-utils"; };
-      apps.squashfuse = { type = "app"; program = "${pkgs.squashfuse}/bin/squashfuse"; };
-      apps.squashfuse_ll = { type = "app"; program = "${pkgs.squashfuse}/bin/squashfuse_ll"; };
       apps.syncthing = { type = "app"; program = "${pkgs.syncthing}/bin/syncthing"; };
-      apps.cifsiostat = { type = "app"; program = "${pkgs.sysstat}/bin/cifsiostat"; };
-      apps.iostat = { type = "app"; program = "${pkgs.sysstat}/bin/iostat"; };
-      apps.mpstat = { type = "app"; program = "${pkgs.sysstat}/bin/mpstat"; };
-      apps.pidstat = { type = "app"; program = "${pkgs.sysstat}/bin/pidstat"; };
-      apps.sadf = { type = "app"; program = "${pkgs.sysstat}/bin/sadf"; };
-      apps.sar = { type = "app"; program = "${pkgs.sysstat}/bin/sar"; };
-      apps.tapestat = { type = "app"; program = "${pkgs.sysstat}/bin/tapestat"; };
       apps.tmux = { type = "app"; program = "${pkgs.tmux}/bin/tmux"; };
       apps.transmission-cli = { type = "app"; program = "${pkgs.transmission}/bin/transmission-cli"; };
       apps.transmission-create = { type = "app"; program = "${pkgs.transmission}/bin/transmission-create"; };
@@ -322,7 +313,6 @@
       apps.transmission-edit = { type = "app"; program = "${pkgs.transmission}/bin/transmission-edit"; };
       apps.transmission-remote = { type = "app"; program = "${pkgs.transmission}/bin/transmission-remote"; };
       apps.transmission-show = { type = "app"; program = "${pkgs.transmission}/bin/transmission-show"; };
-      apps.unpaper = { type = "app"; program = "${pkgs.unpaper}/bin/unpaper"; };
       apps.vifm = { type = "app"; program = "${pkgs.vifm-full}/bin/vifm"; };
       apps.vifm-convert-dircolors = { type = "app"; program = "${pkgs.vifm-full}/bin/vifm-convert-dircolors"; };
       apps.vifm-pause = { type = "app"; program = "${pkgs.vifm-full}/bin/vifm-pause"; };

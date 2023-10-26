@@ -112,10 +112,11 @@ def main():
         _nixpkgs: list[NixpkgEntry] = [
             {
                 "pname": _row[0],
+                "disabled": _row[1],
                 "rev": _rev,
             }
             for _row in _con_map.execute(
-                "SELECT DISTINCT pname FROM nixpkg WHERE disabled IS NULL ORDER BY pname;"
+                "SELECT pname, disabled FROM nixpkg ORDER BY pname;"
             )
         ]
 
@@ -176,44 +177,44 @@ def do_multiprocessing(
 class NixpkgEntry(typing.TypedDict):
     rev: str
     pname: str
+    disabled: str
 
 
 def _process_nixpkg(_data: NixpkgEntry):
     _rev = _data["rev"]
     _pname = _data["pname"]
-    subprocess.run(
-        [
-            *shlex.split(
-                "nix --extra-experimental-features 'nix-command flakes' build --json --no-link"
-            ),
-            f"github:NixOS/nixpkgs/{_rev}#{_pname}",
-        ],
-    )
-    _eval_path = json.loads(
+    _disabled = _data["disabled"]
+    if _disabled is None:
         subprocess.run(
             [
                 *shlex.split(
-                    "nix --extra-experimental-features 'nix-command flakes' eval --json"
+                    "nix --extra-experimental-features 'nix-command flakes' build --json --no-link"
                 ),
                 f"github:NixOS/nixpkgs/{_rev}#{_pname}",
             ],
-            capture_output=True,
-        ).stdout
-    )
+        )
+    _eval_stdout = subprocess.run(
+        [
+            *shlex.split(
+                "nix --extra-experimental-features 'nix-command flakes' eval --json"
+            ),
+            f"github:NixOS/nixpkgs/{_rev}#{_pname}",
+        ],
+        capture_output=True,
+    ).stdout
+
+    if _eval_stdout == b"":
+        return
+
+    _eval_path = json.loads(_eval_stdout)
+
     _prefix = pathlib.Path(_eval_path)
 
     NIXPKGS_ALIASES_GCROOTS_FOLDER.joinpath(f"system-{_pname}").symlink_to(_eval_path)
 
-    with sqlite3_autocommit_connection("database.sqlite3") as con:
-        # con.execute(
-        #     "INSERT INTO nixpkg_rev(pname, rev, etc) VALUES (:pname, :rev, :etc);",
-        #     {
-        #         "pname": _pname,
-        #         "rev": _rev,
-        #         "etc": _eval_path,
-        #     },
-        # )
-
+    with sqlite3_autocommit_connection("database.sqlite3"):
+        if _disabled is not None:
+            return
         for _candidate_bin_path in _prefix.rglob("*"):
             if _candidate_bin_path.is_dir():
                 continue
