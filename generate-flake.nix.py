@@ -185,14 +185,23 @@ def _process_nixpkg(_data: NixpkgEntry):
     _pname = _data["pname"]
     _disabled = _data["disabled"]
     if _disabled is None:
-        subprocess.run(
+        _build_stdout = subprocess.run(
             [
                 *shlex.split(
                     "nix --extra-experimental-features 'nix-command flakes' build --json --no-link"
                 ),
                 f"github:NixOS/nixpkgs/{_rev}#{_pname}",
             ],
-        )
+            capture_output=True,
+        ).stdout
+        _build_paths = json.loads(_build_stdout)
+        for _output in _build_paths:
+            if "outputs" in _output:
+                for k, v in _output["outputs"].items():
+                    NIXPKGS_ALIASES_GCROOTS_FOLDER.joinpath(
+                        f"system-{_pname}-{k}"
+                    ).symlink_to(pathlib.Path(v))
+
     _eval_stdout = subprocess.run(
         [
             *shlex.split(
@@ -206,11 +215,9 @@ def _process_nixpkg(_data: NixpkgEntry):
     if _eval_stdout == b"":
         return
 
-    _eval_path = json.loads(_eval_stdout)
+    _prefix = pathlib.Path(json.loads(_eval_stdout))
 
-    _prefix = pathlib.Path(_eval_path)
-
-    NIXPKGS_ALIASES_GCROOTS_FOLDER.joinpath(f"system-{_pname}").symlink_to(_eval_path)
+    NIXPKGS_ALIASES_GCROOTS_FOLDER.joinpath(f"system-{_pname}").symlink_to(_prefix)
 
     with sqlite3_autocommit_connection("database.sqlite3"):
         if _disabled is not None:
