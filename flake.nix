@@ -22,6 +22,8 @@
       apps.borg = { type = "app"; program = "${pkgs.borgbackup}/bin/borg"; };
       apps.borgfs = { type = "app"; program = "${pkgs.borgbackup}/bin/borgfs"; };
       apps.cntr = { type = "app"; program = "${pkgs.cntr}/bin/cntr"; };
+      apps.d2 = { type = "app"; program = "${pkgs.d2}/bin/d2"; };
+      apps.d2plugin-dagre = { type = "app"; program = "${pkgs.d2}/bin/d2plugin-dagre"; };
       apps.davix-get = { type = "app"; program = "${pkgs.davix}/bin/davix-get"; };
       apps.davix-http = { type = "app"; program = "${pkgs.davix}/bin/davix-http"; };
       apps.davix-ls = { type = "app"; program = "${pkgs.davix}/bin/davix-ls"; };
@@ -37,6 +39,7 @@
       apps.dig = { type = "app"; program = "${pkgs.dig}/bin/dig"; };
       apps.nslookup = { type = "app"; program = "${pkgs.dig}/bin/nslookup"; };
       apps.nsupdate = { type = "app"; program = "${pkgs.dig}/bin/nsupdate"; };
+      apps.ditaa = { type = "app"; program = "${pkgs.ditaa}/bin/ditaa"; };
       apps.dmtxquery = { type = "app"; program = "${pkgs.dmtx-utils}/bin/dmtxquery"; };
       apps.dmtxread = { type = "app"; program = "${pkgs.dmtx-utils}/bin/dmtxread"; };
       apps.dmtxwrite = { type = "app"; program = "${pkgs.dmtx-utils}/bin/dmtxwrite"; };
@@ -96,43 +99,43 @@
       apps.rmiregistry = { type = "app"; program = "${pkgs.graalvm-ce}/bin/rmiregistry"; };
       apps.serialver = { type = "app"; program = "${pkgs.graalvm-ce}/bin/serialver"; };
       apps.unpack200 = { type = "app"; program = "${pkgs.graalvm-ce}/bin/unpack200"; };
-      apps.acyclic = { type = "app"; program = "${pkgs.graphviz}/bin/acyclic"; };
-      apps.bcomps = { type = "app"; program = "${pkgs.graphviz}/bin/bcomps"; };
-      apps.ccomps = { type = "app"; program = "${pkgs.graphviz}/bin/ccomps"; };
-      apps.circo = { type = "app"; program = "${pkgs.graphviz}/bin/circo"; };
-      apps.cluster = { type = "app"; program = "${pkgs.graphviz}/bin/cluster"; };
-      apps.diffimg = { type = "app"; program = "${pkgs.graphviz}/bin/diffimg"; };
-      apps.dijkstra = { type = "app"; program = "${pkgs.graphviz}/bin/dijkstra"; };
-      apps.dot = { type = "app"; program = "${pkgs.graphviz}/bin/dot"; };
-      apps.dot2gxl = { type = "app"; program = "${pkgs.graphviz}/bin/dot2gxl"; };
-      apps.dot_builtins = { type = "app"; program = "${pkgs.graphviz}/bin/dot_builtins"; };
-      apps.edgepaint = { type = "app"; program = "${pkgs.graphviz}/bin/edgepaint"; };
-      apps.fdp = { type = "app"; program = "${pkgs.graphviz}/bin/fdp"; };
-      apps.gc = { type = "app"; program = "${pkgs.graphviz}/bin/gc"; };
-      apps.gml2gv = { type = "app"; program = "${pkgs.graphviz}/bin/gml2gv"; };
-      apps.graphml2gv = { type = "app"; program = "${pkgs.graphviz}/bin/graphml2gv"; };
-      apps.gv2gml = { type = "app"; program = "${pkgs.graphviz}/bin/gv2gml"; };
-      apps.gv2gxl = { type = "app"; program = "${pkgs.graphviz}/bin/gv2gxl"; };
-      apps.gvcolor = { type = "app"; program = "${pkgs.graphviz}/bin/gvcolor"; };
-      apps.gvgen = { type = "app"; program = "${pkgs.graphviz}/bin/gvgen"; };
-      apps.gvmap = { type = "app"; program = "${pkgs.graphviz}/bin/gvmap"; };
-      apps."gvmap.sh" = { type = "app"; program = "${pkgs.graphviz}/bin/gvmap.sh"; };
-      apps.gvpack = { type = "app"; program = "${pkgs.graphviz}/bin/gvpack"; };
-      apps.gvpr = { type = "app"; program = "${pkgs.graphviz}/bin/gvpr"; };
-      apps.gxl2dot = { type = "app"; program = "${pkgs.graphviz}/bin/gxl2dot"; };
-      apps.gxl2gv = { type = "app"; program = "${pkgs.graphviz}/bin/gxl2gv"; };
-      apps.mm2gv = { type = "app"; program = "${pkgs.graphviz}/bin/mm2gv"; };
-      apps.neato = { type = "app"; program = "${pkgs.graphviz}/bin/neato"; };
-      apps.nop = { type = "app"; program = "${pkgs.graphviz}/bin/nop"; };
-      apps.osage = { type = "app"; program = "${pkgs.graphviz}/bin/osage"; };
-      apps.patchwork = { type = "app"; program = "${pkgs.graphviz}/bin/patchwork"; };
-      apps.prune = { type = "app"; program = "${pkgs.graphviz}/bin/prune"; };
-      apps.sccmap = { type = "app"; program = "${pkgs.graphviz}/bin/sccmap"; };
-      apps.sfdp = { type = "app"; program = "${pkgs.graphviz}/bin/sfdp"; };
-      apps.tred = { type = "app"; program = "${pkgs.graphviz}/bin/tred"; };
-      apps.twopi = { type = "app"; program = "${pkgs.graphviz}/bin/twopi"; };
-      apps.unflatten = { type = "app"; program = "${pkgs.graphviz}/bin/unflatten"; };
-      apps.vimdot = { type = "app"; program = "${pkgs.graphviz}/bin/vimdot"; };
+      apps.acyclic = { type = "app"; program = "${pkgs.graphviz-nox}/bin/acyclic"; };
+      apps.bcomps = { type = "app"; program = "${pkgs.graphviz-nox}/bin/bcomps"; };
+      apps.ccomps = { type = "app"; program = "${pkgs.graphviz-nox}/bin/ccomps"; };
+      apps.circo = { type = "app"; program = "${pkgs.graphviz-nox}/bin/circo"; };
+      apps.cluster = { type = "app"; program = "${pkgs.graphviz-nox}/bin/cluster"; };
+      apps.diffimg = { type = "app"; program = "${pkgs.graphviz-nox}/bin/diffimg"; };
+      apps.dijkstra = { type = "app"; program = "${pkgs.graphviz-nox}/bin/dijkstra"; };
+      apps.dot = { type = "app"; program = "${pkgs.graphviz-nox}/bin/dot"; };
+      apps.dot2gxl = { type = "app"; program = "${pkgs.graphviz-nox}/bin/dot2gxl"; };
+      apps.dot_builtins = { type = "app"; program = "${pkgs.graphviz-nox}/bin/dot_builtins"; };
+      apps.edgepaint = { type = "app"; program = "${pkgs.graphviz-nox}/bin/edgepaint"; };
+      apps.fdp = { type = "app"; program = "${pkgs.graphviz-nox}/bin/fdp"; };
+      apps.gc = { type = "app"; program = "${pkgs.graphviz-nox}/bin/gc"; };
+      apps.gml2gv = { type = "app"; program = "${pkgs.graphviz-nox}/bin/gml2gv"; };
+      apps.graphml2gv = { type = "app"; program = "${pkgs.graphviz-nox}/bin/graphml2gv"; };
+      apps.gv2gml = { type = "app"; program = "${pkgs.graphviz-nox}/bin/gv2gml"; };
+      apps.gv2gxl = { type = "app"; program = "${pkgs.graphviz-nox}/bin/gv2gxl"; };
+      apps.gvcolor = { type = "app"; program = "${pkgs.graphviz-nox}/bin/gvcolor"; };
+      apps.gvgen = { type = "app"; program = "${pkgs.graphviz-nox}/bin/gvgen"; };
+      apps.gvmap = { type = "app"; program = "${pkgs.graphviz-nox}/bin/gvmap"; };
+      apps."gvmap.sh" = { type = "app"; program = "${pkgs.graphviz-nox}/bin/gvmap.sh"; };
+      apps.gvpack = { type = "app"; program = "${pkgs.graphviz-nox}/bin/gvpack"; };
+      apps.gvpr = { type = "app"; program = "${pkgs.graphviz-nox}/bin/gvpr"; };
+      apps.gxl2dot = { type = "app"; program = "${pkgs.graphviz-nox}/bin/gxl2dot"; };
+      apps.gxl2gv = { type = "app"; program = "${pkgs.graphviz-nox}/bin/gxl2gv"; };
+      apps.mm2gv = { type = "app"; program = "${pkgs.graphviz-nox}/bin/mm2gv"; };
+      apps.neato = { type = "app"; program = "${pkgs.graphviz-nox}/bin/neato"; };
+      apps.nop = { type = "app"; program = "${pkgs.graphviz-nox}/bin/nop"; };
+      apps.osage = { type = "app"; program = "${pkgs.graphviz-nox}/bin/osage"; };
+      apps.patchwork = { type = "app"; program = "${pkgs.graphviz-nox}/bin/patchwork"; };
+      apps.prune = { type = "app"; program = "${pkgs.graphviz-nox}/bin/prune"; };
+      apps.sccmap = { type = "app"; program = "${pkgs.graphviz-nox}/bin/sccmap"; };
+      apps.sfdp = { type = "app"; program = "${pkgs.graphviz-nox}/bin/sfdp"; };
+      apps.tred = { type = "app"; program = "${pkgs.graphviz-nox}/bin/tred"; };
+      apps.twopi = { type = "app"; program = "${pkgs.graphviz-nox}/bin/twopi"; };
+      apps.unflatten = { type = "app"; program = "${pkgs.graphviz-nox}/bin/unflatten"; };
+      apps.vimdot = { type = "app"; program = "${pkgs.graphviz-nox}/bin/vimdot"; };
       apps.dhall = { type = "app"; program = "${pkgs.haskellPackages.dhall}/bin/dhall"; };
       apps.dhall-to-bash = { type = "app"; program = "${pkgs.haskellPackages.dhall-bash}/bin/dhall-to-bash"; };
       apps.dhall-to-json = { type = "app"; program = "${pkgs.haskellPackages.dhall-json}/bin/dhall-to-json"; };
@@ -348,6 +351,7 @@
       apps.zstdless = { type = "app"; program = "${pkgs.zstd}/bin/zstdless"; };
       apps.zstdmt = { type = "app"; program = "${pkgs.zstd}/bin/zstdmt"; };
       packages.Fabric = pkgs.Fabric;
+      packages.actdiag = pkgs.actdiag;
       packages.adbfs-rootless = pkgs.adbfs-rootless;
       packages.alejandra = pkgs.alejandra;
       packages.amdgpu_top = pkgs.amdgpu_top;
@@ -367,6 +371,7 @@
       packages.bitwarden-cli = pkgs.bitwarden-cli;
       packages.black = pkgs.black;
       packages.blacken-docs = pkgs.blacken-docs;
+      packages.blockdiag = pkgs.blockdiag;
       packages.borgbackup = pkgs.borgbackup;
       packages.brightnessctl = pkgs.brightnessctl;
       packages.bsdiff = pkgs.bsdiff;
@@ -384,6 +389,7 @@
       packages.csvs-to-sqlite = pkgs.csvs-to-sqlite;
       packages.cypress = pkgs.cypress;
       packages.czkawka = pkgs.czkawka;
+      packages.d2 = pkgs.d2;
       packages.dar = pkgs.dar;
       packages.davfs2 = pkgs.davfs2;
       packages.davix = pkgs.davix;
@@ -396,6 +402,7 @@
       packages.difftastic = pkgs.difftastic;
       packages.dig = pkgs.dig;
       packages.disorderfs = pkgs.disorderfs;
+      packages.ditaa = pkgs.ditaa;
       packages.dive = pkgs.dive;
       packages.dmtx-utils = pkgs.dmtx-utils;
       packages.docker-buildx = pkgs.docker-buildx;
@@ -437,6 +444,7 @@
       packages.gnupatch = pkgs.gnupatch;
       packages.graalvm-ce = pkgs.graalvm-ce;
       packages.graphviz = pkgs.graphviz;
+      packages.graphviz-nox = pkgs.graphviz-nox;
       packages.gvfs = pkgs.gvfs;
       packages."haskellPackages.dhall" = pkgs.haskellPackages.dhall;
       packages."haskellPackages.dhall-bash" = pkgs.haskellPackages.dhall-bash;
@@ -455,6 +463,7 @@
       packages.isolate = pkgs.isolate;
       packages.kanshi = pkgs.kanshi;
       packages.keychain = pkgs.keychain;
+      packages.kgt = pkgs.kgt;
       packages.khal = pkgs.khal;
       packages.kio-fuse = pkgs.kio-fuse;
       packages.krb5 = pkgs.krb5;
@@ -507,6 +516,7 @@
       packages."nodePackages.bash-language-server" = pkgs.nodePackages.bash-language-server;
       packages."nodePackages.eslint" = pkgs.nodePackages.eslint;
       packages."nodePackages.eslint_d" = pkgs.nodePackages.eslint_d;
+      packages."nodePackages.mermaid-cli" = pkgs.nodePackages.mermaid-cli;
       packages."nodePackages.prettier" = pkgs.nodePackages.prettier;
       packages."nodePackages.prettier_d_slim" = pkgs.nodePackages.prettier_d_slim;
       packages."nodePackages.pyright" = pkgs.nodePackages.pyright;
@@ -519,6 +529,7 @@
       packages.noto-fonts-emoji-blob-bin = pkgs.noto-fonts-emoji-blob-bin;
       packages.noto-fonts-lgc-plus = pkgs.noto-fonts-lgc-plus;
       packages.numactl = pkgs.numactl;
+      packages.nwdiag = pkgs.nwdiag;
       packages.oath-toolkit = pkgs.oath-toolkit;
       packages.obs-studio = pkgs.obs-studio;
       packages."obs-studio-plugins.obs-pipewire-audio-capture" = pkgs.obs-studio-plugins.obs-pipewire-audio-capture;
@@ -541,7 +552,9 @@
       packages.pipectl = pkgs.pipectl;
       packages.piper = pkgs.piper;
       packages.pipx = pkgs.pipx;
+      packages.plantuml = pkgs.plantuml;
       packages.plantuml-c4 = pkgs.plantuml-c4;
+      packages.plantuml-server = pkgs.plantuml-server;
       packages.playerctl = pkgs.playerctl;
       packages.playwright = pkgs.playwright;
       packages.pnpm-lock-export = pkgs.pnpm-lock-export;
@@ -565,6 +578,7 @@
       packages."python311Packages.paramiko" = pkgs.python311Packages.paramiko;
       packages."python311Packages.pocket" = pkgs.python311Packages.pocket;
       packages."python311Packages.pyupgrade" = pkgs.python311Packages.pyupgrade;
+      packages."python311Packages.railroad-diagrams" = pkgs.python311Packages.railroad-diagrams;
       packages."python311Packages.recurring-ical-events" = pkgs.python311Packages.recurring-ical-events;
       packages."python311Packages.selenium" = pkgs.python311Packages.selenium;
       packages."python311Packages.tensorflow" = pkgs.python311Packages.tensorflow;
@@ -592,6 +606,7 @@
       packages.scrcpy = pkgs.scrcpy;
       packages.selinux-python = pkgs.selinux-python;
       packages.selinux-sandbox = pkgs.selinux-sandbox;
+      packages.seqdiag = pkgs.seqdiag;
       packages.setools = pkgs.setools;
       packages.sftpgo = pkgs.sftpgo;
       packages.shellcheck = pkgs.shellcheck;
@@ -664,14 +679,9 @@
 
       # special case for az
       apps.az = { type = "app"; program = "${pkgs.azure-cli}/bin/az"; };
-      packages.az = pkgs.azure-cli;
-
-      # special case for git-gui, from /libexec/git-core/git-gui
+      # special case for git-gui
       apps.git-gui = { type = "app"; program = "${pkgs.gitFull}/libexec/git-core/git-gui"; };
-      packages.git-gui = pkgs.gitFull;
-
       # special case for gitk
       apps.gitk = { type = "app"; program = "${pkgs.gitFull}/bin/gitk"; };
-      packages.gitk = pkgs.gitFull;
     });
 }
