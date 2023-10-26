@@ -295,7 +295,6 @@
       apps.patchelf = { type = "app"; program = "${pkgs.patchelf}/bin/patchelf"; };
       apps.pipectl = { type = "app"; program = "${pkgs.pipectl}/bin/pipectl"; };
       apps.pipx = { type = "app"; program = "${pkgs.pipx}/bin/pipx"; };
-      apps.plantuml = { type = "app"; program = "${pkgs.plantuml}/bin/plantuml"; };
       apps.plantuml = { type = "app"; program = "${pkgs.plantuml-c4}/bin/plantuml"; };
       apps.playerctl = { type = "app"; program = "${pkgs.playerctl}/bin/playerctl"; };
       apps.playerctld = { type = "app"; program = "${pkgs.playerctl}/bin/playerctld"; };
