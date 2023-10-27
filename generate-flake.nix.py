@@ -57,7 +57,7 @@ def _escape_nix_set_key(_name):
 
 
 @contextlib.contextmanager
-def sqlite3_autocommit_connection(database):
+def sqlite3_autocommit_connection(database: os.PathLike) -> sqlite3.Connection:
     """
     open sqlite3 connection in autocommit mode, with explicit sqlite3 transaction handling
 
@@ -180,17 +180,20 @@ def main():
         if _descriptions.stdout == b"":
             return
 
-        for k, v in json.loads(_descriptions.stdout)["packages"][
-            "x86_64-linux"
-        ].items():
-            if "description" in v:
-                _con_reduce.execute(
-                    "UPDATE nixpkg SET description = :description WHERE pname = :pname;",
-                    {
-                        "pname": k,
-                        "description": v["description"],
-                    },
-                )
+        _descriptions = [
+            {
+                "pname": k,
+                "description": v["description"],
+            }
+            for k, v in json.loads(_descriptions.stdout)["packages"][
+                "x86_64-linux"
+            ].items()
+            if "description" in v
+        ]
+        _con_reduce.executemany(
+            "UPDATE nixpkg SET description = :description WHERE pname = :pname;",
+            _descriptions,
+        )
 
 
 MULTIPROCESSING = True

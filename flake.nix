@@ -186,19 +186,6 @@
       apps.dhall-to-yaml = { type = "app"; program = "${pkgs.haskellPackages.dhall-json}/bin/dhall-to-yaml"; };
       apps.json-to-dhall = { type = "app"; program = "${pkgs.haskellPackages.dhall-json}/bin/json-to-dhall"; };
       apps.hivemind = { type = "app"; program = "${pkgs.hivemind}/bin/hivemind"; };
-      apps.hocr-check = { type = "app"; program = "${pkgs.hocr-tools}/bin/hocr-check"; };
-      apps.hocr-combine = { type = "app"; program = "${pkgs.hocr-tools}/bin/hocr-combine"; };
-      apps.hocr-cut = { type = "app"; program = "${pkgs.hocr-tools}/bin/hocr-cut"; };
-      apps.hocr-eval = { type = "app"; program = "${pkgs.hocr-tools}/bin/hocr-eval"; };
-      apps.hocr-eval-geom = { type = "app"; program = "${pkgs.hocr-tools}/bin/hocr-eval-geom"; };
-      apps.hocr-eval-lines = { type = "app"; program = "${pkgs.hocr-tools}/bin/hocr-eval-lines"; };
-      apps.hocr-extract-g1000 = { type = "app"; program = "${pkgs.hocr-tools}/bin/hocr-extract-g1000"; };
-      apps.hocr-extract-images = { type = "app"; program = "${pkgs.hocr-tools}/bin/hocr-extract-images"; };
-      apps.hocr-lines = { type = "app"; program = "${pkgs.hocr-tools}/bin/hocr-lines"; };
-      apps.hocr-merge-dc = { type = "app"; program = "${pkgs.hocr-tools}/bin/hocr-merge-dc"; };
-      apps.hocr-pdf = { type = "app"; program = "${pkgs.hocr-tools}/bin/hocr-pdf"; };
-      apps.hocr-split = { type = "app"; program = "${pkgs.hocr-tools}/bin/hocr-split"; };
-      apps.hocr-wordfreq = { type = "app"; program = "${pkgs.hocr-tools}/bin/hocr-wordfreq"; };
       apps.hurl = { type = "app"; program = "${pkgs.hurl}/bin/hurl"; };
       apps.hurlfmt = { type = "app"; program = "${pkgs.hurl}/bin/hurlfmt"; };
       apps.jql = { type = "app"; program = "${pkgs.jql}/bin/jql"; };
@@ -281,6 +268,8 @@
       apps.stubgen = { type = "app"; program = "${pkgs.mypy}/bin/stubgen"; };
       apps.stubtest = { type = "app"; program = "${pkgs.mypy}/bin/stubtest"; };
       apps.ncdu = { type = "app"; program = "${pkgs.ncdu}/bin/ncdu"; };
+      apps.nebula = { type = "app"; program = "${pkgs.nebula}/bin/nebula"; };
+      apps.nebula-cert = { type = "app"; program = "${pkgs.nebula}/bin/nebula-cert"; };
       apps.NetworkManager = { type = "app"; program = "${pkgs.networkmanager}/bin/NetworkManager"; };
       apps.nm-online = { type = "app"; program = "${pkgs.networkmanager}/bin/nm-online"; };
       apps.nmcli = { type = "app"; program = "${pkgs.networkmanager}/bin/nmcli"; };
@@ -587,7 +576,6 @@
       apps.sioyek = { type = "app"; program = "${pkgs.sioyek}/bin/sioyek"; };
       apps.snapraid = { type = "app"; program = "${pkgs.snapraid}/bin/snapraid"; };
       apps.snore = { type = "app"; program = "${pkgs.snore}/bin/snore"; };
-      apps.sommelier = { type = "app"; program = "${pkgs.sommelier}/bin/sommelier"; };
       apps.exif_loader = { type = "app"; program = "${pkgs.spatialite_tools}/bin/exif_loader"; };
       apps.shp_doctor = { type = "app"; program = "${pkgs.spatialite_tools}/bin/shp_doctor"; };
       apps.shp_sanitize = { type = "app"; program = "${pkgs.spatialite_tools}/bin/shp_sanitize"; };
@@ -620,6 +608,7 @@
       apps.sqlite3_analyzer = { type = "app"; program = "${pkgs.sqlite-analyzer}/bin/sqlite3_analyzer"; };
       apps.sqlite3 = { type = "app"; program = "${pkgs.sqlite-interactive}/bin/sqlite3"; };
       apps.sqlite-utils = { type = "app"; program = "${pkgs.sqlite-utils}/bin/sqlite-utils"; };
+      apps.squawk = { type = "app"; program = "${pkgs.squawk}/bin/squawk"; };
       apps.fill_test = { type = "app"; program = "${pkgs.srm}/bin/fill_test"; };
       apps.srm = { type = "app"; program = "${pkgs.srm}/bin/srm"; };
       apps.swc = { type = "app"; program = "${pkgs.swc}/bin/swc"; };
@@ -663,7 +652,9 @@
       apps.wl-paste = { type = "app"; program = "${pkgs.wl-clipboard}/bin/wl-paste"; };
       apps.wl-mirror = { type = "app"; program = "${pkgs.wl-mirror}/bin/wl-mirror"; };
       apps.wl-present = { type = "app"; program = "${pkgs.wl-mirror}/bin/wl-present"; };
+      apps.wlprop = { type = "app"; program = "${pkgs.wlprop}/bin/wlprop"; };
       apps.wlrctl = { type = "app"; program = "${pkgs.wlrctl}/bin/wlrctl"; };
+      apps.wmenu = { type = "app"; program = "${pkgs.wmenu}/bin/wmenu"; };
       apps.wtype = { type = "app"; program = "${pkgs.wtype}/bin/wtype"; };
       apps.exo-desktop-item-edit = { type = "app"; program = "${pkgs.xfce.exo}/bin/exo-desktop-item-edit"; };
       apps.exo-open = { type = "app"; program = "${pkgs.xfce.exo}/bin/exo-open"; };
@@ -682,6 +673,7 @@
       apps.zbarimg = { type = "app"; program = "${pkgs.zbar}/bin/zbarimg"; };
       apps.zint = { type = "app"; program = "${pkgs.zint}/bin/zint"; };
       apps.zint-qt = { type = "app"; program = "${pkgs.zint}/bin/zint-qt"; };
+      apps.zrok = { type = "app"; program = "${pkgs.zrok}/bin/zrok"; };
       apps.pzstd = { type = "app"; program = "${pkgs.zstd}/bin/pzstd"; };
       apps.unzstd = { type = "app"; program = "${pkgs.zstd}/bin/unzstd"; };
       apps.zstd = { type = "app"; program = "${pkgs.zstd}/bin/zstd"; };
@@ -808,6 +800,8 @@
       packages.gitfs = pkgs.gitfs;
       packages.github-to-sqlite = pkgs.github-to-sqlite;
       packages.gitui = pkgs.gitui;
+      packages.glfw = pkgs.glfw;
+      packages.glfw-wayland = pkgs.glfw-wayland;
       packages.gmic = pkgs.gmic;
       packages.gnirehtet = pkgs.gnirehtet;
       packages."gnome.file-roller" = pkgs.gnome.file-roller;
@@ -952,6 +946,7 @@
       packages.nsjail = pkgs.nsjail;
       packages.numactl = pkgs.numactl;
       packages.nwdiag = pkgs.nwdiag;
+      packages.nwg-wrapper = pkgs.nwg-wrapper;
       packages.oath-toolkit = pkgs.oath-toolkit;
       packages.obs-studio = pkgs.obs-studio;
       packages."obs-studio-plugins.obs-pipewire-audio-capture" = pkgs.obs-studio-plugins.obs-pipewire-audio-capture;
@@ -1145,6 +1140,7 @@
       packages.vscodium = pkgs.vscodium;
       packages.waifu2x-converter-cpp = pkgs.waifu2x-converter-cpp;
       packages.wayland-utils = pkgs.wayland-utils;
+      packages.wayout = pkgs.wayout;
       packages.waypipe = pkgs.waypipe;
       packages.wayvnc = pkgs.wayvnc;
       packages.wdomirror = pkgs.wdomirror;
@@ -1155,11 +1151,18 @@
       packages.wl-clipboard = pkgs.wl-clipboard;
       packages.wl-gammactl = pkgs.wl-gammactl;
       packages.wl-mirror = pkgs.wl-mirror;
+      packages.wlprop = pkgs.wlprop;
+      packages.wlr-protocols = pkgs.wlr-protocols;
+      packages.wlr-randr = pkgs.wlr-randr;
       packages.wlrctl = pkgs.wlrctl;
       packages.wlroots = pkgs.wlroots;
+      packages.wlroots_0_15 = pkgs.wlroots_0_15;
       packages.wmctrl = pkgs.wmctrl;
+      packages.wmenu = pkgs.wmenu;
       packages.wtype = pkgs.wtype;
+      packages.wvkbd = pkgs.wvkbd;
       packages.xandikos = pkgs.xandikos;
+      packages.xdg-desktop-portal-wlr = pkgs.xdg-desktop-portal-wlr;
       packages."xfce.exo" = pkgs.xfce.exo;
       packages."xfce.gigolo" = pkgs.xfce.gigolo;
       packages.xmonadctl = pkgs.xmonadctl;
