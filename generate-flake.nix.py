@@ -6,6 +6,7 @@ import logging
 import pathlib
 import random
 import shlex
+
 import subprocess
 import sqlite3
 import multiprocessing
@@ -22,6 +23,9 @@ NIXPKGS_ALIASES_ALIASES_FOLDER = pathlib.Path("aliases")
 
 CMD_UPDATE_FLAKE = shlex.split(
     "nix --extra-experimental-features 'nix-command flakes' flake update path:."
+)
+PACKAGE_DESCRIPTIONS = shlex.split(
+    "nix --extra-experimental-features 'nix-command flakes' --refresh flake show --json path:."
 )
 
 
@@ -154,6 +158,24 @@ def main():
                     f"      packages.{_escape_nix_set_key(_binary['pname'])} = pkgs.{_binary['pname']};\n"
                 )
             _flake_file.write(NIXPKGS_ALIASES_FLAKE_NIX_FOOTER_FILE.read_text())
+        _descriptions_stdout = subprocess.run(
+            PACKAGE_DESCRIPTIONS,
+            capture_output=True,
+        ).stdout
+        if _descriptions_stdout == b"":
+            return
+
+        for k, v in json.loads(_descriptions_stdout)["packages"][
+            "x86_64-linux"
+        ].items():
+            if "description" in v:
+                _con_reduce.execute(
+                    "UPDATE nixpkg SET description = :description WHERE pname = :pname;",
+                    {
+                        "pname": k,
+                        "description": v["description"],
+                    },
+                )
 
 
 MULTIPROCESSING = True
