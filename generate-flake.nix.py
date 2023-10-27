@@ -3,6 +3,7 @@ import collections.abc
 import contextlib
 import json
 import logging
+import os
 import pathlib
 import random
 import shlex
@@ -27,6 +28,23 @@ CMD_UPDATE_FLAKE = shlex.split(
 PACKAGE_DESCRIPTIONS = shlex.split(
     "nix --extra-experimental-features 'nix-command flakes' --refresh flake show --json path:."
 )
+
+
+def _subprocess_run(_cmd):
+    _env = dict(os.environ)
+    _env["TERM"] = "dumb"
+    _result = subprocess.run(_cmd, capture_output=True, env=_env)
+    # 0: stdin
+    # 1: stdout
+    # 2: stderr
+    print(
+        {
+            "$@": shlex.join(_cmd),
+            1: _result.stdout.decode("utf-8", "surrogateescape"),
+            2: _result.stderr.decode("utf-8", "surrogateescape"),
+        }
+    )
+    return _result
 
 
 def _escape_nix_set_key(_name):
@@ -90,7 +108,7 @@ def main():
                 with contextlib.suppress(FileNotFoundError):
                     _file.unlink()
 
-    subprocess.run(CMD_UPDATE_FLAKE)
+    _subprocess_run(CMD_UPDATE_FLAKE)
     _rev = json.loads(pathlib.Path("flake.lock").read_text())["nodes"]["nixpkgs"][
         "locked"
     ]["rev"]
@@ -158,14 +176,11 @@ def main():
                     f"      packages.{_escape_nix_set_key(_binary['pname'])} = pkgs.{_binary['pname']};\n"
                 )
             _flake_file.write(NIXPKGS_ALIASES_FLAKE_NIX_FOOTER_FILE.read_text())
-        _descriptions_stdout = subprocess.run(
-            PACKAGE_DESCRIPTIONS,
-            capture_output=True,
-        ).stdout
-        if _descriptions_stdout == b"":
+        _descriptions = _subprocess_run(PACKAGE_DESCRIPTIONS)
+        if _descriptions.stdout == b"":
             return
 
-        for k, v in json.loads(_descriptions_stdout)["packages"][
+        for k, v in json.loads(_descriptions.stdout)["packages"][
             "x86_64-linux"
         ].items():
             if "description" in v:
@@ -207,16 +222,17 @@ def _process_nixpkg(_data: NixpkgEntry):
     _pname = _data["pname"]
     _disabled = _data["disabled"]
     if _disabled is None:
-        _build_stdout = subprocess.run(
+        _build = _subprocess_run(
             [
                 *shlex.split(
                     "nix --extra-experimental-features 'nix-command flakes' build --json --no-link"
                 ),
                 f"github:NixOS/nixpkgs/{_rev}#{_pname}",
-            ],
-            capture_output=True,
-        ).stdout
-        _build_paths = json.loads(_build_stdout)
+            ]
+        )
+        if _build.stdout == b"":
+            print({"out": b"", "_data": _data})
+        _build_paths = json.loads(_build.stdout)
         for _output in _build_paths:
             if "outputs" in _output:
                 for k, v in _output["outputs"].items():
@@ -224,20 +240,19 @@ def _process_nixpkg(_data: NixpkgEntry):
                         f"system-{_pname}-{k}"
                     ).symlink_to(pathlib.Path(v))
 
-    _eval_stdout = subprocess.run(
+    _eval = _subprocess_run(
         [
             *shlex.split(
                 "nix --extra-experimental-features 'nix-command flakes' eval --json"
             ),
             f"github:NixOS/nixpkgs/{_rev}#{_pname}",
         ],
-        capture_output=True,
-    ).stdout
+    )
 
-    if _eval_stdout == b"":
+    if _eval.stdout == b"":
         return
 
-    _prefix = pathlib.Path(json.loads(_eval_stdout))
+    _prefix = pathlib.Path(json.loads(_eval.stdout))
 
     NIXPKGS_ALIASES_GCROOTS_FOLDER.joinpath(f"system-{_pname}").symlink_to(_prefix)
 
