@@ -182,7 +182,6 @@
       apps.vimdot = { type = "app"; program = "${pkgs.graphviz-nox}/bin/vimdot"; };
       apps.gron = { type = "app"; program = "${pkgs.gron}/bin/gron"; };
       apps.dhall = { type = "app"; program = "${pkgs.haskellPackages.dhall}/bin/dhall"; };
-      apps.dhall-to-bash = { type = "app"; program = "${pkgs.haskellPackages.dhall-bash}/bin/dhall-to-bash"; };
       apps.dhall-to-json = { type = "app"; program = "${pkgs.haskellPackages.dhall-json}/bin/dhall-to-json"; };
       apps.dhall-to-yaml = { type = "app"; program = "${pkgs.haskellPackages.dhall-json}/bin/dhall-to-yaml"; };
       apps.json-to-dhall = { type = "app"; program = "${pkgs.haskellPackages.dhall-json}/bin/json-to-dhall"; };
