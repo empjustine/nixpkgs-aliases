@@ -15,14 +15,6 @@ CREATE TABLE rev(
   flakeref TEXT not null,
   ctime REAL default(unixepoch())
 );
-CREATE TABLE IF NOT EXISTS "nixpkg_rev"(
-  pname TEXT not null
-  references nixpkg,
-  rev TEXT not null
-  references rev,
-  etc TEXT,
-  primary key(pname, rev)
-);
 CREATE TABLE IF NOT EXISTS "nixpkg_rev_bin"(
   pname TEXT not null
   references nixpkg,
