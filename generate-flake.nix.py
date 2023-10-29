@@ -116,13 +116,11 @@ def main():
         if cleanup:
             for _statement in [
                 "DELETE FROM rev WHERE rev.rev NOT IN (SELECT rev.rev FROM rev ORDER BY rev.ctime DESC LIMIT 3);",
-                "DELETE FROM nixpkg_rev WHERE rev NOT IN (SELECT DISTINCT rev FROM rev);",
                 "DELETE FROM nixpkg_rev_bin WHERE rev NOT IN (SELECT DISTINCT rev FROM rev);",
             ]:
                 with transaction(_con_map):
                     _con_map.execute(_statement)
         for _statement in [
-            "DELETE FROM nixpkg_rev WHERE nixpkg_rev.rev = :rev;",
             "DELETE FROM nixpkg_rev_bin WHERE nixpkg_rev_bin.rev = :rev;",
         ]:
             with transaction(_con_map):
@@ -169,11 +167,11 @@ def main():
                 _suffix = _binary["bin"]
                 _raw_nix_key = _suffix.removeprefix("/bin/")
                 _flake_file.write(
-                    f"      apps.{_escape_nix_set_key(_raw_nix_key)} = {'{'} type = \"app\"; program = \"${'{'}pkgs.{_pname}{'}'}{_suffix}\"; {'}'};\n"
+                    f"      apps.{_escape_nix_set_key(_raw_nix_key)} = {'{'} type = \"app\"; program = \"${'{'}nixos-23.05.{_pname}{'}'}{_suffix}\"; {'}'};\n"
                 )
             for _binary in _packages:
                 _flake_file.write(
-                    f"      packages.{_escape_nix_set_key(_binary['pname'])} = pkgs.{_binary['pname']};\n"
+                    f"      packages.{_escape_nix_set_key(_binary['pname'])} = nixos-23.05.{_binary['pname']};\n"
                 )
             _flake_file.write(NIXPKGS_ALIASES_FLAKE_NIX_FOOTER_FILE.read_text())
         _descriptions = _subprocess_run(PACKAGE_DESCRIPTIONS)

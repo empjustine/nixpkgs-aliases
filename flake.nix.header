@@ -1,12 +1,15 @@
 {
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
+  inputs.i-23.05.url = "github:NixOS/nixpkgs/nixos-23.05";
+  inputs.i-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
   inputs.flake-utils.url = "github:numtide/flake-utils";
 
   outputs = {
     self,
-    nixpkgs,
+    i-23.05,
+    i-unstable,
     flake-utils,
   }:
     flake-utils.lib.eachDefaultSystem (system: let
-      pkgs = nixpkgs.legacyPackages.${system};
+      nixos-23.05 = i-23.05.legacyPackages.${system};
+      nixos-unstable = i-unstable.legacyPackages.${system};
     in {
