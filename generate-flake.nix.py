@@ -109,7 +109,7 @@ def main():
                     _file.unlink()
 
     _subprocess_run(CMD_UPDATE_FLAKE)
-    _rev = json.loads(pathlib.Path("flake.lock").read_text())["nodes"]["nixpkgs"][
+    _rev = json.loads(pathlib.Path("flake.lock").read_text())["nodes"]["n-23-05"][
         "locked"
     ]["rev"]
     with sqlite3_autocommit_connection("database.sqlite3") as _con_map:
@@ -167,11 +167,11 @@ def main():
                 _suffix = _binary["bin"]
                 _raw_nix_key = _suffix.removeprefix("/bin/")
                 _flake_file.write(
-                    f"      apps.{_escape_nix_set_key(_raw_nix_key)} = {'{'} type = \"app\"; program = \"${'{'}nixos-23.05.{_pname}{'}'}{_suffix}\"; {'}'};\n"
+                    f"      apps.{_escape_nix_set_key(_raw_nix_key)} = {'{'} type = \"app\"; program = \"${'{'}n-23-05.{_pname}{'}'}{_suffix}\"; {'}'};\n"
                 )
             for _binary in _packages:
                 _flake_file.write(
-                    f"      packages.{_escape_nix_set_key(_binary['pname'])} = nixos-23.05.{_binary['pname']};\n"
+                    f"      packages.{_escape_nix_set_key(_binary['pname'])} = n-23-05.{_binary['pname']};\n"
                 )
             _flake_file.write(NIXPKGS_ALIASES_FLAKE_NIX_FOOTER_FILE.read_text())
         _descriptions = _subprocess_run(PACKAGE_DESCRIPTIONS)

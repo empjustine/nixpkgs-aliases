@@ -1338,7 +1338,6 @@ INSERT INTO nixpkg_rev_bin VALUES('transmission','/bin/transmission-show','60b9d
 INSERT INTO nixpkg_rev_bin VALUES('transmission','/bin/transmission-show','b3ddf9649fdac7db15aeea95cb3114c13594d265');
 INSERT INTO nixpkg_rev_bin VALUES('trx','/bin/rx','60b9db998f71ea49e1a9c41824d09aa274be1344');
 INSERT INTO nixpkg_rev_bin VALUES('trx','/bin/tx','60b9db998f71ea49e1a9c41824d09aa274be1344');
-INSERT INTO nixpkg_rev_bin VALUES('ts','/bin/ts','60b9db998f71ea49e1a9c41824d09aa274be1344');
 INSERT INTO nixpkg_rev_bin VALUES('uni','/bin/uni','60b9db998f71ea49e1a9c41824d09aa274be1344');
 INSERT INTO nixpkg_rev_bin VALUES('unicode-paracode','/bin/paracode','60b9db998f71ea49e1a9c41824d09aa274be1344');
 INSERT INTO nixpkg_rev_bin VALUES('unicode-paracode','/bin/unicode','60b9db998f71ea49e1a9c41824d09aa274be1344');
@@ -1935,7 +1934,7 @@ INSERT INTO nixpkg VALUES('nixos-23.05','toybox','tmp',NULL,NULL,'Lightweight im
 INSERT INTO nixpkg VALUES('nixos-23.05','trafficserver','tmp',NULL,NULL,'Fast, scalable, and extensible HTTP caching proxy server');
 INSERT INTO nixpkg VALUES('nixos-23.05','transmission',NULL,NULL,NULL,'A fast, easy and free BitTorrent client');
 INSERT INTO nixpkg VALUES('nixos-23.05','trx',NULL,NULL,NULL,'A simple toolset for broadcasting live audio using RTP/UDP and Opus');
-INSERT INTO nixpkg VALUES('nixos-23.05','ts',NULL,NULL,NULL,'Task spooler - batch queue');
+INSERT INTO nixpkg VALUES('nixos-23.05','ts','taskspooler',NULL,NULL,'Task spooler - batch queue');
 INSERT INTO nixpkg VALUES('nixos-23.05','udp2raw','vpn',NULL,NULL,'A tunnel which turns UDP traffic into encrypted UDP/FakeTCP/ICMP traffic by using a raw socket');
 INSERT INTO nixpkg VALUES('nixos-23.05','uhubctl','hardware',NULL,NULL,'Utility to control USB power per-port on smart USB hubs');
 INSERT INTO nixpkg VALUES('nixos-23.05','unicode-character-database',NULL,'unicode',NULL,'Unicode Character Database');

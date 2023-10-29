@@ -1,9 +1,9 @@
 
       # special case for az
-      apps.az = { type = "app"; program = "${nixos-23.05.azure-cli}/bin/az"; };
+      apps.az = { type = "app"; program = "${n-23-05.azure-cli}/bin/az"; };
       # special case for git-gui
-      apps.git-gui = { type = "app"; program = "${nixos-23.05.gitFull}/libexec/git-core/git-gui"; };
+      apps.git-gui = { type = "app"; program = "${n-23-05.gitFull}/libexec/git-core/git-gui"; };
       # special case for gitk
-      apps.gitk = { type = "app"; program = "${nixos-23.05.gitFull}/bin/gitk"; };
+      apps.gitk = { type = "app"; program = "${n-23-05.gitFull}/bin/gitk"; };
     });
 }
