@@ -1348,11 +1348,10 @@
       packages.zrok = n-23-05.zrok;
       packages.zstd = n-23-05.zstd;
 
-      # special case for az
+      # special cases
       apps.az = { type = "app"; program = "${n-23-05.azure-cli}/bin/az"; };
-      # special case for git-gui
+      apps.bw = { type = "app"; program = "${n-23-05.bitwarden-cli}/lib/node_modules/.bin/bw"; };
       apps.git-gui = { type = "app"; program = "${n-23-05.gitFull}/libexec/git-core/git-gui"; };
-      # special case for gitk
       apps.gitk = { type = "app"; program = "${n-23-05.gitFull}/bin/gitk"; };
     });
 }
