@@ -37,13 +37,15 @@ def _subprocess_run(_cmd):
     # 0: stdin
     # 1: stdout
     # 2: stderr
-    print(
-        {
-            "$@": shlex.join(_cmd),
-            1: _result.stdout.decode("utf-8", "surrogateescape"),
-            2: _result.stderr.decode("utf-8", "surrogateescape"),
-        }
-    )
+    _debug_result = {}
+    if _result.returncode != 0:
+        _debug_result["$?"] = _result.returncode
+    _debug_result["$@"] = shlex.join(_cmd)
+    if _result.stdout != b"":
+        _debug_result[1] = _result.stdout.decode("utf-8", "surrogateescape")
+    if _result.stderr != b"":
+        _debug_result[2] = _result.stderr.decode("utf-8", "surrogateescape")
+    print(_debug_result)
     return _result
 
 
@@ -57,7 +59,7 @@ def _escape_nix_set_key(_name):
 
 
 @contextlib.contextmanager
-def sqlite3_autocommit_connection(database: os.PathLike) -> sqlite3.Connection:
+def sqlite3_autocommit_connection(database: os.PathLike | str) -> sqlite3.Connection:
     """
     open sqlite3 connection in autocommit mode, with explicit sqlite3 transaction handling
 
@@ -109,34 +111,28 @@ def main():
                     _file.unlink()
 
     _subprocess_run(CMD_UPDATE_FLAKE)
-    _rev = json.loads(pathlib.Path("flake.lock").read_text())["nodes"]["n-23-05"][
-        "locked"
-    ]["rev"]
+    _nodes: dict[str, dict[str, typing.Any]]
+    _nodes = json.loads(pathlib.Path("flake.lock").read_text())["nodes"]
+    _revs = {
+        _node_name.replace("i-", "n-"): _node_value["locked"]["rev"]
+        for _node_name, _node_value in _nodes.items()
+        if _node_name.startswith("i-")
+    }
+
+    print(repr(_revs))
+
     with sqlite3_autocommit_connection("database.sqlite3") as _con_map:
-        if cleanup:
-            for _statement in [
-                "DELETE FROM rev WHERE rev.rev NOT IN (SELECT rev.rev FROM rev ORDER BY rev.ctime DESC LIMIT 3);",
-                "DELETE FROM nixpkg_rev_bin WHERE rev NOT IN (SELECT DISTINCT rev FROM rev);",
-            ]:
-                with transaction(_con_map):
-                    _con_map.execute(_statement)
-        for _statement in [
-            "DELETE FROM nixpkg_rev_bin WHERE nixpkg_rev_bin.rev = :rev;",
-        ]:
-            with transaction(_con_map):
-                _con_map.execute(_statement, {"rev": _rev})
-        _con_map.execute(
-            "INSERT INTO rev(rev, flakeref) VALUES (:rev, 'github:NixOS/nixpkgs/nixos-23.05') ON CONFLICT DO NOTHING;",
-            {"rev": _rev},
-        )
+        _con_map.execute("DELETE FROM nixpkgs_bin;")
+
         _nixpkgs: list[NixpkgEntry] = [
-            {
-                "pname": _row[0],
-                "disabled": _row[1],
-                "rev": _rev,
-            }
+            NixpkgEntry(
+                rev=_revs[_row[0]],
+                input=_row[0],
+                pname=_row[1],
+                disabled=_row[2],
+            )
             for _row in _con_map.execute(
-                "SELECT pname, disabled FROM nixpkg ORDER BY pname;"
+                "SELECT input, pname, disabled FROM nixpkgs ORDER BY pname;"
             )
         ]
 
@@ -145,33 +141,40 @@ def main():
 
     with sqlite3_autocommit_connection("database.sqlite3") as _con_reduce:
         _binaries = [
-            {"pname": _row[0], "bin": _row[1]}
+            {
+                "input": _row[0],
+                "pname": _row[1],
+                "bin": _row[2],
+            }
             for _row in _con_reduce.execute(
-                "SELECT pname, bin FROM nixpkg_rev_bin WHERE rev = :rev ORDER BY pname, bin;",
-                {"rev": _rev},
+                "SELECT input, pname, bin FROM nixpkgs_bin ORDER BY input, pname, bin;",
             )
         ]
         _packages = [
             {
-                "pname": _row[0],
+                "input": _row[0],
+                "pname": _row[1],
             }
             for _row in _con_reduce.execute(
-                "SELECT DISTINCT pname FROM nixpkg ORDER BY pname;",
-                {"rev": _rev},
+                "SELECT DISTINCT input, pname FROM nixpkgs ORDER BY input, pname;",
             )
         ]
         with pathlib.Path("flake.nix").open("w") as _flake_file:
             _flake_file.write(NIXPKGS_ALIASES_FLAKE_NIX_HEADER_FILE.read_text())
             for _binary in _binaries:
+                _input = _binary["input"]
                 _pname = _binary["pname"]
                 _suffix = _binary["bin"]
-                _raw_nix_key = _suffix.removeprefix("/bin/")
+                _app_key = _escape_nix_set_key(_suffix.removeprefix("/bin/"))
                 _flake_file.write(
-                    f"      apps.{_escape_nix_set_key(_raw_nix_key)} = {'{'} type = \"app\"; program = \"${'{'}n-23-05.{_pname}{'}'}{_suffix}\"; {'}'};\n"
+                    f"      apps.{_app_key} = {'{'} type = \"app\"; program = \"${'{'}{_input}.{_pname}{'}'}{_suffix}\"; {'}'};\n"
                 )
-            for _binary in _packages:
+            for _package in _packages:
+                _input = _package["input"]
+                _pname = _package["pname"]
+                _package_key = _escape_nix_set_key(_pname)
                 _flake_file.write(
-                    f"      packages.{_escape_nix_set_key(_binary['pname'])} = n-23-05.{_binary['pname']};\n"
+                    f"      packages.{_package_key} = {_input}.{_pname};\n"
                 )
             _flake_file.write(NIXPKGS_ALIASES_FLAKE_NIX_FOOTER_FILE.read_text())
         _descriptions = _subprocess_run(PACKAGE_DESCRIPTIONS)
@@ -189,7 +192,7 @@ def main():
             if "description" in v
         ]
         _con_reduce.executemany(
-            "UPDATE nixpkg SET description = :description WHERE pname = :pname;",
+            "UPDATE nixpkgs SET description = :description WHERE pname = :pname;",
             _descriptions,
         )
 
@@ -214,6 +217,7 @@ def do_multiprocessing(
 
 class NixpkgEntry(typing.TypedDict):
     rev: str
+    input: str
     pname: str
     disabled: str
 
@@ -222,6 +226,7 @@ def _process_nixpkg(_data: NixpkgEntry):
     _rev = _data["rev"]
     _pname = _data["pname"]
     _disabled = _data["disabled"]
+    _input = _data["input"]
     if _disabled is None:
         _build = _subprocess_run(
             [
@@ -257,9 +262,10 @@ def _process_nixpkg(_data: NixpkgEntry):
 
     NIXPKGS_ALIASES_GCROOTS_FOLDER.joinpath(f"system-{_pname}").symlink_to(_prefix)
 
-    with sqlite3_autocommit_connection("database.sqlite3"):
-        if _disabled is not None:
-            return
+    if _disabled is not None:
+        return
+    _packages = []
+    with sqlite3_autocommit_connection("database.sqlite3") as con:
         for _candidate_bin_path in _prefix.rglob("*"):
             if _candidate_bin_path.is_dir():
                 continue
@@ -285,19 +291,21 @@ def _process_nixpkg(_data: NixpkgEntry):
                 if not _suffix.startswith("/bin/"):
                     continue
 
-                with sqlite3_autocommit_connection("database.sqlite3") as con:
-                    con.execute(
-                        "INSERT INTO nixpkg_rev_bin(pname, bin, rev) VALUES (:pname, :bin, :rev);",
-                        {
-                            "pname": _pname,
-                            "rev": _rev,
-                            "bin": _suffix,
-                        },
-                    )
                 if not NIXPKGS_ALIASES_ALIASES_FOLDER.joinpath(_bin).exists():
+                    _packages.append(
+                        {
+                            "input": _input,
+                            "pname": _pname,
+                            "bin": _suffix,
+                        }
+                    )
                     NIXPKGS_ALIASES_ALIASES_FOLDER.joinpath(_bin).symlink_to(
                         NIXPKGS_ALIASES_RUN_FILE
                     )
+        con.executemany(
+            "INSERT INTO nixpkgs_bin(input, pname, bin) VALUES (:input, :pname, :bin) ON CONFLICT DO NOTHING;",
+            _packages,
+        )
 
 
 if __name__ == "__main__":
