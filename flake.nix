@@ -48,6 +48,7 @@
       apps.borgfs = { type = "app"; program = "${n-23-05.borgbackup}/bin/borgfs"; };
       apps.bsdiff = { type = "app"; program = "${n-23-05.bsdiff}/bin/bsdiff"; };
       apps.bspatch = { type = "app"; program = "${n-23-05.bsdiff}/bin/bspatch"; };
+      apps.buckle = { type = "app"; program = "${n-23-05.bucklespring}/bin/buckle"; };
       apps.cadaver = { type = "app"; program = "${n-23-05.cadaver}/bin/cadaver"; };
       apps.calendar-cli = { type = "app"; program = "${n-23-05.calendar-cli}/bin/calendar-cli"; };
       apps."calendar-cli.py" = { type = "app"; program = "${n-23-05.calendar-cli}/bin/calendar-cli.py"; };
@@ -856,6 +857,8 @@
       packages.bsdiff = n-23-05.bsdiff;
       packages.btfs = n-23-05.btfs;
       packages.btop = n-23-05.btop;
+      packages.bucklespring = n-23-05.bucklespring;
+      packages.bucklespring-libinput = n-23-05.bucklespring-libinput;
       packages.bup = n-23-05.bup;
       packages.busybox = n-23-05.busybox;
       packages.cadaver = n-23-05.cadaver;
@@ -1024,6 +1027,8 @@
       packages.libarchive = n-23-05.libarchive;
       packages.libavif = n-23-05.libavif;
       packages.libidn = n-23-05.libidn;
+      packages.libinput = n-23-05.libinput;
+      packages.libinput-gestures = n-23-05.libinput-gestures;
       packages.libjxl = n-23-05.libjxl;
       packages.libnatpmp = n-23-05.libnatpmp;
       packages.libratbag = n-23-05.libratbag;
@@ -1348,10 +1353,14 @@
       packages.wtype = n-23-05.wtype;
       packages.wvkbd = n-23-05.wvkbd;
       packages.xandikos = n-23-05.xandikos;
+      packages.xbindkeys = n-23-05.xbindkeys;
       packages.xdg-desktop-portal-wlr = n-23-05.xdg-desktop-portal-wlr;
       packages."xfce.exo" = n-23-05.xfce.exo;
       packages."xfce.gigolo" = n-23-05.xfce.gigolo;
       packages.xmonadctl = n-23-05.xmonadctl;
+      packages."xorg.setxkbmap" = n-23-05.xorg.setxkbmap;
+      packages."xorg.xkbcomp" = n-23-05.xorg.xkbcomp;
+      packages."xorg.xmodmap" = n-23-05.xorg.xmodmap;
       packages."xorg.xrandr" = n-23-05.xorg.xrandr;
       packages.xq = n-23-05.xq;
       packages.xqilla = n-23-05.xqilla;
