@@ -48,7 +48,7 @@
       apps.borgfs = { type = "app"; program = "${n-23-05.borgbackup}/bin/borgfs"; };
       apps.bsdiff = { type = "app"; program = "${n-23-05.bsdiff}/bin/bsdiff"; };
       apps.bspatch = { type = "app"; program = "${n-23-05.bsdiff}/bin/bspatch"; };
-      apps.buckle = { type = "app"; program = "${n-23-05.bucklespring}/bin/buckle"; };
+      apps.buckle = { type = "app"; program = "${n-23-05.bucklespring-libinput}/bin/buckle"; };
       apps.cadaver = { type = "app"; program = "${n-23-05.cadaver}/bin/cadaver"; };
       apps.calendar-cli = { type = "app"; program = "${n-23-05.calendar-cli}/bin/calendar-cli"; };
       apps."calendar-cli.py" = { type = "app"; program = "${n-23-05.calendar-cli}/bin/calendar-cli.py"; };
@@ -784,6 +784,7 @@
       apps.wl-mirror = { type = "app"; program = "${n-23-05.wl-mirror}/bin/wl-mirror"; };
       apps.wl-present = { type = "app"; program = "${n-23-05.wl-mirror}/bin/wl-present"; };
       apps.wlprop = { type = "app"; program = "${n-23-05.wlprop}/bin/wlprop"; };
+      apps.wlr-randr = { type = "app"; program = "${n-23-05.wlr-randr}/bin/wlr-randr"; };
       apps.wlrctl = { type = "app"; program = "${n-23-05.wlrctl}/bin/wlrctl"; };
       apps.wmenu = { type = "app"; program = "${n-23-05.wmenu}/bin/wmenu"; };
       apps.wtype = { type = "app"; program = "${n-23-05.wtype}/bin/wtype"; };
@@ -1149,6 +1150,7 @@
       packages.parallel = n-23-05.parallel;
       packages.patchelf = n-23-05.patchelf;
       packages.pavucontrol = n-23-05.pavucontrol;
+      packages.pciutils = n-23-05.pciutils;
       packages.pdfgrep = n-23-05.pdfgrep;
       packages.pdftk = n-23-05.pdftk;
       packages.perf-tools = n-23-05.perf-tools;
@@ -1319,6 +1321,7 @@
       packages.unpaper = n-23-05.unpaper;
       packages.upnp-router-control = n-23-05.upnp-router-control;
       packages.usbtop = n-23-05.usbtop;
+      packages.usbutils = n-23-05.usbutils;
       packages.uwc = n-23-05.uwc;
       packages.vale = n-23-05.vale;
       packages.vaultwarden = n-23-05.vaultwarden;
