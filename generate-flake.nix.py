@@ -53,7 +53,7 @@ def _escape_nix_set_key(_name):
     if '"' in _name:
         msg = f"unhandled name {_name}"
         raise OSError(msg)
-    if "." in _name:
+    if "." in _name or "+" in _name:
         return f'"{_name}"'
     return _name
 
