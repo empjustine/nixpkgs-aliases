@@ -309,6 +309,8 @@
       apps."lesspipe.sh" = { type = "app"; program = "${n-23-05.lesspipe}/bin/lesspipe.sh"; };
       apps.sxw2txt = { type = "app"; program = "${n-23-05.lesspipe}/bin/sxw2txt"; };
       apps.vimcolor = { type = "app"; program = "${n-23-05.lesspipe}/bin/vimcolor"; };
+      apps.lftp = { type = "app"; program = "${n-23-05.lftp}/bin/lftp"; };
+      apps.lftpget = { type = "app"; program = "${n-23-05.lftp}/bin/lftpget"; };
       apps.bsdcat = { type = "app"; program = "${n-23-05.libarchive}/bin/bsdcat"; };
       apps.bsdcpio = { type = "app"; program = "${n-23-05.libarchive}/bin/bsdcpio"; };
       apps.bsdtar = { type = "app"; program = "${n-23-05.libarchive}/bin/bsdtar"; };
@@ -598,9 +600,9 @@
       apps.nbdiff = { type = "app"; program = "${n-23-05.python311Packages.nbdime}/bin/nbdiff"; };
       apps.nbdiff-web = { type = "app"; program = "${n-23-05.python311Packages.nbdime}/bin/nbdiff-web"; };
       apps.nbdime = { type = "app"; program = "${n-23-05.python311Packages.nbdime}/bin/nbdime"; };
-      apps.nbmerge = { type = "app"; program = "${n-23-05.python311Packages.nbdime}/bin/nbmerge"; };
       apps.nbmerge-web = { type = "app"; program = "${n-23-05.python311Packages.nbdime}/bin/nbmerge-web"; };
       apps.nbshow = { type = "app"; program = "${n-23-05.python311Packages.nbdime}/bin/nbshow"; };
+      apps.nbmerge = { type = "app"; program = "${n-23-05.python311Packages.nbmerge}/bin/nbmerge"; };
       apps.papermill = { type = "app"; program = "${n-23-05.python311Packages.papermill}/bin/papermill"; };
       apps.read_datamatrix = { type = "app"; program = "${n-23-05.python311Packages.pylibdmtx}/bin/read_datamatrix"; };
       apps."read_datamatrix.py" = { type = "app"; program = "${n-23-05.python311Packages.pylibdmtx}/bin/read_datamatrix.py"; };
@@ -1225,6 +1227,7 @@
       packages.kubectl-tree = n-23-05.kubectl-tree;
       packages.leptonica = n-23-05.leptonica;
       packages.lesspipe = n-23-05.lesspipe;
+      packages.lftp = n-23-05.lftp;
       packages.libaom = n-23-05.libaom;
       packages.libarchive = n-23-05.libarchive;
       packages.libavif = n-23-05.libavif;
