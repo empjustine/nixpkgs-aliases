@@ -236,6 +236,15 @@
       apps.vimdot = { type = "app"; program = "${n-23-05.graphviz-nox}/bin/vimdot"; };
       apps.gron = { type = "app"; program = "${n-23-05.gron}/bin/gron"; };
       apps.guetzli = { type = "app"; program = "${n-23-05.guetzli}/bin/guetzli"; };
+      apps."gupnp-binding-tool-1.2" = { type = "app"; program = "${n-23-05.gupnp}/bin/gupnp-binding-tool-1.2"; };
+      apps."gupnp-dlna-info-2.0" = { type = "app"; program = "${n-23-05.gupnp-dlna}/bin/gupnp-dlna-info-2.0"; };
+      apps."gupnp-dlna-ls-profiles-2.0" = { type = "app"; program = "${n-23-05.gupnp-dlna}/bin/gupnp-dlna-ls-profiles-2.0"; };
+      apps.gssdp-discover = { type = "app"; program = "${n-23-05.gupnp-tools}/bin/gssdp-discover"; };
+      apps.gupnp-av-cp = { type = "app"; program = "${n-23-05.gupnp-tools}/bin/gupnp-av-cp"; };
+      apps.gupnp-event-dumper = { type = "app"; program = "${n-23-05.gupnp-tools}/bin/gupnp-event-dumper"; };
+      apps.gupnp-network-light = { type = "app"; program = "${n-23-05.gupnp-tools}/bin/gupnp-network-light"; };
+      apps.gupnp-universal-cp = { type = "app"; program = "${n-23-05.gupnp-tools}/bin/gupnp-universal-cp"; };
+      apps.gupnp-upload = { type = "app"; program = "${n-23-05.gupnp-tools}/bin/gupnp-upload"; };
       apps.adams2019_retrain_cost_model = { type = "app"; program = "${n-23-05.halide}/bin/adams2019_retrain_cost_model"; };
       apps.adams2019_weightsdir_to_weightsfile = { type = "app"; program = "${n-23-05.halide}/bin/adams2019_weightsdir_to_weightsfile"; };
       apps.featurization_to_sample = { type = "app"; program = "${n-23-05.halide}/bin/featurization_to_sample"; };
@@ -373,6 +382,7 @@
       apps.mvn = { type = "app"; program = "${n-23-05.maven}/bin/mvn"; };
       apps.mvnDebug = { type = "app"; program = "${n-23-05.maven}/bin/mvnDebug"; };
       apps.micronucleus = { type = "app"; program = "${n-23-05.micronucleus}/bin/micronucleus"; };
+      apps.minissdpd = { type = "app"; program = "${n-23-05.minissdpd}/bin/minissdpd"; };
       apps.external-ip = { type = "app"; program = "${n-23-05.miniupnpc}/bin/external-ip"; };
       apps.upnpc = { type = "app"; program = "${n-23-05.miniupnpc}/bin/upnpc"; };
       apps.mkpasswd = { type = "app"; program = "${n-23-05.mkpasswd}/bin/mkpasswd"; };
@@ -529,6 +539,7 @@
       apps."python.com" = { type = "app"; program = "${n-23-05.python-cosmopolitan}/bin/python.com"; };
       apps."pythontester.com" = { type = "app"; program = "${n-23-05.python-cosmopolitan}/bin/pythontester.com"; };
       apps."repl.com" = { type = "app"; program = "${n-23-05.python-cosmopolitan}/bin/repl.com"; };
+      apps.upnp-client = { type = "app"; program = "${n-23-05.python311Packages.async-upnp-client}/bin/upnp-client"; };
       apps.chardetect = { type = "app"; program = "${n-23-05.python311Packages.chardet}/bin/chardetect"; };
       apps.dul-receive-pack = { type = "app"; program = "${n-23-05.python311Packages.dulwich}/bin/dul-receive-pack"; };
       apps.dul-upload-pack = { type = "app"; program = "${n-23-05.python311Packages.dulwich}/bin/dul-upload-pack"; };
@@ -808,6 +819,8 @@
       apps.shellharden = { type = "app"; program = "${n-23-05.shellharden}/bin/shellharden"; };
       apps.shfmt = { type = "app"; program = "${n-23-05.shfmt}/bin/shfmt"; };
       apps.shmig = { type = "app"; program = "${n-23-05.shmig}/bin/shmig"; };
+      apps.simple-dlna-browser = { type = "app"; program = "${n-23-05.simple-dlna-browser}/bin/simple-dlna-browser"; };
+      apps.wrapped-simple-dlna-browser = { type = "app"; program = "${n-23-05.simple-dlna-browser}/bin/wrapped-simple-dlna-browser"; };
       apps.sioyek = { type = "app"; program = "${n-23-05.sioyek}/bin/sioyek"; };
       apps.skkdic-count = { type = "app"; program = "${n-23-05.skktools}/bin/skkdic-count"; };
       apps.skkdic-expr = { type = "app"; program = "${n-23-05.skktools}/bin/skkdic-expr"; };
@@ -939,6 +952,7 @@
       apps.resize = { type = "app"; program = "${n-23-05.xterm}/bin/resize"; };
       apps.uxterm = { type = "app"; program = "${n-23-05.xterm}/bin/uxterm"; };
       apps.xterm = { type = "app"; program = "${n-23-05.xterm}/bin/xterm"; };
+      apps.yaup = { type = "app"; program = "${n-23-05.yaup}/bin/yaup"; };
       apps.zarchive = { type = "app"; program = "${n-23-05.zarchive}/bin/zarchive"; };
       apps.zathura = { type = "app"; program = "${n-23-05.zathura}/bin/zathura"; };
       apps.zbarcam = { type = "app"; program = "${n-23-05.zbar}/bin/zbarcam"; };
@@ -1123,6 +1137,7 @@
       packages."gnome.file-roller" = n-23-05.gnome.file-roller;
       packages."gnome.gnome-disk-utility" = n-23-05.gnome.gnome-disk-utility;
       packages."gnome.gvfs" = n-23-05.gnome.gvfs;
+      packages."gnome.rygel" = n-23-05.gnome.rygel;
       packages."gnome.zenity" = n-23-05.gnome.zenity;
       packages.gnupatch = n-23-05.gnupatch;
       packages.goreman = n-23-05.goreman;
@@ -1134,6 +1149,9 @@
       packages.graphviz-nox = n-23-05.graphviz-nox;
       packages.gron = n-23-05.gron;
       packages.guetzli = n-23-05.guetzli;
+      packages.gupnp = n-23-05.gupnp;
+      packages.gupnp-dlna = n-23-05.gupnp-dlna;
+      packages.gupnp-tools = n-23-05.gupnp-tools;
       packages.gvfs = n-23-05.gvfs;
       packages.halide = n-23-05.halide;
       packages.hanazono = n-23-05.hanazono;
@@ -1259,6 +1277,7 @@
       packages.minijail = n-23-05.minijail;
       packages.minijail-tools = n-23-05.minijail-tools;
       packages.minimodem = n-23-05.minimodem;
+      packages.minissdpd = n-23-05.minissdpd;
       packages.miniupnpc = n-23-05.miniupnpc;
       packages.miopen = n-23-05.miopen;
       packages.miopen-hip = n-23-05.miopen-hip;
@@ -1318,6 +1337,7 @@
       packages.noto-fonts-emoji-blob-bin = n-23-05.noto-fonts-emoji-blob-bin;
       packages.noto-fonts-lgc-plus = n-23-05.noto-fonts-lgc-plus;
       packages.nsjail = n-23-05.nsjail;
+      packages.ntfy = n-23-05.ntfy;
       packages.numactl = n-23-05.numactl;
       packages.nwdiag = n-23-05.nwdiag;
       packages.nwg-wrapper = n-23-05.nwg-wrapper;
@@ -1369,9 +1389,11 @@
       packages.proxify = n-23-05.proxify;
       packages.proxychains-ng = n-23-05.proxychains-ng;
       packages.pulseaudio-ctl = n-23-05.pulseaudio-ctl;
+      packages.pulseaudio-dlna = n-23-05.pulseaudio-dlna;
       packages.pv = n-23-05.pv;
       packages.python-cosmopolitan = n-23-05.python-cosmopolitan;
       packages."python311Packages.adb-shell" = n-23-05.python311Packages.adb-shell;
+      packages."python311Packages.async-upnp-client" = n-23-05.python311Packages.async-upnp-client;
       packages."python311Packages.canonicaljson" = n-23-05.python311Packages.canonicaljson;
       packages."python311Packages.chardet" = n-23-05.python311Packages.chardet;
       packages."python311Packages.defusedcsv" = n-23-05.python311Packages.defusedcsv;
@@ -1408,6 +1430,7 @@
       packages."python311Packages.reedsolo" = n-23-05.python311Packages.reedsolo;
       packages."python311Packages.selenium" = n-23-05.python311Packages.selenium;
       packages."python311Packages.tokenizers" = n-23-05.python311Packages.tokenizers;
+      packages."python311Packages.upnpy" = n-23-05.python311Packages.upnpy;
       packages."python311Packages.vobject" = n-23-05.python311Packages.vobject;
       packages."python311Packages.xattr" = n-23-05.python311Packages.xattr;
       packages."python311Packages.zfec" = n-23-05.python311Packages.zfec;
@@ -1465,6 +1488,7 @@
       packages.shfmt = n-23-05.shfmt;
       packages.shmig = n-23-05.shmig;
       packages.shocco = n-23-05.shocco;
+      packages.simple-dlna-browser = n-23-05.simple-dlna-browser;
       packages.sioyek = n-23-05.sioyek;
       packages.sipcalc = n-23-05.sipcalc;
       packages.skk-dicts = n-23-05.skk-dicts;
@@ -1603,6 +1627,7 @@
       packages.xqilla = n-23-05.xqilla;
       packages.xsv = n-23-05.xsv;
       packages.xterm = n-23-05.xterm;
+      packages.yaup = n-23-05.yaup;
       packages.youki = n-23-05.youki;
       packages.zarchive = n-23-05.zarchive;
       packages.zathura = n-23-05.zathura;
