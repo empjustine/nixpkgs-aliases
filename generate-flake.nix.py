@@ -30,6 +30,11 @@ PACKAGE_DESCRIPTIONS = shlex.split(
 )
 
 
+def _ln_s(source: pathlib.Path, target: pathlib.Path):
+    print({"$@": shlex.join(["ln", "-s", str(target), str(source)])})
+    source.symlink_to(target)
+
+
 def _subprocess_run(_cmd):
     _env = dict(os.environ)
     _env["TERM"] = "dumb"
@@ -111,7 +116,6 @@ def main():
                     _file.unlink()
 
     _subprocess_run(CMD_UPDATE_FLAKE)
-    _nodes: dict[str, dict[str, typing.Any]]
     _nodes = json.loads(pathlib.Path("flake.lock").read_text())["nodes"]
     _revs = {
         _node_name.replace("i-", "n-"): _node_value["locked"]["rev"]
@@ -242,9 +246,12 @@ def _process_nixpkg(_data: NixpkgEntry):
         for _output in _build_paths:
             if "outputs" in _output:
                 for k, v in _output["outputs"].items():
-                    NIXPKGS_ALIASES_GCROOTS_FOLDER.joinpath(
-                        f"system-{_pname}-{k}"
-                    ).symlink_to(pathlib.Path(v))
+                    _ln_s(
+                        source=NIXPKGS_ALIASES_GCROOTS_FOLDER.joinpath(
+                            f"system-{_pname}-{k}"
+                        ),
+                        target=pathlib.Path(v),
+                    )
 
     _eval = _subprocess_run(
         [
@@ -260,7 +267,10 @@ def _process_nixpkg(_data: NixpkgEntry):
 
     _prefix = pathlib.Path(json.loads(_eval.stdout))
 
-    NIXPKGS_ALIASES_GCROOTS_FOLDER.joinpath(f"system-{_pname}").symlink_to(_prefix)
+    _ln_s(
+        source=NIXPKGS_ALIASES_GCROOTS_FOLDER.joinpath(f"system-{_pname}"),
+        target=_prefix,
+    )
 
     if _disabled is not None:
         return
@@ -289,6 +299,12 @@ def _process_nixpkg(_data: NixpkgEntry):
                     _prefix.as_posix()
                 )
                 if not _suffix.startswith("/bin/"):
+                    print({"_suffix": _suffix})
+                    continue
+                if "/" in _suffix.removeprefix(
+                    "/bin/"
+                ):  # "${n-23-05.mailutils}/bin/mu-mh/ali"
+                    print({"_suffix": _suffix})
                     continue
 
                 if not NIXPKGS_ALIASES_ALIASES_FOLDER.joinpath(_bin).exists():
@@ -299,8 +315,9 @@ def _process_nixpkg(_data: NixpkgEntry):
                             "bin": _suffix,
                         }
                     )
-                    NIXPKGS_ALIASES_ALIASES_FOLDER.joinpath(_bin).symlink_to(
-                        NIXPKGS_ALIASES_RUN_FILE
+                    _ln_s(
+                        source=NIXPKGS_ALIASES_ALIASES_FOLDER.joinpath(_bin),
+                        target=NIXPKGS_ALIASES_RUN_FILE,
                     )
         con.executemany(
             "INSERT INTO nixpkgs_bin(input, pname, bin) VALUES (:input, :pname, :bin) ON CONFLICT DO NOTHING;",
