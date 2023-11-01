@@ -298,6 +298,7 @@
       apps.uinput = { type = "app"; program = "${n-23-05.interception-tools}/bin/uinput"; };
       apps.imdl = { type = "app"; program = "${n-23-05.intermodal}/bin/imdl"; };
       apps.iotop = { type = "app"; program = "${n-23-05.iotop}/bin/iotop"; };
+      apps.jbang = { type = "app"; program = "${n-23-05.jbang}/bin/jbang"; };
       apps.jql = { type = "app"; program = "${n-23-05.jql}/bin/jql"; };
       apps.jaq = { type = "app"; program = "${n-23-05.json2tsv}/bin/jaq"; };
       apps.json2tsv = { type = "app"; program = "${n-23-05.json2tsv}/bin/json2tsv"; };
@@ -1313,6 +1314,7 @@
       packages.isync = n-23-05.isync;
       packages.ite-backlight = n-23-05.ite-backlight;
       packages.jaq = n-23-05.jaq;
+      packages.jbang = n-23-05.jbang;
       packages.jetbrains-mono = n-23-05.jetbrains-mono;
       packages.jiten = n-23-05.jiten;
       packages.jmtpfs = n-23-05.jmtpfs;

@@ -300,6 +300,7 @@ INSERT INTO nixpkgs_bin VALUES('n-23-05','interception-tools','/bin/udevmon');
 INSERT INTO nixpkgs_bin VALUES('n-23-05','interception-tools','/bin/uinput');
 INSERT INTO nixpkgs_bin VALUES('n-23-05','intermodal','/bin/imdl');
 INSERT INTO nixpkgs_bin VALUES('n-23-05','iotop','/bin/iotop');
+INSERT INTO nixpkgs_bin VALUES('n-23-05','jbang','/bin/jbang');
 INSERT INTO nixpkgs_bin VALUES('n-23-05','jql','/bin/jql');
 INSERT INTO nixpkgs_bin VALUES('n-23-05','json2tsv','/bin/jaq');
 INSERT INTO nixpkgs_bin VALUES('n-23-05','json2tsv','/bin/json2tsv');
@@ -1315,6 +1316,7 @@ INSERT INTO nixpkgs VALUES('n-23-05','isolate','broken',NULL,NULL,'Sandbox for s
 INSERT INTO nixpkgs VALUES('n-23-05','isync','webdav','webdav',NULL,'Free IMAP and MailDir mailbox synchronizer');
 INSERT INTO nixpkgs VALUES('n-23-05','ite-backlight','hardware',NULL,NULL,'Commands to control ite-backlight devices');
 INSERT INTO nixpkgs VALUES('n-23-05','jaq','json2tsv',NULL,NULL,'A jq clone focused on correctness, speed and simplicity');
+INSERT INTO nixpkgs VALUES('n-23-05','jbang',NULL,NULL,NULL,'Run java as scripts anywhere');
 INSERT INTO nixpkgs VALUES('n-23-05','jetbrains-mono','font','font',NULL,'A typeface made for developers');
 INSERT INTO nixpkgs VALUES('n-23-05','jiten','unfree','ja-JP',NULL,'Japanese android/cli/web dictionary based on jmdict/kanjidic');
 INSERT INTO nixpkgs VALUES('n-23-05','jmtpfs','hardware,fuse','android,adb',NULL,'A FUSE filesystem for MTP devices like Android phones');
