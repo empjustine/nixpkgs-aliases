@@ -137,15 +137,34 @@
       apps.diskonaut = { type = "app"; program = "${n-23-05.diskonaut}/bin/diskonaut"; };
       apps.ditaa = { type = "app"; program = "${n-23-05.ditaa}/bin/ditaa"; };
       apps.dive = { type = "app"; program = "${n-23-05.dive}/bin/dive"; };
+      apps.axfr-get = { type = "app"; program = "${n-23-05.djbdns}/bin/axfr-get"; };
+      apps.axfrdns = { type = "app"; program = "${n-23-05.djbdns}/bin/axfrdns"; };
       apps.axfrdns-conf = { type = "app"; program = "${n-23-05.djbdns}/bin/axfrdns-conf"; };
+      apps.dnscache = { type = "app"; program = "${n-23-05.djbdns}/bin/dnscache"; };
       apps.dnscache-conf = { type = "app"; program = "${n-23-05.djbdns}/bin/dnscache-conf"; };
+      apps.dnsfilter = { type = "app"; program = "${n-23-05.djbdns}/bin/dnsfilter"; };
+      apps.dnsip = { type = "app"; program = "${n-23-05.djbdns}/bin/dnsip"; };
+      apps.dnsipq = { type = "app"; program = "${n-23-05.djbdns}/bin/dnsipq"; };
       apps.dnsmx = { type = "app"; program = "${n-23-05.djbdns}/bin/dnsmx"; };
+      apps.dnsname = { type = "app"; program = "${n-23-05.djbdns}/bin/dnsname"; };
+      apps.dnsq = { type = "app"; program = "${n-23-05.djbdns}/bin/dnsq"; };
+      apps.dnsqr = { type = "app"; program = "${n-23-05.djbdns}/bin/dnsqr"; };
+      apps.dnstrace = { type = "app"; program = "${n-23-05.djbdns}/bin/dnstrace"; };
+      apps.dnstracesort = { type = "app"; program = "${n-23-05.djbdns}/bin/dnstracesort"; };
+      apps.dnstxt = { type = "app"; program = "${n-23-05.djbdns}/bin/dnstxt"; };
       apps.pickdns = { type = "app"; program = "${n-23-05.djbdns}/bin/pickdns"; };
       apps.pickdns-conf = { type = "app"; program = "${n-23-05.djbdns}/bin/pickdns-conf"; };
       apps.pickdns-data = { type = "app"; program = "${n-23-05.djbdns}/bin/pickdns-data"; };
       apps.random-ip = { type = "app"; program = "${n-23-05.djbdns}/bin/random-ip"; };
+      apps.rbldns = { type = "app"; program = "${n-23-05.djbdns}/bin/rbldns"; };
       apps.rbldns-conf = { type = "app"; program = "${n-23-05.djbdns}/bin/rbldns-conf"; };
+      apps.rbldns-data = { type = "app"; program = "${n-23-05.djbdns}/bin/rbldns-data"; };
+      apps.tinydns = { type = "app"; program = "${n-23-05.djbdns}/bin/tinydns"; };
       apps.tinydns-conf = { type = "app"; program = "${n-23-05.djbdns}/bin/tinydns-conf"; };
+      apps.tinydns-data = { type = "app"; program = "${n-23-05.djbdns}/bin/tinydns-data"; };
+      apps.tinydns-edit = { type = "app"; program = "${n-23-05.djbdns}/bin/tinydns-edit"; };
+      apps.tinydns-get = { type = "app"; program = "${n-23-05.djbdns}/bin/tinydns-get"; };
+      apps.walldns = { type = "app"; program = "${n-23-05.djbdns}/bin/walldns"; };
       apps.walldns-conf = { type = "app"; program = "${n-23-05.djbdns}/bin/walldns-conf"; };
       apps.dmtxquery = { type = "app"; program = "${n-23-05.dmtx-utils}/bin/dmtxquery"; };
       apps.dmtxread = { type = "app"; program = "${n-23-05.dmtx-utils}/bin/dmtxread"; };
@@ -332,6 +351,12 @@
       apps.json2tsv = { type = "app"; program = "${n-23-05.json2tsv}/bin/json2tsv"; };
       apps.just = { type = "app"; program = "${n-23-05.just}/bin/just"; };
       apps.k3s = { type = "app"; program = "${n-23-05.k3s}/bin/k3s"; };
+      apps.atoc_conv = { type = "app"; program = "${n-23-05.kakasi}/bin/atoc_conv"; };
+      apps.kakasi = { type = "app"; program = "${n-23-05.kakasi}/bin/kakasi"; };
+      apps.kakasi-config = { type = "app"; program = "${n-23-05.kakasi}/bin/kakasi-config"; };
+      apps.mkkanwa = { type = "app"; program = "${n-23-05.kakasi}/bin/mkkanwa"; };
+      apps.rdic_conv = { type = "app"; program = "${n-23-05.kakasi}/bin/rdic_conv"; };
+      apps.wx2_conv = { type = "app"; program = "${n-23-05.kakasi}/bin/wx2_conv"; };
       apps.keychain = { type = "app"; program = "${n-23-05.keychain}/bin/keychain"; };
       apps.keyd = { type = "app"; program = "${n-23-05.keyd}/bin/keyd"; };
       apps.keyd-application-mapper = { type = "app"; program = "${n-23-05.keyd}/bin/keyd-application-mapper"; };
@@ -363,6 +388,7 @@
       apps.kkc-package-data = { type = "app"; program = "${n-23-05.libkkc}/bin/kkc-package-data"; };
       apps.natpmpc = { type = "app"; program = "${n-23-05.libnatpmp}/bin/natpmpc"; };
       apps.ark = { type = "app"; program = "${n-23-05.libsForQt5.ark}/bin/ark"; };
+      apps.skk = { type = "app"; program = "${n-23-05.libskk}/bin/skk"; };
       apps.uchardet = { type = "app"; program = "${n-23-05.libuchardet}/bin/uchardet"; };
       apps.av1encode = { type = "app"; program = "${n-23-05.libva-utils}/bin/av1encode"; };
       apps.avcenc = { type = "app"; program = "${n-23-05.libva-utils}/bin/avcenc"; };
@@ -498,27 +524,8 @@
       apps.nbqa = { type = "app"; program = "${n-23-05.nbqa}/bin/nbqa"; };
       apps.nbstripout = { type = "app"; program = "${n-23-05.nbstripout}/bin/nbstripout"; };
       apps.ncdu = { type = "app"; program = "${n-23-05.ncdu}/bin/ncdu"; };
-      apps.axfr-get = { type = "app"; program = "${n-23-05.ndjbdns}/bin/axfr-get"; };
-      apps.axfrdns = { type = "app"; program = "${n-23-05.ndjbdns}/bin/axfrdns"; };
-      apps.dnscache = { type = "app"; program = "${n-23-05.ndjbdns}/bin/dnscache"; };
-      apps.dnsfilter = { type = "app"; program = "${n-23-05.ndjbdns}/bin/dnsfilter"; };
-      apps.dnsip = { type = "app"; program = "${n-23-05.ndjbdns}/bin/dnsip"; };
-      apps.dnsipq = { type = "app"; program = "${n-23-05.ndjbdns}/bin/dnsipq"; };
-      apps.dnsname = { type = "app"; program = "${n-23-05.ndjbdns}/bin/dnsname"; };
-      apps.dnsq = { type = "app"; program = "${n-23-05.ndjbdns}/bin/dnsq"; };
-      apps.dnsqr = { type = "app"; program = "${n-23-05.ndjbdns}/bin/dnsqr"; };
-      apps.dnstrace = { type = "app"; program = "${n-23-05.ndjbdns}/bin/dnstrace"; };
-      apps.dnstracesort = { type = "app"; program = "${n-23-05.ndjbdns}/bin/dnstracesort"; };
-      apps.dnstxt = { type = "app"; program = "${n-23-05.ndjbdns}/bin/dnstxt"; };
       apps.randomip = { type = "app"; program = "${n-23-05.ndjbdns}/bin/randomip"; };
-      apps.rbldns = { type = "app"; program = "${n-23-05.ndjbdns}/bin/rbldns"; };
-      apps.rbldns-data = { type = "app"; program = "${n-23-05.ndjbdns}/bin/rbldns-data"; };
       apps.tcprules = { type = "app"; program = "${n-23-05.ndjbdns}/bin/tcprules"; };
-      apps.tinydns = { type = "app"; program = "${n-23-05.ndjbdns}/bin/tinydns"; };
-      apps.tinydns-data = { type = "app"; program = "${n-23-05.ndjbdns}/bin/tinydns-data"; };
-      apps.tinydns-edit = { type = "app"; program = "${n-23-05.ndjbdns}/bin/tinydns-edit"; };
-      apps.tinydns-get = { type = "app"; program = "${n-23-05.ndjbdns}/bin/tinydns-get"; };
-      apps.walldns = { type = "app"; program = "${n-23-05.ndjbdns}/bin/walldns"; };
       apps.nebula = { type = "app"; program = "${n-23-05.nebula}/bin/nebula"; };
       apps.nebula-cert = { type = "app"; program = "${n-23-05.nebula}/bin/nebula-cert"; };
       apps.netevent = { type = "app"; program = "${n-23-05.netevent}/bin/netevent"; };
@@ -723,9 +730,9 @@
       apps.nbdiff = { type = "app"; program = "${n-23-05.python311Packages.nbdime}/bin/nbdiff"; };
       apps.nbdiff-web = { type = "app"; program = "${n-23-05.python311Packages.nbdime}/bin/nbdiff-web"; };
       apps.nbdime = { type = "app"; program = "${n-23-05.python311Packages.nbdime}/bin/nbdime"; };
-      apps.nbmerge = { type = "app"; program = "${n-23-05.python311Packages.nbdime}/bin/nbmerge"; };
       apps.nbmerge-web = { type = "app"; program = "${n-23-05.python311Packages.nbdime}/bin/nbmerge-web"; };
       apps.nbshow = { type = "app"; program = "${n-23-05.python311Packages.nbdime}/bin/nbshow"; };
+      apps.nbmerge = { type = "app"; program = "${n-23-05.python311Packages.nbmerge}/bin/nbmerge"; };
       apps.papermill = { type = "app"; program = "${n-23-05.python311Packages.papermill}/bin/papermill"; };
       apps.read_datamatrix = { type = "app"; program = "${n-23-05.python311Packages.pylibdmtx}/bin/read_datamatrix"; };
       apps."read_datamatrix.py" = { type = "app"; program = "${n-23-05.python311Packages.pylibdmtx}/bin/read_datamatrix.py"; };
@@ -1057,6 +1064,7 @@
       apps.unoconv = { type = "app"; program = "${n-23-05.unoconv}/bin/unoconv"; };
       apps.xls2ods = { type = "app"; program = "${n-23-05.unoconv}/bin/xls2ods"; };
       apps.unpaper = { type = "app"; program = "${n-23-05.unpaper}/bin/unpaper"; };
+      apps.ustreamer = { type = "app"; program = "${n-23-05.ustreamer}/bin/ustreamer"; };
       apps.uwc = { type = "app"; program = "${n-23-05.uwc}/bin/uwc"; };
       apps.vale = { type = "app"; program = "${n-23-05.vale}/bin/vale"; };
       apps.vcal = { type = "app"; program = "${n-23-05.vcal}/bin/vcal"; };
@@ -1133,9 +1141,13 @@
       apps.whisper-cpp-download-ggml-model = { type = "app"; program = "${n-unstable.openai-whisper-cpp}/bin/whisper-cpp-download-ggml-model"; };
       apps.whisper-cpp-stream = { type = "app"; program = "${n-unstable.openai-whisper-cpp}/bin/whisper-cpp-stream"; };
       apps.huggingface-cli = { type = "app"; program = "${n-unstable.python310Packages.huggingface-hub}/bin/huggingface-cli"; };
+      apps.rkvm-certificate-gen = { type = "app"; program = "${n-unstable.rkvm}/bin/rkvm-certificate-gen"; };
+      apps.rkvm-client = { type = "app"; program = "${n-unstable.rkvm}/bin/rkvm-client"; };
+      apps.rkvm-server = { type = "app"; program = "${n-unstable.rkvm}/bin/rkvm-server"; };
       apps.Subtitlr = { type = "app"; program = "${n-unstable.subtitlr}/bin/Subtitlr"; };
       apps.whisper-ctranslate2 = { type = "app"; program = "${n-unstable.whisper-ctranslate2}/bin/whisper-ctranslate2"; };
       packages.Fabric = n-23-05.Fabric;
+      packages._3270font = n-23-05._3270font;
       packages.abduco = n-23-05.abduco;
       packages.actdiag = n-23-05.actdiag;
       packages.adbfs-rootless = n-23-05.adbfs-rootless;
@@ -1210,6 +1222,7 @@
       packages.cosmocc = n-23-05.cosmocc;
       packages.cosmopolitan = n-23-05.cosmopolitan;
       packages.crc = n-23-05.crc;
+      packages.crosvm = n-23-05.crosvm;
       packages.csvq = n-23-05.csvq;
       packages.csvquote = n-23-05.csvquote;
       packages.csvs-to-sqlite = n-23-05.csvs-to-sqlite;
@@ -1251,6 +1264,7 @@
       packages.dvtm = n-23-05.dvtm;
       packages.easyeffects = n-23-05.easyeffects;
       packages.efitools = n-23-05.efitools;
+      packages.elasticsearch = n-23-05.elasticsearch;
       packages."emacsPackages.restclient" = n-23-05.emacsPackages.restclient;
       packages.entr = n-23-05.entr;
       packages.envfs = n-23-05.envfs;
@@ -1328,6 +1342,7 @@
       packages."graalvmCEPackages.wasm-installable-svm-java11" = n-23-05.graalvmCEPackages.wasm-installable-svm-java11;
       packages."graalvmCEPackages.wasm-installable-svm-java17" = n-23-05.graalvmCEPackages.wasm-installable-svm-java17;
       packages.grafana = n-23-05.grafana;
+      packages.grafana-loki = n-23-05.grafana-loki;
       packages.graphviz = n-23-05.graphviz;
       packages.graphviz-nox = n-23-05.graphviz-nox;
       packages.gron = n-23-05.gron;
@@ -1352,6 +1367,7 @@
       packages."haskellPackages.hs-vcard" = n-23-05.haskellPackages.hs-vcard;
       packages."haskellPackages.iCalendar" = n-23-05.haskellPackages.iCalendar;
       packages."haskellPackages.ical" = n-23-05.haskellPackages.ical;
+      packages."haskellPackages.kanji" = n-23-05.haskellPackages.kanji;
       packages."haskellPackages.life-sync" = n-23-05.haskellPackages.life-sync;
       packages."haskellPackages.mbox-utility" = n-23-05.haskellPackages.mbox-utility;
       packages."haskellPackages.qrcode" = n-23-05.haskellPackages.qrcode;
@@ -1380,6 +1396,7 @@
       packages.imagemagick = n-23-05.imagemagick;
       packages.imagemagick6 = n-23-05.imagemagick6;
       packages.imapsync = n-23-05.imapsync;
+      packages.influxdb = n-23-05.influxdb;
       packages.input-remapper = n-23-05.input-remapper;
       packages.interception-tools = n-23-05.interception-tools;
       packages.intermodal = n-23-05.intermodal;
@@ -1404,6 +1421,7 @@
       packages.k3d = n-23-05.k3d;
       packages.k3s = n-23-05.k3s;
       packages.k3sup = n-23-05.k3sup;
+      packages.kakasi = n-23-05.kakasi;
       packages.kaniko = n-23-05.kaniko;
       packages.kanshi = n-23-05.kanshi;
       packages.keychain = n-23-05.keychain;
@@ -1432,11 +1450,13 @@
       packages.libinput-gestures = n-23-05.libinput-gestures;
       packages.libjxl = n-23-05.libjxl;
       packages.libkkc = n-23-05.libkkc;
+      packages.libmicrodns = n-23-05.libmicrodns;
       packages.libnatpmp = n-23-05.libnatpmp;
       packages.libratbag = n-23-05.libratbag;
       packages."libsForQt5.ark" = n-23-05.libsForQt5.ark;
       packages."libsForQt5.kdeconnect-kde" = n-23-05.libsForQt5.kdeconnect-kde;
       packages."libsForQt5.qtstyleplugin-kvantum" = n-23-05.libsForQt5.qtstyleplugin-kvantum;
+      packages.libskk = n-23-05.libskk;
       packages.libuchardet = n-23-05.libuchardet;
       packages.libva-utils = n-23-05.libva-utils;
       packages.libwebp = n-23-05.libwebp;
@@ -1637,6 +1657,7 @@
       packages."python311Packages.papermill" = n-23-05.python311Packages.papermill;
       packages."python311Packages.paramiko" = n-23-05.python311Packages.paramiko;
       packages."python311Packages.pocket" = n-23-05.python311Packages.pocket;
+      packages."python311Packages.pykakasi" = n-23-05.python311Packages.pykakasi;
       packages."python311Packages.pylibdmtx" = n-23-05.python311Packages.pylibdmtx;
       packages."python311Packages.pyqrcode" = n-23-05.python311Packages.pyqrcode;
       packages."python311Packages.python-barcode" = n-23-05.python311Packages.python-barcode;
@@ -1651,6 +1672,7 @@
       packages."python311Packages.vobject" = n-23-05.python311Packages.vobject;
       packages."python311Packages.xattr" = n-23-05.python311Packages.xattr;
       packages."python311Packages.zfec" = n-23-05.python311Packages.zfec;
+      packages.qemu_kvm = n-23-05.qemu_kvm;
       packages.qrcode = n-23-05.qrcode;
       packages.qrcodegen = n-23-05.qrcodegen;
       packages.radeontop = n-23-05.radeontop;
@@ -1701,6 +1723,8 @@
       packages.selene = n-23-05.selene;
       packages.selinux-python = n-23-05.selinux-python;
       packages.selinux-sandbox = n-23-05.selinux-sandbox;
+      packages.semeru-bin = n-23-05.semeru-bin;
+      packages.semeru-bin-11 = n-23-05.semeru-bin-11;
       packages.seqdiag = n-23-05.seqdiag;
       packages.setools = n-23-05.setools;
       packages.sftpgo = n-23-05.sftpgo;
@@ -1764,6 +1788,7 @@
       packages.tailscale = n-23-05.tailscale;
       packages.takao = n-23-05.takao;
       packages.taskspooler = n-23-05.taskspooler;
+      packages.telegraf = n-23-05.telegraf;
       packages.temurin-bin-17 = n-23-05.temurin-bin-17;
       packages.tensorflow-lite = n-23-05.tensorflow-lite;
       packages.tesseract = n-23-05.tesseract;
@@ -1800,6 +1825,7 @@
       packages.upnp-router-control = n-23-05.upnp-router-control;
       packages.usbtop = n-23-05.usbtop;
       packages.usbutils = n-23-05.usbutils;
+      packages.ustreamer = n-23-05.ustreamer;
       packages.uwc = n-23-05.uwc;
       packages.vale = n-23-05.vale;
       packages.vaultwarden = n-23-05.vaultwarden;
@@ -1811,6 +1837,7 @@
       packages.victoriametrics = n-23-05.victoriametrics;
       packages.vifm-full = n-23-05.vifm-full;
       packages.vips = n-23-05.vips;
+      packages.virt-manager = n-23-05.virt-manager;
       packages.visidata = n-23-05.visidata;
       packages.vlan = n-23-05.vlan;
       packages.vlc = n-23-05.vlc;
@@ -1841,6 +1868,7 @@
       packages.wmenu = n-23-05.wmenu;
       packages.wtype = n-23-05.wtype;
       packages.wvkbd = n-23-05.wvkbd;
+      packages.x3270 = n-23-05.x3270;
       packages.xandikos = n-23-05.xandikos;
       packages.xbanish = n-23-05.xbanish;
       packages.xbindkeys = n-23-05.xbindkeys;
@@ -1884,7 +1912,9 @@
       packages."python310Packages.torchvision" = n-unstable.python310Packages.torchvision;
       packages."python310Packages.torchvision-bin" = n-unstable.python310Packages.torchvision-bin;
       packages."python310Packages.transformers" = n-unstable.python310Packages.transformers;
+      packages.rkvm = n-unstable.rkvm;
       packages.subtitlr = n-unstable.subtitlr;
+      packages.udev-gothic = n-unstable.udev-gothic;
       packages.whisper-ctranslate2 = n-unstable.whisper-ctranslate2;
 
       # special cases
