@@ -78,7 +78,7 @@ def sqlite3_autocommit_connection(database: os.PathLike | str) -> sqlite3.Connec
     """
     _connection = sqlite3.connect(database, isolation_level=None)
     _connection.execute("pragma journal_mode=wal;")
-    _connection.execute("pragma busy_timeout=5000;")
+    _connection.execute("pragma busy_timeout=10000;")
     _connection.execute("pragma synchronous=NORMAL;")
     _connection.set_trace_callback(print)
     with contextlib.closing(_connection):
@@ -141,7 +141,7 @@ def main():
         ]
 
     random.shuffle(_nixpkgs)
-    do_multiprocessing(_process_nixpkg, _nixpkgs, 3)
+    do_multiprocessing(_process_nixpkg, _nixpkgs, 4)
 
     with sqlite3_autocommit_connection("database.sqlite3") as _con_reduce:
         _binaries = [
