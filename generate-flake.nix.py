@@ -288,6 +288,19 @@ def _process_nixpkg(_data: NixpkgEntry):
             ):
                 continue
 
+            _suffix = _candidate_bin_path.as_posix().removeprefix(_prefix.as_posix())
+            if _suffix.startswith("/share/bash-completion/"):
+                print({"_suffix": _suffix})
+                continue
+            if not _suffix.startswith("/bin/"):
+                print({"_suffix": _suffix})
+                continue
+            if "/" in _suffix.removeprefix(
+                "/bin/"
+            ):  # "${n-23-05.mailutils}/bin/mu-mh/ali"
+                print({"_suffix": _suffix})
+                continue
+
             if (
                 _candidate_bin_path.is_file()
                 and _candidate_bin_path.stat().st_mode & 0o111
@@ -295,18 +308,6 @@ def _process_nixpkg(_data: NixpkgEntry):
                 _candidate_bin_path.is_symlink()
                 and _candidate_bin_path.resolve().stat().st_mode & 0o111
             ):
-                _suffix = _candidate_bin_path.as_posix().removeprefix(
-                    _prefix.as_posix()
-                )
-                if not _suffix.startswith("/bin/"):
-                    print({"_suffix": _suffix})
-                    continue
-                if "/" in _suffix.removeprefix(
-                    "/bin/"
-                ):  # "${n-23-05.mailutils}/bin/mu-mh/ali"
-                    print({"_suffix": _suffix})
-                    continue
-
                 if not NIXPKGS_ALIASES_ALIASES_FOLDER.joinpath(_bin).exists():
                     _packages.append(
                         {

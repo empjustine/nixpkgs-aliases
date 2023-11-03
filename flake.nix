@@ -143,6 +143,9 @@
       apps.docker-buildx = { type = "app"; program = "${n-23-05.docker-buildx}/bin/docker-buildx"; };
       apps.docker = { type = "app"; program = "${n-23-05.docker-client}/bin/docker"; };
       apps.docker-compose = { type = "app"; program = "${n-23-05.docker-compose}/bin/docker-compose"; };
+      apps.drip = { type = "app"; program = "${n-23-05.drip}/bin/drip"; };
+      apps.drip_daemon = { type = "app"; program = "${n-23-05.drip}/bin/drip_daemon"; };
+      apps.drip_proxy = { type = "app"; program = "${n-23-05.drip}/bin/drip_proxy"; };
       apps.duckdb = { type = "app"; program = "${n-23-05.duckdb}/bin/duckdb"; };
       apps.dufs = { type = "app"; program = "${n-23-05.dufs}/bin/dufs"; };
       apps.dum = { type = "app"; program = "${n-23-05.dum}/bin/dum"; };
@@ -156,6 +159,8 @@
       apps.ffplay = { type = "app"; program = "${n-23-05.ffmpeg_6-full}/bin/ffplay"; };
       apps.ffprobe = { type = "app"; program = "${n-23-05.ffmpeg_6-full}/bin/ffprobe"; };
       apps.qt-faststart = { type = "app"; program = "${n-23-05.ffmpeg_6-full}/bin/qt-faststart"; };
+      apps.firecracker = { type = "app"; program = "${n-23-05.firecracker}/bin/firecracker"; };
+      apps.jailer = { type = "app"; program = "${n-23-05.firecracker}/bin/jailer"; };
       apps.flink = { type = "app"; program = "${n-23-05.flink}/bin/flink"; };
       apps.foot = { type = "app"; program = "${n-23-05.foot}/bin/foot"; };
       apps.footclient = { type = "app"; program = "${n-23-05.foot}/bin/footclient"; };
@@ -323,6 +328,7 @@
       apps.just = { type = "app"; program = "${n-23-05.just}/bin/just"; };
       apps.k3s = { type = "app"; program = "${n-23-05.k3s}/bin/k3s"; };
       apps.atoc_conv = { type = "app"; program = "${n-23-05.kakasi}/bin/atoc_conv"; };
+      apps.kakasi = { type = "app"; program = "${n-23-05.kakasi}/bin/kakasi"; };
       apps.kakasi-config = { type = "app"; program = "${n-23-05.kakasi}/bin/kakasi-config"; };
       apps.mkkanwa = { type = "app"; program = "${n-23-05.kakasi}/bin/mkkanwa"; };
       apps.rdic_conv = { type = "app"; program = "${n-23-05.kakasi}/bin/rdic_conv"; };
@@ -334,6 +340,7 @@
       apps.kgt = { type = "app"; program = "${n-23-05.kgt}/bin/kgt"; };
       apps.ikhal = { type = "app"; program = "${n-23-05.khal}/bin/ikhal"; };
       apps.khal = { type = "app"; program = "${n-23-05.khal}/bin/khal"; };
+      apps.krunvm = { type = "app"; program = "${n-23-05.krunvm}/bin/krunvm"; };
       apps.kubectl = { type = "app"; program = "${n-23-05.kubectl}/bin/kubectl"; };
       apps.archive_color = { type = "app"; program = "${n-23-05.lesspipe}/bin/archive_color"; };
       apps.code2color = { type = "app"; program = "${n-23-05.lesspipe}/bin/code2color"; };
@@ -403,6 +410,32 @@
       apps.luarocks-admin = { type = "app"; program = "${n-23-05.lua52Packages.luarocks}/bin/luarocks-admin"; };
       apps.lua-format = { type = "app"; program = "${n-23-05.luaformatter}/bin/lua-format"; };
       apps.lurk = { type = "app"; program = "${n-23-05.lurk}/bin/lurk"; };
+      apps."init.lxc" = { type = "app"; program = "${n-23-05.lxc}/bin/init.lxc"; };
+      apps.lxc-attach = { type = "app"; program = "${n-23-05.lxc}/bin/lxc-attach"; };
+      apps.lxc-autostart = { type = "app"; program = "${n-23-05.lxc}/bin/lxc-autostart"; };
+      apps.lxc-cgroup = { type = "app"; program = "${n-23-05.lxc}/bin/lxc-cgroup"; };
+      apps.lxc-checkconfig = { type = "app"; program = "${n-23-05.lxc}/bin/lxc-checkconfig"; };
+      apps.lxc-checkpoint = { type = "app"; program = "${n-23-05.lxc}/bin/lxc-checkpoint"; };
+      apps.lxc-config = { type = "app"; program = "${n-23-05.lxc}/bin/lxc-config"; };
+      apps.lxc-console = { type = "app"; program = "${n-23-05.lxc}/bin/lxc-console"; };
+      apps.lxc-copy = { type = "app"; program = "${n-23-05.lxc}/bin/lxc-copy"; };
+      apps.lxc-create = { type = "app"; program = "${n-23-05.lxc}/bin/lxc-create"; };
+      apps.lxc-destroy = { type = "app"; program = "${n-23-05.lxc}/bin/lxc-destroy"; };
+      apps.lxc-device = { type = "app"; program = "${n-23-05.lxc}/bin/lxc-device"; };
+      apps.lxc-execute = { type = "app"; program = "${n-23-05.lxc}/bin/lxc-execute"; };
+      apps.lxc-freeze = { type = "app"; program = "${n-23-05.lxc}/bin/lxc-freeze"; };
+      apps.lxc-info = { type = "app"; program = "${n-23-05.lxc}/bin/lxc-info"; };
+      apps.lxc-ls = { type = "app"; program = "${n-23-05.lxc}/bin/lxc-ls"; };
+      apps.lxc-monitor = { type = "app"; program = "${n-23-05.lxc}/bin/lxc-monitor"; };
+      apps.lxc-snapshot = { type = "app"; program = "${n-23-05.lxc}/bin/lxc-snapshot"; };
+      apps.lxc-start = { type = "app"; program = "${n-23-05.lxc}/bin/lxc-start"; };
+      apps.lxc-stop = { type = "app"; program = "${n-23-05.lxc}/bin/lxc-stop"; };
+      apps.lxc-top = { type = "app"; program = "${n-23-05.lxc}/bin/lxc-top"; };
+      apps.lxc-unfreeze = { type = "app"; program = "${n-23-05.lxc}/bin/lxc-unfreeze"; };
+      apps.lxc-unshare = { type = "app"; program = "${n-23-05.lxc}/bin/lxc-unshare"; };
+      apps.lxc-update-config = { type = "app"; program = "${n-23-05.lxc}/bin/lxc-update-config"; };
+      apps.lxc-usernsexec = { type = "app"; program = "${n-23-05.lxc}/bin/lxc-usernsexec"; };
+      apps.lxc-wait = { type = "app"; program = "${n-23-05.lxc}/bin/lxc-wait"; };
       apps.lziprecover = { type = "app"; program = "${n-23-05.lziprecover}/bin/lziprecover"; };
       apps.comsatd = { type = "app"; program = "${n-23-05.mailutils}/bin/comsatd"; };
       apps.decodemail = { type = "app"; program = "${n-23-05.mailutils}/bin/decodemail"; };
@@ -723,7 +756,6 @@
       apps.nbmerge-web = { type = "app"; program = "${n-23-05.python311Packages.nbdime}/bin/nbmerge-web"; };
       apps.nbshow = { type = "app"; program = "${n-23-05.python311Packages.nbdime}/bin/nbshow"; };
       apps.papermill = { type = "app"; program = "${n-23-05.python311Packages.papermill}/bin/papermill"; };
-      apps.kakasi = { type = "app"; program = "${n-23-05.python311Packages.pykakasi}/bin/kakasi"; };
       apps.read_datamatrix = { type = "app"; program = "${n-23-05.python311Packages.pylibdmtx}/bin/read_datamatrix"; };
       apps."read_datamatrix.py" = { type = "app"; program = "${n-23-05.python311Packages.pylibdmtx}/bin/read_datamatrix.py"; };
       apps.write_datamatrix = { type = "app"; program = "${n-23-05.python311Packages.pylibdmtx}/bin/write_datamatrix"; };
@@ -757,6 +789,10 @@
       apps.rsync-ssl = { type = "app"; program = "${n-23-05.rsync}/bin/rsync-ssl"; };
       apps.rtx = { type = "app"; program = "${n-23-05.rtx}/bin/rtx"; };
       apps.ruff = { type = "app"; program = "${n-23-05.ruff}/bin/ruff"; };
+      apps.rush = { type = "app"; program = "${n-23-05.rush}/bin/rush"; };
+      apps.rush-po = { type = "app"; program = "${n-23-05.rush}/bin/rush-po"; };
+      apps.rushlast = { type = "app"; program = "${n-23-05.rush}/bin/rushlast"; };
+      apps.rushwho = { type = "app"; program = "${n-23-05.rush}/bin/rushwho"; };
       apps.s6-accessrules-cdb-from-fs = { type = "app"; program = "${n-23-05.s6}/bin/s6-accessrules-cdb-from-fs"; };
       apps.s6-accessrules-fs-from-cdb = { type = "app"; program = "${n-23-05.s6}/bin/s6-accessrules-fs-from-cdb"; };
       apps.s6-applyuidgid = { type = "app"; program = "${n-23-05.s6}/bin/s6-applyuidgid"; };
@@ -1104,6 +1140,7 @@
       apps.uxterm = { type = "app"; program = "${n-23-05.xterm}/bin/uxterm"; };
       apps.xterm = { type = "app"; program = "${n-23-05.xterm}/bin/xterm"; };
       apps.yaup = { type = "app"; program = "${n-23-05.yaup}/bin/yaup"; };
+      apps.youki = { type = "app"; program = "${n-23-05.youki}/bin/youki"; };
       apps.zarchive = { type = "app"; program = "${n-23-05.zarchive}/bin/zarchive"; };
       apps.zathura = { type = "app"; program = "${n-23-05.zathura}/bin/zathura"; };
       apps.zbarcam = { type = "app"; program = "${n-23-05.zbar}/bin/zbarcam"; };
@@ -1210,6 +1247,7 @@
       packages.cni = n-23-05.cni;
       packages.cni-plugins = n-23-05.cni-plugins;
       packages.cntr = n-23-05.cntr;
+      packages.cockatrice = n-23-05.cockatrice;
       packages.code-server = n-23-05.code-server;
       packages.conceal = n-23-05.conceal;
       packages.cool-retro-term = n-23-05.cool-retro-term;
@@ -1251,6 +1289,9 @@
       packages.docker-client = n-23-05.docker-client;
       packages.docker-compose = n-23-05.docker-compose;
       packages.dqlite = n-23-05.dqlite;
+      packages.drawpile = n-23-05.drawpile;
+      packages.drawpile-server-headless = n-23-05.drawpile-server-headless;
+      packages.drip = n-23-05.drip;
       packages.duckdb = n-23-05.duckdb;
       packages.dufs = n-23-05.dufs;
       packages.dum = n-23-05.dum;
@@ -1273,6 +1314,7 @@
       packages.ffmpeg-headless = n-23-05.ffmpeg-headless;
       packages.ffmpeg_6-full = n-23-05.ffmpeg_6-full;
       packages.ffmpeg_6-headless = n-23-05.ffmpeg_6-headless;
+      packages.firecracker = n-23-05.firecracker;
       packages.firectl = n-23-05.firectl;
       packages.flink = n-23-05.flink;
       packages.fluent-bit = n-23-05.fluent-bit;
@@ -1304,6 +1346,7 @@
       packages.github-to-sqlite = n-23-05.github-to-sqlite;
       packages.gitleaks = n-23-05.gitleaks;
       packages.gitui = n-23-05.gitui;
+      packages.gleam = n-23-05.gleam;
       packages.glfw = n-23-05.glfw;
       packages.glfw-wayland = n-23-05.glfw-wayland;
       packages.gmic = n-23-05.gmic;
@@ -1369,6 +1412,7 @@
       packages."haskellPackages.time-w3c" = n-23-05.haskellPackages.time-w3c;
       packages."haskellPackages.tsuntsun" = n-23-05.haskellPackages.tsuntsun;
       packages."haskellPackages.vcard" = n-23-05.haskellPackages.vcard;
+      packages."haskellPackages.wacom-daemon" = n-23-05.haskellPackages.wacom-daemon;
       packages."haskellPackages.xmonad" = n-23-05.haskellPackages.xmonad;
       packages."haskellPackages.xmonad-contrib" = n-23-05.haskellPackages.xmonad-contrib;
       packages.headscale = n-23-05.headscale;
@@ -1408,6 +1452,7 @@
       packages.isolate = n-23-05.isolate;
       packages.isync = n-23-05.isync;
       packages.ite-backlight = n-23-05.ite-backlight;
+      packages.jail = n-23-05.jail;
       packages.jaq = n-23-05.jaq;
       packages.jbang = n-23-05.jbang;
       packages.jetbrains-mono = n-23-05.jetbrains-mono;
@@ -1435,6 +1480,7 @@
       packages.kn = n-23-05.kn;
       packages.kochi-substitute = n-23-05.kochi-substitute;
       packages.krb5 = n-23-05.krb5;
+      packages.krunvm = n-23-05.krunvm;
       packages.kube-router = n-23-05.kube-router;
       packages.kubectl = n-23-05.kubectl;
       packages.kubectl-tree = n-23-05.kubectl-tree;
@@ -1450,6 +1496,7 @@
       packages.libinput-gestures = n-23-05.libinput-gestures;
       packages.libjxl = n-23-05.libjxl;
       packages.libkkc = n-23-05.libkkc;
+      packages.libkrun = n-23-05.libkrun;
       packages.libmicrodns = n-23-05.libmicrodns;
       packages.libnatpmp = n-23-05.libnatpmp;
       packages.libratbag = n-23-05.libratbag;
@@ -1459,6 +1506,8 @@
       packages.libskk = n-23-05.libskk;
       packages.libuchardet = n-23-05.libuchardet;
       packages.libva-utils = n-23-05.libva-utils;
+      packages.libwacom = n-23-05.libwacom;
+      packages.libwacom-surface = n-23-05.libwacom-surface;
       packages.libwebp = n-23-05.libwebp;
       packages.libxml2 = n-23-05.libxml2;
       packages.libzra = n-23-05.libzra;
@@ -1472,6 +1521,8 @@
       packages."llvmPackages_rocm.llvm" = n-23-05.llvmPackages_rocm.llvm;
       packages.lnav = n-23-05.lnav;
       packages.logitech-udev-rules = n-23-05.logitech-udev-rules;
+      packages.looking-glass-client = n-23-05.looking-glass-client;
+      packages.lorien = n-23-05.lorien;
       packages.lshw = n-23-05.lshw;
       packages.ltunify = n-23-05.ltunify;
       packages.ltwheelconf = n-23-05.ltwheelconf;
@@ -1480,6 +1531,7 @@
       packages."lua52Packages.luarocks" = n-23-05.lua52Packages.luarocks;
       packages.luaformatter = n-23-05.luaformatter;
       packages.lurk = n-23-05.lurk;
+      packages.lxc = n-23-05.lxc;
       packages.lychee = n-23-05.lychee;
       packages.lzip = n-23-05.lzip;
       packages.lziprecover = n-23-05.lziprecover;
@@ -1489,6 +1541,7 @@
       packages.man = n-23-05.man;
       packages.man-pages = n-23-05.man-pages;
       packages.man-pages-posix = n-23-05.man-pages-posix;
+      packages.maptool = n-23-05.maptool;
       packages.maturin = n-23-05.maturin;
       packages.maven = n-23-05.maven;
       packages.mb2md = n-23-05.mb2md;
@@ -1638,6 +1691,7 @@
       packages."python311Packages.ewmh" = n-23-05.python311Packages.ewmh;
       packages."python311Packages.execnb" = n-23-05.python311Packages.execnb;
       packages."python311Packages.ftfy" = n-23-05.python311Packages.ftfy;
+      packages."python311Packages.grandalf" = n-23-05.python311Packages.grandalf;
       packages."python311Packages.ical" = n-23-05.python311Packages.ical;
       packages."python311Packages.icalendar" = n-23-05.python311Packages.icalendar;
       packages."python311Packages.ics" = n-23-05.python311Packages.ics;
@@ -1689,6 +1743,7 @@
       packages.ripgrep-all = n-23-05.ripgrep-all;
       packages.rivalcfg = n-23-05.rivalcfg;
       packages.rke2 = n-23-05.rke2;
+      packages.rnote = n-23-05.rnote;
       packages.roboto = n-23-05.roboto;
       packages.roboto-mono = n-23-05.roboto-mono;
       packages.roboto-serif = n-23-05.roboto-serif;
@@ -1707,6 +1762,7 @@
       packages.rtx = n-23-05.rtx;
       packages.ruff = n-23-05.ruff;
       packages.runit = n-23-05.runit;
+      packages.rush = n-23-05.rush;
       packages.rustc = n-23-05.rustc;
       packages.rustfmt = n-23-05.rustfmt;
       packages.rustup = n-23-05.rustup;
@@ -1810,8 +1866,10 @@
       packages.triggerhappy = n-23-05.triggerhappy;
       packages.trx = n-23-05.trx;
       packages.ts = n-23-05.ts;
+      packages.tuhi = n-23-05.tuhi;
       packages.tuifimanager = n-23-05.tuifimanager;
       packages.tzdata = n-23-05.tzdata;
+      packages.ubridge = n-23-05.ubridge;
       packages.udp2raw = n-23-05.udp2raw;
       packages.uhubctl = n-23-05.uhubctl;
       packages.unclutter = n-23-05.unclutter;
@@ -1840,12 +1898,16 @@
       packages.victoriametrics = n-23-05.victoriametrics;
       packages.vifm-full = n-23-05.vifm-full;
       packages.vips = n-23-05.vips;
+      packages.virglrenderer = n-23-05.virglrenderer;
       packages.virt-manager = n-23-05.virt-manager;
+      packages.virtscreen = n-23-05.virtscreen;
       packages.visidata = n-23-05.visidata;
       packages.vlan = n-23-05.vlan;
       packages.vlc = n-23-05.vlc;
       packages.vscodium = n-23-05.vscodium;
+      packages.wacomtablet = n-23-05.wacomtablet;
       packages.waifu2x-converter-cpp = n-23-05.waifu2x-converter-cpp;
+      packages.wayland-proxy-virtwl = n-23-05.wayland-proxy-virtwl;
       packages.wayland-utils = n-23-05.wayland-utils;
       packages.waynergy = n-23-05.waynergy;
       packages.wayout = n-23-05.wayout;
@@ -1855,6 +1917,7 @@
       packages.wdomirror = n-23-05.wdomirror;
       packages.webdav-server-rs = n-23-05.webdav-server-rs;
       packages.wev = n-23-05.wev;
+      packages.weylus = n-23-05.weylus;
       packages.wf-recorder = n-23-05.wf-recorder;
       packages.winbox = n-23-05.winbox;
       packages."wineWowPackages.waylandFull" = n-23-05.wineWowPackages.waylandFull;
@@ -1876,6 +1939,8 @@
       packages.xbanish = n-23-05.xbanish;
       packages.xbindkeys = n-23-05.xbindkeys;
       packages.xdg-desktop-portal-wlr = n-23-05.xdg-desktop-portal-wlr;
+      packages.xen = n-23-05.xen;
+      packages.xf86_input_wacom = n-23-05.xf86_input_wacom;
       packages."xfce.exo" = n-23-05.xfce.exo;
       packages."xfce.gigolo" = n-23-05.xfce.gigolo;
       packages.xivlauncher = n-23-05.xivlauncher;
