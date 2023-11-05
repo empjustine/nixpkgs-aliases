@@ -144,7 +144,6 @@
       apps.dmtxquery = { type = "app"; program = "${n-23-05.dmtx-utils}/bin/dmtxquery"; };
       apps.dmtxread = { type = "app"; program = "${n-23-05.dmtx-utils}/bin/dmtxread"; };
       apps.dmtxwrite = { type = "app"; program = "${n-23-05.dmtx-utils}/bin/dmtxwrite"; };
-      apps.dnsname = { type = "app"; program = "${n-23-05.dnsname-cni}/bin/dnsname"; };
       apps.docker-buildx = { type = "app"; program = "${n-23-05.docker-buildx}/bin/docker-buildx"; };
       apps.docker = { type = "app"; program = "${n-23-05.docker-client}/bin/docker"; };
       apps.docker-compose = { type = "app"; program = "${n-23-05.docker-compose}/bin/docker-compose"; };
@@ -346,7 +345,6 @@
       apps.just = { type = "app"; program = "${n-23-05.just}/bin/just"; };
       apps.k3s = { type = "app"; program = "${n-23-05.k3s}/bin/k3s"; };
       apps.atoc_conv = { type = "app"; program = "${n-23-05.kakasi}/bin/atoc_conv"; };
-      apps.kakasi = { type = "app"; program = "${n-23-05.kakasi}/bin/kakasi"; };
       apps.kakasi-config = { type = "app"; program = "${n-23-05.kakasi}/bin/kakasi-config"; };
       apps.mkkanwa = { type = "app"; program = "${n-23-05.kakasi}/bin/mkkanwa"; };
       apps.rdic_conv = { type = "app"; program = "${n-23-05.kakasi}/bin/rdic_conv"; };
@@ -554,6 +552,7 @@
       apps.dnsfilter = { type = "app"; program = "${n-23-05.ndjbdns}/bin/dnsfilter"; };
       apps.dnsip = { type = "app"; program = "${n-23-05.ndjbdns}/bin/dnsip"; };
       apps.dnsipq = { type = "app"; program = "${n-23-05.ndjbdns}/bin/dnsipq"; };
+      apps.dnsname = { type = "app"; program = "${n-23-05.ndjbdns}/bin/dnsname"; };
       apps.dnsq = { type = "app"; program = "${n-23-05.ndjbdns}/bin/dnsq"; };
       apps.dnsqr = { type = "app"; program = "${n-23-05.ndjbdns}/bin/dnsqr"; };
       apps.dnstrace = { type = "app"; program = "${n-23-05.ndjbdns}/bin/dnstrace"; };
@@ -778,6 +777,7 @@
       apps.nbmerge-web = { type = "app"; program = "${n-23-05.python311Packages.nbdime}/bin/nbmerge-web"; };
       apps.nbshow = { type = "app"; program = "${n-23-05.python311Packages.nbdime}/bin/nbshow"; };
       apps.papermill = { type = "app"; program = "${n-23-05.python311Packages.papermill}/bin/papermill"; };
+      apps.kakasi = { type = "app"; program = "${n-23-05.python311Packages.pykakasi}/bin/kakasi"; };
       apps.read_datamatrix = { type = "app"; program = "${n-23-05.python311Packages.pylibdmtx}/bin/read_datamatrix"; };
       apps."read_datamatrix.py" = { type = "app"; program = "${n-23-05.python311Packages.pylibdmtx}/bin/read_datamatrix.py"; };
       apps.write_datamatrix = { type = "app"; program = "${n-23-05.python311Packages.pylibdmtx}/bin/write_datamatrix"; };

@@ -247,9 +247,7 @@ def _process_nixpkg(_data: NixpkgEntry):
             if "outputs" in _output:
                 for k, v in _output["outputs"].items():
                     _ln_s(
-                        source=NIXPKGS_ALIASES_GCROOTS_FOLDER.joinpath(
-                            f"system-{_pname}-{k}"
-                        ),
+                        source=NIXPKGS_ALIASES_GCROOTS_FOLDER.joinpath(f"{_pname}^{k}"),
                         target=pathlib.Path(v),
                     )
 
@@ -268,62 +266,60 @@ def _process_nixpkg(_data: NixpkgEntry):
     _prefix = pathlib.Path(json.loads(_eval.stdout))
 
     _ln_s(
-        source=NIXPKGS_ALIASES_GCROOTS_FOLDER.joinpath(f"system-{_pname}"),
+        source=NIXPKGS_ALIASES_GCROOTS_FOLDER.joinpath(f"{_pname}"),
         target=_prefix,
     )
 
     if _disabled is not None:
         return
     _packages = []
-    with sqlite3_autocommit_connection("database.sqlite3") as con:
-        for _candidate_bin_path in _prefix.rglob("*"):
-            if _candidate_bin_path.is_dir():
-                continue
-            _bin = _candidate_bin_path.name
-            if (
-                _bin.startswith(".")
-                or _bin.endswith(".so")
-                or _bin.endswith("-wrapped")
-                or _bin.endswith("-wrapped_")
-            ):
-                continue
+    for _candidate_bin_path in _prefix.rglob("*"):
+        if _candidate_bin_path.is_dir():
+            continue
+        _bin = _candidate_bin_path.name
+        if (
+            _bin.startswith(".")
+            or _bin.endswith(".so")
+            or _bin.endswith("-wrapped")
+            or _bin.endswith("-wrapped_")
+        ):
+            continue
 
-            _suffix = _candidate_bin_path.as_posix().removeprefix(_prefix.as_posix())
-            if _suffix.startswith("/share/bash-completion/"):
-                print({"_suffix": _suffix})
-                continue
-            if not _suffix.startswith("/bin/"):
-                print({"_suffix": _suffix})
-                continue
-            if "/" in _suffix.removeprefix(
-                "/bin/"
-            ):  # "${n-23-05.mailutils}/bin/mu-mh/ali"
-                print({"_suffix": _suffix})
-                continue
+        _suffix = _candidate_bin_path.as_posix().removeprefix(_prefix.as_posix())
+        if _suffix.startswith("/share/bash-completion/"):
+            print({"_suffix": _suffix})
+            continue
+        if not _suffix.startswith("/bin/"):
+            print({"_suffix": _suffix})
+            continue
+        if "/" in _suffix.removeprefix("/bin/"):  # "${n-23-05.mailutils}/bin/mu-mh/ali"
+            print({"_suffix": _suffix})
+            continue
 
-            if (
-                _candidate_bin_path.is_file()
-                and _candidate_bin_path.stat().st_mode & 0o111
-            ) or (
-                _candidate_bin_path.is_symlink()
-                and _candidate_bin_path.resolve().stat().st_mode & 0o111
-            ):
-                if not NIXPKGS_ALIASES_ALIASES_FOLDER.joinpath(_bin).exists():
-                    _packages.append(
-                        {
-                            "input": _input,
-                            "pname": _pname,
-                            "bin": _suffix,
-                        }
-                    )
-                    _ln_s(
-                        source=NIXPKGS_ALIASES_ALIASES_FOLDER.joinpath(_bin),
-                        target=NIXPKGS_ALIASES_RUN_FILE,
-                    )
-        con.executemany(
-            "INSERT INTO nixpkgs_bin(input, pname, bin) VALUES (:input, :pname, :bin) ON CONFLICT DO NOTHING;",
-            _packages,
-        )
+        if (
+            _candidate_bin_path.is_file() and _candidate_bin_path.stat().st_mode & 0o111
+        ) or (
+            _candidate_bin_path.is_symlink()
+            and _candidate_bin_path.resolve().stat().st_mode & 0o111
+        ):
+            if not NIXPKGS_ALIASES_ALIASES_FOLDER.joinpath(_bin).exists():
+                _packages.append(
+                    {
+                        "input": _input,
+                        "pname": _pname,
+                        "bin": _suffix,
+                    }
+                )
+                _ln_s(
+                    source=NIXPKGS_ALIASES_ALIASES_FOLDER.joinpath(_bin),
+                    target=NIXPKGS_ALIASES_RUN_FILE,
+                )
+    if len(_packages) > 0:
+        with sqlite3_autocommit_connection("database.sqlite3") as con:
+            con.executemany(
+                "INSERT INTO nixpkgs_bin(input, pname, bin) VALUES (:input, :pname, :bin) ON CONFLICT DO NOTHING;",
+                _packages,
+            )
 
 
 if __name__ == "__main__":
