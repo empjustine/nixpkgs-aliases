@@ -1,0 +1,1 @@
+../nixpkgs-aliases-run.sh

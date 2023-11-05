@@ -16,22 +16,32 @@ import typing
 if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG)
 
-NIXPKGS_ALIASES_FLAKE_NIX_FOOTER_FILE = pathlib.Path("flake.nix.footer")
-NIXPKGS_ALIASES_FLAKE_NIX_HEADER_FILE = pathlib.Path("flake.nix.header")
-NIXPKGS_ALIASES_RUN_FILE = pathlib.Path("../nixpkgs-aliases-run.sh")
-NIXPKGS_ALIASES_GCROOTS_FOLDER = pathlib.Path("gcroots")
-NIXPKGS_ALIASES_ALIASES_FOLDER = pathlib.Path("aliases")
 
-CMD_UPDATE_FLAKE = shlex.split(
-    "nix --extra-experimental-features 'nix-command flakes' flake update path:."
-)
-PACKAGE_DESCRIPTIONS = shlex.split(
-    "nix --extra-experimental-features 'nix-command flakes' --refresh flake show --json path:."
-)
+MULTIPROCESSING = True
+_sql_logger = logging.getLogger("sql")
+_subprocess_logger = logging.getLogger("subprocess")
+_sql_logger.level = logging.INFO
+_subprocess_logger.level = logging.INFO
+T = typing.TypeVar("T")
+
+
+class NixpkgEntry(typing.TypedDict):
+    rev: str
+    input: str
+    pname: str
+    disabled: str
+    broken: str
+
+
+_FLAKE_NIX_FOOTER = pathlib.Path("flake.nix.footer").read_text()
+_FLAKE_NIX_HEADER = pathlib.Path("flake.nix.header").read_text()
+_NIXPKGS_ALIASES_RUN = pathlib.Path("../nixpkgs-aliases-run.sh")
+_GCROOTS_D = pathlib.Path("gcroots")
+_ALIASES_D = pathlib.Path("aliases")
 
 
 def _ln_s(source: pathlib.Path, target: pathlib.Path):
-    print({"$@": shlex.join(["ln", "-s", str(target), str(source)])})
+    _subprocess_logger.debug({"$@": shlex.join(["ln", "-s", str(target), str(source)])})
     source.symlink_to(target)
 
 
@@ -50,7 +60,7 @@ def _subprocess_run(_cmd):
         _debug_result[1] = _result.stdout.decode("utf-8", "surrogateescape")
     if _result.stderr != b"":
         _debug_result[2] = _result.stderr.decode("utf-8", "surrogateescape")
-    print(_debug_result)
+    _subprocess_logger.debug(_debug_result)
     return _result
 
 
@@ -80,7 +90,7 @@ def sqlite3_autocommit_connection(database: os.PathLike | str) -> sqlite3.Connec
     _connection.execute("pragma journal_mode=wal;")
     _connection.execute("pragma busy_timeout=10000;")
     _connection.execute("pragma synchronous=NORMAL;")
-    _connection.set_trace_callback(print)
+    _connection.set_trace_callback(_sql_logger.debug)
     with contextlib.closing(_connection):
         yield _connection
 
@@ -102,28 +112,30 @@ def transaction(_connection: sqlite3.Connection):
 
 def main():
     cleanup = True
-    NIXPKGS_ALIASES_ALIASES_FOLDER.mkdir(parents=True, exist_ok=True)
-    NIXPKGS_ALIASES_GCROOTS_FOLDER.mkdir(parents=True, exist_ok=True)
+    _ALIASES_D.mkdir(parents=True, exist_ok=True)
+    _GCROOTS_D.mkdir(parents=True, exist_ok=True)
 
     if cleanup:
         for _folder in (
-            NIXPKGS_ALIASES_ALIASES_FOLDER,
-            NIXPKGS_ALIASES_GCROOTS_FOLDER,
-            NIXPKGS_ALIASES_GCROOTS_FOLDER,
+            _ALIASES_D,
+            _GCROOTS_D,
+            _GCROOTS_D,
         ):
             for _file in _folder.glob("*"):
                 with contextlib.suppress(FileNotFoundError):
                     _file.unlink()
 
-    _subprocess_run(CMD_UPDATE_FLAKE)
+    _subprocess_run(
+        shlex.split(
+            "nix --extra-experimental-features 'nix-command flakes' flake update path:."
+        )
+    )
     _nodes = json.loads(pathlib.Path("flake.lock").read_text())["nodes"]
     _revs = {
         _node_name.replace("i-", "n-"): _node_value["locked"]["rev"]
         for _node_name, _node_value in _nodes.items()
         if _node_name.startswith("i-")
     }
-
-    print(repr(_revs))
 
     with sqlite3_autocommit_connection("database.sqlite3") as _con_map:
         _con_map.execute("DELETE FROM nixpkgs_bin;")
@@ -134,9 +146,10 @@ def main():
                 input=_row[0],
                 pname=_row[1],
                 disabled=_row[2],
+                broken=_row[3],
             )
             for _row in _con_map.execute(
-                "SELECT input, pname, disabled FROM nixpkgs ORDER BY pname;"
+                "SELECT input, pname, disabled, broken FROM nixpkgs ORDER BY pname;"
             )
         ]
 
@@ -164,7 +177,7 @@ def main():
             )
         ]
         with pathlib.Path("flake.nix").open("w") as _flake_file:
-            _flake_file.write(NIXPKGS_ALIASES_FLAKE_NIX_HEADER_FILE.read_text())
+            _flake_file.write(_FLAKE_NIX_HEADER)
             for _binary in _binaries:
                 _input = _binary["input"]
                 _pname = _binary["pname"]
@@ -180,8 +193,12 @@ def main():
                 _flake_file.write(
                     f"      packages.{_package_key} = {_input}.{_pname};\n"
                 )
-            _flake_file.write(NIXPKGS_ALIASES_FLAKE_NIX_FOOTER_FILE.read_text())
-        _descriptions = _subprocess_run(PACKAGE_DESCRIPTIONS)
+            _flake_file.write(_FLAKE_NIX_FOOTER)
+        _descriptions = _subprocess_run(
+            shlex.split(
+                "nix --extra-experimental-features 'nix-command flakes' --refresh flake show --json path:."
+            )
+        )
         if _descriptions.stdout == b"":
             return
 
@@ -201,10 +218,6 @@ def main():
         )
 
 
-MULTIPROCESSING = True
-T = typing.TypeVar("T")
-
-
 def do_multiprocessing(
     _worker: collections.abc.Callable[[T], typing.Any],
     _jobs: typing.Iterable[T],
@@ -219,20 +232,14 @@ def do_multiprocessing(
             _worker(_job)
 
 
-class NixpkgEntry(typing.TypedDict):
-    rev: str
-    input: str
-    pname: str
-    disabled: str
-
-
 def _process_nixpkg(_data: NixpkgEntry):
     _rev = _data["rev"]
     _pname = _data["pname"]
     _disabled = _data["disabled"]
+    _broken = _data["broken"]
     _input = _data["input"]
-    if _disabled is None:
-        _build = _subprocess_run(
+    if _disabled is None and _broken is None:
+        _subprocess_run(
             [
                 *shlex.split(
                     "nix --extra-experimental-features 'nix-command flakes' build --json --no-link"
@@ -240,16 +247,41 @@ def _process_nixpkg(_data: NixpkgEntry):
                 f"github:NixOS/nixpkgs/{_rev}#{_pname}",
             ]
         )
-        if _build.stdout == b"":
-            print({"out": b"", "_data": _data})
-        _build_paths = json.loads(_build.stdout)
-        for _output in _build_paths:
-            if "outputs" in _output:
-                for k, v in _output["outputs"].items():
-                    _ln_s(
-                        source=NIXPKGS_ALIASES_GCROOTS_FOLDER.joinpath(f"{_pname}^{k}"),
-                        target=pathlib.Path(v),
-                    )
+    _outs = _subprocess_run(
+        [
+            *shlex.split(
+                "nix --extra-experimental-features 'nix-command flakes' eval --json"
+            ),
+            f"github:NixOS/nixpkgs/{_rev}#{_pname}.outputs",
+        ]
+    )
+    _out_paths = json.loads(_outs.stdout)
+    for _output in _out_paths:
+        _this_output = _subprocess_run(
+            [
+                *shlex.split(
+                    "nix --extra-experimental-features 'nix-command flakes' eval --json"
+                ),
+                f"github:NixOS/nixpkgs/{_rev}#{_pname}.{_output}",
+            ]
+        )
+        if _this_output.stdout == b"":
+            with sqlite3_autocommit_connection("database.sqlite3") as _con_update:
+                _con_update.execute(
+                    "UPDATE nixpkgs SET broken = :broken WHERE pname = :pname;",
+                    {
+                        "pname": _pname,
+                        "broken": _this_output.stderr.decode(
+                            "utf-8", "surrogateescape"
+                        ),
+                    },
+                )
+        else:
+            _this_output_path = json.loads(_this_output.stdout)
+            _ln_s(
+                source=_GCROOTS_D.joinpath(f"{_pname}^{_output}"),
+                target=pathlib.Path(_this_output_path),
+            )
 
     _eval = _subprocess_run(
         [
@@ -266,11 +298,11 @@ def _process_nixpkg(_data: NixpkgEntry):
     _prefix = pathlib.Path(json.loads(_eval.stdout))
 
     _ln_s(
-        source=NIXPKGS_ALIASES_GCROOTS_FOLDER.joinpath(f"{_pname}"),
+        source=_GCROOTS_D.joinpath(f"{_pname}"),
         target=_prefix,
     )
 
-    if _disabled is not None:
+    if _disabled is not None or _broken is not None:
         return
     _packages = []
     for _candidate_bin_path in _prefix.rglob("*"):
@@ -287,13 +319,10 @@ def _process_nixpkg(_data: NixpkgEntry):
 
         _suffix = _candidate_bin_path.as_posix().removeprefix(_prefix.as_posix())
         if _suffix.startswith("/share/bash-completion/"):
-            print({"_suffix": _suffix})
             continue
         if not _suffix.startswith("/bin/"):
-            print({"_suffix": _suffix})
             continue
         if "/" in _suffix.removeprefix("/bin/"):  # "${n-23-05.mailutils}/bin/mu-mh/ali"
-            print({"_suffix": _suffix})
             continue
 
         if (
@@ -302,7 +331,7 @@ def _process_nixpkg(_data: NixpkgEntry):
             _candidate_bin_path.is_symlink()
             and _candidate_bin_path.resolve().stat().st_mode & 0o111
         ):
-            if not NIXPKGS_ALIASES_ALIASES_FOLDER.joinpath(_bin).exists():
+            if not _ALIASES_D.joinpath(_bin).exists():
                 _packages.append(
                     {
                         "input": _input,
@@ -311,8 +340,8 @@ def _process_nixpkg(_data: NixpkgEntry):
                     }
                 )
                 _ln_s(
-                    source=NIXPKGS_ALIASES_ALIASES_FOLDER.joinpath(_bin),
-                    target=NIXPKGS_ALIASES_RUN_FILE,
+                    source=_ALIASES_D.joinpath(_bin),
+                    target=_NIXPKGS_ALIASES_RUN,
                 )
     if len(_packages) > 0:
         with sqlite3_autocommit_connection("database.sqlite3") as con:
