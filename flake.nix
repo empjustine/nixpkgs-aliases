@@ -1148,7 +1148,6 @@
       apps.snore = { type = "app"; program = "${n-23-05.snore}/bin/snore"; };
       apps.sommelier = { type = "app"; program = "${n-23-05.sommelier}/bin/sommelier"; };
       apps.play = { type = "app"; program = "${n-23-05.sox}/bin/play"; };
-      apps.rec = { type = "app"; program = "${n-23-05.sox}/bin/rec"; };
       apps.sox = { type = "app"; program = "${n-23-05.sox}/bin/sox"; };
       apps.soxi = { type = "app"; program = "${n-23-05.sox}/bin/soxi"; };
       apps.sparkleshare = { type = "app"; program = "${n-23-05.sparkleshare}/bin/sparkleshare"; };
