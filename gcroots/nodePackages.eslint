@@ -1,1 +1,1 @@
-/nix/store/flyw5ngjja7fmlkx0z2rdq66dgq3zvxm-eslint-8.41.0
+nodePackages.eslint^out

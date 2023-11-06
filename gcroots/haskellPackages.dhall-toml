@@ -1,1 +1,1 @@
-/nix/store/mf9237mziys8d6l8bk43i4nbjdw13mi6-dhall-toml-1.0.3
+haskellPackages.dhall-toml^out

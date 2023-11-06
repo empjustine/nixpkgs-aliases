@@ -1,1 +1,1 @@
-/nix/store/vf1xrnwhs1a0a0mv7l7myk976flx4p8f-wasm-installable-svm-java17-22.3.1
+graalvmCEPackages.wasm-installable-svm-java17^out

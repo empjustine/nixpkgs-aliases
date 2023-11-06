@@ -1,1 +1,1 @@
-/nix/store/m8f4qcfmb61pgmbwiq7p7pfdy0h7q4b3-python3.11-pylibdmtx-0.1.10
+python311Packages.pylibdmtx^out

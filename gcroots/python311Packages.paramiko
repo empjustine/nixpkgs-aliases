@@ -1,1 +1,1 @@
-/nix/store/az3frzvs4psy7zp22rw85bafmavc3d7x-python3.11-paramiko-2.11.0
+python311Packages.paramiko^out

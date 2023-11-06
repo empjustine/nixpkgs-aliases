@@ -1,1 +1,1 @@
-/nix/store/brbyw4b0ija3mzd7n1rp90bzah5b1419-prettier-2.8.8
+nodePackages.prettier^out

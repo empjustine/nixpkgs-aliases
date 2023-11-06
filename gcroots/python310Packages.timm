@@ -1,1 +1,1 @@
-/nix/store/h1fbkdxz7058yzx5awvwcrnb4yhvv8c6-python3.10-timm-0.9.9
+python310Packages.timm^out

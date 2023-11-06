@@ -1,1 +1,1 @@
-/nix/store/rlqmwlrmi0jpalwr55n200y54q5flfgw-python3.10-huggingface-hub-0.18.0
+python310Packages.huggingface-hub^out

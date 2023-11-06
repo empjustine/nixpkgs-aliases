@@ -1,1 +1,1 @@
-/nix/store/hkq9fhq4mvi72bh1f9q10p9zf9ysgc2k-typescript-language-server-3.3.2
+nodePackages.typescript-language-server^out

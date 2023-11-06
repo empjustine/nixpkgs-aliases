@@ -1,1 +1,1 @@
-/nix/store/la5k8hj94i4694jbfq32fh6g28i45d73-hs-opentelemetry-propagator-b3-0.0.1.0
+haskellPackages.hs-opentelemetry-propagator-b3^out

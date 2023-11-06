@@ -1,1 +1,1 @@
-/nix/store/dk8nrxkk3dnmsfk8l057cyb8yy2823ik-diagrams-braille-0.1.1
+haskellPackages.diagrams-braille^out

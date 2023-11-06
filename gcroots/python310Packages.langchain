@@ -1,1 +1,1 @@
-/nix/store/f96a1whdh5bdajwspn24r9iqds06rj2s-python3.10-langchain-0.0.325
+python310Packages.langchain^out
