@@ -1261,7 +1261,6 @@
       apps.unpaper = { type = "app"; program = "${n-23-05.unpaper}/bin/unpaper"; };
       apps.unpfs = { type = "app"; program = "${n-23-05.unpfs}/bin/unpfs"; };
       apps.ustreamer = { type = "app"; program = "${n-23-05.ustreamer}/bin/ustreamer"; };
-      apps.uutils-[ = { type = "app"; program = "${n-23-05.uutils-coreutils}/bin/uutils-["; };
       apps.uutils-arch = { type = "app"; program = "${n-23-05.uutils-coreutils}/bin/uutils-arch"; };
       apps.uutils-base32 = { type = "app"; program = "${n-23-05.uutils-coreutils}/bin/uutils-base32"; };
       apps.uutils-base64 = { type = "app"; program = "${n-23-05.uutils-coreutils}/bin/uutils-base64"; };
