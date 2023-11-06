@@ -861,11 +861,5 @@
       packages.subtitlr = n-unstable.subtitlr;
       packages.udev-gothic = n-unstable.udev-gothic;
       packages.whisper-ctranslate2 = n-unstable.whisper-ctranslate2;
-
-      # special cases
-      apps.az = { type = "app"; program = "${n-23-05.azure-cli}/bin/az"; };
-      apps.bw = { type = "app"; program = "${n-23-05.bitwarden-cli}/lib/node_modules/.bin/bw"; };
-      apps.git-gui = { type = "app"; program = "${n-23-05.gitFull}/libexec/git-core/git-gui"; };
-      apps.gitk = { type = "app"; program = "${n-23-05.gitFull}/bin/gitk"; };
     });
 }

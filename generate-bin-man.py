@@ -52,17 +52,6 @@ def _subprocess_run(_cmd):
     return _result
 
 
-def _escape_nix_set_key(_name):
-    if '"' in _name:
-        msg = f"unhandled name {_name}"
-        raise OSError(msg)
-    if "." in _name or "+" in _name or "[" in _name:
-        return f'"{_name}"'
-    if _name in ["rec"]:  # nixlang keywords
-        return f'"{_name}"'
-    return _name
-
-
 def main():
     for _folder in (_BIN_D,):
         _folder.mkdir(parents=True, exist_ok=True)
@@ -73,7 +62,7 @@ def main():
     for _bin in _GCROOTS_D.glob("*^*/bin/*"):
         if _bin.is_dir() or _bin.name.startswith(".") or _bin.name.endswith("-wrapped"):
             continue
-        if _bin.name.startswith("System.") or _bin.name.endswith(".dll"):
+        if _bin.name == "git" or _bin.name.startswith("System.") or _bin.name.endswith(".dll"):
             continue
         if not _BIN_D.joinpath(_bin.name).exists():
             _target = pathlib.Path("../" + str(_bin))
