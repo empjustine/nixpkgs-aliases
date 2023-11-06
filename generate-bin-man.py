@@ -62,7 +62,12 @@ def main():
     for _bin in _GCROOTS_D.glob("*^*/bin/*"):
         if _bin.is_dir() or _bin.name.startswith(".") or _bin.name.endswith("-wrapped"):
             continue
-        if _bin.name == "git" or _bin.name.startswith("System.") or _bin.name.endswith(".dll"):
+        if (
+            _bin.name == "git"
+            or _bin.name.startswith("System.")
+            or _bin.name.endswith(".dll")
+            or _bin.name.endswith(".pdb")
+        ):
             continue
         if not _BIN_D.joinpath(_bin.name).exists():
             _target = pathlib.Path("../" + str(_bin))

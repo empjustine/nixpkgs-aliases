@@ -63,6 +63,17 @@ def _subprocess_run(_cmd):
     return _result
 
 
+def _stdout_json(_subprocess: subprocess.CompletedProcess, empty_is_none=False):
+    try:
+        if empty_is_none and _subprocess.stdout == b"":
+            return None
+        return json.loads(_subprocess.stdout)
+    except json.decoder.JSONDecodeError:
+        _subprocess_logger.error(repr(_subprocess))
+        _subprocess_logger.error("json.decoder.JSONDecodeError", exc_info=True)
+        raise
+
+
 def _escape_nix_set_key(_name):
     if '"' in _name:
         msg = f"unhandled name {_name}"
@@ -184,22 +195,7 @@ def main():
             )
         )
         if _descriptions.stdout == b"":
-            return
-
-        _descriptions = [
-            {
-                "pname": k,
-                "description": v["description"],
-            }
-            for k, v in json.loads(_descriptions.stdout)["packages"][
-                "x86_64-linux"
-            ].items()
-            if "description" in v
-        ]
-        _con_reduce.executemany(
-            "UPDATE nixpkgs SET description = :description WHERE pname = :pname;",
-            _descriptions,
-        )
+            raise IOError(repr(_descriptions))
 
 
 def do_multiprocessing(
@@ -222,25 +218,17 @@ def _process_nixpkg(_data: NixpkgEntry):
     _disabled = _data["disabled"]
     _broken = _data["broken"]
     _input = _data["input"]
-    if _disabled is None and _broken is None:
+    all_output_paths = {}
+    for _output in _stdout_json(
         _subprocess_run(
             [
                 *shlex.split(
-                    "nix --extra-experimental-features 'nix-command flakes' build --json --no-link"
+                    "nix --extra-experimental-features 'nix-command flakes' eval --json"
                 ),
-                f"github:NixOS/nixpkgs/{_rev}#{_pname}",
+                f"github:NixOS/nixpkgs/{_rev}#{_pname}.outputs",
             ]
         )
-    _outs = _subprocess_run(
-        [
-            *shlex.split(
-                "nix --extra-experimental-features 'nix-command flakes' eval --json"
-            ),
-            f"github:NixOS/nixpkgs/{_rev}#{_pname}.outputs",
-        ]
-    )
-    all_output_paths = {}
-    for _output in json.loads(_outs.stdout):
+    ):
         _this_output = _subprocess_run(
             [
                 *shlex.split(
@@ -260,33 +248,90 @@ def _process_nixpkg(_data: NixpkgEntry):
                         ),
                     },
                 )
+                break
         else:
+            with sqlite3_autocommit_connection("database.sqlite3") as _con_update:
+                _con_update.execute(
+                    "UPDATE nixpkgs SET broken = NULL WHERE pname = :pname;",
+                    {"pname": _pname},
+                )
+            _broken = None
             _pname_with_output = f"{_pname}^{_output}"
-            _target = pathlib.Path(json.loads(_this_output.stdout))
+            _target = pathlib.Path(_stdout_json(_this_output))
             _ln_s(source=_GCROOTS_D.joinpath(_pname_with_output), target=_target)
             all_output_paths[_target] = _pname_with_output
 
-    _eval = _subprocess_run(
-        [
-            *shlex.split(
-                "nix --extra-experimental-features 'nix-command flakes' eval --json"
+    if len(all_output_paths) > 0:
+        _prefix = _stdout_json(
+            _subprocess_run(
+                [
+                    *shlex.split(
+                        "nix --extra-experimental-features 'nix-command flakes' eval --json"
+                    ),
+                    f"github:NixOS/nixpkgs/{_rev}#{_pname}",
+                ],
             ),
-            f"github:NixOS/nixpkgs/{_rev}#{_pname}",
-        ],
+            empty_is_none=True,
+        )
+
+        # reduce symlink churn by pointing to pre-exising explicitly named output if it exists
+        if _prefix in all_output_paths:
+            _prefix = all_output_paths[_prefix]
+        if _prefix:
+            _ln_s(
+                source=_GCROOTS_D.joinpath(f"{_pname}"),
+                target=pathlib.Path(_prefix),
+            )
+
+    _description = _stdout_json(
+        _subprocess_run(
+            [
+                *shlex.split(
+                    "nix --extra-experimental-features 'nix-command flakes' eval --json"
+                ),
+                f"github:NixOS/nixpkgs/{_rev}#{_pname}.meta.description",
+            ],
+        ),
+        empty_is_none=True,
+    )
+    _long_description = _stdout_json(
+        _subprocess_run(
+            [
+                *shlex.split(
+                    "nix --extra-experimental-features 'nix-command flakes' eval --json"
+                ),
+                f"github:NixOS/nixpkgs/{_rev}#{_pname}.meta.longDescription",
+            ],
+        ),
+        empty_is_none=True,
     )
 
-    if _eval.stdout == b"":
-        return
+    _db_description = None
+    if _description is None and _long_description is not None:
+        _db_description = _long_description
+    elif _long_description is None and _description is not None:
+        _db_description = _long_description
+    elif _description is not None and _long_description is not None:
+        _db_description = _description + "\n\n" + _long_description
 
-    _prefix = pathlib.Path(json.loads(_eval.stdout))
+    with sqlite3_autocommit_connection("database.sqlite3") as _con_update:
+        _con_update.execute(
+            "UPDATE nixpkgs SET description = :description WHERE pname = :pname;",
+            {
+                "pname": _pname,
+                "description": _db_description,
+            },
+        )
 
-    # reduce symlink churn by pointing to pre-exising explicitly named output if it exists
-    if _prefix in all_output_paths:
-        _prefix = all_output_paths[_prefix]
-    _ln_s(
-        source=_GCROOTS_D.joinpath(f"{_pname}"),
-        target=_prefix,
-    )
+    if _disabled is None and _broken is None:
+        _subprocess_run(
+            [
+                *shlex.split(
+                    "nix --extra-experimental-features 'nix-command flakes' build --json --no-link"
+                ),
+                f"github:NixOS/nixpkgs/{_rev}#{_pname}",
+            ]
+        )
 
 
 if __name__ == "__main__":

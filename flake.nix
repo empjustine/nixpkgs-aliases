@@ -1,7 +1,7 @@
 {
   inputs.i-23-05.url = "github:NixOS/nixpkgs/nixos-23.05";
   inputs.i-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-  inputs.flake-utils.url = "github:numtide/flake-utils";
+  inputs.flake-utils.url = "github:numtide/flake-utils/main";
 
   outputs = {
     self,
@@ -36,6 +36,7 @@
       packages.attr = n-23-05.attr;
       packages.atuin = n-23-05.atuin;
       packages.autocorrect = n-23-05.autocorrect;
+      packages.autoflake = n-23-05.autoflake;
       packages.avfs = n-23-05.avfs;
       packages.avrdude = n-23-05.avrdude;
       packages.azure-cli = n-23-05.azure-cli;
@@ -119,6 +120,7 @@
       packages.ddrescue = n-23-05.ddrescue;
       packages.dejsonlz4 = n-23-05.dejsonlz4;
       packages.deno = n-23-05.deno;
+      packages.devbox = n-23-05.devbox;
       packages.dhall-bash = n-23-05.dhall-bash;
       packages.dhall-docs = n-23-05.dhall-docs;
       packages.dialog = n-23-05.dialog;
@@ -144,6 +146,7 @@
       packages.dum = n-23-05.dum;
       packages.dura = n-23-05.dura;
       packages.dvtm = n-23-05.dvtm;
+      packages.dwarfs = n-23-05.dwarfs;
       packages.easyeffects = n-23-05.easyeffects;
       packages.efitools = n-23-05.efitools;
       packages.elasticsearch = n-23-05.elasticsearch;
@@ -459,9 +462,13 @@
       packages.nix-bundle = n-23-05.nix-bundle;
       packages.nix-eval-jobs = n-23-05.nix-eval-jobs;
       packages.nix-index = n-23-05.nix-index;
+      packages.nix-init = n-23-05.nix-init;
+      packages.nix-melt = n-23-05.nix-melt;
       packages.nix-tree = n-23-05.nix-tree;
       packages.nixStatic = n-23-05.nixStatic;
+      packages.nixos-generators = n-23-05.nixos-generators;
       packages.nixos-rebuild = n-23-05.nixos-rebuild;
+      packages.nixpkgs-fmt = n-23-05.nixpkgs-fmt;
       packages.nncp = n-23-05.nncp;
       packages."nodePackages.bash-language-server" = n-23-05.nodePackages.bash-language-server;
       packages."nodePackages.eslint" = n-23-05.nodePackages.eslint;
@@ -483,6 +490,7 @@
       packages.nsjail = n-23-05.nsjail;
       packages.ntfy = n-23-05.ntfy;
       packages.numactl = n-23-05.numactl;
+      packages.nurl = n-23-05.nurl;
       packages.nwdiag = n-23-05.nwdiag;
       packages.nwg-wrapper = n-23-05.nwg-wrapper;
       packages.oath-toolkit = n-23-05.oath-toolkit;
@@ -513,6 +521,7 @@
       packages.par2cmdline = n-23-05.par2cmdline;
       packages.parallel = n-23-05.parallel;
       packages.patchelf = n-23-05.patchelf;
+      packages.patsh = n-23-05.patsh;
       packages.pavucontrol = n-23-05.pavucontrol;
       packages.pciutils = n-23-05.pciutils;
       packages.pdfgrep = n-23-05.pdfgrep;
@@ -553,6 +562,7 @@
       packages."python311Packages.datasette-template-sql" = n-23-05.python311Packages.datasette-template-sql;
       packages."python311Packages.defusedcsv" = n-23-05.python311Packages.defusedcsv;
       packages."python311Packages.defusedxml" = n-23-05.python311Packages.defusedxml;
+      packages."python311Packages.deploykit" = n-23-05.python311Packages.deploykit;
       packages."python311Packages.dulwich" = n-23-05.python311Packages.dulwich;
       packages."python311Packages.evdev" = n-23-05.python311Packages.evdev;
       packages."python311Packages.ewmh" = n-23-05.python311Packages.ewmh;
@@ -564,6 +574,7 @@
       packages."python311Packages.ics" = n-23-05.python311Packages.ics;
       packages."python311Packages.imap-tools" = n-23-05.python311Packages.imap-tools;
       packages."python311Packages.inflect" = n-23-05.python311Packages.inflect;
+      packages."python311Packages.invoke" = n-23-05.python311Packages.invoke;
       packages."python311Packages.jaconv" = n-23-05.python311Packages.jaconv;
       packages."python311Packages.jaeger-client" = n-23-05.python311Packages.jaeger-client;
       packages."python311Packages.jupyterhub" = n-23-05.python311Packages.jupyterhub;
@@ -577,6 +588,7 @@
       packages."python311Packages.nbdev" = n-23-05.python311Packages.nbdev;
       packages."python311Packages.nbdime" = n-23-05.python311Packages.nbdime;
       packages."python311Packages.nbmerge" = n-23-05.python311Packages.nbmerge;
+      packages."python311Packages.netmiko" = n-23-05.python311Packages.netmiko;
       packages."python311Packages.openrazer" = n-23-05.python311Packages.openrazer;
       packages."python311Packages.papermill" = n-23-05.python311Packages.papermill;
       packages."python311Packages.paramiko" = n-23-05.python311Packages.paramiko;
@@ -590,6 +602,7 @@
       packages."python311Packages.railroad-diagrams" = n-23-05.python311Packages.railroad-diagrams;
       packages."python311Packages.recurring-ical-events" = n-23-05.python311Packages.recurring-ical-events;
       packages."python311Packages.reedsolo" = n-23-05.python311Packages.reedsolo;
+      packages."python311Packages.scp" = n-23-05.python311Packages.scp;
       packages."python311Packages.selenium" = n-23-05.python311Packages.selenium;
       packages."python311Packages.tokenizers" = n-23-05.python311Packages.tokenizers;
       packages."python311Packages.upnpy" = n-23-05.python311Packages.upnpy;
@@ -606,12 +619,14 @@
       packages.rarcrack = n-23-05.rarcrack;
       packages.rclone = n-23-05.rclone;
       packages.remote-touchpad = n-23-05.remote-touchpad;
+      packages.resholve = n-23-05.resholve;
       packages.rewritefs = n-23-05.rewritefs;
       packages.rfc = n-23-05.rfc;
       packages.ripgrep = n-23-05.ripgrep;
       packages.ripgrep-all = n-23-05.ripgrep-all;
       packages.rivalcfg = n-23-05.rivalcfg;
       packages.rke2 = n-23-05.rke2;
+      packages.rlwrap = n-23-05.rlwrap;
       packages.rnote = n-23-05.rnote;
       packages.roboto = n-23-05.roboto;
       packages.roboto-mono = n-23-05.roboto-mono;
@@ -670,6 +685,7 @@
       packages.snapcast = n-23-05.snapcast;
       packages.snapraid = n-23-05.snapraid;
       packages.snore = n-23-05.snore;
+      packages.socat = n-23-05.socat;
       packages.sogo = n-23-05.sogo;
       packages.solaar = n-23-05.solaar;
       packages.sommelier = n-23-05.sommelier;
@@ -734,6 +750,7 @@
       packages.tracee = n-23-05.tracee;
       packages.trafficserver = n-23-05.trafficserver;
       packages.transmission = n-23-05.transmission;
+      packages.treefmt = n-23-05.treefmt;
       packages.triggerhappy = n-23-05.triggerhappy;
       packages.trx = n-23-05.trx;
       packages.ts = n-23-05.ts;

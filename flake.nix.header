@@ -1,7 +1,7 @@
 {
   inputs.i-23-05.url = "github:NixOS/nixpkgs/nixos-23.05";
   inputs.i-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-  inputs.flake-utils.url = "github:numtide/flake-utils";
+  inputs.flake-utils.url = "github:numtide/flake-utils/main";
 
   outputs = {
     self,
