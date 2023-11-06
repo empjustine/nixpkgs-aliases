@@ -1,0 +1,1 @@
+../gcroots/python-cosmopolitan^out/bin/pyobj.com

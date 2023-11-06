@@ -1,0 +1,1 @@
+../gcroots/pdfminer^out/bin/pdf2txt.py

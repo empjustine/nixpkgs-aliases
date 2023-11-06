@@ -20,8 +20,8 @@ if __name__ == "__main__":
 MULTIPROCESSING = True
 _sql_logger = logging.getLogger("sql")
 _subprocess_logger = logging.getLogger("subprocess")
-_sql_logger.level = logging.INFO
-_subprocess_logger.level = logging.INFO
+_sql_logger.level = logging.DEBUG
+_subprocess_logger.level = logging.DEBUG
 T = typing.TypeVar("T")
 
 
@@ -67,7 +67,9 @@ def _escape_nix_set_key(_name):
     if '"' in _name:
         msg = f"unhandled name {_name}"
         raise OSError(msg)
-    if "." in _name or "+" in _name:
+    if "." in _name or "+" in _name or "[" in _name:
+        return f'"{_name}"'
+    if _name in ["rec"]:  # nixlang keywords
         return f'"{_name}"'
     return _name
 
@@ -110,12 +112,8 @@ def transaction(_connection: sqlite3.Connection):
 
 
 def main():
-    _GCROOTS_D.mkdir(parents=True, exist_ok=True)
-
-    for _folder in (
-        _GCROOTS_D,
-        _GCROOTS_D,
-    ):
+    for _folder in (_GCROOTS_D,):
+        _folder.mkdir(parents=True, exist_ok=True)
         for _file in _folder.glob("*"):
             with contextlib.suppress(FileNotFoundError):
                 _file.unlink()
@@ -134,8 +132,6 @@ def main():
     }
 
     with sqlite3_autocommit_connection("database.sqlite3") as _con_map:
-        _con_map.execute("DELETE FROM nixpkgs_bin;")
-
         _nixpkgs: list[NixpkgEntry] = [
             NixpkgEntry(
                 rev=_revs[_row[0]],
@@ -150,19 +146,9 @@ def main():
         ]
 
     random.shuffle(_nixpkgs)
-    do_multiprocessing(_process_nixpkg, _nixpkgs, 4)
+    do_multiprocessing(_process_nixpkg, _nixpkgs, 6)
 
     with sqlite3_autocommit_connection("database.sqlite3") as _con_reduce:
-        _binaries = [
-            {
-                "input": _row[0],
-                "pname": _row[1],
-                "bin": _row[2],
-            }
-            for _row in _con_reduce.execute(
-                "SELECT input, pname, bin FROM nixpkgs_bin ORDER BY input, pname, bin;",
-            )
-        ]
         _packages = [
             {
                 "input": _row[0],
@@ -174,22 +160,6 @@ def main():
         ]
         with pathlib.Path("flake.nix").open("w") as _flake_file:
             _flake_file.write(_FLAKE_NIX_HEADER)
-            for _binary in _binaries:
-                _flake_file.write(
-                    "".join(
-                        [
-                            "      apps.",
-                            _escape_nix_set_key(_binary["bin"].removeprefix("/bin/")),
-                            '" = { type = "app"; program = "${',
-                            _binary["input"],
-                            ".",
-                            _binary["pname"],
-                            "}",
-                            _binary["bin"],
-                            '"; }; \n',
-                        ]
-                    )
-                )
             for _package in _packages:
                 _input = _package["input"]
                 _pname = _package["pname"]
