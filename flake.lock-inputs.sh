@@ -1,7 +1,8 @@
 #!/bin/sh
 
-# @see https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-flake-lock
-# @see https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-flake-update
+# list all inputs in current folder flake.lock as flakerefs
 
-# jq --null-input -c '{"input":"nixpkgs-aliases","flakeref":"github:empjustine/nixpkgs-aliases/nixos-23.05"}'
+# @see https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-flake.html?highlight=flake.lock#lock-files
+# @see https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-flake.html?highlight=flakerefs#flake-references
+
 jq -c '.nodes | to_entries[] | select(.value.locked.type == "github") | { "input": .key, "original-flakerefs": (.value.original | .type + ":" + .owner + "/" + .repo + if .ref then "/" + .ref else "" end ), "locked-flakerefs": (.value.locked | .type + ":" + .owner + "/" + .repo + "/" + .rev ) }' flake.lock
