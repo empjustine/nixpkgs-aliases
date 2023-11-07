@@ -1,0 +1,1 @@
+{"attrpath":"haskellPackages.dhall-bash","comment":null,"dependency":null,"disabled":"dhall-bash","flakeref":"github:NixOS/nixpkgs/nixos-23.05"}

@@ -1,0 +1,1 @@
+{"attrpath":"haskellPackages.hs-opentelemetry-propagator-b3","comment":"otel","dependency":null,"disabled":"otel","flakeref":"github:NixOS/nixpkgs/nixos-23.05"}

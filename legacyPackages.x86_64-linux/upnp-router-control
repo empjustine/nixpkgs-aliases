@@ -1,0 +1,1 @@
+{"attrpath":"upnp-router-control","comment":"miniupnpc(upnpc)","dependency":null,"disabled":"miniupnpc","flakeref":"github:NixOS/nixpkgs/nixos-23.05"}

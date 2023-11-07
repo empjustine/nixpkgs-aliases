@@ -1,0 +1,1 @@
+{"attrpath":"influxdb","comment":"telegraf+influxdb otel","dependency":null,"disabled":"otel","flakeref":"github:NixOS/nixpkgs/nixos-23.05"}

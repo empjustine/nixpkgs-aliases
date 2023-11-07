@@ -1,0 +1,1 @@
+{"attrpath":"graalvmCEPackages.wasm-installable-svm-java17","comment":"jdk,wasm","dependency":null,"disabled":null,"flakeref":"github:NixOS/nixpkgs/nixos-23.05"}

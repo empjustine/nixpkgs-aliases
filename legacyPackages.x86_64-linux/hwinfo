@@ -1,0 +1,1 @@
+{"attrpath":"hwinfo","comment":"mk_isdnhwdb,check_hd,hwinfo,convert_hd,getsysinfo","dependency":null,"disabled":null,"flakeref":"github:NixOS/nixpkgs/nixos-23.05"}

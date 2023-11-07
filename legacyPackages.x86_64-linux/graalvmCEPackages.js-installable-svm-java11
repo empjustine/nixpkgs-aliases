@@ -1,0 +1,1 @@
+{"attrpath":"graalvmCEPackages.js-installable-svm-java11","comment":"jdk,js","dependency":null,"disabled":"graalvmCEPackages.js-installable-svm-java17","flakeref":"github:NixOS/nixpkgs/nixos-23.05"}

@@ -1,0 +1,1 @@
+{"attrpath":"graalvmCEPackages.nodejs-installable-svm-java17","comment":"jdk,npm,node,npx","dependency":null,"disabled":null,"flakeref":"github:NixOS/nixpkgs/nixos-23.05"}

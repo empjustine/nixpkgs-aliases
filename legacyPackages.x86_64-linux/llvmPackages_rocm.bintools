@@ -1,0 +1,1 @@
+{"attrpath":"llvmPackages_rocm.bintools","comment":"amd","dependency":null,"disabled":"hardware","flakeref":"github:NixOS/nixpkgs/nixos-23.05"}

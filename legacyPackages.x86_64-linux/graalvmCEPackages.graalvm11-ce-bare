@@ -1,0 +1,1 @@
+{"attrpath":"graalvmCEPackages.graalvm11-ce-bare","comment":"jdk","dependency":null,"disabled":"graalvmCEPackages.graalvm17-ce-bare","flakeref":"github:NixOS/nixpkgs/nixos-23.05"}

@@ -1,0 +1,1 @@
+{"attrpath":"python310Packages.torchaudio","comment":null,"dependency":null,"disabled":"hardware,unfree","flakeref":"github:NixOS/nixpkgs/nixos-unstable"}

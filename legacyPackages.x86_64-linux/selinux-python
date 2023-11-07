@@ -1,0 +1,1 @@
+{"attrpath":"selinux-python","comment":"fedora policycoreutils-devel(sepolicy) policycoreutils-python-utils(semanage)","dependency":null,"disabled":"fedora","flakeref":"github:NixOS/nixpkgs/nixos-23.05"}

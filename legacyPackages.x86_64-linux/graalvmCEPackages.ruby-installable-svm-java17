@@ -1,0 +1,1 @@
+{"attrpath":"graalvmCEPackages.ruby-installable-svm-java17","comment":"jdk,truffleruby,erb,ruby,racc,ri,typeprof,gem,bundler,bundle,rdoc,irb,rake,rbs","dependency":null,"disabled":null,"flakeref":"github:NixOS/nixpkgs/nixos-23.05"}

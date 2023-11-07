@@ -1,0 +1,1 @@
+{"attrpath":"netmaker-full","comment":"vpn","dependency":null,"disabled":"nonfree","flakeref":"github:NixOS/nixpkgs/nixos-23.05"}

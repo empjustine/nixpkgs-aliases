@@ -1,0 +1,1 @@
+{"attrpath":"sysstat","comment":"tapestat,sar,pidstat,mpstat,iostat,cifsiostat,sadf","dependency":null,"disabled":null,"flakeref":"github:NixOS/nixpkgs/nixos-23.05"}

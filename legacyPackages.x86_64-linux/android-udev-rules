@@ -1,0 +1,1 @@
+{"attrpath":"android-udev-rules","comment":"android,adb","dependency":null,"disabled":null,"flakeref":"github:NixOS/nixpkgs/nixos-23.05"}

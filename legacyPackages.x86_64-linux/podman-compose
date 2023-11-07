@@ -1,0 +1,1 @@
+{"attrpath":"podman-compose","comment":null,"dependency":null,"disabled":"jail","flakeref":"github:NixOS/nixpkgs/nixos-23.05"}

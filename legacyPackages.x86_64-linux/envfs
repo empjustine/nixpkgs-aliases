@@ -1,0 +1,1 @@
+{"attrpath":"envfs","comment":"fhs compat fuse for nixos","dependency":null,"disabled":"fuse","flakeref":"github:NixOS/nixpkgs/nixos-23.05"}

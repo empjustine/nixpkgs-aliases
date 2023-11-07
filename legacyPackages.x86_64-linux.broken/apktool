@@ -1,0 +1,25 @@
+error: Package ‘androidsdk’ in /nix/store/3s69yxbbl116zwga3i6cy7prplywq0bn-source/pkgs/development/mobile/androidenv/deploy-androidpackages.nix:64 has an unfree license (‘unfree’), refusing to evaluate.
+
+       a) To temporarily allow unfree packages, you can use an environment variable
+          for a single invocation of the nix tools.
+
+            $ export NIXPKGS_ALLOW_UNFREE=1
+
+        Note: For `nix shell`, `nix build`, `nix develop` or any other Nix 2.4+
+        (Flake) command, `--impure` must be passed in order to read this
+        environment variable.
+
+       b) For `nixos-rebuild` you can set
+         { nixpkgs.config.allowUnfree = true; }
+       in configuration.nix to override this.
+
+       Alternatively you can configure a predicate to allow specific packages:
+         { nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+             "android-sdk-tools"
+           ];
+         }
+
+       c) For `nix-env`, `nix-build`, `nix-shell` or any other Nix command you can add
+         { allowUnfree = true; }
+       to ~/.config/nixpkgs/config.nix.
+(use '--show-trace' to show detailed location information)

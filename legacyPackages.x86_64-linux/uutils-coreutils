@@ -1,0 +1,1 @@
+{"attrpath":"uutils-coreutils","comment":"error: syntax error, unexpected '[', expecting '.' or '=', apps.uutils-[ = { ","dependency":null,"disabled":null,"flakeref":"github:NixOS/nixpkgs/nixos-23.05"}

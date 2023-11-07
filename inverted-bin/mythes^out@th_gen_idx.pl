@@ -1,1 +1,0 @@
-../gcroots/mythes^out/bin/th_gen_idx.pl

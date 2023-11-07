@@ -1,0 +1,1 @@
+{"attrpath":"hunspell","comment":"wordforms hunzip analyze hunspell affixcompress makealias hzip munch unmunch wordlist2hunspell chmorph ispellaff2myspell","dependency":null,"disabled":"fedora","flakeref":"github:NixOS/nixpkgs/nixos-23.05"}

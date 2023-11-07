@@ -1,0 +1,1 @@
+{"attrpath":"python310Packages.safetensors","comment":"error: tensorboard-2.11.0 not supported for interpreter python3.11","dependency":null,"disabled":null,"flakeref":"github:NixOS/nixpkgs/nixos-unstable"}

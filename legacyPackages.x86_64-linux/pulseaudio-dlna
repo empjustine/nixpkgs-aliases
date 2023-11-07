@@ -1,0 +1,1 @@
+{"attrpath":"pulseaudio-dlna","comment":"multimedia","dependency":null,"disabled":"multimedia","flakeref":"github:NixOS/nixpkgs/nixos-23.05"}

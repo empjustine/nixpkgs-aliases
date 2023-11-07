@@ -1,0 +1,1 @@
+{"attrpath":"ubridge","comment":null,"dependency":null,"disabled":"vpn,nat","flakeref":"github:NixOS/nixpkgs/nixos-23.05"}

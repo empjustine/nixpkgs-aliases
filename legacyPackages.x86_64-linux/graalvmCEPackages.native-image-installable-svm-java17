@@ -1,0 +1,1 @@
+{"attrpath":"graalvmCEPackages.native-image-installable-svm-java17","comment":"jdk,native-image,rebuild-images,native-image-configure","dependency":null,"disabled":null,"flakeref":"github:NixOS/nixpkgs/nixos-23.05"}

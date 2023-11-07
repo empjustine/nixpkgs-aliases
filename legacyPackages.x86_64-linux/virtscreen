@@ -1,0 +1,1 @@
+{"attrpath":"virtscreen","comment":"kvm","dependency":null,"disabled":"x11vnc","flakeref":"github:NixOS/nixpkgs/nixos-23.05"}

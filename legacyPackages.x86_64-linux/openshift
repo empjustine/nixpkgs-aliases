@@ -1,0 +1,1 @@
+{"attrpath":"openshift","comment":"jail","dependency":null,"disabled":"Kubernetes","flakeref":"github:NixOS/nixpkgs/nixos-23.05"}

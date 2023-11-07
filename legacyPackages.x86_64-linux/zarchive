@@ -1,0 +1,1 @@
+{"attrpath":"zarchive","comment":"file archives + zstd + random-access reads","dependency":null,"disabled":null,"flakeref":"github:NixOS/nixpkgs/nixos-23.05"}

@@ -1,0 +1,1 @@
+{"attrpath":"xorg.xkbcomp","comment":null,"dependency":null,"disabled":"wayland","flakeref":"github:NixOS/nixpkgs/nixos-23.05"}
