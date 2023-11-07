@@ -129,11 +129,6 @@ def main():
             with contextlib.suppress(FileNotFoundError):
                 _file.unlink()
 
-    _subprocess_run(
-        shlex.split(
-            "nix --extra-experimental-features 'nix-command flakes' flake update path:."
-        )
-    )
     _revs = {
         _node_name.replace("i-", "n-"): _node_value["locked"]["rev"]
         for _node_name, _node_value in json.loads(

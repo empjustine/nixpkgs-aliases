@@ -2,6 +2,9 @@
 
 set -ex
 
+./flakerefs-build.sh "$(./flake.lock-input.sh i-23-05)#sqlite-interactive"
+./flakerefs-build.sh "$(./flake.lock-input.sh i-23-05)#sqldiff"
+
 sqlite3 ':memory:' 'SELECT sqlite_version();'
 
 (
@@ -13,6 +16,6 @@ sqlite3 ':memory:' 'SELECT sqlite_version();'
 	printf '%s\n' 'BEGIN TRANSACTION;'
 	cat database.sql | grep -E '^INSERT (OR IGNORE )?INTO ' | sort -u | sed 's/INSERT INTO /INSERT OR IGNORE INTO /g' -
 	printf '%s\n' 'COMMIT;'
-) >database-sorted.sql
+) | sqlite3 database2.sqlite3
 
-cat database-sorted.sql | sqlite3 database.sqlite3
+sqldiff database2.sqlite3 database.sqlite3

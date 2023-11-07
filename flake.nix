@@ -709,6 +709,7 @@
       packages.sqldiff = n-23-05.sqldiff;
       packages.sqlfluff = n-23-05.sqlfluff;
       packages.sqlint = n-23-05.sqlint;
+      packages.sqlite = n-23-05.sqlite;
       packages.sqlite-analyzer = n-23-05.sqlite-analyzer;
       packages.sqlite-interactive = n-23-05.sqlite-interactive;
       packages.sqlite-jdbc = n-23-05.sqlite-jdbc;
