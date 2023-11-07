@@ -1,1 +1,1 @@
-../gcroots/graphviz-nox^out/bin/gvmap.sh
+../gcroots/graphviz^out/bin/gvmap.sh
