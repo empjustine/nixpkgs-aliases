@@ -464,6 +464,7 @@
       packages.nix-index = n-23-05.nix-index;
       packages.nix-init = n-23-05.nix-init;
       packages.nix-melt = n-23-05.nix-melt;
+      packages.nix-output-monitor = n-23-05.nix-output-monitor;
       packages.nix-tree = n-23-05.nix-tree;
       packages.nixStatic = n-23-05.nixStatic;
       packages.nixos-generators = n-23-05.nixos-generators;

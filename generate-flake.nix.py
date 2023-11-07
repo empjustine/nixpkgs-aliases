@@ -189,13 +189,6 @@ def main():
                     )
                 )
             _flake_file.write(_FLAKE_NIX_FOOTER)
-        _descriptions = _subprocess_run(
-            shlex.split(
-                "nix --extra-experimental-features 'nix-command flakes' --refresh flake show --json path:."
-            )
-        )
-        if _descriptions.stdout == b"":
-            raise IOError(repr(_descriptions))
 
 
 def do_multiprocessing(
@@ -239,16 +232,20 @@ def _process_nixpkg(_data: NixpkgEntry):
         )
         if _this_output.stdout == b"":
             with sqlite3_autocommit_connection("database.sqlite3") as _con_update:
+                _broken = _this_output.stderr.decode("utf-8", "surrogateescape")
+                if "\n" in _broken:
+                    _first_line, _rest = _broken.split("\n", maxsplit=1)
+                    if _first_line.startswith(
+                        "error (ignored): error: SQLite database '"
+                    ) and _first_line.endswith(".sqlite' is busy"):
+                        _broken = _rest
                 _con_update.execute(
                     "UPDATE nixpkgs SET broken = :broken WHERE pname = :pname;",
                     {
                         "pname": _pname,
-                        "broken": _this_output.stderr.decode(
-                            "utf-8", "surrogateescape"
-                        ),
+                        "broken": _broken,
                     },
                 )
-                break
         else:
             with sqlite3_autocommit_connection("database.sqlite3") as _con_update:
                 _con_update.execute(
@@ -310,7 +307,7 @@ def _process_nixpkg(_data: NixpkgEntry):
     if _description is None and _long_description is not None:
         _db_description = _long_description
     elif _long_description is None and _description is not None:
-        _db_description = _long_description
+        _db_description = _description
     elif _description is not None and _long_description is not None:
         _db_description = _description + "\n\n" + _long_description
 

@@ -1,1 +1,0 @@
-../gcroots/azure-cli^out/bin/azps.ps1
