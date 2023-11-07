@@ -1,0 +1,1 @@
+/nix/store/gkychkknlbbp9h3mz43nqgn5wq2541fp-ruby3.1.4-thor-1.2.2

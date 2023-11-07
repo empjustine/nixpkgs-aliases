@@ -14,8 +14,8 @@ sqlite3 ':memory:' 'SELECT sqlite_version();'
 	#	printf '%s\n' 'PRAGMA ignore_check_constraints=1;'
 	grep <database.sql -Ev '^INSERT INTO'
 	printf '%s\n' 'BEGIN TRANSACTION;'
-	cat database.sql | grep -E '^INSERT (OR IGNORE )?INTO ' | sort -u | sed 's/INSERT INTO /INSERT OR IGNORE INTO /g' -
+	cat database.sql | grep -E '^INSERT INTO ' | sort -u
 	printf '%s\n' 'COMMIT;'
 ) | sqlite3 database2.sqlite3
 
-sqldiff database2.sqlite3 database.sqlite3
+sqldiff --primarykey database2.sqlite3 database.sqlite3
