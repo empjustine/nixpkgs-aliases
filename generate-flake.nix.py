@@ -152,7 +152,7 @@ def main():
         ]
 
     random.shuffle(_nixpkgs)
-    do_multiprocessing(_process_nixpkg, _nixpkgs, 6)
+    do_multiprocessing(_process_nixpkg, _nixpkgs, 8)
 
     with sqlite3_autocommit_connection("database.sqlite3") as _con_reduce:
         _packages = [

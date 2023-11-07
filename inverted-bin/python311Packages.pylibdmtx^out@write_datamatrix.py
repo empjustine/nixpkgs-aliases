@@ -1,0 +1,1 @@
+../gcroots/python311Packages.pylibdmtx^out/bin/write_datamatrix.py

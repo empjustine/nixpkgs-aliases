@@ -1,62 +1,35 @@
 #!/usr/bin/env python3
-import collections.abc
 import contextlib
 import logging
-import os
 import pathlib
 import shlex
 
-import subprocess
-import multiprocessing
-import typing
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG)
+    _subprocess_logger = logging.getLogger("subprocess")
+    _subprocess_logger.level = logging.DEBUG
 
-
-MULTIPROCESSING = True
-_sql_logger = logging.getLogger("sql")
-_subprocess_logger = logging.getLogger("subprocess")
-_sql_logger.level = logging.DEBUG
-_subprocess_logger.level = logging.DEBUG
-T = typing.TypeVar("T")
 
 _GCROOTS_D = pathlib.Path("gcroots")
 _BIN_D = pathlib.Path("bin")
+_RBIN_D = pathlib.Path("inverted-bin")
 
 
 def _ln_s(source: pathlib.Path, target: pathlib.Path):
     _subprocess_logger.debug({"$@": shlex.join(["ln", "-s", str(target), str(source)])})
-    source.symlink_to(target)
-
-
-def _subprocess_run(_cmd):
-    _env = dict(os.environ)
-    _env["TERM"] = "dumb"
-    _result = subprocess.run(_cmd, capture_output=True, env=_env)
-    # 0: stdin
-    # 1: stdout
-    # 2: stderr
-    _debug_result = {}
-    if _result.returncode != 0:
-        _debug_result["$?"] = _result.returncode
-    _debug_result["$@"] = shlex.join(_cmd)
-    if _result.stdout != b"":
-        _debug_result[1] = _result.stdout.decode("utf-8", "surrogateescape")
-    if _result.stderr != b"":
-        _debug_result[2] = _result.stderr.decode("utf-8", "surrogateescape")
-    _subprocess_logger.debug(_debug_result)
-    return _result
+    if not source.exists():
+        source.symlink_to(target)
 
 
 def main():
-    for _folder in (_BIN_D,):
+    for _folder in (_BIN_D, _RBIN_D):
         _folder.mkdir(parents=True, exist_ok=True)
-    for _file in _folder.glob("*"):
-        with contextlib.suppress(FileNotFoundError):
-            _file.unlink()
+        for _file in _folder.glob("*"):
+            with contextlib.suppress(FileNotFoundError):
+                _file.unlink()
 
-    for _bin in _GCROOTS_D.glob("*^*/bin/*"):
+    for _bin in sorted(_GCROOTS_D.glob("*^*/bin/*")):
         if _bin.is_dir() or _bin.name.startswith(".") or _bin.name.endswith("-wrapped"):
             continue
         if (
@@ -66,26 +39,20 @@ def main():
             or _bin.name.endswith(".pdb")
         ):
             continue
-        if not _BIN_D.joinpath(_bin.name).exists():
-            _target = pathlib.Path("../" + str(_bin))
-            _ln_s(
-                source=_BIN_D.joinpath(_bin.name),
-                target=_target,
-            )
-
-
-def do_multiprocessing(
-    _worker: collections.abc.Callable[[T], typing.Any],
-    _jobs: typing.Iterable[T],
-    _pool_size: int,
-):
-    if MULTIPROCESSING:
-        with multiprocessing.Pool(_pool_size) as _pool:
-            for _completed_job in _pool.imap_unordered(func=_worker, iterable=_jobs):
-                ...
-    else:
-        for _job in _jobs:
-            _worker(_job)
+        _target = pathlib.Path("../" + str(_bin))
+        # TODO: 🍱 U+1F371 Bento Box
+        # TODO: 🧰 U+1F9F0 Toolbox
+        # TODO: 📦 U+1F4E6 Package
+        # TODO: 📤 U+1F4E4 Outbox Tray
+        # TODO: 📥 U+1F4E5 Inbox Tray
+        _ln_s(
+            source=_BIN_D.joinpath(f"{_bin.name}@{_bin.parent.parent.name}"),
+            target=_target,
+        )
+        _ln_s(
+            source=_RBIN_D.joinpath(f"{_bin.parent.parent.name}@{_bin.name}"),
+            target=_target,
+        )
 
 
 if __name__ == "__main__":
