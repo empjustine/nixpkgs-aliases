@@ -7,15 +7,14 @@ set -ex
 
 sqlite3 ':memory:' 'SELECT sqlite_version();'
 
-(
-	#	@see https://www.sqlite.org/pragma.html#pragma_foreign_keys
-	#	@see https://www.sqlite.org/pragma.html#pragma_ignore_check_constraints
-	#	printf '%s\n' 'PRAGMA foreign_keys=0;'
-	#	printf '%s\n' 'PRAGMA ignore_check_constraints=1;'
-	grep <database.sql -Ev '^INSERT INTO'
-	printf '%s\n' 'BEGIN TRANSACTION;'
-	cat database.sql | grep -E '^INSERT INTO ' | sort -u
-	printf '%s\n' 'COMMIT;'
-) | sqlite3 database2.sqlite3
+{
+	sqlite3 database.sqlite3 '.schema --indent'
+	sqlite3 database.sqlite3 '.dump --data-only' | sort -u
+} >database-asis.sql
 
-sqldiff --primarykey database2.sqlite3 database.sqlite3
+(
+	grep <database.sql -Ev '^INSERT INTO'
+	cat database.sql | grep -E '^INSERT INTO ' | sort -u
+) >database-tobe.sql
+
+diff database-asis.sql database-tobe.sql

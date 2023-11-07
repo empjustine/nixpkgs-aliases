@@ -8,7 +8,6 @@ CREATE TABLE IF NOT EXISTS "nixpkgs"(
   broken TEXT,
   unique(input, pname)
 );
-BEGIN TRANSACTION;
 INSERT INTO nixpkgs VALUES('n-23-05','_3270font',NULL,NULL,NULL,'Monospaced font based on IBM 3270 terminals',NULL);
 INSERT INTO nixpkgs VALUES('n-23-05','abduco',NULL,NULL,NULL,'Allows programs to be run independently from its controlling terminal',NULL);
 INSERT INTO nixpkgs VALUES('n-23-05','actdiag','graphviz-nox',NULL,NULL,'Generate activity-diagram image from spec-text file (similar to Graphviz)',NULL);
@@ -968,4 +967,3 @@ INSERT INTO nixpkgs VALUES('n-unstable','rkvm',NULL,'kvm',NULL,'Virtual KVM swit
 INSERT INTO nixpkgs VALUES('n-unstable','subtitlr',NULL,NULL,NULL,'This application, a subtitle generator for YouTube, utilizes OpenAI''s Whisper API.',NULL);
 INSERT INTO nixpkgs VALUES('n-unstable','udev-gothic',NULL,'ja-JP',NULL,'A programming font that combines BIZ UD Gothic and JetBrains Mono',NULL);
 INSERT INTO nixpkgs VALUES('n-unstable','whisper-ctranslate2',NULL,NULL,NULL,'Whisper command line client compatible with original OpenAI client based on CTranslate2',NULL);
-COMMIT;
