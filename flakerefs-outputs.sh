@@ -12,6 +12,7 @@ for _flakerefs_and_attrpath in "$@"; do
 
 	_outputs="$(nix --extra-experimental-features 'nix-command flakes' eval --json "${_flakerefs_and_attrpath}.outputs")"
 	printf '%s' "$_outputs" | jq -c --arg r "$_flakerefs_and_attrpath" '{ "flakerefs": ($r), "outputs": . }' &
+	# shellcheck disable=SC2066
 	for _base64_output in "$(printf '%s' "$_outputs" | jq -r '.[] | @base64')"; do
 		_output="$(printf '%s' "$_base64_output" | base64 -d)"
 		nix --extra-experimental-features 'nix-command flakes' eval --json "${_flakerefs_and_attrpath}.${_output}" | jq -c --arg r "$_flakerefs_and_attrpath" --arg o "$_output" '{ "flakerefs": ($r), ($o): . }'
