@@ -1,1 +1,1 @@
-{"attrpath":"crc","comment":"codeready containers","dependency":null,"disabled":"jail","flakeref":"github:NixOS/nixpkgs/nixos-23.05"}
+{"attrpath":"crc","comment":"jail,codeready containers","dependency":null,"disabled":"jail","flakeref":"github:NixOS/nixpkgs/nixos-23.05"}
