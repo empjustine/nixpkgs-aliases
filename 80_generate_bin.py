@@ -40,15 +40,6 @@ def main():
                 pathlib.Path("bin", f"{_bin.name}@{_bin.parent.parent.name}"),
             ]
         )
-        subprocess.run(
-            [
-                "ln",
-                "-s",
-                "--",
-                _target,
-                pathlib.Path("inverted-bin", f"{_bin.parent.parent.name}@{_bin.name}"),
-            ]
-        )
 
 
 if __name__ == "__main__":

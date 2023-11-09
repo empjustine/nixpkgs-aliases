@@ -1,1 +1,0 @@
-../gcroots/pdfminer^out/bin/dumppdf.py

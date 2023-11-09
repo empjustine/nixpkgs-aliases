@@ -1,1 +1,0 @@
-../gcroots/carddav-util^out/bin/carddav-util.py

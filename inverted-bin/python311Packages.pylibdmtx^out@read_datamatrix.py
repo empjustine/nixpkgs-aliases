@@ -1,1 +1,0 @@
-../gcroots/python311Packages.pylibdmtx^out/bin/read_datamatrix.py
