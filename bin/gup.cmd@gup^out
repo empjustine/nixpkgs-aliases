@@ -1,1 +1,0 @@
-../gcroots/gup^out/bin/gup.cmd

@@ -9,18 +9,24 @@ if __name__ == "__main__":
 
 
 def main():
-    subprocess.run(shlex.split("find bin -depth -print -delete"))
+    subprocess.run(shlex.split("mkdir -p bin"))
+    subprocess.run(shlex.split("find bin -delete"))
     subprocess.run(shlex.split("mkdir -p bin"))
 
     for _bin in sorted(pathlib.Path("gcroots").glob("*^*/bin/*")):
-        if _bin.is_dir() or _bin.name.startswith(".") or _bin.name.endswith("-wrapped"):
+        if _bin.is_dir():
             continue
-        if (
-            _bin.name == "git"
-            or _bin.name.startswith("System.")
-            or _bin.name.endswith(".dll")
-            or _bin.name.endswith(".pdb")
-        ):
+        if not _bin.stat().st_mode & 0o111:
+            continue
+
+        _name = _bin.name
+        if _name.startswith(".") and _name.endswith("-wrapped"):
+            continue
+        if _name.startswith(".") and _name.endswith("-wrapped_"):
+            continue
+        if _name.startswith("Microsoft.") and _name.endswith(".dll"):
+            continue
+        if _name.startswith("System.") and _name.endswith(".dll"):
             continue
 
         _target = pathlib.Path("../" + str(_bin))
@@ -37,7 +43,7 @@ def main():
                 "-s",
                 "--",
                 _target,
-                pathlib.Path("bin", f"{_bin.name}@{_bin.parent.parent.name}"),
+                pathlib.Path("bin", f"{_name}@{_bin.parent.parent.name}"),
             ]
         )
 
