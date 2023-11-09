@@ -18,7 +18,9 @@ def main():
         "{type}:{owner}/{repo}/{ref}".format(
             **v["original"]
         ): "{type}:{owner}/{repo}/{rev}".format(**v["locked"])
-        for k, v in json.loads(pathlib.Path("../flake.lock").read_text())["nodes"].items()
+        for k, v in json.loads(pathlib.Path("../flake.lock").read_text())[
+            "nodes"
+        ].items()
         if "original" in v and "locked" in v
     }
 

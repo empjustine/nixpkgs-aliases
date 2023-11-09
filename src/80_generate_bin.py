@@ -37,7 +37,7 @@ def main():
         # TODO: 📤 U+1F4E4 Outbox Tray
         # TODO: 📥 U+1F4E5 Inbox Tray
 
-        pname, _sep, out = _bin.parent.parent.name.partition('^')
+        pname, _sep, out = _bin.parent.parent.name.partition("^")
         subprocess.run(
             [
                 "ln",
