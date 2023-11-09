@@ -37,13 +37,14 @@ def main():
         # TODO: 📤 U+1F4E4 Outbox Tray
         # TODO: 📥 U+1F4E5 Inbox Tray
 
+        pname, _sep, out = _bin.parent.parent.name.partition('^')
         subprocess.run(
             [
                 "ln",
                 "-s",
                 "--",
                 _target,
-                pathlib.Path("bin", f"{_name}@{_bin.parent.parent.name}"),
+                pathlib.Path("bin", f"{_name}@{out}@{pname}"),
             ]
         )
 
