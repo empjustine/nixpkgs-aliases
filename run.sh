@@ -3,7 +3,8 @@
 set -x
 
 bin-override/flakerefs-attrpaths-build.sh "$(bin-override/flake.lock-flakeref.sh github:NixOS/nixpkgs/nixos-23.05)#ninja"
-bin-override/flake.lock-update.sh
+
+nix --extra-experimental-features 'nix-command flakes' flake update "path:."
 
 ./20_generate_metas.py | bin/ninja@ninja\^out -f /dev/stdin
 find gcroots -xtype l -print -delete
