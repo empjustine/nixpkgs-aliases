@@ -14,13 +14,13 @@ def main():
         "{type}:{owner}/{repo}/{ref}".format(
             **v["original"]
         ): "{type}:{owner}/{repo}/{rev}".format(**v["locked"])
-        for k, v in json.loads(pathlib.Path("flake.lock").read_text())["nodes"].items()
+        for k, v in json.loads(pathlib.Path("../flake.lock").read_text())["nodes"].items()
         if "original" in v and "locked" in v
     }
 
     packages = {
         p.name: json.loads(p.read_text())
-        for p in pathlib.Path("legacyPackages.x86_64-linux").glob("*")
+        for p in pathlib.Path("../legacyPackages.x86_64-linux").glob("*")
     }
 
     nix_store_outputs = set()
@@ -34,12 +34,12 @@ def main():
     print("    pool = build_nix_pool")
 
     for fn, p in packages.items():
-        if pathlib.Path("legacyPackages.x86_64-linux.broken", fn).exists():
+        if pathlib.Path("../legacyPackages.x86_64-linux.broken", fn).exists():
             _excluded.debug(f".broken: {fn}")
             continue
         try:
             m = json.loads(
-                pathlib.Path("legacyPackages.x86_64-linux.meta", fn).read_text()
+                pathlib.Path("../legacyPackages.x86_64-linux.meta", fn).read_text()
             )
         except:
             _excluded.debug(f"!.meta: {fn}")

@@ -11,32 +11,32 @@ if __name__ == "__main__":
 
 
 def main():
-    pathlib.Path("legacyPackages.x86_64-linux.broken").mkdir(exist_ok=True)
-    pathlib.Path("gcroots").mkdir(exist_ok=True)
+    pathlib.Path("../legacyPackages.x86_64-linux.broken").mkdir(exist_ok=True)
+    pathlib.Path("../gcroots").mkdir(exist_ok=True)
 
     flakerefs = {
         "{type}:{owner}/{repo}/{ref}".format(
             **v["original"]
         ): "{type}:{owner}/{repo}/{rev}".format(**v["locked"])
-        for k, v in json.loads(pathlib.Path("flake.lock").read_text())["nodes"].items()
+        for k, v in json.loads(pathlib.Path("../flake.lock").read_text())["nodes"].items()
         if "original" in v and "locked" in v
     }
 
     packages = {
         p.name: json.loads(p.read_text())
-        for p in pathlib.Path("legacyPackages.x86_64-linux").glob("*")
+        for p in pathlib.Path("../legacyPackages.x86_64-linux").glob("*")
     }
 
     print("pool build_gcroots_pool")
     print("    depth = 24")
     print("rule build_gcroots")
-    print("    command = bin-override/build_gcroots.sh $expr $out $broken")
+    print("    command = src/build_gcroots.sh $expr $out $broken")
     print("    pool = build_gcroots_pool")
 
     for fn, p in packages.items():
         try:
             m = json.loads(
-                pathlib.Path("legacyPackages.x86_64-linux.meta", fn).read_text()
+                pathlib.Path("../legacyPackages.x86_64-linux.meta", fn).read_text()
             )
         except:
             continue

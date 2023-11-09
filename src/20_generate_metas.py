@@ -8,21 +8,21 @@ def main():
         "{type}:{owner}/{repo}/{ref}".format(
             **v["original"]
         ): "{type}:{owner}/{repo}/{rev}".format(**v["locked"])
-        for k, v in json.loads(pathlib.Path("flake.lock").read_text())["nodes"].items()
+        for k, v in json.loads(pathlib.Path("../flake.lock").read_text())["nodes"].items()
         if "original" in v and "locked" in v
     }
 
     packages = {
         p.name: json.loads(p.read_text())
-        for p in pathlib.Path("legacyPackages.x86_64-linux").glob("*")
+        for p in pathlib.Path("../legacyPackages.x86_64-linux").glob("*")
     }
 
-    pathlib.Path("legacyPackages.x86_64-linux.meta").mkdir(exist_ok=True)
+    pathlib.Path("../legacyPackages.x86_64-linux.meta").mkdir(exist_ok=True)
 
     print("pool build_meta_pool")
     print("    depth = 24")
     print("rule build_meta")
-    print("    command = bin-override/build_meta.sh $expr $out")
+    print("    command = src/build_meta.sh $expr $out")
     print("    pool = build_meta_pool")
 
     for fn, p in packages.items():

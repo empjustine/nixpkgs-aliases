@@ -13,7 +13,7 @@ def main():
     subprocess.run(shlex.split("find bin -delete"))
     subprocess.run(shlex.split("mkdir -p bin"))
 
-    for _bin in sorted(pathlib.Path("gcroots").glob("*^*/bin/*")):
+    for _bin in sorted(pathlib.Path("../gcroots").glob("*^*/bin/*")):
         if _bin.is_dir():
             continue
         if not _bin.stat().st_mode & 0o111:
@@ -44,7 +44,7 @@ def main():
                 "-s",
                 "--",
                 _target,
-                pathlib.Path("bin", f"{_name}@{out}@{pname}"),
+                pathlib.Path("../bin", f"{_name}@{out}@{pname}"),
             ]
         )
 
