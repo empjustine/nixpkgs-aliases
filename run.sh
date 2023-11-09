@@ -2,7 +2,9 @@
 
 set -x
 
+bin-override/flakerefs-attrpaths-build.sh "$(bin-override/flake.lock-flakeref.sh github:NixOS/nixpkgs/nixos-23.05)#ninja"
 bin-override/flake.lock-update.sh
+
 ./20_generate_metas.py | bin/ninja@ninja\^out -f /dev/stdin
 find gcroots -xtype l -print -delete
 ./40_generate_gcroots.py | bin/ninja@ninja\^out -f /dev/stdin
