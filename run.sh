@@ -4,6 +4,7 @@ set -x
 
 bin-override/flake.lock-update.sh
 ./20_generate_metas.py | bin/ninja@ninja\^out -f /dev/stdin
+find gcroots -xtype l -print -delete
 ./40_generate_gcroots.py | bin/ninja@ninja\^out -f /dev/stdin
 ./60_generate_gcroots_contents.py | bin/ninja@ninja\^out -f /dev/stdin
 ./80_generate_bin.py
