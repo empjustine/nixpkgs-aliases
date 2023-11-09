@@ -9,8 +9,8 @@ if __name__ == "__main__":
 
 
 def main():
-    subprocess.run(shlex.split("find bin/ inverted-bin/ -depth -print -delete"))
-    subprocess.run(shlex.split("mkdir -p bin inverted-bin"))
+    subprocess.run(shlex.split("find bin -depth -print -delete"))
+    subprocess.run(shlex.split("mkdir -p bin"))
 
     for _bin in sorted(pathlib.Path("gcroots").glob("*^*/bin/*")):
         if _bin.is_dir() or _bin.name.startswith(".") or _bin.name.endswith("-wrapped"):

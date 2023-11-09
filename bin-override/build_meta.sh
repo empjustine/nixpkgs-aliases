@@ -7,4 +7,7 @@ if [ $# -ne 2 ]; then
 	exit 4
 fi
 
-nix --extra-experimental-features 'nix-command flakes' eval --json "$1" | tee "$2"
+_expr="$1"
+_out="$2"
+
+nix --extra-experimental-features 'nix-command flakes' eval --json "$_expr" >"$_out"
