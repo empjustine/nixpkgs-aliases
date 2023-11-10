@@ -5,11 +5,12 @@ import sys
 
 
 def main():
-    _arg0, directory = sys.argv
+    assert len(sys.argv) == 2, f"{sys.argv[0]} <directory>"
+    directory = sys.argv[1]
     for p in pathlib.Path(directory).rglob("*"):
         if p.is_file():
             ndjson = {
-                "content:": json.loads(p.read_text()),
+                "content": json.loads(p.read_text()),
                 "filename": str(p),
             }
             line = json.dumps(
