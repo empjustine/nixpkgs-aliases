@@ -1,1 +1,1 @@
-{"attrpath":"openresty","comment":null,"dependency":null,"disabled":"dev","flakeref":"github:NixOS/nixpkgs/nixos-23.05"}
+{"attrpath":"openresty","comment":null,"dependency":null,"disabled":null,"flakeref":"github:NixOS/nixpkgs/nixos-23.05"}

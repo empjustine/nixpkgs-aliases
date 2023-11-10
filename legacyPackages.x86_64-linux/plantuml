@@ -1,1 +1,1 @@
-{"attrpath":"plantuml","comment":null,"dependency":null,"disabled":"plantuml-c4","flakeref":"github:NixOS/nixpkgs/nixos-23.05"}
+{"attrpath":"plantuml","comment":null,"dependency":null,"disabled":null,"flakeref":"github:NixOS/nixpkgs/nixos-23.05"}

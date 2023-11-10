@@ -1,1 +1,1 @@
-{"attrpath":"attr","comment":null,"dependency":"yt-dlp","disabled":"fedora","flakeref":"github:NixOS/nixpkgs/nixos-23.05"}
+{"attrpath":"attr","comment":null,"dependency":"yt-dlp","disabled":null,"flakeref":"github:NixOS/nixpkgs/nixos-23.05"}

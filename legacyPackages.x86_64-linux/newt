@@ -1,1 +1,1 @@
-{"attrpath":"newt","comment":"whiptail","dependency":null,"disabled":"dialog","flakeref":"github:NixOS/nixpkgs/nixos-23.05"}
+{"attrpath":"newt","comment":"whiptail","dependency":null,"disabled":null,"flakeref":"github:NixOS/nixpkgs/nixos-23.05"}

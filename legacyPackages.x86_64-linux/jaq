@@ -1,1 +1,1 @@
-{"attrpath":"jaq","comment":null,"dependency":null,"disabled":"json2tsv","flakeref":"github:NixOS/nixpkgs/nixos-23.05"}
+{"attrpath":"jaq","comment":null,"dependency":null,"disabled":null,"flakeref":"github:NixOS/nixpkgs/nixos-23.05"}

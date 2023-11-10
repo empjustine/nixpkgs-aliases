@@ -1,1 +1,1 @@
-{"attrpath":"ncpamixer","comment":"pavucontrol sericea default","dependency":null,"disabled":"sericea","flakeref":"github:NixOS/nixpkgs/nixos-23.05"}
+{"attrpath":"ncpamixer","comment":"pavucontrol sericea default","dependency":null,"disabled":null,"flakeref":"github:NixOS/nixpkgs/nixos-23.05"}

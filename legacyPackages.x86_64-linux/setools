@@ -1,1 +1,1 @@
-{"attrpath":"setools","comment":"setools-console-analyses(sedta) setools-console(sechecker) setools-console-analyses(seinfoflow) setools-gui(apol)","dependency":null,"disabled":"fedora","flakeref":"github:NixOS/nixpkgs/nixos-23.05"}
+{"attrpath":"setools","comment":"setools-console-analyses(sedta) setools-console(sechecker) setools-console-analyses(seinfoflow) setools-gui(apol)","dependency":null,"disabled":null,"flakeref":"github:NixOS/nixpkgs/nixos-23.05"}

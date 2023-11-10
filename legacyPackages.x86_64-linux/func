@@ -1,1 +1,1 @@
-{"attrpath":"func","comment":"jail","dependency":null,"disabled":"jail","flakeref":"github:NixOS/nixpkgs/nixos-23.05"}
+{"attrpath":"func","comment":"Knative,jail","dependency":null,"disabled":"Knative,jail","flakeref":"github:NixOS/nixpkgs/nixos-23.05"}

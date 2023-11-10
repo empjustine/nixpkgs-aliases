@@ -9,17 +9,31 @@ def main():
     directory = sys.argv[1]
     for p in pathlib.Path(directory).rglob("*"):
         if p.is_file():
-            ndjson = {
-                "content": json.loads(p.read_text()),
-                "filename": str(p),
-            }
-            line = json.dumps(
-                ndjson,
-                ensure_ascii=False,
-                separators=(",", ":"),
-                sort_keys=True,
-            )
-            print(line)
+            raw_content = p.read_text()
+            try:
+                ok_json = json.loads(raw_content)
+                ok_line = json.dumps(
+                    {
+                        "content": ok_json,
+                        "filename": str(p),
+                    },
+                    ensure_ascii=False,
+                    separators=(",", ":"),
+                    sort_keys=True,
+                )
+                sys.stdout.write(ok_line + "\n")
+            except:
+                err_line = json.dumps(
+                    {
+                        "raw_content": raw_content,
+                        "err": "invalid json",
+                        "filename": str(p),
+                    },
+                    ensure_ascii=False,
+                    separators=(",", ":"),
+                    sort_keys=True,
+                )
+                sys.stderr.write(err_line + "\n")
 
 
 if __name__ == "__main__":
