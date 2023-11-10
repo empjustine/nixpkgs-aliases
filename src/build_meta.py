@@ -4,6 +4,7 @@ import json
 import pathlib
 import shlex
 import subprocess
+import sys
 
 
 def _mtime(path):
@@ -25,7 +26,10 @@ def main():
     if _mtime(args.target) > _mtime(args.src) and _mtime(args.target) > _mtime(
         "../flake.lock"
     ):
-        raise IOError([args.target, _mtime(args.target), args.src, _mtime(args.src)])
+        sys.stderr.write(
+            f"{[args.target, _mtime(args.target), args.src, _mtime(args.src)]}\n"
+        )
+        return
 
     raw_meta = subprocess.run(
         [
@@ -42,13 +46,24 @@ def main():
 
     for denylist in ["", "meta", "...flakeref", "...err"]:
         if denylist in meta["outputsToInstall"]:
-            raise IOError(repr({"meta": meta, "package": package}))
+            sys.stderr.write("{'meta': meta, 'package': package}\n")
+            return
 
-    if package["disabled"] or meta["broken"] or meta["insecure"] or meta["unfree"]:
+    _err = []
+    if package["disabled"]:
+        _err.append("package.disabled")
+    if meta["broken"]:
+        _err.append("meta.broken")
+    if meta["insecure"]:
+        _err.append("meta.insecure")
+    if meta["unfree"]:
+        _err.append("meta.unfree")
+
+    if len(_err) > 0:
         _err_payload = {
             "": package,
             "meta": meta,
-            "err": "pdisabled, mbroken, minsecure or munfree",
+            "...err": _err,
         }
         pathlib.Path(args.target).write_text(
             json.dumps(
@@ -58,7 +73,8 @@ def main():
                 sort_keys=True,
             )
         )
-        raise IOError(_err_payload)
+        sys.stderr.write(f"{_err_payload}\n")
+        return
     else:
         outputs_to_install = {
             o: subprocess.run(
@@ -93,7 +109,8 @@ def main():
                     sort_keys=True,
                 )
             )
-            raise IOError(_err_payload)
+            sys.stderr.write(f"{_err_payload}\n")
+            return
         else:
             gcroots = {out: path.stdout for out, path in outputs_to_install.items()}
             _ok_payload = {

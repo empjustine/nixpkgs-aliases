@@ -1,6 +1,7 @@
 #!/bin/sh
 
 set -x
+find .. -xtype l -print -delete
 
 ./flake.lock-flakerefs.jq -c ../flake.lock >../target/flakerefs.json
 
@@ -35,7 +36,7 @@ mkdir -p -- ../target/gcroots ../target/meta
 
 (
   printf 'set -x\n'
-  jq -r '@sh "./build_meta.py --src=\(.src) --target=\(.dst) --expr=\(.expr)"' ../target/jobs.package.ndjson
+  jq -r '@sh "./build_meta.py --src=\(.src) --target=\(.dst) --expr=\(.expr) &"' ../target/jobs.package.ndjson
   printf '\nwait\n'
 ) >../target/jobs.meta.package.sh
 

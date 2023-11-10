@@ -4,6 +4,7 @@ import json
 import pathlib
 import shlex
 import subprocess
+import sys
 
 
 def _mtime(path):
@@ -22,20 +23,29 @@ def main():
 
     args = parser.parse_args()
     meta = json.loads(pathlib.Path(args.target).read_text())
+
+    if "...flakeref" not in meta:
+        sys.stderr.write(f"{meta}\n")
+        return
+
+    flakeref = meta["...flakeref"]
+
     outputs_to_install = meta["meta"]["outputsToInstall"]
+
     if all(
         pathlib.Path(path).exists()
         for out, path in meta.items()
         if out in outputs_to_install
     ):
-        raise IOError(meta)
+        sys.stderr.write(f"{meta}\n")
+        return
 
     subprocess.run(
         [
             *shlex.split(
                 "nix --extra-experimental-features 'nix-command flakes' build --no-link"
             ),
-            meta["...flakeref"],
+            flakeref,
         ],
         encoding="utf8",
     )
