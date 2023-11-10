@@ -2,12 +2,17 @@
 
 set -e
 
-if [ $# -ne 2 ]; then
-	printf "%s: expecting 2 arguments, got %s\n" "$0" "$#" 1>&2
+if [ $# -ne 3 ]; then
+	printf "expecting 3 arguments, got %s: %s\n" "$#" "$*" 1>&2
 	exit 4
 fi
 
 _expr="$1"
-_out="$2"
+_src="$2"
+_target="$2"
 
-nix --extra-experimental-features 'nix-command flakes' eval --json "$_expr" >"$_out"
+if [ ../flake.lock -nt "$_target" ] && [ "$_src" -nt "$_target" ]; then
+  nix --extra-experimental-features 'nix-command flakes' eval --json "$_expr" | jq --slurpfile _src "$_src" '{"meta": ., "": "": ($_f[0]) }' | tee "$_target"
+
+
+fi

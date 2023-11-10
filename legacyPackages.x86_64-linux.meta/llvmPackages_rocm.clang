@@ -1,1 +1,0 @@
-{"available":true,"broken":false,"description":"System C compiler (wrapper script)","insecure":false,"mainProgram":"rocm-llvm-clang","name":"rocm-llvm-clang-5.4.4","outputsToInstall":["out"],"position":"/nix/store/3s69yxbbl116zwga3i6cy7prplywq0bn-source/pkgs/build-support/cc-wrapper/default.nix:611","priority":10,"unfree":false,"unsupported":false}

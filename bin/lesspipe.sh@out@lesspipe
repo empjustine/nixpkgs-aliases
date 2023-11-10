@@ -1,1 +1,0 @@
-../gcroots/lesspipe^out/bin/lesspipe.sh

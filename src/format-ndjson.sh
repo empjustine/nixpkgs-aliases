@@ -4,6 +4,3 @@ set -e
 
 ./json.d-to-ndjson.py ../legacyPackages.x86_64-linux >../legacyPackages.x86_64-linux.ndjson
 ./ndjson-to-ndjson.d.py ../legacyPackages.x86_64-linux.ndjson
-
-# ./json.d-to-ndjson.py ../legacyPackages.x86_64-linux.meta >../legacyPackages.x86_64-linux.meta.ndjson
-# ./ndjson-to-ndjson.d.py ../legacyPackages.x86_64-linux.meta.ndjson

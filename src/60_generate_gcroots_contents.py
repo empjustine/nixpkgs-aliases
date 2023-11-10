@@ -22,7 +22,7 @@ def main():
 
     packages = {
         p.name: json.loads(p.read_text())
-        for p in pathlib.Path("../legacyPackages.x86_64-linux").glob("*")
+        for p in pathlib.Path("legacyPackages.x86_64-linux").glob("*")
     }
 
     nix_store_outputs = set()

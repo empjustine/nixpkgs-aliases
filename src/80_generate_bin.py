@@ -9,11 +9,11 @@ if __name__ == "__main__":
 
 
 def main():
-    subprocess.run(shlex.split("mkdir -p bin"))
-    subprocess.run(shlex.split("find bin -delete"))
-    subprocess.run(shlex.split("mkdir -p bin"))
+    subprocess.run(shlex.split("mkdir -p ../target/bin"))
+    subprocess.run(shlex.split("find ../target/bin -delete"))
+    subprocess.run(shlex.split("mkdir -p ../target/bin"))
 
-    for _bin in sorted(pathlib.Path("../gcroots").glob("*^*/bin/*")):
+    for _bin in sorted(pathlib.Path("../target/gcroots").glob("*/bin/*")):
         if _bin.is_dir():
             continue
         if not _bin.stat().st_mode & 0o111:
@@ -29,22 +29,21 @@ def main():
         if _name.startswith("System.") and _name.endswith(".dll"):
             continue
 
-        _target = pathlib.Path("../" + str(_bin))
-
         # TODO: 🍱 U+1F371 Bento Box
         # TODO: 🧰 U+1F9F0 Toolbox
         # TODO: 📦 U+1F4E6 Package
         # TODO: 📤 U+1F4E4 Outbox Tray
         # TODO: 📥 U+1F4E5 Inbox Tray
 
-        pname, _sep, out = _bin.parent.parent.name.partition("^")
+        pname = _bin.parent.parent.name
+        pathlib.Path(f"../target/bin/{_name}@{pname}").unlink(missing_ok=True)
         subprocess.run(
             [
                 "ln",
                 "-s",
                 "--",
-                _target,
-                pathlib.Path("../bin", f"{_name}@{out}@{pname}"),
+                f"../gcroots/{pname}/bin/{_name}",
+                f"../target/bin/{_name}@{pname}",
             ]
         )
 

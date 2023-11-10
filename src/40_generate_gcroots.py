@@ -26,7 +26,7 @@ def main():
 
     packages = {
         p.name: json.loads(p.read_text())
-        for p in pathlib.Path("../legacyPackages.x86_64-linux").glob("*")
+        for p in pathlib.Path("legacyPackages.x86_64-linux").glob("*")
     }
 
     print("pool build_gcroots_pool")
