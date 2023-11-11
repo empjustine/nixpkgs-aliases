@@ -23,18 +23,11 @@ def main():
 
     args = parser.parse_args()
 
-    if _mtime(args.target) > _mtime(args.src) and _mtime(args.target) > _mtime(
-        "../flake.lock"
-    ):
-        sys.stderr.write(
-            f"{[args.target, _mtime(args.target), args.src, _mtime(args.src)]}\n"
-        )
-        return
-
+    # --no-eval-cache
     raw_meta = subprocess.run(
         [
             *shlex.split(
-                "nix --extra-experimental-features 'nix-command flakes' eval --no-eval-cache --json"
+                "nix --extra-experimental-features 'nix-command flakes' eval --json"
             ),
             args.expr + ".meta",
         ],
@@ -44,12 +37,18 @@ def main():
     meta = json.loads(raw_meta)
     package = json.loads(pathlib.Path(args.src).read_text())
 
-    for denylist in ["", "meta", "...flakeref", "...err"]:
-        if denylist in meta["outputsToInstall"]:
-            sys.stderr.write("{'meta': meta, 'package': package}\n")
-            return
+    suffix = "@".join(
+        package["flakeref"]
+        .replace("/", "@")
+        .replace(":", "@")
+        .split("@")[::-1]
+    )
+    pname = package["attrpath"]
 
     _err = []
+    for denylist in ["", "meta", "...flakeref", "...err"]:
+        if denylist in meta["outputsToInstall"]:
+            _err.append(denylist)
     if package["disabled"]:
         _err.append("package.disabled")
     if meta["broken"]:
@@ -73,14 +72,19 @@ def main():
                 sort_keys=True,
             )
         )
+        for out in meta["outputsToInstall"]:
+            symlink_name = f"{out}@{pname}@{suffix}"
+            _symlink = pathlib.Path("../target/gcroots", symlink_name)
+            _symlink.unlink(missing_ok=True)
         sys.stderr.write(f"{_err_payload}\n")
         return
     else:
+        # --no-eval-cache
         outputs_to_install = {
             o: subprocess.run(
                 [
                     *shlex.split(
-                        "nix --extra-experimental-features 'nix-command flakes' eval --no-eval-cache --raw"
+                        "nix --extra-experimental-features 'nix-command flakes' eval --raw"
                     ),
                     args.expr + f".{o}",
                 ],
@@ -109,6 +113,10 @@ def main():
                     sort_keys=True,
                 )
             )
+            for out in meta["outputsToInstall"]:
+                symlink_name = f"{out}@{pname}@{suffix}"
+                _symlink = pathlib.Path("../target/gcroots", symlink_name)
+                _symlink.unlink(missing_ok=True)
             sys.stderr.write(f"{_err_payload}\n")
             return
         else:
@@ -128,13 +136,6 @@ def main():
                 )
             )
             for out, path in gcroots.items():
-                suffix = "@".join(
-                    package["flakeref"]
-                    .replace("/", "@")
-                    .replace(":", "@")
-                    .split("@")[::-1]
-                )
-                pname = package["attrpath"]
                 symlink_name = f"{out}@{pname}@{suffix}"
                 _symlink = pathlib.Path("../target/gcroots", symlink_name)
                 _symlink.unlink(missing_ok=True)

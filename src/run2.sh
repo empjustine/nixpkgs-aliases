@@ -34,9 +34,12 @@ jq -s -c '
 
 mkdir -p -- ../target/gcroots ../target/meta
 
+# warm cache
+jq -r 'values[] | @sh "nix --extra-experimental-features \"nix-command flakes\" search \(.)"' ../target/flakerefs.json | /bin/sh
+
 (
   printf 'set -x\n'
-  jq -r '@sh "./build_meta.py --src=\(.src) --target=\(.dst) --expr=\(.expr) &"' ../target/jobs.package.ndjson
+  jq -r '@sh "./build_meta.py --src=\(.src) --target=\(.dst) --expr=\(.expr) #&"' ../target/jobs.package.ndjson
   printf '\nwait\n'
 ) >../target/jobs.meta.package.sh
 
@@ -44,7 +47,7 @@ mkdir -p -- ../target/gcroots ../target/meta
 
 (
   printf 'set -x\n'
-  jq -r '@sh "./build_package.py --src=\(.src) --target=\(.dst) --expr=\(.expr)"' ../target/jobs.package.ndjson
+  jq -r '@sh "./build_package.py --src=\(.src) --target=\(.dst) --expr=\(.expr) #&"' ../target/jobs.package.ndjson
   printf '\nwait\n'
 ) >../target/jobs.build.package.sh
 
