@@ -16,13 +16,10 @@ def _mtime(path):
 
 def main():
     parser = argparse.ArgumentParser(description="")
-
-    parser.add_argument("--src", type=str, help="src")
-    parser.add_argument("--target", type=str, help="target")
-    parser.add_argument("--expr", type=str, help="base nix expression")
+    parser.add_argument("--meta", type=str, help="meta")
 
     args = parser.parse_args()
-    meta = json.loads(pathlib.Path(args.target).read_text())
+    meta = json.loads(pathlib.Path(args.meta).read_text())
 
     if "...flakeref" not in meta:
         sys.stderr.write(f"{meta}\n")

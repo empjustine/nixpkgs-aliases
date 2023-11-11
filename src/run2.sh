@@ -7,9 +7,9 @@ find .. -xtype l -print -delete
 
 mkdir -p -- ../target/meta
 
-find legacyPackages.x86_64-linux ../target/meta -type f -size 0 -print -delete
+find package ../target/meta -type f -size 0 -print -delete
 
-./json.d-to-ndjson.py legacyPackages.x86_64-linux >../target/legacyPackages.x86_64-linux.ndjson
+./json.d-to-ndjson.py package >../target/package.ndjson
 
 jq -s -c '
 .[0] as $flakerefs
@@ -27,10 +27,10 @@ jq -s -c '
     )
   ),
   "src": .filename,
-  "dst": ( .filename | gsub("legacyPackages.x86_64-linux"; "../target/meta") ),
+  "dst": ( .filename | gsub("package/"; "../target/meta/") ),
   "package": .,
 }
-' ../target/flakerefs.json ../target/legacyPackages.x86_64-linux.ndjson >../target/jobs.package.ndjson
+' ../target/flakerefs.json ../target/package.ndjson >../target/jobs.package.ndjson
 
 mkdir -p -- ../target/gcroots ../target/meta
 
@@ -47,7 +47,7 @@ jq -r 'values[] | @sh "nix --extra-experimental-features \"nix-command flakes\" 
 
 (
   printf 'set -x\n'
-  jq -r '@sh "./build_package.py --src=\(.src) --target=\(.dst) --expr=\(.expr) #&"' ../target/jobs.package.ndjson
+  jq -r '@sh "./build_package.py --meta=\(.dst) #&"' ../target/jobs.package.ndjson
   printf '\nwait\n'
 ) >../target/jobs.build.package.sh
 
