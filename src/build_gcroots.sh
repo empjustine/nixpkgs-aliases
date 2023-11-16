@@ -10,7 +10,7 @@ _expr="$1"
 _out="$2"
 _broken="$3"
 
-_target="$(nix --extra-experimental-features 'nix-command flakes' eval --raw "$_expr" 2>"$_broken")"
+_target="$(nix --extra-experimental-features 'nix-command flakes' eval --raw "$_expr" 2> "$_broken")"
 if [ "$_target" = "" ]; then
 	rm -- "$_out"
 	cat -- "$_broken" 1>&2

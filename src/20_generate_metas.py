@@ -6,7 +6,7 @@ import pathlib
 def main():
     flakerefs = {
         "{type}:{owner}/{repo}/{ref}".format(
-            **v["original"]
+            **v["original"],
         ): "{type}:{owner}/{repo}/{rev}".format(**v["locked"])
         for k, v in json.loads(pathlib.Path("../flake.lock").read_text())[
             "nodes"
@@ -31,7 +31,7 @@ def main():
         flakeref = flakerefs.get(p["flakeref"], p["flakeref"])
         attrpath = p["attrpath"]
         print(
-            f"build legacyPackages.x86_64-linux.meta/{fn}: build_meta legacyPackages.x86_64-linux/{fn} flake.lock"
+            f"build legacyPackages.x86_64-linux.meta/{fn}: build_meta legacyPackages.x86_64-linux/{fn} flake.lock",
         )
         print(f"    expr = {flakeref}#{attrpath}.meta")
 

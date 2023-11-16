@@ -27,7 +27,7 @@ def main():
     raw_meta = subprocess.run(
         [
             *shlex.split(
-                "nix --extra-experimental-features 'nix-command flakes' eval --json"
+                "nix --extra-experimental-features 'nix-command flakes' eval --json",
             ),
             args.expr + ".meta",
         ],
@@ -38,10 +38,7 @@ def main():
     package = json.loads(pathlib.Path(args.src).read_text())
 
     suffix = "@".join(
-        package["flakeref"]
-        .replace("/", "@")
-        .replace(":", "@")
-        .split("@")[::-1]
+        package["flakeref"].replace("/", "@").replace(":", "@").split("@")[::-1],
     )
     pname = package["attrpath"]
 
@@ -70,7 +67,7 @@ def main():
                 ensure_ascii=False,
                 separators=(",", ":"),
                 sort_keys=True,
-            )
+            ),
         )
         for out in meta["outputsToInstall"]:
             symlink_name = f"{out}@{pname}@{suffix}"
@@ -84,12 +81,11 @@ def main():
             o: subprocess.run(
                 [
                     *shlex.split(
-                        "nix --extra-experimental-features 'nix-command flakes' eval --raw"
+                        "nix --extra-experimental-features 'nix-command flakes' eval --raw",
                     ),
                     args.expr + f".{o}",
                 ],
-                stdout=subprocess.PIPE,
-                stderr=subprocess.PIPE,
+                capture_output=True,
                 encoding="utf8",
             )
             for o in meta["outputsToInstall"]
@@ -111,7 +107,7 @@ def main():
                     ensure_ascii=False,
                     separators=(",", ":"),
                     sort_keys=True,
-                )
+                ),
             )
             for out in meta["outputsToInstall"]:
                 symlink_name = f"{out}@{pname}@{suffix}"
@@ -133,7 +129,7 @@ def main():
                     ensure_ascii=False,
                     separators=(",", ":"),
                     sort_keys=True,
-                )
+                ),
             )
             for out, path in gcroots.items():
                 symlink_name = f"{out}@{pname}@{suffix}"

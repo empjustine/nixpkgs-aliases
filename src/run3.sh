@@ -19,8 +19,8 @@ jq -S '
 ' ../flake.lock | tee ../target/flakerefs.json
 
 (
-  printf 'set -x\n'
-  jq -r '.[] | @sh "nix --extra-experimental-features \"nix-command flakes\" search --json \(.locked) >../target/\(.input).json "' ../target/flakerefs.json
+	printf 'set -x\n'
+	jq -r '.[] | @sh "nix --extra-experimental-features \"nix-command flakes\" search --json \(.locked) >../target/\(.input).json "' ../target/flakerefs.json
 ) | tee ../target/flakerefs.search.sh
 
 sh ../target/flakerefs.search.sh

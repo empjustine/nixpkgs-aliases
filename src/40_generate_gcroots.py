@@ -16,7 +16,7 @@ def main():
 
     flakerefs = {
         "{type}:{owner}/{repo}/{ref}".format(
-            **v["original"]
+            **v["original"],
         ): "{type}:{owner}/{repo}/{rev}".format(**v["locked"])
         for k, v in json.loads(pathlib.Path("../flake.lock").read_text())[
             "nodes"
@@ -38,7 +38,7 @@ def main():
     for fn, p in packages.items():
         try:
             m = json.loads(
-                pathlib.Path("../legacyPackages.x86_64-linux.meta", fn).read_text()
+                pathlib.Path("../legacyPackages.x86_64-linux.meta", fn).read_text(),
             )
         except:
             continue
@@ -50,10 +50,10 @@ def main():
 
         for output in m["outputsToInstall"]:
             print(
-                f"build gcroots/{fn}^{output}: build_gcroots legacyPackages.x86_64-linux.meta/{fn} legacyPackages.x86_64-linux/{fn} flake.lock"
+                f"build gcroots/{fn}^{output}: build_gcroots legacyPackages.x86_64-linux.meta/{fn} legacyPackages.x86_64-linux/{fn} flake.lock",
             )
             print(
-                f"    expr = {flakeref}#legacyPackages.x86_64-linux.{attrpath}.{output}"
+                f"    expr = {flakeref}#legacyPackages.x86_64-linux.{attrpath}.{output}",
             )
             print(f"    broken = legacyPackages.x86_64-linux.broken/{fn}")
 

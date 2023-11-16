@@ -12,7 +12,6 @@ _src="$2"
 _target="$2"
 
 if [ ../flake.lock -nt "$_target" ] && [ "$_src" -nt "$_target" ]; then
-  nix --extra-experimental-features 'nix-command flakes' eval --json "$_expr" | jq --slurpfile _src "$_src" '{"meta": ., "": "": ($_f[0]) }' | tee "$_target"
-
+	nix --extra-experimental-features 'nix-command flakes' eval --json "$_expr" | jq --slurpfile _src "$_src" '{"meta": ., "": "": ($_f[0]) }' | tee "$_target"
 
 fi

@@ -44,7 +44,7 @@ def main():
                 "--",
                 f"../gcroots/{pname}/bin/{_name}",
                 f"../target/bin/{_name}@{pname}",
-            ]
+            ],
         )
 
 

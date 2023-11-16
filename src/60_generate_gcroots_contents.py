@@ -12,7 +12,7 @@ if __name__ == "__main__":
 def main():
     flakerefs = {
         "{type}:{owner}/{repo}/{ref}".format(
-            **v["original"]
+            **v["original"],
         ): "{type}:{owner}/{repo}/{rev}".format(**v["locked"])
         for k, v in json.loads(pathlib.Path("../flake.lock").read_text())[
             "nodes"
@@ -31,7 +31,7 @@ def main():
     print("    depth = 6")
     print("rule build_nix")
     print(
-        "    command = nix --extra-experimental-features 'nix-command flakes' build --show-trace --no-link $expr"
+        "    command = nix --extra-experimental-features 'nix-command flakes' build --show-trace --no-link $expr",
     )
     print("    pool = build_nix_pool")
 
@@ -41,7 +41,7 @@ def main():
             continue
         try:
             m = json.loads(
-                pathlib.Path("../legacyPackages.x86_64-linux.meta", fn).read_text()
+                pathlib.Path("../legacyPackages.x86_64-linux.meta", fn).read_text(),
             )
         except:
             _excluded.debug(f"!.meta: {fn}")
@@ -75,7 +75,7 @@ def main():
                 continue
             if nix_store not in nix_store_outputs:
                 print(
-                    f"build {nix_store}: build_nix legacyPackages.x86_64-linux.meta/{fn} legacyPackages.x86_64-linux/{fn} flake.lock"
+                    f"build {nix_store}: build_nix legacyPackages.x86_64-linux.meta/{fn} legacyPackages.x86_64-linux/{fn} flake.lock",
                 )
                 print(f"    expr = {flakeref}#legacyPackages.x86_64-linux.{attrpath}")
                 nix_store_outputs.add(nix_store)

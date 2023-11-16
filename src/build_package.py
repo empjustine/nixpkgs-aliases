@@ -40,7 +40,7 @@ def main():
     subprocess.run(
         [
             *shlex.split(
-                "nix --extra-experimental-features 'nix-command flakes' build --no-link"
+                "nix --extra-experimental-features 'nix-command flakes' build --no-link",
             ),
             flakeref,
         ],
